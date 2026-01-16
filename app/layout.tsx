@@ -13,10 +13,10 @@ export const metadata: Metadata = {
   description: "Seamless onramp and offramp payment solutions for global transactions",
   icons: {
     icon: [
-      { url: "/logo.webp", type: "image/webp" },
+      { url: "/logo.png", type: "image/png" },
     ],
-    shortcut: "/logo.webp",
-    apple: "/logo.webp",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
   },
 };
 
