@@ -78,8 +78,8 @@ export default function HeroSection() {
           <div className="flex flex-col items-start gap-4 mb-12">
             <div className="flex flex-col sm:flex-row flex-wrap gap-4">
               {/* Web App */}
-              <Link href="https://nedapayplus.xyz/auth/login">
-                <button className="flex items-center gap-3 bg-transparent hover:bg-white/10 text-white px-6 py-3 rounded-xl transition-all duration-200 shadow-lg hover:shadow-cyan-500/25 hover:-translate-y-0.5 min-w-[180px] hover:border-white/40">
+              <Link href="https://app.nedapay.xyz">
+                <button className="flex items-center gap-3 bg-blue-500/80 hover:bg-white/10 text-white px-6 py-3 rounded-xl transition-all duration-200 shadow-lg hover:shadow-cyan-500/25 hover:-translate-y-0.5 min-w-[180px] hover:border-white/40">
                   <Globe className="w-8 h-8" />
                   <div className="flex flex-col items-start leading-none">
                     <span className="text-[10px] uppercase font-medium opacity-90 mb-1">Access via</span>
@@ -90,10 +90,10 @@ export default function HeroSection() {
 
               {/* Farcaster MiniApp */}
               <Link href="https://farcaster.xyz/miniapps/nhIkqfY9DK47/nedapay">
-                <button className="flex items-center gap-3 bg-transparent hover:bg-white/10 text-white px-6 py-3 rounded-xl transition-all duration-200 shadow-lg hover:shadow-cyan-500/25 hover:-translate-y-0.5 min-w-[180px] hover:border-white/40">
+                <button className="flex items-center gap-3 bg-blue-500/80 hover:bg-white/10 text-white px-6 py-3 rounded-xl transition-all duration-200 shadow-lg hover:shadow-cyan-500/25 hover:-translate-y-0.5 min-w-[180px] hover:border-white/40">
                   <Image src="/farcaster.jpeg" alt="Farcaster MiniApp" width={32} height={32} className="rounded-full"/>
                   <div className="flex flex-col items-start leading-none">
-                    <span className="text-[10px] uppercase font-medium opacity-90 mb-1">Launch on</span>
+                    <span className="text-[10px] uppercase font-medium opacity-90 mb-1">Mini-app on</span>
                     <span className="text-lg font-bold">Farcaster</span>
                   </div>
                 </button>
@@ -101,7 +101,7 @@ export default function HeroSection() {
 
               {/* nTZS Stablecoin */}
               <Link href="https://app.ntzs.co.tz/">
-                <button className="flex items-center gap-3 bg-transparent hover:bg-white/10 text-white px-6 py-3 rounded-xl transition-all duration-200 shadow-lg hover:shadow-cyan-500/25 hover:-translate-y-0.5 min-w-[180px] hover:border-white/40">
+                <button className="flex items-center gap-3 bg-blue-500/80 hover:bg-white/10 text-white px-6 py-3 rounded-xl transition-all duration-200 shadow-lg hover:shadow-cyan-500/25 hover:-translate-y-0.5 min-w-[180px] hover:border-white/40">
                     <Image src="/ntzs-logo.webp" alt="nTZS Stablecoin" width={32} height={32} className="rounded-full"/>
                     <div className="flex flex-col items-start leading-none">
                       <span className="text-[10px] uppercase font-medium opacity-90 mb-1">Mint & Burn</span>

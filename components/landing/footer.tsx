@@ -15,16 +15,16 @@ export default function Footer() {
       </div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-2xl font-bold mb-4">
-              NEDAplus<span className="text-blue-500">+</span>
+              NEDApay
             </h3>
-            <p className="text-slate-600 dark:text-gray-400 mb-4 max-w-md">
+            {/* <p className="text-slate-600 dark:text-gray-400 mb-4 max-w-md">
               Africa&apos;s leading B2B payment infrastructure for cross-border settlements. 
               Regulated by the Central Bank of Tanzania.
-            </p>
+            </p> */}
             <div className="flex flex-col gap-2 text-sm text-slate-600 dark:text-gray-400">
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-blue-400" />
@@ -33,7 +33,7 @@ export default function Footer() {
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-blue-400" />
                 <a href="mailto:info@nedaplus.com" className="hover:text-white transition-colors">
-                  info@nedaplus.com
+                  support@nedapay.xyz
                 </a>
               </div>
               <div className="flex items-center gap-2">
@@ -48,8 +48,8 @@ export default function Footer() {
             <h4 className="font-semibold mb-4">Ecosystem</h4>
             <ul className="space-y-2 text-sm text-slate-600 dark:text-gray-400">
               <li>
-                <Link href="https://nedapayplus.xyz/auth/login" className="hover:text-black dark:hover:text-white transition-colors">
-                  NEDAplus Dashboard
+                <Link href="https://app.nedapay.xyz" className="hover:text-black dark:hover:text-white transition-colors">
+                  NEDApay Web App
                 </Link>
               </li>
               <li>
@@ -71,7 +71,7 @@ export default function Footer() {
           </div>
 
           {/* Company */}
-          <div>
+          {/* <div>
             <h4 className="font-semibold mb-4">Company</h4>
             <ul className="space-y-2 text-sm text-slate-600 dark:text-gray-400">
               <li>
@@ -95,14 +95,14 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
 
         {/* Bottom */}
         <div className="border-t border-slate-200 dark:border-white/10 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-slate-600 dark:text-gray-400">
-              © 2025 NEDAplus. All rights reserved. Licensed by Bank of Tanzania.
+              © 2026 NEDApay. All rights reserved. Licensed by Bank of Tanzania.
             </p>
             <div className="flex gap-6 text-sm text-slate-600 dark:text-gray-400">
               <a href="#" className="hover:text-black dark:hover:text-white transition-colors">

@@ -1,36 +1,40 @@
 'use client';
 
-import { Shield, Zap, Globe, LayoutDashboard, Smartphone, Coins, ArrowUpRight } from 'lucide-react';
+import { Shield, Zap, Globe, LayoutDashboard, Smartphone, Coins, ArrowUpRight, ChevronDown } from 'lucide-react';
 import Image from 'next/image';
+import { useState } from 'react';
 
 const features = [
-  {
-    title: 'NedaPlus Web App',
-    description: 'Comprehensive dashboard for cross-border settlements. Manage liquidity, track transactions, and handle payouts to 130+ countries.',
-    highlight: 'CORE PLATFORM',
-    image: '/partner logos/NEDApay lOGO.jpg',
-  },
+  // {
+  //   title: 'NedaPlus Web App',
+  //   description: 'Comprehensive dashboard for cross-border settlements. Manage liquidity, track transactions, and handle payouts to 130+ countries.',
+  //   highlight: 'CORE PLATFORM',
+  //   image: '/partner logos/NEDApay lOGO.jpg',
+  // },
   {
     title: 'Farcaster Mini App',
     description: 'Seamless social payments directly within Farcaster. Send nTZS and USDC to friends without leaving your feed.',
     highlight: 'SOCIAL PAYMENTS',
-    icon: Smartphone,
+    image: '/farcaster.jpeg',
   },
   {
     title: 'Built on Base',
     description: 'Leveraging Base L2 for near-zero gas fees and instant confirmation. The perfect infrastructure for micro-payments.',
     highlight: 'L2 INFRASTRUCTURE',
-    icon: Zap,
+    image: '/chains/base.svg',
   },
   {
     title: 'Regulated nTZS',
     description: 'The first fully compliant stablecoin for Tanzania. 1:1 backed and audited, ensuring trust and stability for digital finance.',
     highlight: 'STABLECOIN',
-    image: '/partner logos/BOT.png',
+    image: '/ntzs-logo.webp',
   },
 ];
 
 export default function FeaturesSection() {
+  const [showCountries, setShowCountries] = useState(false);
+  const countries = ['Tanzania', 'Kenya', 'Uganda', 'Malawi', 'DR Congo', 'Nigeria', 'Ghana'];
+
   return (
     <section className="relative py-24 bg-gradient-to-b from-slate-50 via-slate-100 to-slate-50 dark:from-black dark:via-gray-900 dark:to-black">
       {/* Grid background pattern */}
@@ -56,9 +60,6 @@ export default function FeaturesSection() {
             One Ecosystem,
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400"> Multiple Gateways</span>
           </h2>
-          <p className="text-xl text-slate-700 dark:text-gray-300 mb-2 font-light">
-            Access the NedaPay network wherever you are
-          </p>
           <p className="text-base text-slate-600 dark:text-gray-400 max-w-2xl mx-auto font-light">
             Whether you're a developer, a business, or a social user, we have an interface for you.
           </p>
@@ -92,7 +93,7 @@ export default function FeaturesSection() {
                           alt={`${feature.title} ${imgIndex + 1}`}
                           width={80}
                           height={50}
-                          className="object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                          className="object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300 rounded-full"
                         />
                       ))
                     ) : feature.image ? (
@@ -102,12 +103,8 @@ export default function FeaturesSection() {
                         alt={feature.title}
                         width={120}
                         height={60}
-                        className="object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                        className="object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300 rounded-full"
                       />
-                    ) : feature.icon ? (
-                       // Icon fallback
-                       /* @ts-ignore */
-                       <feature.icon className="w-16 h-16 text-blue-500 opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
                     ) : null}
                   </div>
                 </div>
@@ -144,27 +141,46 @@ export default function FeaturesSection() {
         <div className="mt-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center gap-4">
           {/* Regulation Badge */}
-          <div className="backdrop-blur-xl bg-black/5 dark:bg-white/10 rounded-xl px-6 py-3 border border-slate-200 dark:border-white/20">
+          {/* <div className="backdrop-blur-xl bg-black/5 dark:bg-white/10 rounded-xl px-6 py-3 border border-slate-200 dark:border-white/20">
             <div className="flex items-center gap-2">
               <Shield className="w-5 h-5 text-blue-500 dark:text-blue-400" />
               <span className="text-sm text-slate-800 dark:text-gray-200">BoT Regulated</span>
             </div>
-          </div>
+          </div> */}
 
           {/* API Badge */}
-          <div className="backdrop-blur-xl bg-black/5 dark:bg-white/10 rounded-xl px-6 py-3 border border-slate-200 dark:border-white/20">
+          {/* <div className="backdrop-blur-xl bg-black/5 dark:bg-white/10 rounded-xl px-6 py-3 border border-slate-200 dark:border-white/20">
             <div className="flex items-center gap-2">
               <Zap className="w-5 h-5 text-blue-500 dark:text-blue-400" />
               <span className="text-sm text-slate-800 dark:text-gray-200">BaaS API Platform</span>
             </div>
-          </div>
+          </div> */}
 
           {/* Coverage Badge */}
-          <div className="backdrop-blur-xl bg-black/5 dark:bg-white/10 rounded-xl px-6 py-3 border border-slate-200 dark:border-white/20">
-            <div className="flex items-center gap-2">
-              <Globe className="w-5 h-5 text-blue-500 dark:text-blue-400" />
-              <span className="text-sm text-slate-800 dark:text-gray-200">130+ Countries</span>
-            </div>
+          <div className="relative">
+            <button
+              onClick={() => setShowCountries(!showCountries)}
+              className="backdrop-blur-xl bg-black/5 dark:bg-white/10 rounded-xl px-6 py-3 border border-slate-200 dark:border-white/20 hover:border-blue-400/40 transition-all duration-200 cursor-pointer"
+            >
+              <div className="flex items-center gap-2">
+                <Globe className="w-5 h-5 text-blue-500 dark:text-blue-400" />
+                <span className="text-sm text-slate-800 dark:text-gray-200">7 African countries</span>
+                <ChevronDown className={`w-4 h-4 text-slate-600 dark:text-gray-400 transition-transform duration-200 ${showCountries ? 'rotate-180' : ''}`} />
+              </div>
+            </button>
+            
+            {showCountries && (
+              <div className="absolute top-full mt-2 left-1/2 -translate-x-1/2 backdrop-blur-xl bg-white/95 dark:bg-gray-900/95 rounded-xl p-4 border border-slate-200 dark:border-white/20 shadow-xl z-20 min-w-[200px]">
+                <div className="space-y-2">
+                  {countries.map((country, index) => (
+                    <div key={index} className="flex items-center gap-2 text-sm text-slate-700 dark:text-gray-300">
+                      <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                      {country}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
           </div>
         </div>

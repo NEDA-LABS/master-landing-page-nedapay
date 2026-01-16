@@ -21,7 +21,7 @@ const floatingElements = [
   {
     icon: <RefreshCw className="w-4 h-4 text-blue-400" />,
     text: "1 USDT ~ 2,650 TZS",
-    className: "bottom-[20%] left-[15%] md:left-[20%]",
+    className: "bottom-[20%] left-[15%] md:left-[10%]",
     delay: 2.5,
   },
   {
