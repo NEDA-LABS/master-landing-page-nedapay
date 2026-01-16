@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, Globe, Shield } from 'lucide-react';
+import { ParticleBackground } from './particle-background';
+import { FloatingInfographics } from './floating-infographics';
 
 export default function HeroSection() {
   return (
@@ -19,10 +21,14 @@ export default function HeroSection() {
       </video>
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/80" />
+      
+      {/* Particles and Infographics */}
+      <ParticleBackground />
+      <FloatingInfographics />
       
       {/* Grid Pattern Overlay */}
-      <div className="absolute inset-0 opacity-20">
+      <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
           backgroundImage: `linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)`,
           backgroundSize: '50px 50px',
@@ -67,55 +73,61 @@ export default function HeroSection() {
             </p>
           </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-12">
-            {/* Primary CTA */}
-            <Link href="https://nedapayplus.xyz/auth/login">
-              <button className="group relative backdrop-blur-xl bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-semibold px-8 py-4 rounded-xl border border-white/20 shadow-lg transition-all duration-300 hover:shadow-blue-500/30 hover:-translate-y-0.5">
-                <span className="flex items-center gap-2 text-lg">
-                  Start with Email or Wallet
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </span>
-              </button>
-            </Link>
+          {/* Store-style Buttons */}
+          <div className="flex flex-col items-start gap-4 mb-12">
+            {/* <h3 className="text-xl font-semibold text-white tracking-wide">
+              Explore NEDAPay!
+            </h3> */}
+            
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
+              {/* Web App */}
+              <Link href="https://nedapayplus.xyz/auth/login">
+                <button className="flex items-center gap-3 bg-transparent hover:bg-white/10 text-white px-6 py-3 rounded-xl transition-all duration-200 shadow-lg hover:shadow-cyan-500/25 hover:-translate-y-0.5 min-w-[180px] hover:border-white/40">
+                  <Globe className="w-8 h-8" />
+                  <div className="flex flex-col items-start leading-none">
+                    <span className="text-[10px] uppercase font-medium opacity-90 mb-1">Access via</span>
+                    <span className="text-lg font-bold">Web App</span>
+                  </div>
+                </button>
+              </Link>
 
-            {/* Secondary CTA - Mini App */}
-            <Link href="https://farcaster.xyz/miniapps/nhIkqfY9DK47/nedapay">
-              <button className="group relative backdrop-blur-xl bg-white/10 hover:bg-white/20 text-white font-medium px-8 py-4 rounded-xl border border-white/20 shadow-lg transition-all duration-300">
-                <span className="flex items-center gap-2 text-lg">
-                  <span>Launch Mini App</span>
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </span>
-                <div className="absolute -top-3 -right-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-[10px] px-2 py-0.5 rounded-full font-bold shadow-sm">
-                  FARCASTER
-                </div>
-              </button>
-            </Link>
+              {/* Farcaster MiniApp */}
+              <Link href="https://farcaster.xyz/miniapps/nhIkqfY9DK47/nedapay">
+                <button className="flex items-center gap-3 bg-transparent hover:bg-white/10 text-white px-6 py-3 rounded-xl transition-all duration-200 shadow-lg hover:shadow-cyan-500/25 hover:-translate-y-0.5 min-w-[180px] hover:border-white/40">
+                  <div className="w-8 h-8 flex items-center justify-center bg-white/20 rounded-lg">
+                    <span className="font-bold text-lg">F</span>
+                  </div>
+                  <div className="flex flex-col items-start leading-none">
+                    <span className="text-[10px] uppercase font-medium opacity-90 mb-1">Launch on</span>
+                    <span className="text-lg font-bold">Farcaster</span>
+                  </div>
+                </button>
+              </Link>
+
+              {/* nTZS Stablecoin */}
+              <Link href="https://app.ntzs.co.tz/">
+                <button className="flex items-center gap-3 bg-transparent hover:bg-white/10 text-white px-6 py-3 rounded-xl transition-all duration-200 shadow-lg hover:shadow-cyan-500/25 hover:-translate-y-0.5 min-w-[180px] hover:border-white/40">
+                  <div className="w-8 h-8 flex items-center justify-center bg-yellow-500 rounded-full text-black font-bold border-2 border-white/20">
+                    n
+                  </div>
+                  <div className="flex flex-col items-start leading-none">
+                    <span className="text-[10px] uppercase font-medium opacity-90 mb-1">Mint & Burn</span>
+                    <span className="text-lg font-bold">nTZS Coin</span>
+                  </div>
+                </button>
+              </Link>
+            </div>
           </div>
 
-          {/* Mini App Info */}
-          <div className="flex flex-col sm:flex-row items-center gap-6 backdrop-blur-md bg-white/5 rounded-2xl p-4 border border-white/10 max-w-2xl">
-             <div className="flex items-center gap-3">
-                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-green-400/20 border border-green-400/30 text-green-400">
-                  <ArrowRight className="-rotate-45 w-5 h-5" />
-                </div>
-                <div className="text-sm text-gray-200">
-                  <span className="block font-semibold text-white">All Business Tools you Need for Digital Payments in one Place</span>
-                  Digital payments infrastructure for the future
-                </div>
-             </div>
-             <div className="hidden sm:block w-px h-8 bg-white/10" />
-             <div className="text-sm text-gray-300">
-                Also available as a <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-500 font-bold">Mini App</span> in Farcaster
-             </div>
-          </div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
-            <div className="w-1 h-3 bg-white/50 rounded-full" />
-          </div>
+          {/* Trust Indicators */}
+          {/* <div className="flex items-center gap-4 text-sm text-slate-400 font-medium">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span>Bank of Tanzania Regulated</span>
+            </div>
+            <div className="w-1 h-1 rounded-full bg-slate-600" />
+            <span>Audited & Secure</span>
+          </div> */}
         </div>
       </div>
     </section>
