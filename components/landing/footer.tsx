@@ -105,14 +105,11 @@ export default function Footer() {
               © 2026 NEDApay. All rights reserved. Licensed by Bank of Tanzania.
             </p>
             <div className="flex gap-6 text-sm text-slate-600 dark:text-gray-400">
-              <a href="#" className="hover:text-black dark:hover:text-white transition-colors">
+              <a href="/privacy-policy" className="hover:text-black dark:hover:text-white transition-colors">
                 Privacy Policy
               </a>
-              <a href="#" className="hover:text-white transition-colors">
+              <a href="/terms-of-service" className="hover:text-white transition-colors">
                 Terms of Service
-              </a>
-              <a href="#" className="hover:text-white transition-colors">
-                Compliance
               </a>
             </div>
           </div>
