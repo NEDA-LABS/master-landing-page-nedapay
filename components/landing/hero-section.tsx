@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { ArrowRight, Globe, Shield } from 'lucide-react';
 import { ParticleBackground } from './particle-background';
 import { FloatingInfographics } from './floating-infographics';
+import ChainsWidget from './chains-widget';
 
 export default function HeroSection() {
   return (
@@ -75,10 +76,6 @@ export default function HeroSection() {
 
           {/* Store-style Buttons */}
           <div className="flex flex-col items-start gap-4 mb-12">
-            {/* <h3 className="text-xl font-semibold text-white tracking-wide">
-              Explore NEDAPay!
-            </h3> */}
-            
             <div className="flex flex-col sm:flex-row flex-wrap gap-4">
               {/* Web App */}
               <Link href="https://nedapayplus.xyz/auth/login">
@@ -94,9 +91,7 @@ export default function HeroSection() {
               {/* Farcaster MiniApp */}
               <Link href="https://farcaster.xyz/miniapps/nhIkqfY9DK47/nedapay">
                 <button className="flex items-center gap-3 bg-transparent hover:bg-white/10 text-white px-6 py-3 rounded-xl transition-all duration-200 shadow-lg hover:shadow-cyan-500/25 hover:-translate-y-0.5 min-w-[180px] hover:border-white/40">
-                  <div className="w-8 h-8 flex items-center justify-center bg-white/20 rounded-lg">
-                    <span className="font-bold text-lg">F</span>
-                  </div>
+                  <Image src="/farcaster.jpeg" alt="Farcaster MiniApp" width={32} height={32} className="rounded-full"/>
                   <div className="flex flex-col items-start leading-none">
                     <span className="text-[10px] uppercase font-medium opacity-90 mb-1">Launch on</span>
                     <span className="text-lg font-bold">Farcaster</span>
@@ -107,27 +102,20 @@ export default function HeroSection() {
               {/* nTZS Stablecoin */}
               <Link href="https://app.ntzs.co.tz/">
                 <button className="flex items-center gap-3 bg-transparent hover:bg-white/10 text-white px-6 py-3 rounded-xl transition-all duration-200 shadow-lg hover:shadow-cyan-500/25 hover:-translate-y-0.5 min-w-[180px] hover:border-white/40">
-                  <div className="w-8 h-8 flex items-center justify-center bg-yellow-500 rounded-full text-black font-bold border-2 border-white/20">
-                    n
-                  </div>
-                  <div className="flex flex-col items-start leading-none">
-                    <span className="text-[10px] uppercase font-medium opacity-90 mb-1">Mint & Burn</span>
-                    <span className="text-lg font-bold">nTZS Coin</span>
-                  </div>
+                    <Image src="/ntzs-logo.webp" alt="nTZS Stablecoin" width={32} height={32} className="rounded-full"/>
+                    <div className="flex flex-col items-start leading-none">
+                      <span className="text-[10px] uppercase font-medium opacity-90 mb-1">Mint & Burn</span>
+                      <span className="text-lg font-bold">nTZS Coin</span>
+                    </div>
                 </button>
               </Link>
             </div>
           </div>
 
-          {/* Trust Indicators */}
-          {/* <div className="flex items-center gap-4 text-sm text-slate-400 font-medium">
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Bank of Tanzania Regulated</span>
-            </div>
-            <div className="w-1 h-1 rounded-full bg-slate-600" />
-            <span>Audited & Secure</span>
-          </div> */}
+          {/* Supported Chains Widget */}
+          <div className="mb-12">
+            <ChainsWidget />
+          </div>
         </div>
       </div>
     </section>
