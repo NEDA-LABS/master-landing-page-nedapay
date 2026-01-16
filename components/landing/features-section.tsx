@@ -68,19 +68,19 @@ export default function FeaturesSection() {
         {/* Animated Features - Horizontal Scroll */}
         <div className="relative w-full">
           {/* Gradient overlays for smooth edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-64 bg-gradient-to-r from-slate-50 via-slate-100/95 via-slate-100/60 to-transparent dark:from-black dark:via-gray-900/95 dark:via-gray-900/60 z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-64 bg-gradient-to-l from-slate-50 via-slate-100/95 via-slate-100/60 to-transparent dark:from-black dark:via-gray-900/95 dark:via-gray-900/60 z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 md:w-64 bg-gradient-to-r from-slate-50 via-slate-100/95 via-slate-100/60 to-transparent dark:from-black dark:via-gray-900/95 dark:via-gray-900/60 z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 md:w-64 bg-gradient-to-l from-slate-50 via-slate-100/95 via-slate-100/60 to-transparent dark:from-black dark:via-gray-900/95 dark:via-gray-900/60 z-10 pointer-events-none" />
           
           <div className="overflow-x-auto scrollbar-hide scroll-smooth">
             <div className="flex animate-scroll-loop">
             {[...features, ...features, ...features].map((feature, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 mx-4 group relative backdrop-blur-2xl bg-gradient-to-br from-white to-slate-100 hover:from-white hover:to-slate-50 dark:from-white/10 dark:to-white/5 dark:hover:from-white/15 dark:hover:to-white/10 rounded-3xl p-8 border border-slate-200 dark:border-white/20 hover:border-blue-400/40 transition-all duration-300 shadow-2xl"
-                style={{ width: '420px' }}
+                className="flex-shrink-0 mx-2 sm:mx-4 group relative backdrop-blur-2xl bg-gradient-to-br from-white to-slate-100 hover:from-white hover:to-slate-50 dark:from-white/10 dark:to-white/5 dark:hover:from-white/15 dark:hover:to-white/10 rounded-2xl sm:rounded-3xl p-3 sm:p-6 md:p-8 border border-slate-200 dark:border-white/20 hover:border-blue-400/40 transition-all duration-300 shadow-2xl"
+                style={{ width: '420px', maxWidth: '85vw' }}
               >
                 {/* Image or Icon at top */}
-                <div className="mb-6 flex items-center justify-center h-24">
+                <div className="mb-3 sm:mb-6 flex items-center justify-center h-12 sm:h-20 md:h-24">
                   <div className="relative w-full h-full flex items-center justify-center gap-4">
                     {/* @ts-ignore */}
                     {feature.images ? (
@@ -91,8 +91,8 @@ export default function FeaturesSection() {
                           key={imgIndex}
                           src={img}
                           alt={`${feature.title} ${imgIndex + 1}`}
-                          width={80}
-                          height={50}
+                          width={60}
+                          height={40}
                           className="object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300 rounded-full"
                         />
                       ))
@@ -101,8 +101,8 @@ export default function FeaturesSection() {
                       <Image
                         src={feature.image}
                         alt={feature.title}
-                        width={120}
-                        height={60}
+                        width={60}
+                        height={30}
                         className="object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300 rounded-full"
                       />
                     ) : null}
@@ -110,21 +110,21 @@ export default function FeaturesSection() {
                 </div>
 
                 {/* Content with lighter typography */}
-                <div className="space-y-3">
+                <div className="space-y-2 sm:space-y-3">
                   {/* Small highlight badge */}
                   <div className="inline-block">
-                    <span className="text-blue-400 text-xs font-medium tracking-wider uppercase px-3 py-1 bg-blue-500/10 rounded-full border border-blue-400/20">
+                    <span className="text-blue-400 text-[10px] sm:text-xs font-medium tracking-wider uppercase px-2 sm:px-3 py-0.5 sm:py-1 bg-blue-500/10 rounded-full border border-blue-400/20">
                       {feature.highlight}
                     </span>
                   </div>
                   
                   {/* Title - Medium weight, not bold */}
-                  <h3 className="text-2xl font-medium text-slate-900 dark:text-white leading-snug">
+                  <h3 className="text-base sm:text-xl md:text-2xl font-medium text-slate-900 dark:text-white leading-snug">
                     {feature.title}
                   </h3>
                   
                   {/* Description - Smaller and lighter */}
-                  <p className="text-slate-600 dark:text-gray-400 text-sm leading-relaxed font-light">
+                  <p className="text-slate-600 dark:text-gray-400 text-xs sm:text-sm leading-relaxed font-light">
                     {feature.description}
                   </p>
                 </div>
@@ -193,12 +193,12 @@ export default function FeaturesSection() {
             transform: translateX(0);
           }
           100% {
-            transform: translateX(calc(-452px * 4));
+            transform: translateX(calc(-452px * 3));
           }
         }
 
         .animate-scroll-loop {
-          animation: scroll-loop 20s linear infinite;
+          animation: scroll-loop 40s linear infinite;
         }
 
         .animate-scroll-loop:hover {

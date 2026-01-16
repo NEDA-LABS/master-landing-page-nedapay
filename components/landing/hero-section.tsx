@@ -7,6 +7,30 @@ import { ParticleBackground } from './particle-background';
 import { FloatingInfographics } from './floating-infographics';
 import ChainsWidget from './chains-widget';
 
+const storeButtons = [
+  {
+    href: 'https://app.nedapay.xyz',
+    icon: '/logo.png',
+    label: 'Access via',
+    title: 'Web App',
+    alt: 'Web App'
+  },
+  {
+    href: 'https://farcaster.xyz/miniapps/nhIkqfY9DK47/nedapay',
+    icon: '/farcaster.jpeg',
+    label: 'Mini-app on',
+    title: 'Farcaster',
+    alt: 'Farcaster MiniApp'
+  },
+  {
+    href: 'https://app.ntzs.co.tz/',
+    icon: '/ntzs-logo.webp',
+    label: 'Mint & Burn',
+    title: 'nTZS',
+    alt: 'nTZS Stablecoin'
+  }
+];
+
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
@@ -76,39 +100,22 @@ export default function HeroSection() {
 
           {/* Store-style Buttons */}
           <div className="flex flex-col items-start gap-4 mb-12">
-            <div className="flex flex-col sm:flex-row flex-wrap gap-4">
-              {/* Web App */}
-              <Link href="https://app.nedapay.xyz">
-                <button className="flex items-center gap-3 bg-blue-500/80 hover:bg-white/10 text-white px-6 py-3 rounded-xl transition-all duration-200 shadow-lg hover:shadow-cyan-500/25 hover:-translate-y-0.5 min-w-[180px] hover:border-white/40">
-                  <Globe className="w-8 h-8" />
-                  <div className="flex flex-col items-start leading-none">
-                    <span className="text-[10px] uppercase font-medium opacity-90 mb-1">Access via</span>
-                    <span className="text-lg font-bold">Web App</span>
-                  </div>
-                </button>
-              </Link>
-
-              {/* Farcaster MiniApp */}
-              <Link href="https://farcaster.xyz/miniapps/nhIkqfY9DK47/nedapay">
-                <button className="flex items-center gap-3 bg-blue-500/80 hover:bg-white/10 text-white px-6 py-3 rounded-xl transition-all duration-200 shadow-lg hover:shadow-cyan-500/25 hover:-translate-y-0.5 min-w-[180px] hover:border-white/40">
-                  <Image src="/farcaster.jpeg" alt="Farcaster MiniApp" width={32} height={32} className="rounded-full"/>
-                  <div className="flex flex-col items-start leading-none">
-                    <span className="text-[10px] uppercase font-medium opacity-90 mb-1">Mini-app on</span>
-                    <span className="text-lg font-bold">Farcaster</span>
-                  </div>
-                </button>
-              </Link>
-
-              {/* nTZS Stablecoin */}
-              <Link href="https://app.ntzs.co.tz/">
-                <button className="flex items-center gap-3 bg-blue-500/80 hover:bg-white/10 text-white px-6 py-3 rounded-xl transition-all duration-200 shadow-lg hover:shadow-cyan-500/25 hover:-translate-y-0.5 min-w-[180px] hover:border-white/40">
-                    <Image src="/ntzs-logo.webp" alt="nTZS Stablecoin" width={32} height={32} className="rounded-full"/>
+            <div className="flex flex-row flex-wrap gap-2 sm:gap-4">
+              {storeButtons.map((button, index) => (
+                <Link key={index} href={button.href}>
+                  <button className="flex items-center gap-3 bg-blue-500/80 hover:bg-white/10 text-white px-2 md:px-6 py-3 rounded-xl transition-all duration-200 shadow-lg hover:shadow-cyan-500/25 hover:-translate-y-0.5 md:min-w-[180px] hover:border-white/40">
+                    {button.icon === 'globe' ? (
+                      <Globe className="w-6 h-6 md:w-8 md:h-8" />
+                    ) : (
+                      <Image src={button.icon} alt={button.alt} width={30} height={30} className="rounded-full" />
+                    )}
                     <div className="flex flex-col items-start leading-none">
-                      <span className="text-[10px] uppercase font-medium opacity-90 mb-1">Mint & Burn</span>
-                      <span className="text-lg font-bold">nTZS Coin</span>
+                      <span className="text-[8px] md:text-[10px] uppercase font-medium opacity-90 mb-1">{button.label}</span>
+                      <span className="text-xs md:text-lg font-bold">{button.title}</span>
                     </div>
-                </button>
-              </Link>
+                  </button>
+                </Link>
+              ))}
             </div>
           </div>
 
