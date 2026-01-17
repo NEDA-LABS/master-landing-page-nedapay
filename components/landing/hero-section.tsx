@@ -33,7 +33,7 @@ const storeButtons = [
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-16">
       {/* Background Video */}
       <video
         autoPlay
@@ -64,7 +64,7 @@ export default function HeroSection() {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
         <div className="max-w-3xl">
           {/* Logo */}
-          <div className="mb-12">
+          <div className="mb-4 md:mb-12 mt-4">
             <div className="inline-flex items-center backdrop-blur-xl bg-white/10 rounded-xl gap-2 px-2 py-2 border border-white/20 shadow-lg">
               <Image 
                 src="/logo.png" 
@@ -82,7 +82,7 @@ export default function HeroSection() {
           {/* Main Content with Glassmorphism Background */}
           <div className="backdrop-blur-xl bg-black/20 rounded-3xl p-8 md:p-10 border border-white/10 shadow-2xl mb-8">
             {/* Main Tagline */}
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+            <h2 className="text-3xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-400 to-cyan-400">
                 Unlock Seamless
               </span>
@@ -93,9 +93,13 @@ export default function HeroSection() {
             </h2>
 
             {/* Description */}
-            <p className="text-lg md:text-xl text-slate-100 max-w-2xl leading-relaxed drop-shadow-md font-medium">
+            <p className="text-base md:text-xl text-slate-100 max-w-2xl leading-relaxed drop-shadow-md font-medium">
               Send and Accept Stablecoins, Swap instantly, Cash Out Easily.
             </p>
+            {/* Supported Chains Widget */}
+            <div className="mt-12">
+              <ChainsWidget />
+            </div>
           </div>
 
           {/* Store-style Buttons */}
@@ -119,10 +123,7 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Supported Chains Widget */}
-          <div className="mb-12">
-            <ChainsWidget />
-          </div>
+          
         </div>
       </div>
     </section>

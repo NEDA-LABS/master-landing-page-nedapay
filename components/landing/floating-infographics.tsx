@@ -46,7 +46,7 @@ const floatingElements = [
 
 export function FloatingInfographics() {
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 mx-auto">
       {floatingElements.map((item, index) => (
         <motion.div
           key={index}

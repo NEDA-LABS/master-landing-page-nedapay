@@ -7,7 +7,7 @@ import { ThemeSwitcher } from './theme-switcher';
 export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-white/80 dark:bg-black/80 border-b border-slate-200 dark:border-white/10">
-      <div className="max-w-7xl md:max-w-[100%] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl md:max-w-[100%] mx-auto px-4 sm:px-6 lg:px-0">
         <div className="flex items-center justify-end h-16">
           {/* Logo */}
           {/* <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
