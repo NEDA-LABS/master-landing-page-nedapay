@@ -68,8 +68,8 @@ export default function FeaturesSection() {
         {/* Animated Features - Horizontal Scroll */}
         <div className="relative w-full">
           {/* Gradient overlays for smooth edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 md:w-64 bg-gradient-to-r from-slate-50 via-slate-100/95 via-slate-100/60 to-transparent dark:from-black dark:via-gray-900/95 dark:via-gray-900/60 z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 md:w-64 bg-gradient-to-l from-slate-50 via-slate-100/95 via-slate-100/60 to-transparent dark:from-black dark:via-gray-900/95 dark:via-gray-900/60 z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 hidden md:block md:w-64 bg-gradient-to-r from-slate-50 via-slate-100/95 via-slate-100/60 to-transparent dark:from-black dark:via-gray-900/95 dark:via-gray-900/60 z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 hidden md:block md:w-64 bg-gradient-to-l from-slate-50 via-slate-100/95 via-slate-100/60 to-transparent dark:from-black dark:via-gray-900/95 dark:via-gray-900/60 z-10 pointer-events-none" />
           
           <div className="overflow-x-auto scrollbar-hide scroll-smooth">
             <div className="flex animate-scroll-loop">

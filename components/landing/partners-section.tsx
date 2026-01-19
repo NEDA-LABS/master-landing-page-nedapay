@@ -28,8 +28,8 @@ export default function PartnersSection() {
       </div>
       
       {/* Gradient overlays for fade effect */}
-      <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-slate-50 to-transparent dark:from-black dark:to-transparent z-10" />
-      <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-slate-50 to-transparent dark:from-black dark:to-transparent z-10" />
+      <div className="pointer-events-none absolute left-0 top-0 bottom-0 hidden md:block md:w-32 bg-gradient-to-r from-slate-50 to-transparent dark:from-black dark:to-transparent z-10" />
+      <div className="pointer-events-none absolute right-0 top-0 bottom-0 hidden md:block md:w-32 bg-gradient-to-l from-slate-50 to-transparent dark:from-black dark:to-transparent z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
         <div className="text-center mb-16 text-slate-900 dark:text-white">
