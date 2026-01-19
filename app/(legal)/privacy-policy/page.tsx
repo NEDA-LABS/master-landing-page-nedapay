@@ -16,17 +16,17 @@ const effectiveDate = "September 17, 2025"; // keep this current when you ship u
 
 export default function PrivacyPolicyPage() {
   return (
-    <main className="mx-auto w-full max-w-4xl px-6 py-12 text-slate-200">
+    <main className="mx-auto w-full max-w-4xl px-6 py-12 text-slate-800 dark:text-slate-200">
       {/* Header */}
       <section className="mb-10">
-        <Badge className="mb-4 bg-indigo-700/60 text-indigo-50">Legal</Badge>
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl bg-gradient-to-r from-indigo-300 via-purple-300 to-blue-300 bg-clip-text text-transparent">
+        <Badge className="mb-4 bg-indigo-600 dark:bg-indigo-700/60 text-white dark:text-indigo-50">Legal</Badge>
+        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl bg-gradient-to-r from-indigo-600 via-purple-600 to-blue-600 dark:from-indigo-300 dark:via-purple-300 dark:to-blue-300 bg-clip-text text-transparent">
           Privacy Policy
         </h1>
-        <p className="mt-3 text-sm text-slate-400">
+        <p className="mt-3 text-sm text-slate-600 dark:text-slate-400">
           Last updated: {effectiveDate}
         </p>
-        <p className="mt-6 text-slate-300">
+        <p className="mt-6 text-slate-700 dark:text-slate-300">
           This Privacy Policy explains how{" "}
           <span className="font-semibold">Neda Labs Ltd</span> ("
           <strong>NedaPay</strong>""<strong>we</strong>", "<strong>us</strong>",
@@ -39,11 +39,11 @@ export default function PrivacyPolicyPage() {
           </Link>
           .
         </p>
-        <Card className="mt-6 border-slate-700/60 bg-slate-900/40">
+        <Card className="mt-6 border-slate-300 dark:border-slate-700/60 bg-slate-100 dark:bg-slate-900/40">
           <CardHeader>
-            <CardTitle className="text-slate-100">At-a-glance</CardTitle>
+            <CardTitle className="text-slate-900 dark:text-slate-100">At-a-glance</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-3 text-slate-300">
+          <CardContent className="space-y-3 text-slate-700 dark:text-slate-300">
             <p>
               We use{" "}
               <Link
@@ -80,11 +80,11 @@ export default function PrivacyPolicyPage() {
         </Card>
       </section>
 
-      <Separator className="my-8 bg-slate-700/60" />
+      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
 
       {/* Who we are */}
       <section id="who-we-are" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-100">
+        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
           1. Who we are & scope
         </h2>
         <p>
@@ -98,7 +98,7 @@ export default function PrivacyPolicyPage() {
           . This Privacy Policy applies to personal data we process about
           visitors, applicants, customers, and end users of our Services.
         </p>
-        <p className="text-slate-300">
+        <p className="text-slate-700 dark:text-slate-300">
           {/* <span className="font-medium">Controller:</span> <span className="italic">[Insert legal entity name, company number, and registered address]</span>. */}
           <br />
           <span className="font-medium">Contact:</span>{" "}
@@ -116,18 +116,18 @@ export default function PrivacyPolicyPage() {
         </p>
       </section>
 
-      <Separator className="my-8 bg-slate-700/60" />
+      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
 
       {/* Data we collect */}
       <section id="data-we-collect" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-100">
+        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
           2. The data we collect
         </h2>
         <p>
           We collect the following categories of personal data, depending on how
           you interact with us:
         </p>
-        <ul className="ml-6 list-disc space-y-2 text-slate-300">
+        <ul className="ml-6 list-disc space-y-2 text-slate-700 dark:text-slate-300">
           <li>
             <span className="font-medium">Account & authentication data</span>{" "}
             (via Privy): identifiers (e.g., name, email/handle), cryptographic
@@ -170,19 +170,19 @@ export default function PrivacyPolicyPage() {
             for details and choices.
           </li>
         </ul>
-        <p className="text-slate-400 text-sm">
+        <p className="text-slate-600 dark:text-slate-400 text-sm">
           Note: We do not intentionally collect data from children.
         </p>
       </section>
 
-      <Separator className="my-8 bg-slate-700/60" />
+      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
 
       {/* Sources */}
       <section id="sources" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-100">
+        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
           3. Where data comes from
         </h2>
-        <ul className="ml-6 list-disc space-y-2 text-slate-300">
+        <ul className="ml-6 list-disc space-y-2 text-slate-700 dark:text-slate-300">
           <li>
             Directly from you (e.g., during sign-up, profile completion,
             support).
@@ -199,15 +199,15 @@ export default function PrivacyPolicyPage() {
         </ul>
       </section>
 
-      <Separator className="my-8 bg-slate-700/60" />
+      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
 
       {/* Purposes & lawful bases */}
       <section id="purposes" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-100">
+        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
           4. How we use personal data (and legal bases)
         </h2>
         <p>We use personal data to:</p>
-        <ul className="ml-6 list-disc space-y-2 text-slate-300">
+        <ul className="ml-6 list-disc space-y-2 text-slate-700 dark:text-slate-300">
           <li>
             Provide and maintain the Services, including authentication,
             wallets, onboarding, and support (
@@ -240,15 +240,15 @@ export default function PrivacyPolicyPage() {
         </ul>
       </section>
 
-      <Separator className="my-8 bg-slate-700/60" />
+      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
 
       {/* Sharing */}
       <section id="sharing" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-100">
+        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
           5. How we share information
         </h2>
         <p>We do not sell your personal data. We share it only as follows:</p>
-        <ul className="ml-6 list-disc space-y-2 text-slate-300">
+        <ul className="ml-6 list-disc space-y-2 text-slate-700 dark:text-slate-300">
           <li>
             <span className="font-medium">Service providers/Processors:</span>{" "}
             We use vetted vendors under contract and data protection terms.
@@ -264,27 +264,27 @@ export default function PrivacyPolicyPage() {
             subject to appropriate safeguards.
           </li>
         </ul>
-        <p className="text-slate-400 text-sm">
+        <p className="text-slate-600 dark:text-slate-400 text-sm">
           We require processors to process personal data only on our documented
           instructions and to implement appropriate security measures.
         </p>
       </section>
 
-      <Separator className="my-8 bg-slate-700/60" />
+      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
 
       {/* International transfers */}
       {/* <section id="transfers" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-100">6. International data transfers</h2>
+        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">6. International data transfers</h2>
         <p>
           We may transfer personal data internationally, including to countries that may not provide the same level of data protection as your jurisdiction. Where required, we use appropriate safeguards—such as the EU Standard Contractual Clauses (and UK Addendum) or adequacy decisions—and implement supplementary measures as needed.
         </p>
       </section> */}
 
-      <Separator className="my-8 bg-slate-700/60" />
+      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
 
       {/* Retention */}
       <section id="retention" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-100">
+        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
           8. Data retention
         </h2>
         <p>
@@ -297,11 +297,11 @@ export default function PrivacyPolicyPage() {
         </p>
       </section>
 
-      <Separator className="my-8 bg-slate-700/60" />
+      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
 
       {/* Security */}
       <section id="security" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-100">9. Storage, Security and Risk Mitigation</h2>
+        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">9. Storage, Security and Risk Mitigation</h2>
         <p>
           We do not Store any sensitive data in our end, but we use third-party
           services/providers which are vetted and have strict security measures
@@ -311,11 +311,11 @@ export default function PrivacyPolicyPage() {
         </p>
       </section>
 
-      <Separator className="my-8 bg-slate-700/60" />
+      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
 
       {/* Your rights */}
       <section id="your-rights" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-100">
+        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
           10. Your rights & choices
         </h2>
         <p>
@@ -333,13 +333,13 @@ export default function PrivacyPolicyPage() {
         </p>
         <Accordion
           type="multiple"
-          className="rounded-xl border border-slate-700/60 bg-slate-900/40 p-2"
+          className="rounded-xl border border-slate-300 dark:border-slate-700/60 bg-slate-100 dark:bg-slate-900/40 p-2"
         >
           <AccordionItem value="eea">
-            <AccordionTrigger className="text-slate-100">
+            <AccordionTrigger className="text-slate-900 dark:text-slate-100">
               EEA/UK (GDPR)
             </AccordionTrigger>
-            <AccordionContent className="text-slate-300">
+            <AccordionContent className="text-slate-700 dark:text-slate-300">
               If you are in the EEA or UK, you have GDPR rights including
               access, rectification, erasure, portability, restriction, and
               objection to processing, and rights related to automated
@@ -350,10 +350,10 @@ export default function PrivacyPolicyPage() {
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="california">
-            <AccordionTrigger className="text-slate-100">
+            <AccordionTrigger className="text-slate-900 dark:text-slate-100">
               California and other U.S state laws
             </AccordionTrigger>
-            <AccordionContent className="text-slate-300">
+            <AccordionContent className="text-slate-700 dark:text-slate-300">
               Depending on your state, you may have rights to know / access,
               delete, correct, opt-out of the “sale” or “sharing” of personal
               information and targeted advertising, and to limit use of
@@ -364,10 +364,10 @@ export default function PrivacyPolicyPage() {
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="cookies">
-            <AccordionTrigger className="text-slate-100">
+            <AccordionTrigger className="text-slate-900 dark:text-slate-100">
               Cookies & analytics choices
             </AccordionTrigger>
-            <AccordionContent className="text-slate-300">
+            <AccordionContent className="text-slate-700 dark:text-slate-300">
               You can manage non-essential cookies and similar technologies
               through our{" "}
               <Link
@@ -383,11 +383,11 @@ export default function PrivacyPolicyPage() {
         </Accordion>
       </section>
 
-      <Separator className="my-8 bg-slate-700/60" />
+      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
 
       {/* Automated decisions */}
       {/* <section id="automated" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-100">
+        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
           10. Automated decision-making
         </h2>
         <p>
@@ -400,11 +400,11 @@ export default function PrivacyPolicyPage() {
         </p>
       </section> */}
 
-      <Separator className="my-8 bg-slate-700/60" />
+      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
 
       {/* Children */}
       <section id="children" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-100">
+        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
           10. Children’s privacy
         </h2>
         <p>
@@ -416,14 +416,14 @@ export default function PrivacyPolicyPage() {
         </p>
       </section>
 
-      <Separator className="my-8 bg-slate-700/60" />
+      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
 
       {/* Third-party services */}
       <section id="vendors" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-100">
+        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
           11. Third-party services we use
         </h2>
-        <ul className="ml-6 list-disc space-y-2 text-slate-300">
+        <ul className="ml-6 list-disc space-y-2 text-slate-700 dark:text-slate-300">
           <li>
             <span className="font-medium">
               Privy (authentication & key management):
@@ -442,17 +442,17 @@ export default function PrivacyPolicyPage() {
             we use Payment Rails Providers to process payments and provide liquidity for our services.
           </li>
         </ul>
-        <p className="text-slate-400 text-sm">
+        <p className="text-slate-600 dark:text-slate-400 text-sm">
           These services may process your personal data on our behalf to provide
           the features you request and to help us meet legal obligations.
         </p>
       </section>
 
-      <Separator className="my-8 bg-slate-700/60" />
+      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
 
       {/* Changes */}
       <section id="changes" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-100">
+        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
           12. Changes to this Policy
         </h2>
         <p>
@@ -463,11 +463,11 @@ export default function PrivacyPolicyPage() {
         </p>
       </section>
 
-      <Separator className="my-8 bg-slate-700/60" />
+      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
 
       {/* Contact */}
       <section id="contact" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-100">
+        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
           13. Contact us
         </h2>
         <p>

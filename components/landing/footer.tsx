@@ -5,7 +5,7 @@ import { Mail, MapPin, Phone } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="relative bg-slate-50 text-slate-800 border-t border-slate-200 dark:bg-black dark:text-white dark:border-white/10">
+    <footer className="relative bg-slate-900 text-slate-200 border-t border-white/10 dark:bg-black dark:text-white dark:border-white/10">
       {/* Grid background */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -25,7 +25,7 @@ export default function Footer() {
               Africa&apos;s leading B2B payment infrastructure for cross-border settlements. 
               Regulated by the Central Bank of Tanzania.
             </p> */}
-            <div className="flex flex-col gap-2 text-sm text-slate-600 dark:text-gray-400">
+            <div className="flex flex-col gap-2 text-sm text-slate-400 dark:text-gray-400">
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-blue-400" />
                 <span>Dar es Salaam, Tanzania</span>
@@ -46,24 +46,24 @@ export default function Footer() {
           {/* Products */}
           <div>
             <h4 className="font-semibold mb-4">Ecosystem</h4>
-            <ul className="space-y-2 text-sm text-slate-600 dark:text-gray-400">
+            <ul className="space-y-2 text-sm text-slate-400 dark:text-gray-400">
               <li>
-                <Link href="https://app.nedapay.xyz" className="hover:text-black dark:hover:text-white transition-colors">
+                <Link href="https://app.nedapay.xyz" className="hover:text-white dark:hover:text-white transition-colors">
                   NEDApay Web App
                 </Link>
               </li>
               <li>
-                <Link href="https://app.ntzs.co.tz/" className="hover:text-black dark:hover:text-white transition-colors">
+                <Link href="https://app.ntzs.co.tz/" className="hover:text-white dark:hover:text-white transition-colors">
                   nTZS Stablecoin
                 </Link>
               </li>
               <li>
-                <Link href="https://farcaster.xyz/miniapps/nhIkqfY9DK47/nedapay" className="hover:text-black dark:hover:text-white transition-colors">
-                  Farcaster Mini App
+                <Link href="https://farcaster.xyz/miniapps/nhIkqfY9DK47/nedapay" className="hover:text-white dark:hover:text-white transition-colors">
+                  Farcaster MiniApp
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-black dark:hover:text-white transition-colors">
+                <Link href="#" className="hover:text-white dark:hover:text-white transition-colors">
                   Base Integration
                 </Link>
               </li>
@@ -101,11 +101,11 @@ export default function Footer() {
         {/* Bottom */}
         <div className="border-t border-slate-200 dark:border-white/10 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-slate-600 dark:text-gray-400">
+            <p className="text-sm text-slate-400 dark:text-gray-400">
               © 2026 NEDApay. All rights reserved. Licensed by Bank of Tanzania.
             </p>
-            <div className="flex gap-6 text-sm text-slate-600 dark:text-gray-400">
-              <a href="/privacy-policy" className="hover:text-black dark:hover:text-white transition-colors">
+            <div className="flex gap-6 text-sm text-slate-400 dark:text-gray-400">
+              <a href="/privacy-policy" className="hover:text-white dark:hover:text-white transition-colors">
                 Privacy Policy
               </a>
               <a href="/terms-of-service" className="hover:text-white transition-colors">

@@ -19,7 +19,7 @@ export default function ChainsWidget() {
         {chains.map((chain, index) => (
           <div
             key={chain.id}
-            className={`w-10 h-10 rounded-full border-2 border-black/50 flex items-center justify-center shadow-lg backdrop-blur-sm bg-white overflow-hidden relative`}
+            className={`w-10 h-10 rounded-full border-2 border-slate-200 dark:border-black/50 flex items-center justify-center shadow-lg backdrop-blur-sm bg-white overflow-hidden relative`}
             style={{ zIndex: 10 - index }}
             title={chain.name}
           >
@@ -33,10 +33,10 @@ export default function ChainsWidget() {
         ))}
       </div>
       <div className="flex flex-col">
-        <span className="text-white font-bold text-lg leading-none">
+        <span className="text-slate-900 dark:text-white font-bold text-lg leading-none">
           7+ Chains
         </span>
-        <span className="text-slate-400 text-xs font-medium uppercase tracking-wider">
+        <span className="text-slate-600 dark:text-slate-400 text-xs font-medium uppercase tracking-wider">
           Supported
         </span>
       </div>

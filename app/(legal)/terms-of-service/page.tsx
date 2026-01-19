@@ -16,17 +16,17 @@ const effectiveDate = "September 20, 2025"; // keep this current when you ship u
 
 export default function TermsOfServicePage() {
   return (
-    <main className="mx-auto w-full max-w-4xl px-6 py-12 text-slate-200">
+    <main className="mx-auto w-full max-w-4xl px-6 py-12 text-slate-800 dark:text-slate-200">
       {/* Header */}
       <section className="mb-10">
-        <Badge className="mb-4 bg-indigo-700/60 text-indigo-50">Legal</Badge>
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl bg-gradient-to-r from-indigo-300 via-purple-300 to-blue-300 bg-clip-text text-transparent">
+        <Badge className="mb-4 bg-indigo-600 dark:bg-indigo-700/60 text-white dark:text-indigo-50">Legal</Badge>
+        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl bg-gradient-to-r from-indigo-600 via-purple-600 to-blue-600 dark:from-indigo-300 dark:via-purple-300 dark:to-blue-300 bg-clip-text text-transparent">
           Terms of Service
         </h1>
-        <p className="mt-3 text-sm text-slate-400">
+        <p className="mt-3 text-sm text-slate-600 dark:text-slate-400">
           Last updated: {effectiveDate}
         </p>
-        <p className="mt-6 text-slate-300">
+        <p className="mt-6 text-slate-700 dark:text-slate-300">
           These Terms of Service ("Terms") govern your access to and use of the
           services provided by{" "}
           <span className="font-semibold">Neda Labs Ltd</span> ("
@@ -46,11 +46,11 @@ export default function TermsOfServicePage() {
           </Link>
           .
         </p>
-        <Card className="mt-6 border-slate-700/60 bg-slate-900/40">
+        <Card className="mt-6 border-slate-300 dark:border-slate-700/60 bg-slate-100 dark:bg-slate-900/40">
           <CardHeader>
-            <CardTitle className="text-slate-100">Quick Overview</CardTitle>
+            <CardTitle className="text-slate-900 dark:text-slate-100">Quick Overview</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-3 text-slate-300">
+          <CardContent className="space-y-3 text-slate-700 dark:text-slate-300">
             <p>
               NedaPay is a comprehensive digital payment platform that enables
               stablecoin transactions, payment processing, and fiat offramping
@@ -67,15 +67,15 @@ export default function TermsOfServicePage() {
         </Card>
       </section>
 
-      <Separator className="my-8 bg-slate-700/60" />
+      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
 
       {/* Definitions */}
       <section id="definitions" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-100">
+        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
           1. Definitions
         </h2>
         <p>For the purposes of these Terms of Service, the following definitions apply:</p>
-        <ul className="ml-6 list-disc space-y-2 text-slate-300">
+        <ul className="ml-6 list-disc space-y-2 text-slate-700 dark:text-slate-300">
           <li>
             <span className="font-medium">Company:</span> Refers to Neda Labs Ltd,
             the entity that provides the Services described in these Terms.
@@ -106,18 +106,18 @@ export default function TermsOfServicePage() {
         </ul>
       </section>
 
-      <Separator className="my-8 bg-slate-700/60" />
+      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
 
       {/* Services Overview */}
       <section id="services-overview" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-100">
+        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
           2. Services Overview
         </h2>
         <p>
           NedaPay provides a comprehensive digital payment platform built on
           blockchain technology. Our Services include:
         </p>
-        <ul className="ml-6 list-disc space-y-2 text-slate-300">
+        <ul className="ml-6 list-disc space-y-2 text-slate-700 dark:text-slate-300">
           <li>
             <span className="font-medium">Payment Processing:</span> Secure payment
             links, invoice creation and management, and transaction monitoring.
@@ -143,15 +143,15 @@ export default function TermsOfServicePage() {
         </ul>
       </section>
 
-      <Separator className="my-8 bg-slate-700/60" />
+      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
 
       {/* User Requirements */}
       <section id="user-requirements" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-100">
+        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
           3. User Requirements
         </h2>
         <p>To use the Services, you must meet the following criteria:</p>
-        <ul className="ml-6 list-disc space-y-2 text-slate-300">
+        <ul className="ml-6 list-disc space-y-2 text-slate-700 dark:text-slate-300">
           <li>
             <span className="font-medium">Age Requirement:</span> You must be at
             least 18 years old, or of legal age in your jurisdiction, to enter
@@ -179,25 +179,25 @@ export default function TermsOfServicePage() {
         </ul>
       </section>
 
-      <Separator className="my-8 bg-slate-700/60" />
+      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
 
       {/* Acceptable Use */}
       <section id="acceptable-use" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-100">
+        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
           4. Acceptable Use
         </h2>
         <p>You agree to use the Services only for lawful purposes and in accordance with these Terms. Specifically, you agree:</p>
         
-        <h3 className="text-lg font-medium text-slate-200 mt-4">Permitted Uses:</h3>
-        <ul className="ml-6 list-disc space-y-2 text-slate-300">
+        <h3 className="text-lg font-medium text-slate-800 dark:text-slate-200 mt-4">Permitted Uses:</h3>
+        <ul className="ml-6 list-disc space-y-2 text-slate-700 dark:text-slate-300">
           <li>To conduct legitimate business transactions and payments</li>
           <li>To create and manage payment links and invoices for lawful purposes</li>
           <li>To convert stablecoins to fiat currency through our offramping services</li>
           <li>To use our merchant tools for legitimate business operations</li>
         </ul>
 
-        <h3 className="text-lg font-medium text-slate-200 mt-4">Prohibited Uses:</h3>
-        <ul className="ml-6 list-disc space-y-2 text-slate-300">
+        <h3 className="text-lg font-medium text-slate-800 dark:text-slate-200 mt-4">Prohibited Uses:</h3>
+        <ul className="ml-6 list-disc space-y-2 text-slate-700 dark:text-slate-300">
           <li>Engaging in any fraudulent, unlawful, or harmful activities</li>
           <li>Money laundering, terrorist financing, or other illegal financial activities</li>
           <li>Violating any applicable financial regulations, sanctions, or AML laws</li>
@@ -208,18 +208,18 @@ export default function TermsOfServicePage() {
         </ul>
       </section>
 
-      <Separator className="my-8 bg-slate-700/60" />
+      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
 
       {/* KYC/KYB Requirements */}
       <section id="kyc-kyb" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-100">
+        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
           5. Identity Verification (KYC/KYB)
         </h2>
         <p>
           To comply with regulatory requirements and ensure platform security,
           we may require identity verification:
         </p>
-        <ul className="ml-6 list-disc space-y-2 text-slate-300">
+        <ul className="ml-6 list-disc space-y-2 text-slate-700 dark:text-slate-300">
           <li>
             <span className="font-medium">Individual KYC:</span> Personal identity
             verification including document upload, identity validation, and
@@ -243,14 +243,14 @@ export default function TermsOfServicePage() {
         </ul>
       </section>
 
-      <Separator className="my-8 bg-slate-700/60" />
+      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
 
       {/* Payment Terms */}
       <section id="payment-terms" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-100">
+        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
           6. Payment Terms
         </h2>
-        <ul className="ml-6 list-disc space-y-2 text-slate-300">
+        <ul className="ml-6 list-disc space-y-2 text-slate-700 dark:text-slate-300">
           <li>
             <span className="font-medium">Transaction Fees:</span> We may charge
             fees for certain Services, which will be clearly disclosed before
@@ -277,23 +277,23 @@ export default function TermsOfServicePage() {
         </ul>
       </section>
 
-      <Separator className="my-8 bg-slate-700/60" />
+      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
 
       {/* Intellectual Property */}
       <section id="intellectual-property" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-100">
+        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
           7. Intellectual Property
         </h2>
-        <h3 className="text-lg font-medium text-slate-200">Company IP</h3>
-        <p className="text-slate-300">
+        <h3 className="text-lg font-medium text-slate-800 dark:text-slate-200">Company IP</h3>
+        <p className="text-slate-700 dark:text-slate-300">
           All intellectual property rights in the Services, including trademarks,
           logos, and content, are owned by Neda Labs Ltd. You are granted a limited,
           non-exclusive, non-transferable license to use the Services solely for
           personal or business purposes in accordance with these Terms.
         </p>
         
-        <h3 className="text-lg font-medium text-slate-200 mt-4">User Submissions</h3>
-        <p className="text-slate-300">
+        <h3 className="text-lg font-medium text-slate-800 dark:text-slate-200 mt-4">User Submissions</h3>
+        <p className="text-slate-700 dark:text-slate-300">
           By submitting any materials to the Services, including feedback, transaction
           data, or support requests, you grant the Company a worldwide, royalty-free,
           and non-exclusive license to use, reproduce, modify, and distribute those
@@ -301,14 +301,14 @@ export default function TermsOfServicePage() {
         </p>
       </section>
 
-      <Separator className="my-8 bg-slate-700/60" />
+      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
 
       {/* Privacy and Data Protection */}
       <section id="privacy" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-100">
+        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
           8. Privacy and Data Protection
         </h2>
-        <p className="text-slate-300">
+        <p className="text-slate-700 dark:text-slate-300">
           Please refer to our{" "}
           <Link
             href="/(legal)/privacy-policy"
@@ -320,25 +320,25 @@ export default function TermsOfServicePage() {
           By using our Services, you consent to the collection and use of your
           information in accordance with our Privacy Policy.
         </p>
-        <p className="text-slate-300">
+        <p className="text-slate-700 dark:text-slate-300">
           We implement reasonable security measures to protect your data, but
           cannot guarantee absolute security. You acknowledge that data transmission
           over the internet carries inherent risks.
         </p>
       </section>
 
-      <Separator className="my-8 bg-slate-700/60" />
+      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
 
       {/* Security and User Responsibility */}
       <section id="security" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-100">
+        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
           9. Security and User Responsibility
         </h2>
         <p>
           You are responsible for maintaining the security of your account and
           wallet. This includes:
         </p>
-        <ul className="ml-6 list-disc space-y-2 text-slate-300">
+        <ul className="ml-6 list-disc space-y-2 text-slate-700 dark:text-slate-300">
           <li>
             <span className="font-medium">Wallet Security:</span> Keep your
             cryptocurrency wallet private keys and recovery phrases confidential.
@@ -365,29 +365,29 @@ export default function TermsOfServicePage() {
         </ul>
       </section>
 
-      <Separator className="my-8 bg-slate-700/60" />
+      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
 
       {/* Limitation of Liability */}
       <section id="limitation-liability" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-100">
+        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
           10. Limitation of Liability
         </h2>
         
-        <h3 className="text-lg font-medium text-slate-200">No Warranty</h3>
-        <p className="text-slate-300">
+        <h3 className="text-lg font-medium text-slate-800 dark:text-slate-200">No Warranty</h3>
+        <p className="text-slate-700 dark:text-slate-300">
           The Services are provided on an "as is" and "as available" basis. We
           make no warranties, express or implied, regarding the Services, including
           but not limited to warranties of merchantability, fitness for a particular
           purpose, or non-infringement.
         </p>
 
-        <h3 className="text-lg font-medium text-slate-200 mt-4">Limitation of Damages</h3>
-        <p className="text-slate-300">
+        <h3 className="text-lg font-medium text-slate-800 dark:text-slate-200 mt-4">Limitation of Damages</h3>
+        <p className="text-slate-700 dark:text-slate-300">
           To the maximum extent permitted by law, we will not be liable for any
           indirect, incidental, special, consequential, or punitive damages,
           including but not limited to:
         </p>
-        <ul className="ml-6 list-disc space-y-2 text-slate-300">
+        <ul className="ml-6 list-disc space-y-2 text-slate-700 dark:text-slate-300">
           <li>Loss of profits, revenues, data, or business opportunities</li>
           <li>Damages arising from your use or inability to use the Services</li>
           <li>Unauthorized access to your wallet or personal information</li>
@@ -397,21 +397,21 @@ export default function TermsOfServicePage() {
         </ul>
       </section>
 
-      <Separator className="my-8 bg-slate-700/60" />
+      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
 
       {/* Governing Law */}
       <section id="governing-law" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-100">
+        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
           11. Governing Law and Dispute Resolution
         </h2>
-        <p className="text-slate-300">
+        <p className="text-slate-700 dark:text-slate-300">
           These Terms are governed by and construed in accordance with the laws
           of the jurisdiction where Neda Labs Ltd is incorporated. Any disputes
           arising from these Terms or your use of the Services will be resolved
           through binding arbitration in accordance with the rules of the relevant
           arbitration authority.
         </p>
-        <p className="text-slate-300">
+        <p className="text-slate-700 dark:text-slate-300">
           Before initiating any formal dispute resolution, we encourage you to
           contact us directly at{" "}
           <Link
@@ -424,54 +424,54 @@ export default function TermsOfServicePage() {
         </p>
       </section>
 
-      <Separator className="my-8 bg-slate-700/60" />
+      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
 
       {/* Modifications */}
       <section id="modifications" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-100">
+        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
           12. Modifications to Terms and Services
         </h2>
-        <p className="text-slate-300">
+        <p className="text-slate-700 dark:text-slate-300">
           We reserve the right to modify these Terms at any time. We will notify
           you of material changes by posting the updated Terms on our website
           and updating the "Last updated" date. Your continued use of the Services
           after such changes constitutes acceptance of the new Terms.
         </p>
-        <p className="text-slate-300">
+        <p className="text-slate-700 dark:text-slate-300">
           We may also modify, suspend, or discontinue any aspect of the Services
           at any time, with or without notice. We will not be liable for any
           modification, suspension, or discontinuation of the Services.
         </p>
       </section>
 
-      <Separator className="my-8 bg-slate-700/60" />
+      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
 
       {/* Termination */}
       <section id="termination" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-100">
+        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
           13. Termination
         </h2>
-        <p className="text-slate-300">
+        <p className="text-slate-700 dark:text-slate-300">
           You may terminate your use of the Services at any time by discontinuing
           access to our platform. We may terminate or suspend your access to the
           Services immediately, without prior notice, if you breach these Terms
           or engage in prohibited activities.
         </p>
-        <p className="text-slate-300">
+        <p className="text-slate-700 dark:text-slate-300">
           Upon termination, your right to use the Services will cease immediately.
           However, any transactions already initiated may continue to be processed
           according to blockchain network protocols.
         </p>
       </section>
 
-      <Separator className="my-8 bg-slate-700/60" />
+      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
 
       {/* Miscellaneous */}
       <section id="miscellaneous" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-100">
+        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
           14. Miscellaneous
         </h2>
-        <ul className="ml-6 list-disc space-y-2 text-slate-300">
+        <ul className="ml-6 list-disc space-y-2 text-slate-700 dark:text-slate-300">
           <li>
             <span className="font-medium">Entire Agreement:</span> These Terms
             constitute the entire agreement between you and NedaPay regarding
@@ -500,18 +500,18 @@ export default function TermsOfServicePage() {
         </ul>
       </section>
 
-      <Separator className="my-8 bg-slate-700/60" />
+      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
 
       {/* Contact */}
       <section id="contact" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-100">
+        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
           15. Contact Information
         </h2>
-        <p className="text-slate-300">
+        <p className="text-slate-700 dark:text-slate-300">
           If you have any questions about these Terms or need support, please
           contact us:
         </p>
-        <ul className="ml-6 list-disc space-y-2 text-slate-300">
+        <ul className="ml-6 list-disc space-y-2 text-slate-700 dark:text-slate-300">
           <li>
             Email:{" "}
             <Link
@@ -545,9 +545,9 @@ export default function TermsOfServicePage() {
       <Separator className="my-12 bg-slate-700/60" />
 
       {/* Acknowledgment */}
-      <footer className="rounded-xl border border-slate-700/60 bg-gradient-to-tr from-indigo-900/40 via-purple-900/30 to-blue-900/30 p-4 text-xs leading-relaxed text-slate-400">
+      <footer className="rounded-xl border border-slate-300 dark:border-slate-700/60 bg-gradient-to-tr from-indigo-100/60 via-purple-100/40 to-blue-100/40 dark:from-indigo-900/40 dark:via-purple-900/30 dark:to-blue-900/30 p-4 text-xs leading-relaxed text-slate-700 dark:text-slate-400">
         <p>
-          <span className="font-semibold text-slate-300">
+          <span className="font-semibold text-slate-900 dark:text-slate-300">
             Acknowledgment:
           </span>{" "}
           By using NedaPay's Services, you acknowledge that you have read,

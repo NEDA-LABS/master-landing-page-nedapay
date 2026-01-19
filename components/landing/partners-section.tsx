@@ -27,9 +27,9 @@ export default function PartnersSection() {
         }} />
       </div>
       
-      {/* Gradient overlays for fade effect (only in dark mode) */}
-      <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-transparent to-transparent dark:from-black dark:to-transparent z-10" />
-      <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-transparent to-transparent dark:from-black dark:to-transparent z-10" />
+      {/* Gradient overlays for fade effect */}
+      <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-slate-50 to-transparent dark:from-black dark:to-transparent z-10" />
+      <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-slate-50 to-transparent dark:from-black dark:to-transparent z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
         <div className="text-center mb-16 text-slate-900 dark:text-white">
@@ -100,7 +100,7 @@ export default function PartnersSection() {
           {allPartners.map((partner, index) => (
             <div
               key={`${partner.name}-${index}`}
-              className="flex-shrink-0 mx-6 backdrop-blur-xl bg-white/5 hover:bg-white/10 rounded-xl p-6 border border-white/10 transition-all duration-300 hover:scale-110"
+              className="flex-shrink-0 mx-6 backdrop-blur-xl bg-white/40 dark:bg-white/5 hover:bg-white/60 dark:hover:bg-white/10 rounded-xl p-6 border border-slate-200 dark:border-white/10 transition-all duration-300 hover:scale-110 shadow-sm"
               style={{ width: '120px', height: '120px' }}
             >
               <div className="relative w-full h-full flex items-center justify-center">
