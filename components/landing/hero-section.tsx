@@ -23,7 +23,7 @@ const storeButtons = [
     alt: 'Farcaster MiniApp'
   },
   {
-    href: 'https://app.ntzs.co.tz/',
+    href: 'https://www.ntzs.co.tz/',
     icon: '/ntzs-logo.webp',
     label: 'Mint',
     title: 'nTZS',
