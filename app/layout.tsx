@@ -3,9 +3,7 @@ import { ThemeProvider } from "next-themes";
 import { Toaster } from "sonner";
 import "./globals.css";
 
-const defaultUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : "http://localhost:3000";
+const defaultUrl = "https://nedapay.xyz"
 
 export const metadata: Metadata = {
   metadataBase: new URL(defaultUrl),
@@ -17,6 +15,10 @@ export const metadata: Metadata = {
     ],
     shortcut: "/logo.png",
     apple: "/logo.png",
+    other: {
+      rel: 'icon',
+      url: '/logo.png',
+    },
   },
 };
 
