@@ -25,9 +25,16 @@ const storeButtons = [
   {
     href: 'https://www.ntzs.co.tz/',
     icon: '/ntzs-logo.webp',
-    label: 'Mint',
+    label: 'Mint & Burn',
     title: 'nTZS',
     alt: 'nTZS Stablecoin'
+  },
+  {
+    href: "https://nedapayplus.xyz/docs",
+    icon: '/nedapayplus_docs.png',
+    label: 'Connect',
+    title: 'NEDApay+',
+    alt: 'NEDApay APIs'
   }
 ];
 
@@ -96,19 +103,21 @@ export default function HeroSection() {
           </div>
 
           {/* Store-style Buttons */}
-          <div className="flex flex-col items-start gap-4 mb-12">
-            <div className="flex flex-row flex-wrap gap-2 sm:gap-4">
+          <div className="w-full max-w-4xl mb-12">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
               {storeButtons.map((button, index) => (
-                <Link key={index} href={button.href} className="flex">
-                  <button className="flex h-full w-full items-center gap-1 md:gap-3 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500/80 dark:hover:bg-white/10 text-white px-2 md:px-6 py-3 rounded-xl transition-all duration-200 shadow-lg hover:shadow-cyan-500/25 hover:-translate-y-0.5 md:min-w-[180px] border border-transparent hover:border-blue-400 dark:hover:border-white/40">
-                    {button.icon === 'globe' ? (
-                      <Globe className="w-6 h-6 md:w-8 md:h-8" />
-                    ) : (
-                      <Image src={button.icon} alt={button.alt} width={30} height={30} className="rounded-full" />
-                    )}
-                    <div className="flex flex-col items-start leading-none">
-                      <span className="text-[8px] md:text-[10px] uppercase font-medium opacity-90 mb-1">{button.label}</span>
-                      <span className="text-xs md:text-lg font-bold">{button.title}</span>
+                <Link key={index} href={button.href} className="group w-full">
+                  <button className="flex h-full w-full items-center gap-2 bg-white/5 backdrop-blur-sm hover:bg-white/10 dark:bg-black/20 dark:hover:bg-white/10 border border-white/10 hover:border-blue-500/50 dark:hover:border-blue-400/50 text-slate-800 dark:text-white p-3 rounded-xl transition-all duration-300 shadow-lg hover:shadow-blue-500/20 hover:-translate-y-1">
+                    <div className="relative shrink-0 w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center bg-slate-200/50 rounded-full p-1 border border-slate-800/60">
+                      {button.icon === 'globe' ? (
+                        <Globe className="w-full h-full text-blue-500" />
+                      ) : (
+                        <Image src={button.icon} alt={button.alt} width={40} height={40} className="w-full h-full object-contain rounded-full" />
+                      )}
+                    </div>
+                    <div className="flex flex-col items-start text-left leading-tight min-w-0">
+                      <span className="text-[10px] uppercase tracking-wider font-semibold opacity-60 mb-0.5">{button.label}</span>
+                      <span className="text-sm sm:text-base font-bold truncate w-full">{button.title}</span>
                     </div>
                   </button>
                 </Link>
