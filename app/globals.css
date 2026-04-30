@@ -184,6 +184,18 @@
     background: rgba(100, 116, 139, 0.5);
   }
 
+  /* Hero dither column accent */
+  .hero-dither {
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        transparent 0px,
+        transparent 2px,
+        rgb(59 130 246) 2px,
+        rgb(59 130 246) 3px
+      );
+  }
+
   /* Grid pattern - more visible */
   .bg-grid-slate-300 {
     background-image: linear-gradient(to right, rgb(203 213 225 / 0.3) 1px, transparent 1px),

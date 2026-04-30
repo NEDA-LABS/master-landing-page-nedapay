@@ -2,137 +2,171 @@
 
 import Image from 'next/image';
 
-const partners = [
-  { name: 'USDC', logo: '/usdc-logo.svg', type: 'crypto' },
-  { name: 'USDT', logo: '/usdt-coin.svg', type: 'crypto' },
-  { name: 'EURC', logo: '/eurc-coin.png', type: 'crypto' },
-  { name: 'CADC', logo: '/cadc-coin.png', type: 'crypto' },
-  { name: 'BRL', logo: '/brl-coin.png', type: 'crypto' },
-  { name: 'CNGN', logo: '/cngn-icon.jpeg', type: 'crypto' },
-  { name: 'ZARP', logo: '/zarp-coin.png', type: 'crypto' },
-  { name: 'TRYB', logo: '/tryb-icon.png', type: 'crypto' },
+const stablecoins = [
+  { name: 'USDC', logo: '/usdc-logo.svg' },
+  { name: 'USDT', logo: '/usdt-coin.svg' },
+  { name: 'EURC', logo: '/eurc-coin.png' },
+  { name: 'CADC', logo: '/cadc-coin.png' },
+  { name: 'BRL', logo: '/brl-coin.png' },
+  { name: 'CNGN', logo: '/cngn-icon.jpeg' },
+  { name: 'ZARP', logo: '/zarp-coin.png' },
+  { name: 'TRYB', logo: '/tryb-icon.png' },
 ];
 
-// Duplicate for infinite scroll effect
-const allPartners = [...partners, ...partners, ...partners];
+const allCoins = [...stablecoins, ...stablecoins, ...stablecoins];
 
 export default function PartnersSection() {
   return (
-    <section className="relative py-16 bg-slate-50 dark:bg-black overflow-hidden">
+    <section className="relative py-24 bg-white dark:bg-black overflow-hidden">
       {/* Grid background */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `linear-gradient(rgba(59, 130, 246, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(59, 130, 246, 0.2) 1px, transparent 1px)`,
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `linear-gradient(rgba(59,130,246,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.05) 1px, transparent 1px)`,
           backgroundSize: '50px 50px',
-        }} />
-      </div>
-      
-      {/* Gradient overlays for fade effect */}
-      <div className="pointer-events-none absolute left-0 top-0 bottom-0 hidden md:block md:w-32 bg-gradient-to-r from-slate-50 to-transparent dark:from-black dark:to-transparent z-10" />
-      <div className="pointer-events-none absolute right-0 top-0 bottom-0 hidden md:block md:w-32 bg-gradient-to-l from-slate-50 to-transparent dark:from-black dark:to-transparent z-10" />
+        }}
+      />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-        <div className="text-center mb-16 text-slate-900 dark:text-white">
-          <h2 className="text-4xl md:text-5xl font-medium mb-6">
-            Global Liquidity, Local Settlement
-          </h2>
-          <p className="text-lg text-slate-700 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            Powered by the nTZS stablecoin and a network of global partners. 
-            We provide the infrastructure for seamless cross-border value transfer.
-          </p>
+      {/* Glow */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-blue-500/5 dark:bg-blue-500/8 blur-3xl pointer-events-none" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+        {/* Section label */}
+        <div className="flex items-center gap-3 mb-5">
+          <div className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400" />
+          <span className="text-[11px] font-mono tracking-[0.2em] text-blue-600 dark:text-blue-400 uppercase">
+            Liquidity Layer
+          </span>
+          <div className="h-px w-12 bg-gradient-to-r from-blue-500/40 to-transparent" />
         </div>
-        
-        {/* Featured NTZ Stable - Two Column Layout */}
-        <div className="max-w-5xl mx-auto">
-          <div className="relative backdrop-blur-2xl bg-gradient-to-br from-slate-100 to-slate-50 dark:from-gray-900/50 dark:to-gray-800/30 rounded-3xl p-8 md:p-10 border border-slate-200 dark:border-white/20 hover:border-blue-400/30 transition-all duration-300 overflow-hidden">
-            {/* Perspective Grid Background */}
-            <div 
-              className="absolute inset-0" 
-              style={{
-                backgroundImage: `
-                  linear-gradient(rgba(59, 130, 246, 0.3) 2px, transparent 2px),
-                  linear-gradient(90deg, rgba(59, 130, 246, 0.3) 2px, transparent 2px)
-                `,
-                backgroundSize: '50px 50px',
-                transform: 'perspective(600px) rotateX(60deg)',
-                transformOrigin: 'center bottom',
-                opacity: 0.5,
-              }}
-            />
-            
-            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-              {/* Left: Image */}
-              <div className="flex justify-center lg:justify-end">
-                <div className="relative group">
-                  <Image
-                    src="/NTZ STABLE 2.png"
-                    alt="NTZ Stable - Tanzania's Local Stablecoin"
-                    width={380}
-                    height={210}
-                    className="object-contain transition-all duration-300 group-hover:scale-105"
-                    priority
-                  />
-                </div>
+
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-5 leading-tight">
+          Global Liquidity,
+          <br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-400">
+            Local Settlement
+          </span>
+        </h2>
+        <p className="text-slate-500 dark:text-slate-500 text-base max-w-2xl leading-relaxed font-light">
+          Powered by the nTZS stablecoin and a network of global partners.
+          We provide the infrastructure for seamless cross-border value transfer.
+        </p>
+      </div>
+
+      {/* nTZS Feature Card */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
+        <div className="relative border border-slate-200 dark:border-white/8 overflow-hidden">
+          {/* Perspective grid bg */}
+          <div
+            className="absolute inset-0 pointer-events-none opacity-30 dark:opacity-20"
+            style={{
+              backgroundImage: `
+                linear-gradient(rgba(59,130,246,0.3) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59,130,246,0.3) 1px, transparent 1px)
+              `,
+              backgroundSize: '50px 50px',
+              transform: 'perspective(600px) rotateX(55deg)',
+              transformOrigin: 'center bottom',
+            }}
+          />
+
+          {/* Corner accents */}
+          <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-blue-500/40 dark:border-blue-400/40" />
+          <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-blue-500/40 dark:border-blue-400/40" />
+          <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-blue-500/40 dark:border-blue-400/40" />
+          <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-blue-500/40 dark:border-blue-400/40" />
+
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center p-4 sm:p-8 md:p-12 bg-slate-50/80 dark:bg-white/[0.02]">
+            {/* Left: Image */}
+            <div className="flex justify-center lg:justify-end">
+              <div className="group relative">
+                <Image
+                  src="/NTZ STABLE 2.png"
+                  alt="NTZ Stable — Tanzania's Local Stablecoin"
+                  width={380}
+                  height={210}
+                  className="object-contain transition-transform duration-500 group-hover:scale-105"
+                  priority
+                />
               </div>
-              
-              {/* Right: Text Content */}
-              <div className="text-left space-y-3 text-slate-900 dark:text-white">
-                <h4 className="text-2xl md:text-3xl font-medium">
-                  Why <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">nTZS Stablecoin</span>
-                </h4>
-                <p className="text-slate-700 dark:text-gray-300 text-base leading-relaxed">
-                  nTZS stands apart as the <span className="text-blue-400 font-medium">first regulated stablecoin in Tanzania</span>. 
-                  As a fully compliant digital asset, nTZS offers unparalleled trust and transparency, ensuring security 
-                  for all users, institutions, and businesses.
-                </p>
-                <div className="pt-2">
-                  <p className="text-sm text-blue-400 font-medium">Tanzania&apos;s Local Stablecoin</p>
-                </div>
+            </div>
+
+            {/* Right: Content */}
+            <div className="space-y-4 text-slate-900 dark:text-white">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="text-[10px] font-mono tracking-[0.2em] text-blue-600 dark:text-blue-400 uppercase border border-blue-500/20 dark:border-blue-400/20 px-2 py-0.5 bg-blue-50 dark:bg-blue-500/10">
+                  STABLECOIN
+                </span>
+              </div>
+              <h4 className="text-2xl md:text-3xl font-bold leading-tight">
+                Why{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-400">
+                  nTZS Stablecoin
+                </span>
+              </h4>
+              <p className="text-slate-600 dark:text-slate-400 text-base leading-relaxed font-light">
+                nTZS stands apart as the{' '}
+                <span className="text-blue-600 dark:text-blue-400 font-medium">first regulated stablecoin in Tanzania</span>.
+                As a fully compliant digital asset, nTZS offers unparalleled trust and
+                transparency, ensuring security for all users, institutions, and businesses.
+              </p>
+              <div className="flex items-center gap-3 pt-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-blue-500 dark:bg-blue-400" />
+                <span className="text-sm font-mono text-blue-600 dark:text-blue-400 tracking-wider">
+                  TANZANIA&apos;S LOCAL STABLECOIN
+                </span>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Infinite scrolling logos */}
-      <div className="relative">
-        <div className="flex animate-scroll">
-          {allPartners.map((partner, index) => (
-            <div
-              key={`${partner.name}-${index}`}
-              className="flex-shrink-0 mx-6 backdrop-blur-xl bg-white/40 dark:bg-white/5 hover:bg-white/60 dark:hover:bg-white/10 rounded-xl p-6 border border-slate-200 dark:border-white/10 transition-all duration-300 hover:scale-110 shadow-sm"
-              style={{ width: '120px', height: '120px' }}
-            >
-              <div className="relative w-full h-full flex items-center justify-center">
+      {/* Stablecoin infinite scroll */}
+      <div className="relative z-10">
+        {/* Section sub-label */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+          <div className="flex items-center gap-3">
+            <div className="h-px flex-1 bg-slate-200 dark:bg-white/8" />
+            <span className="text-[10px] font-mono tracking-[0.2em] text-slate-400 dark:text-slate-600 uppercase px-3">
+              Supported Stablecoins
+            </span>
+            <div className="h-px flex-1 bg-slate-200 dark:bg-white/8" />
+          </div>
+        </div>
+
+        <div className="relative overflow-hidden">
+          {/* Edge fades */}
+          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-20 lg:w-32 bg-gradient-to-r from-white to-transparent dark:from-black dark:to-transparent z-10" />
+          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-20 lg:w-32 bg-gradient-to-l from-white to-transparent dark:from-black dark:to-transparent z-10" />
+
+          <div className="flex animate-coins-scroll">
+            {allCoins.map((coin, index) => (
+              <div
+                key={`${coin.name}-${index}`}
+                className="flex-shrink-0 mx-2 sm:mx-4 w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] border border-slate-200 dark:border-white/8 hover:border-blue-500/40 dark:hover:border-blue-400/30 bg-white dark:bg-white/[0.02] hover:bg-blue-50/50 dark:hover:bg-blue-500/[0.05] flex items-center justify-center transition-all duration-200 hover:scale-105 group"
+              >
                 <Image
-                  src={partner.logo}
-                  alt={partner.name}
-                  width={80}
-                  height={80}
-                  className="object-contain filter brightness-90 hover:brightness-110 transition-all"
+                  src={coin.logo}
+                  alt={coin.name}
+                  width={64}
+                  height={64}
+                  className="object-contain opacity-70 group-hover:opacity-100 transition-opacity"
                 />
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
 
-
       <style jsx>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(calc(-120px * ${partners.length} - ${partners.length * 48}px));
-          }
+        @keyframes coins-scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(calc(-108px * ${stablecoins.length})); }
         }
-
-        .animate-scroll {
-          animation: scroll 30s linear infinite;
+        .animate-coins-scroll {
+          animation: coins-scroll 28s linear infinite;
         }
-
-        .animate-scroll:hover {
+        .animate-coins-scroll:hover {
           animation-play-state: paused;
         }
       `}</style>

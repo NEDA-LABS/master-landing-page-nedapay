@@ -6,7 +6,7 @@ import Header from '@/components/Header';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-slate-50 dark:bg-black text-slate-900 dark:text-white">
+    <main className="min-h-screen bg-white dark:bg-black text-slate-900 dark:text-white">
       <Header />
       <HeroSection />
       <FeaturesSection />

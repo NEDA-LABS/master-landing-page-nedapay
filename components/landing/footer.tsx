@@ -5,113 +5,101 @@ import { Mail, MapPin, Phone } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="relative bg-slate-900 text-slate-200 border-t border-white/10 dark:bg-black dark:text-white dark:border-white/10">
+    <footer className="relative bg-slate-950 dark:bg-black text-slate-300 border-t border-white/8">
       {/* Grid background */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `linear-gradient(rgba(59, 130, 246, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(59, 130, 246, 0.2) 1px, transparent 1px)`,
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `linear-gradient(rgba(59,130,246,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.06) 1px, transparent 1px)`,
           backgroundSize: '40px 40px',
-        }} />
-      </div>
-      
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        }}
+      />
+
+      {/* Corner accents */}
+      <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-blue-500/20 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-blue-500/20 pointer-events-none" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-8">
+
+        {/* Top section */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
-            <h3 className="text-2xl font-bold mb-4">
-              NEDApay
-            </h3>
-            {/* <p className="text-slate-600 dark:text-gray-400 mb-4 max-w-md">
-              Africa&apos;s leading B2B payment infrastructure for cross-border settlements. 
-              Regulated by the Central Bank of Tanzania.
-            </p> */}
-            <div className="flex flex-col gap-2 text-sm text-slate-400 dark:text-gray-400">
+            <div className="flex items-center gap-2 mb-1">
+              <div className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
+              <span className="text-[10px] font-mono tracking-[0.2em] text-blue-400 uppercase">System Online</span>
+            </div>
+            <h3 className="text-2xl font-bold text-white mb-5 tracking-tight">NEDApay</h3>
+            <div className="flex flex-col gap-2.5 text-sm text-slate-500">
               <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-blue-400" />
-                <span>Dar es Salaam, Tanzania</span>
+                <MapPin className="w-3.5 h-3.5 text-blue-400 shrink-0" />
+                <span className="font-mono text-xs">Dar es Salaam, Tanzania</span>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-blue-400" />
-                <a href="mailto:info@nedaplus.com" className="hover:text-white transition-colors">
+                <Mail className="w-3.5 h-3.5 text-blue-400 shrink-0" />
+                <a
+                  href="mailto:support@nedapay.xyz"
+                  className="font-mono text-xs hover:text-blue-400 transition-colors"
+                >
                   support@nedapay.xyz
                 </a>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-blue-400" />
-                <span>+255 744 277 496</span>
+                <Phone className="w-3.5 h-3.5 text-blue-400 shrink-0" />
+                <span className="font-mono text-xs">+255 744 277 496</span>
               </div>
             </div>
           </div>
 
-          {/* Products */}
+          {/* Ecosystem links */}
           <div>
-            <h4 className="font-semibold mb-4">Ecosystem</h4>
-            <ul className="space-y-2 text-sm text-slate-400 dark:text-gray-400">
-              <li>
-                <Link href="https://app.nedapay.xyz" className="hover:text-white dark:hover:text-white transition-colors">
-                  NEDApay Web App
-                </Link>
-              </li>
-              <li>
-                <Link href="https://app.ntzs.co.tz/" className="hover:text-white dark:hover:text-white transition-colors">
-                  nTZS Stablecoin
-                </Link>
-              </li>
-              <li>
-                <Link href="https://farcaster.xyz/miniapps/nhIkqfY9DK47/nedapay" className="hover:text-white dark:hover:text-white transition-colors">
-                  Farcaster MiniApp
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-white dark:hover:text-white transition-colors">
-                  Base Integration
-                </Link>
-              </li>
+            <div className="flex items-center gap-2 mb-4">
+              <div className="h-px w-3 bg-blue-400/40" />
+              <span className="text-[10px] font-mono tracking-[0.2em] text-blue-400 uppercase">Ecosystem</span>
+            </div>
+            <ul className="space-y-2.5 text-sm text-slate-500">
+              {[
+                { label: 'NEDApay Web App', href: 'https://app.nedapay.xyz' },
+                { label: 'nTZS Stablecoin', href: 'https://app.ntzs.co.tz/' },
+                { label: 'Farcaster MiniApp', href: 'https://farcaster.xyz/miniapps/nhIkqfY9DK47/nedapay' },
+                { label: 'Base Integration', href: '#' },
+              ].map((item) => (
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    className="font-mono text-xs hover:text-blue-400 transition-colors flex items-center gap-2 group"
+                  >
+                    <span className="w-1 h-1 rounded-full bg-slate-700 group-hover:bg-blue-400 transition-colors" />
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
-
-          {/* Company */}
-          {/* <div>
-            <h4 className="font-semibold mb-4">Company</h4>
-            <ul className="space-y-2 text-sm text-slate-600 dark:text-gray-400">
-              <li>
-                <Link href="https://nedapayplus.xyz/auth/login" className="hover:text-white transition-colors">
-                  Sign In
-                </Link>
-              </li>
-              <li>
-                <Link href="https://app.ntzs.co.tz/" className="hover:text-white transition-colors">
-                  Get Started
-                </Link>
-              </li>
-              <li>
-                <a href="#" className="hover:text-black dark:hover:text-white transition-colors">
-                  Documentation
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white transition-colors">
-                  Support
-                </a>
-              </li>
-            </ul>
-          </div> */}
         </div>
 
-        {/* Bottom */}
-        <div className="border-t border-slate-200 dark:border-white/10 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-slate-400 dark:text-gray-400">
+        {/* Divider */}
+        <div className="h-px bg-white/8 mb-6" />
+
+        {/* Bottom row */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="flex items-center gap-3">
+            <div className="flex gap-1">
+              <div className="w-1 h-1 rounded-full bg-blue-400/60 animate-pulse" />
+              <div className="w-1 h-1 rounded-full bg-sky-400/40 animate-pulse" style={{ animationDelay: '0.3s' }} />
+              <div className="w-1 h-1 rounded-full bg-cyan-400/30 animate-pulse" style={{ animationDelay: '0.6s' }} />
+            </div>
+            <p className="text-[11px] font-mono text-slate-600">
               © 2026 NEDApay. All rights reserved. Licensed by Bank of Tanzania.
             </p>
-            <div className="flex gap-6 text-sm text-slate-400 dark:text-gray-400">
-              <a href="/privacy-policy" className="hover:text-white dark:hover:text-white transition-colors">
-                Privacy Policy
-              </a>
-              <a href="/terms-of-service" className="hover:text-white transition-colors">
-                Terms of Service
-              </a>
-            </div>
+          </div>
+          <div className="flex gap-6 text-[11px] font-mono text-slate-600">
+            <a href="/privacy-policy" className="hover:text-blue-400 transition-colors">
+              Privacy Policy
+            </a>
+            <a href="/terms-of-service" className="hover:text-blue-400 transition-colors">
+              Terms of Service
+            </a>
           </div>
         </div>
       </div>
