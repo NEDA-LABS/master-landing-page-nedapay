@@ -35,7 +35,12 @@ const features = [
   },
 ];
 
-const countries = ['Tanzania', 'Kenya', 'Uganda', 'Malawi', 'DR Congo', 'Nigeria', 'Ghana'];
+const countries = [
+  'Tanzania', 'Kenya', 'Uganda', 'Nigeria', 'Ghana', 'Malawi', 'DR Congo',
+  'United States', 'United Kingdom', 'Germany', 'France', 'UAE',
+  'China', 'Singapore', 'India', 'Brazil', 'Canada', 'Australia',
+  '+ 82 more countries',
+];
 
 export default function FeaturesSection() {
   const [showCountries, setShowCountries] = useState(false);
@@ -84,7 +89,7 @@ export default function FeaturesSection() {
                 className="flex items-center gap-2 px-4 py-2 border border-slate-200 dark:border-white/10 hover:border-blue-500/40 dark:hover:border-blue-400/30 text-slate-700 dark:text-slate-400 text-sm font-mono tracking-wider transition-all duration-200"
               >
                 <Globe className="w-4 h-4 text-blue-500 dark:text-blue-400" />
-                <span>7 AFRICAN COUNTRIES</span>
+                <span>100+ COUNTRIES</span>
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${showCountries ? 'rotate-180' : ''}`} />
               </button>
               {showCountries && (
