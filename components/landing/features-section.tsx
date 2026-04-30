@@ -67,14 +67,14 @@ export default function FeaturesSection() {
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
             <div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white leading-tight mb-3">
-                One Ecosystem,
+                One Protocol,
                 <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-400">
-                  Multiple Gateways
+                  Infinite Connections
                 </span>
               </h2>
               <p className="text-slate-500 dark:text-slate-500 text-base max-w-xl font-light">
-                Whether you&apos;re a developer, a business, or a social user — we have an interface built for you.
+                Whether you&apos;re a developer, a global business, or a social user — we built the right interface for you.
               </p>
             </div>
             {/* Countries badge */}

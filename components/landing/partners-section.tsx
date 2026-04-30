@@ -41,15 +41,15 @@ export default function PartnersSection() {
         </div>
 
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-5 leading-tight">
-          Global Liquidity,
+          Borderless Liquidity,
           <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-400">
-            Local Settlement
+            Local Precision
           </span>
         </h2>
         <p className="text-slate-500 dark:text-slate-500 text-base max-w-2xl leading-relaxed font-light">
-          Powered by the nTZS stablecoin and a network of global partners.
-          We provide the infrastructure for seamless cross-border value transfer.
+          Powered by a global network of stablecoins and regulated partners.
+          We turn cross-border complexity into a single API call.
         </p>
       </div>
 
