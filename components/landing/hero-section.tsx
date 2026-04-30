@@ -206,13 +206,16 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* ── RIGHT: Globe ── */}
-          <div className="hidden lg:flex items-center justify-center relative">
-            {/* Outer ring labels */}
-            <div className="absolute top-4 left-1/2 -translate-x-1/2 text-[9px] font-mono text-slate-400 dark:text-slate-600 tracking-widest uppercase">
-              LIVE TRANSACTIONS
+          {/* ── RIGHT: Globe (visible on all screens) ── */}
+          <div className="flex items-center justify-center relative order-first lg:order-last py-2 sm:py-4 lg:py-0">
+            {/* Top label */}
+            <div className="absolute top-0 lg:top-4 left-1/2 -translate-x-1/2 text-[9px] font-mono text-slate-400 dark:text-slate-600 tracking-widest uppercase whitespace-nowrap z-10">
+              <span className="hidden sm:inline">LIVE TRANSACTIONS · </span>
+              <span className="text-blue-600 dark:text-cyan-400">●</span>
+              <span className="ml-1">REAL-TIME</span>
             </div>
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-3 text-[9px] font-mono text-slate-400 dark:text-slate-600">
+            {/* Bottom legend */}
+            <div className="absolute bottom-0 lg:bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-3 text-[9px] font-mono text-slate-400 dark:text-slate-600 whitespace-nowrap z-10">
               <span className="flex items-center gap-1">
                 <span className="w-2 h-0.5 bg-cyan-500 inline-block rounded" /> Outbound
               </span>
@@ -221,9 +224,8 @@ export default function HeroSection() {
               </span>
             </div>
 
-            {/* Globe canvas container */}
-            <div className="relative w-full aspect-square max-w-[520px]">
-              {/* Outer decorative ring */}
+            {/* Globe container — responsive sizing */}
+            <div className="relative w-full aspect-square max-w-[280px] sm:max-w-[360px] md:max-w-[420px] lg:max-w-[520px] mx-auto px-2">
               <div className="absolute inset-0 rounded-full border border-blue-500/10 dark:border-blue-400/10" />
               <div className="absolute inset-4 rounded-full border border-blue-500/5 dark:border-blue-400/5" />
               <Globe />

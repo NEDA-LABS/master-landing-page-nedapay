@@ -1,8 +1,6 @@
 'use client';
 
-import { Globe, ChevronDown } from 'lucide-react';
 import Image from 'next/image';
-import { useState } from 'react';
 
 const features = [
   {
@@ -35,16 +33,7 @@ const features = [
   },
 ];
 
-const countries = [
-  'Tanzania', 'Kenya', 'Uganda', 'Nigeria', 'Ghana', 'Malawi', 'DR Congo',
-  'United States', 'United Kingdom', 'Germany', 'France', 'UAE',
-  'China', 'Singapore', 'India', 'Brazil', 'Canada', 'Australia',
-  '+ 82 more countries',
-];
-
 export default function FeaturesSection() {
-  const [showCountries, setShowCountries] = useState(false);
-
   return (
     <section className="relative py-24 bg-slate-50 dark:bg-[#0a0a0a] overflow-hidden">
       {/* Grid background */}
@@ -69,42 +58,17 @@ export default function FeaturesSection() {
             </span>
             <div className="h-px w-12 bg-gradient-to-r from-blue-500/40 to-transparent" />
           </div>
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
-            <div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white leading-tight mb-3">
-                One Protocol,
-                <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-400">
-                  Infinite Connections
-                </span>
-              </h2>
-              <p className="text-slate-500 dark:text-slate-500 text-base max-w-xl font-light">
-                Whether you&apos;re a developer, a global business, or a social user — we built the right interface for you.
-              </p>
-            </div>
-            {/* Countries badge */}
-            <div className="relative shrink-0">
-              <button
-                onClick={() => setShowCountries(!showCountries)}
-                className="flex items-center gap-2 px-4 py-2 border border-slate-200 dark:border-white/10 hover:border-blue-500/40 dark:hover:border-blue-400/30 text-slate-700 dark:text-slate-400 text-sm font-mono tracking-wider transition-all duration-200"
-              >
-                <Globe className="w-4 h-4 text-blue-500 dark:text-blue-400" />
-                <span>100+ COUNTRIES</span>
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${showCountries ? 'rotate-180' : ''}`} />
-              </button>
-              {showCountries && (
-                <div className="absolute top-full mt-1 left-0 bg-white dark:bg-[#0f0f0f] border border-slate-200 dark:border-white/10 p-4 shadow-xl z-20 min-w-[180px]">
-                  <div className="space-y-2">
-                    {countries.map((country, i) => (
-                      <div key={i} className="flex items-center gap-2 text-sm font-mono text-slate-600 dark:text-slate-400">
-                        <div className="w-1 h-1 rounded-full bg-blue-500 dark:bg-blue-400" />
-                        {country}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
+          <div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white leading-tight mb-3">
+              One Protocol,
+              <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-400">
+                Infinite Connections
+              </span>
+            </h2>
+            <p className="text-slate-500 dark:text-slate-500 text-base max-w-xl font-light">
+              Whether you&apos;re a developer, a global business, or a social user — we built the right interface for you.
+            </p>
           </div>
         </div>
 
