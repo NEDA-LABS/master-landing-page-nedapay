@@ -9,10 +9,10 @@ import ChainsWidget from './chains-widget';
 const Globe = dynamic(() => import('./globe'), { ssr: false });
 
 const storeButtons = [
-  { href: 'https://app.nedapay.xyz',                              icon: '/logo.png',            label: 'Open in',   title: 'Browser',   alt: 'Web App' },
-  { href: 'https://farcaster.xyz/miniapps/nhIkqfY9DK47/nedapay', icon: '/farcaster.jpeg',       label: 'Pay on',    title: 'Farcaster', alt: 'Farcaster MiniApp' },
-  { href: 'https://www.ntzs.co.tz/',                              icon: '/ntzs-logo.webp',       label: 'Get',       title: 'nTZS',      alt: 'nTZS' },
-  { href: 'https://nedapayplus.xyz/docs',                         icon: '/nedapayplus_docs.png', label: 'Build with', title: 'NEDApay+', alt: 'NEDApay APIs' },
+  { href: 'https://app.nedapay.xyz',                              icon: '/logo.png',            label: 'NEDApay',    title: 'Launch App', alt: 'NEDApay', iconBg: 'bg-blue-600 dark:bg-blue-700' },
+  { href: 'https://farcaster.xyz/miniapps/nhIkqfY9DK47/nedapay', icon: '/farcaster.jpeg',       label: 'Pay on',     title: 'Farcaster',  alt: 'Farcaster MiniApp' },
+  { href: 'https://www.ntzs.co.tz/',                              icon: '/ntzs-logo.webp',       label: 'Get',        title: 'nTZS',       alt: 'nTZS' },
+  { href: 'https://nedapayplus.xyz/docs',                         icon: '/nedapayplus_docs.png', label: 'Build with', title: 'NEDApay+',   alt: 'NEDApay APIs' },
 ];
 
 export default function HeroSection() {
@@ -143,8 +143,8 @@ export default function HeroSection() {
 
             {/* Description */}
             <p className="text-sm sm:text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-xl leading-relaxed mb-7 sm:mb-8 font-light">
-              Send money anywhere in seconds. Pay in any currency, settle instantly,
-              with fees so small you&apos;ll barely notice them.
+              Send money to anyone, anywhere — in seconds. No bank delays, no
+              inflated exchange rates. Just transfers that actually work.
             </p>
 
             {/* CTAs */}
@@ -205,7 +205,7 @@ export default function HeroSection() {
                       <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-blue-500/15 dark:border-blue-400/12 group-hover:border-blue-500/60 dark:group-hover:border-cyan-400/55 transition-colors duration-300" />
                       <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-blue-500/15 dark:border-blue-400/12 group-hover:border-blue-500/60 dark:group-hover:border-cyan-400/55 transition-colors duration-300" />
 
-                      <div className="shrink-0 w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center bg-white dark:bg-white/8 rounded-full p-1 overflow-hidden">
+                      <div className={`shrink-0 w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-full p-1 overflow-hidden ${(button as typeof button & { iconBg?: string }).iconBg ?? 'bg-slate-100 dark:bg-white/8'}`}>
                         <Image src={button.icon} alt={button.alt} width={40} height={40} className="w-full h-full object-contain rounded-full" />
                       </div>
                       <div className="flex flex-col items-start text-left leading-tight min-w-0">
