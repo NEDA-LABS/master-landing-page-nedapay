@@ -98,35 +98,42 @@ export default function HeroSection() {
                     [headline | globe]  then  [description full-width]
           Desktop → 2-col grid, globe spans right col 2 rows
       ═══════════════════════════════════════════════ */}
-      <div className="relative z-10 w-full px-3 sm:px-8 lg:px-12 py-4 sm:py-10">
-        <div className="grid grid-cols-2 lg:grid-cols-2 gap-x-3 gap-y-4 sm:gap-x-8 lg:gap-x-12 lg:gap-y-0 items-start min-h-[calc(100vh-9rem)] md:min-h-[calc(100vh-8rem)]">
+      <div className="relative z-10 w-full px-4 sm:px-8 lg:px-12 py-8 sm:py-10">
+        {/* Mobile: asymmetric 2-col — headline gets 5 parts, globe gets 7 parts so it can breathe */}
+        <div className="grid grid-cols-[5fr_7fr] sm:grid-cols-2 lg:grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-8 sm:gap-y-0 lg:gap-x-12 lg:gap-y-0 items-center min-h-[calc(100vh-9rem)] md:min-h-[calc(100vh-8rem)]">
 
           {/* ── BLOCK 1: Headline ── left col on mobile + desktop ── */}
           <div className="col-span-1 flex flex-col justify-center lg:col-start-1 lg:row-start-1 lg:pt-12">
 
             {/* Section label */}
-            <div className="flex items-center gap-1.5 sm:gap-3 mb-4 sm:mb-8">
+            <div className="flex items-center gap-1.5 sm:gap-3 mb-5 sm:mb-8">
               <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 animate-pulse shrink-0" />
-              <span className="text-[8px] sm:text-[11px] font-mono tracking-[0.15em] sm:tracking-[0.2em] text-blue-600 dark:text-blue-400 uppercase leading-tight">
+              <span className="text-[8px] sm:text-[11px] font-mono tracking-[0.12em] sm:tracking-[0.2em] text-blue-600 dark:text-blue-400 uppercase leading-tight">
                 <span className="hidden sm:inline">Global Payment Infrastructure</span>
-                <span className="sm:hidden">Payment Infra</span>
+                <span className="sm:hidden leading-snug">Global<br/>Payments</span>
               </span>
             </div>
 
-            {/* Headline — smaller on mobile to fit 2-col */}
-            <h1 className="text-[1.35rem] leading-[1.15] sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold tracking-tight">
+            {/* Headline — 2-col on mobile so each line is short, uses forced breaks */}
+            <h1 className="text-[1.25rem] leading-[1.2] sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold tracking-tight">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-500 dark:from-blue-400 dark:via-sky-400 dark:to-cyan-400">
-                Move<br className="sm:hidden" /> Money
+                Move<br className="sm:hidden" />{' '}Money
               </span>
               <br />
               <span className="text-slate-900 dark:text-white">
-                At the<br className="sm:hidden" /> Speed
+                At the<br className="sm:hidden" />{' '}Speed
               </span>
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 via-sky-500 to-blue-600 dark:from-cyan-400 dark:via-sky-400 dark:to-blue-400">
-                of the<br className="sm:hidden" /> Internet
+                of the<br className="sm:hidden" />{' '}Internet
               </span>
             </h1>
+
+            {/* Mobile real-time badge below headline */}
+            <div className="flex sm:hidden items-center gap-1.5 mt-5">
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse" />
+              <span className="text-[8px] font-mono tracking-widest text-slate-400 dark:text-slate-600 uppercase">Live</span>
+            </div>
 
             {/* Desktop dither line */}
             <div className="hidden lg:block h-px w-full mt-8 bg-gradient-to-r from-blue-500/20 via-cyan-500/10 to-transparent" />
@@ -152,14 +159,17 @@ export default function HeroSection() {
               </span>
             </div>
 
-            {/* Globe container — compact on mobile */}
-            <div className="relative w-full aspect-square max-w-[160px] sm:max-w-[380px] md:max-w-[440px] lg:max-w-[540px] mx-auto">
+            {/* Globe — fills the 7fr column on mobile, capped on larger screens */}
+            <div className="relative w-full aspect-square sm:max-w-[380px] md:max-w-[440px] lg:max-w-[540px] mx-auto">
               <Globe />
             </div>
           </div>
 
           {/* ── BLOCK 3: Description + CTAs ── full width on mobile; bottom-left on desktop ── */}
           <div className="col-span-2 lg:col-span-1 lg:col-start-1 lg:row-start-2 flex flex-col lg:pb-12">
+
+            {/* Subtle separator line on mobile */}
+            <div className="block lg:hidden h-px w-full mb-6 bg-gradient-to-r from-blue-500/20 via-slate-200 dark:via-white/8 to-transparent" />
 
             {/* Dot row — desktop only */}
             <div className="hidden lg:flex gap-[3px] mb-7 opacity-25 dark:opacity-20">
@@ -169,13 +179,13 @@ export default function HeroSection() {
             </div>
 
             {/* Description */}
-            <p className="text-xs sm:text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-xl leading-relaxed mb-5 sm:mb-8 font-light">
+            <p className="text-sm sm:text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-xl leading-relaxed mb-6 sm:mb-8 font-light">
               Stablecoin payments. Instant swaps. Real-time settlement.
               Connecting businesses and individuals across every border, every timezone, every currency.
             </p>
 
             {/* CTAs — always side by side */}
-            <div className="flex flex-row gap-2 sm:gap-3 mb-6 sm:mb-10">
+            <div className="flex flex-row gap-3 mb-7 sm:mb-10">
               <Link
                 href="https://app.nedapay.xyz"
                 className="group relative inline-flex items-center justify-center flex-1 sm:flex-none px-3 sm:px-7 py-2.5 sm:py-3 font-mono text-[10px] sm:text-sm tracking-widest border border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 hover:bg-blue-600 dark:hover:bg-blue-400 hover:text-white dark:hover:text-black transition-all duration-200"
@@ -218,24 +228,23 @@ export default function HeroSection() {
               </Link>
             </div>
 
-            {/* Access points — 2×2 on mobile, 1×4 on desktop */}
-            <div className="mt-6 sm:mt-10 w-full max-w-2xl">
-              <div className="flex items-center gap-3 mb-3 sm:mb-4">
+            {/* Access points — 2×2 on mobile, 1×4 on lg+ */}
+            <div className="mt-7 sm:mt-10 w-full max-w-2xl">
+              <div className="flex items-center gap-3 mb-4">
                 <div className="w-4 h-px bg-slate-200 dark:bg-slate-800" />
                 <span className="text-[9px] sm:text-[10px] font-mono tracking-[0.2em] text-slate-400 dark:text-slate-600 uppercase">Access Points</span>
                 <div className="flex-1 h-px bg-slate-200 dark:bg-slate-800" />
               </div>
-              {/* grid-cols-2 on mobile, 4 on md+ */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-2.5">
                 {storeButtons.map((button, index) => (
                   <Link key={index} href={button.href} className="group">
-                    <div className="flex h-full items-center gap-2 border border-slate-200 dark:border-white/8 hover:border-blue-500/40 dark:hover:border-blue-400/30 p-2.5 sm:p-3 transition-all duration-200 hover:bg-blue-50/40 dark:hover:bg-blue-500/5">
-                      <div className="shrink-0 w-7 h-7 sm:w-9 sm:h-9 flex items-center justify-center bg-slate-100 dark:bg-white/5 rounded-full border border-slate-200 dark:border-white/10 p-1 overflow-hidden">
+                    <div className="flex h-full items-center gap-2.5 border border-slate-200 dark:border-white/8 hover:border-blue-500/40 dark:hover:border-blue-400/30 p-3 sm:p-3 transition-all duration-200 hover:bg-blue-50/40 dark:hover:bg-blue-500/5">
+                      <div className="shrink-0 w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center bg-slate-100 dark:bg-white/5 rounded-full border border-slate-200 dark:border-white/10 p-1 overflow-hidden">
                         <Image src={button.icon} alt={button.alt} width={40} height={40} className="w-full h-full object-contain rounded-full" />
                       </div>
                       <div className="flex flex-col items-start text-left leading-tight min-w-0">
                         <span className="text-[8px] sm:text-[9px] uppercase tracking-wider font-mono text-slate-400 dark:text-slate-600 mb-0.5">{button.label}</span>
-                        <span className="text-[10px] sm:text-sm font-semibold text-slate-900 dark:text-white truncate w-full group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{button.title}</span>
+                        <span className="text-[11px] sm:text-sm font-semibold text-slate-900 dark:text-white truncate w-full group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{button.title}</span>
                       </div>
                     </div>
                   </Link>

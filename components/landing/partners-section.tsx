@@ -54,7 +54,7 @@ export default function PartnersSection() {
       </div>
 
       {/* nTZS Feature Card */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 sm:mb-20">
         <div className="relative border border-slate-200 dark:border-white/8 overflow-hidden">
           {/* Perspective grid bg */}
           <div
@@ -76,12 +76,12 @@ export default function PartnersSection() {
           <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-blue-500/40 dark:border-blue-400/40" />
           <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-blue-500/40 dark:border-blue-400/40" />
 
-          <div className="relative z-10 p-4 sm:p-8 md:p-12 bg-slate-50/80 dark:bg-white/[0.02]">
+          <div className="relative z-10 p-5 sm:p-8 md:p-12 bg-slate-50/80 dark:bg-white/[0.02]">
 
-            {/* Top intro grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-10">
-              {/* Image */}
-              <div className="flex justify-center lg:justify-end order-last lg:order-first">
+            {/* Top intro: on mobile, text-only (image hidden); on lg, side-by-side with image */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center mb-8 sm:mb-10">
+              {/* Image — hidden on mobile, shown on lg */}
+              <div className="hidden lg:flex justify-center lg:justify-end order-last lg:order-first">
                 <div className="group relative">
                   <Image
                     src="/NTZ STABLE 2.png"
@@ -118,6 +118,18 @@ export default function PartnersSection() {
                     PERMISSIONLESS MARKET MAKING
                   </span>
                 </div>
+
+                {/* Mobile: compact image strip (hidden on lg where the full image shows) */}
+                <div className="lg:hidden pt-4">
+                  <Image
+                    src="/NTZ STABLE 2.png"
+                    alt="nTZS Stablecoin"
+                    width={380}
+                    height={210}
+                    className="w-full max-w-xs mx-auto object-contain opacity-90"
+                    priority
+                  />
+                </div>
               </div>
             </div>
 
@@ -131,7 +143,7 @@ export default function PartnersSection() {
             </div>
 
             {/* Stats grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-7 sm:mb-10">
               {[
                 { value: '1.5%', label: 'ASK SPREAD',  hue: 'cyan' },
                 { value: '94%',  label: 'FILL RATE',   hue: 'blue' },
@@ -155,9 +167,9 @@ export default function PartnersSection() {
             </div>
 
             {/* Ask side / Bid side */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 mb-7 sm:mb-8">
               {/* ASK SIDE */}
-              <div className="relative border border-slate-200 dark:border-white/8 bg-white/40 dark:bg-white/[0.02] p-5 md:p-6 group hover:border-cyan-500/40 dark:hover:border-cyan-400/30 transition-colors">
+              <div className="relative border border-slate-200 dark:border-white/8 bg-white/40 dark:bg-white/[0.02] p-5 sm:p-6 group hover:border-cyan-500/40 dark:hover:border-cyan-400/30 transition-colors">
                 <div className="flex items-center gap-2 mb-3">
                   <div className="flex items-center justify-center w-7 h-7 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-500 dark:text-cyan-400">
                     <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -177,7 +189,7 @@ export default function PartnersSection() {
               </div>
 
               {/* BID SIDE */}
-              <div className="relative border border-slate-200 dark:border-white/8 bg-white/40 dark:bg-white/[0.02] p-5 md:p-6 group hover:border-blue-500/40 dark:hover:border-blue-400/30 transition-colors">
+              <div className="relative border border-slate-200 dark:border-white/8 bg-white/40 dark:bg-white/[0.02] p-5 sm:p-6 group hover:border-blue-500/40 dark:hover:border-blue-400/30 transition-colors">
                 <div className="flex items-center gap-2 mb-3">
                   <div className="flex items-center justify-center w-7 h-7 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-600 dark:text-blue-400">
                     <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -243,12 +255,12 @@ export default function PartnersSection() {
             </div>
 
             {/* CTA */}
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-row flex-wrap gap-3">
               <a
                 href="https://www.ntzs.co.tz/simplefx"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative inline-flex items-center justify-center gap-2 px-6 py-3 font-mono text-sm tracking-widest border border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 hover:bg-blue-600 dark:hover:bg-blue-400 hover:text-white dark:hover:text-black transition-all duration-200"
+                className="group relative inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 font-mono text-xs sm:text-sm tracking-widest border border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 hover:bg-blue-600 dark:hover:bg-blue-400 hover:text-white dark:hover:text-black transition-all duration-200"
               >
                 <span className="absolute -top-[3px] -left-[3px] w-2 h-2 border-t border-l border-blue-600 dark:border-blue-400 opacity-0 group-hover:opacity-100 transition-opacity" />
                 <span className="absolute -bottom-[3px] -right-[3px] w-2 h-2 border-b border-r border-blue-600 dark:border-blue-400 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -261,7 +273,7 @@ export default function PartnersSection() {
                 href="https://www.ntzs.co.tz/simplefx"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-6 py-3 font-mono text-sm tracking-widest border border-slate-300 dark:border-white/15 text-slate-600 dark:text-slate-400 hover:border-blue-500/50 dark:hover:border-blue-400/40 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200"
+                className="inline-flex items-center justify-center px-5 sm:px-6 py-3 font-mono text-xs sm:text-sm tracking-widest border border-slate-300 dark:border-white/15 text-slate-600 dark:text-slate-400 hover:border-blue-500/50 dark:hover:border-blue-400/40 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200"
               >
                 READ THE DOCS
               </a>
