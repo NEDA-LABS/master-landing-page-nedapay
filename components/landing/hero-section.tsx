@@ -9,10 +9,10 @@ import ChainsWidget from './chains-widget';
 const Globe = dynamic(() => import('./globe'), { ssr: false });
 
 const storeButtons = [
-  { href: 'https://app.nedapay.xyz',                              icon: '/logo.png',            label: 'Access via',  title: 'Web App',   alt: 'Web App' },
-  { href: 'https://farcaster.xyz/miniapps/nhIkqfY9DK47/nedapay', icon: '/farcaster.jpeg',       label: 'Mini-app on', title: 'Farcaster', alt: 'Farcaster MiniApp' },
-  { href: 'https://www.ntzs.co.tz/',                              icon: '/ntzs-logo.webp',       label: 'Mint & Burn', title: 'nTZS',      alt: 'nTZS Stablecoin' },
-  { href: 'https://nedapayplus.xyz/docs',                         icon: '/nedapayplus_docs.png', label: 'Connect via', title: 'NEDApay+',  alt: 'NEDApay APIs' },
+  { href: 'https://app.nedapay.xyz',                              icon: '/logo.png',            label: 'Open in',   title: 'Browser',   alt: 'Web App' },
+  { href: 'https://farcaster.xyz/miniapps/nhIkqfY9DK47/nedapay', icon: '/farcaster.jpeg',       label: 'Pay on',    title: 'Farcaster', alt: 'Farcaster MiniApp' },
+  { href: 'https://www.ntzs.co.tz/',                              icon: '/ntzs-logo.webp',       label: 'Get',       title: 'nTZS',      alt: 'nTZS' },
+  { href: 'https://nedapayplus.xyz/docs',                         icon: '/nedapayplus_docs.png', label: 'Build with', title: 'NEDApay+', alt: 'NEDApay APIs' },
 ];
 
 export default function HeroSection() {
@@ -75,7 +75,7 @@ export default function HeroSection() {
             <div className="flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
               <div className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 animate-pulse shrink-0" />
               <span className="text-[10px] sm:text-[11px] font-mono tracking-[0.18em] sm:tracking-[0.2em] text-blue-600 dark:text-blue-400 uppercase">
-                Global Payment Infrastructure
+                Send Money. Anywhere. Instantly.
               </span>
               <div className="h-px flex-1 sm:w-16 sm:flex-none bg-gradient-to-r from-blue-500/50 to-transparent" />
             </div>
@@ -143,8 +143,8 @@ export default function HeroSection() {
 
             {/* Description */}
             <p className="text-sm sm:text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-xl leading-relaxed mb-7 sm:mb-8 font-light">
-              Stablecoin payments. Instant swaps. Real-time settlement.
-              Connecting businesses and individuals across every border, every timezone, every currency.
+              Send money anywhere in seconds. Pay in any currency, settle instantly,
+              with fees so small you&apos;ll barely notice them.
             </p>
 
             {/* CTAs */}
@@ -157,7 +157,7 @@ export default function HeroSection() {
               </Link>
               <Link href="https://nedapayplus.xyz/docs"
                 className="inline-flex items-center justify-center flex-1 sm:flex-none px-5 sm:px-7 py-3 font-mono text-xs sm:text-sm tracking-widest border border-slate-300 dark:border-white/15 text-slate-600 dark:text-slate-400 hover:border-blue-500/50 dark:hover:border-blue-400/40 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200">
-                EXPLORE APIs
+                FOR BUILDERS
               </Link>
             </div>
 
@@ -188,22 +188,29 @@ export default function HeroSection() {
             </div>
 
             {/* Access points — 2×2 on mobile, 1×4 on lg */}
-            <div className="mt-8 w-full max-w-2xl">
+            <div className="mt-8 w-full">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-4 h-px bg-slate-200 dark:bg-slate-800" />
-                <span className="text-[9px] sm:text-[10px] font-mono tracking-[0.2em] text-slate-400 dark:text-slate-600 uppercase">Access Points</span>
+                <span className="text-[9px] sm:text-[10px] font-mono tracking-[0.2em] text-slate-400 dark:text-slate-600 uppercase">Start Here</span>
                 <div className="flex-1 h-px bg-slate-200 dark:bg-slate-800" />
               </div>
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-2.5">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3">
                 {storeButtons.map((button, index) => (
                   <Link key={index} href={button.href} className="group">
-                    <div className="flex h-full items-center gap-2.5 border border-slate-200 dark:border-white/8 hover:border-blue-500/40 dark:hover:border-blue-400/30 p-3 transition-all duration-200 hover:bg-blue-50/40 dark:hover:bg-blue-500/5">
-                      <div className="shrink-0 w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center bg-slate-100 dark:bg-white/5 rounded-full border border-slate-200 dark:border-white/10 p-1 overflow-hidden">
+                    {/* Same panel treatment as feature cards — no full border, corner brackets + top accent */}
+                    <div className="relative flex h-full items-center gap-2.5 bg-slate-50 dark:bg-white/[0.025] hover:bg-blue-50/50 dark:hover:bg-blue-500/[0.06] p-3 sm:p-3.5 transition-all duration-200 overflow-hidden">
+                      {/* Top gradient accent */}
+                      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/20 dark:via-blue-400/15 to-transparent group-hover:via-blue-500/55 dark:group-hover:via-cyan-400/50 transition-all duration-300" />
+                      {/* Corner brackets */}
+                      <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-blue-500/15 dark:border-blue-400/12 group-hover:border-blue-500/60 dark:group-hover:border-cyan-400/55 transition-colors duration-300" />
+                      <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-blue-500/15 dark:border-blue-400/12 group-hover:border-blue-500/60 dark:group-hover:border-cyan-400/55 transition-colors duration-300" />
+
+                      <div className="shrink-0 w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center bg-white dark:bg-white/8 rounded-full p-1 overflow-hidden">
                         <Image src={button.icon} alt={button.alt} width={40} height={40} className="w-full h-full object-contain rounded-full" />
                       </div>
                       <div className="flex flex-col items-start text-left leading-tight min-w-0">
-                        <span className="text-[8px] sm:text-[9px] uppercase tracking-wider font-mono text-slate-400 dark:text-slate-600 mb-0.5">{button.label}</span>
-                        <span className="text-[11px] sm:text-sm font-semibold text-slate-900 dark:text-white truncate w-full group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{button.title}</span>
+                        <span className="text-[8px] sm:text-[9px] uppercase tracking-wider font-mono text-slate-400 dark:text-slate-600 mb-0.5 whitespace-nowrap">{button.label}</span>
+                        <span className="text-[11px] sm:text-sm font-semibold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors whitespace-nowrap">{button.title}</span>
                       </div>
                     </div>
                   </Link>

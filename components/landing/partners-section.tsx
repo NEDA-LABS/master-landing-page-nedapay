@@ -35,21 +35,21 @@ export default function PartnersSection() {
         <div className="flex items-center gap-3 mb-5">
           <div className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400" />
           <span className="text-[11px] font-mono tracking-[0.2em] text-blue-600 dark:text-blue-400 uppercase">
-            Liquidity Layer
+            Earn While You Hold
           </span>
           <div className="h-px w-12 bg-gradient-to-r from-blue-500/40 to-transparent" />
         </div>
 
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-5 leading-tight">
-          Borderless Liquidity.
+          Your Money,
           <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-400">
-            Local Precision.
+            Working Globally.
           </span>
         </h2>
         <p className="text-slate-500 dark:text-slate-500 text-base max-w-2xl leading-relaxed font-light">
-          Powered by a global network of stablecoins and regulated partners.
-          Cross-border complexity reduced to a single API call.
+          Send, receive, and grow your funds across borders — no banks, no wires, no waiting.
+          Backed by a global network of licensed currencies and regulated partners.
         </p>
       </div>
 
@@ -97,25 +97,25 @@ export default function PartnersSection() {
               {/* Content */}
               <div className="space-y-4 text-slate-900 dark:text-white">
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="text-[10px] font-mono tracking-[0.2em] text-blue-600 dark:text-blue-400 uppercase border border-blue-500/20 dark:border-blue-400/20 px-2 py-0.5 bg-blue-50 dark:bg-blue-500/10">
-                    MULTI-ASSET · LIQUIDITY MARKET
+                  <span className="text-[10px] font-mono tracking-[0.2em] text-blue-600 dark:text-blue-400 uppercase px-2 py-0.5 bg-blue-50 dark:bg-blue-500/10">
+                    YOUR MONEY · WORKS FOR YOU
                   </span>
                 </div>
                 <h4 className="text-2xl md:text-3xl font-bold leading-tight">
-                  Open Liquidity via{' '}
+                  Put Your Money to Work with{' '}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-400">
                     SimpleFX
                   </span>
                 </h4>
                 <p className="text-slate-600 dark:text-slate-400 text-base leading-relaxed font-light">
-                  <span className="text-blue-600 dark:text-blue-400 font-medium">SimpleFX</span> is an open liquidity market supporting{' '}
-                  <span className="text-blue-600 dark:text-blue-400 font-medium">nTZS, USDC, USDT, EURC, cNGN</span> and more.
-                  Deposit any supported stablecoin, set your spread, and collect fees on every swap. Automated. Around the clock.
+                  <span className="text-blue-600 dark:text-blue-400 font-medium">SimpleFX</span> lets you earn on the money you already hold.
+                  Deposit USDC, nTZS, or any supported currency — and automatically collect a fee every time someone exchanges through your pool.
+                  No trading skills needed.
                 </p>
                 <div className="flex items-center gap-3 pt-2">
                   <div className="w-1.5 h-1.5 rounded-full bg-blue-500 dark:bg-blue-400 animate-pulse" />
                   <span className="text-sm font-mono text-blue-600 dark:text-blue-400 tracking-wider">
-                    PERMISSIONLESS MARKET MAKING
+                    EARN AUTOMATICALLY · 24/7
                   </span>
                 </div>
 
@@ -192,10 +192,10 @@ export default function PartnersSection() {
                   </span>
                 </div>
                 <h5 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
-                  Earn on every stablecoin sold to traders
+                  Earn every time someone buys
                 </h5>
                 <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-light">
-                  Deposit nTZS, USDC, USDT or any supported asset as your ask inventory. Every time a trader swaps in, your ask order fills and you pocket the spread. No manual trading required.
+                  Deposit your digital dollars into the pool. Each time someone buys through your listing, you automatically pocket a fee. No effort, no screen-watching.
                 </p>
               </div>
 
@@ -216,10 +216,10 @@ export default function PartnersSection() {
                   </span>
                 </div>
                 <h5 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
-                  Earn on every stablecoin bought from traders
+                  Earn every time someone sells
                 </h5>
                 <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-light">
-                  Hold USDC, EURC or cNGN as your bid reserve. When traders exit positions, your reserve absorbs the sell flow and you earn the bid spread on every fill. Around the clock.
+                  Keep a reserve of USDC, EURC, or cNGN ready. When people cash out, your reserve fills the order and you collect the fee. Around the clock, automatically.
                 </p>
               </div>
             </div>

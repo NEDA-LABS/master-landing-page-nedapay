@@ -5,29 +5,29 @@ import Image from 'next/image';
 const features = [
   {
     tag: '01',
-    title: 'Farcaster Mini App',
-    description: 'Seamless social payments directly within Farcaster. Send nTZS and USDC to friends without leaving your feed.',
+    title: 'Pay on Farcaster',
+    description: 'Send money to friends directly inside Farcaster. Split a bill, tip a creator, pay back a friend — without switching apps.',
     highlight: 'SOCIAL.PAYMENTS',
     image: '/farcaster.jpeg',
   },
   {
     tag: '02',
     title: 'Built on Base',
-    description: 'Leveraging Base L2 for near-zero gas fees and instant confirmation. The perfect infrastructure for micro-payments.',
+    description: 'Fast transactions, near-zero fees. Send a dollar or a thousand — it settles in seconds on Base, one of the world\'s fastest networks.',
     highlight: 'L2.INFRA',
     image: '/chains/base.svg',
   },
   {
     tag: '03',
-    title: 'Regulated nTZS',
-    description: 'The first fully compliant stablecoin for Tanzania. 1:1 backed and audited, ensuring trust and stability.',
+    title: 'nTZS Digital Shilling',
+    description: 'Tanzania\'s licensed digital currency, pegged 1:1 to the Tanzanian Shilling. Spend, save, and send with confidence.',
     highlight: 'STABLECOIN',
     image: '/ntzs-logo.webp',
   },
   {
     tag: '04',
-    title: 'NEDApay+ APIs',
-    description: 'Developer-first payment APIs for building the next generation of African fintech. Connect your app to the network.',
+    title: 'NEDApay+ for Builders',
+    description: 'Plug payments into any app in minutes. Our APIs handle the complexity — you focus on building your product.',
     highlight: 'DEV.TOOLS',
     image: '/nedapayplus_docs.png',
   },
@@ -60,14 +60,14 @@ export default function FeaturesSection() {
           </div>
           <div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white leading-tight mb-3">
-              One Protocol,
+              One Platform.
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-400">
-                Infinite Connections
+                Everything You Need.
               </span>
             </h2>
             <p className="text-slate-500 dark:text-slate-500 text-base max-w-xl font-light">
-              Whether you&apos;re a developer, a global business, or a social user. We built the right interface for you.
+              Sending money to family, building a payment app, or running a business across borders — we have the right tool for you.
             </p>
           </div>
         </div>
