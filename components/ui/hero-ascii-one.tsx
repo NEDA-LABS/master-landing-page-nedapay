@@ -159,7 +159,7 @@ export default function AnimationPage() {
             </div>
 
             <p className="text-xs lg:text-base text-gray-300 mb-5 lg:mb-6 leading-relaxed font-mono opacity-80">
-              Send stablecoins, swap instantly, cash out easily — all across Africa.
+              Send stablecoins, swap instantly, cash out easily. Borderless by design.
               Built on Base, powered by nTZS, designed for the future.
             </p>
 

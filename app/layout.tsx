@@ -1,7 +1,15 @@
 import type { Metadata } from "next";
+import { JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { Toaster } from "sonner";
 import "./globals.css";
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-mono-body",
+  display: "swap",
+});
 
 const defaultUrl = "https://nedapay.xyz"
 
@@ -29,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="antialiased" style={{ fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif' }}>
+      <body className={`${jetbrainsMono.variable} antialiased`} style={{ fontFamily: 'var(--font-mono-body), "JetBrains Mono", ui-monospace, "Cascadia Code", "Fira Code", monospace' }}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"

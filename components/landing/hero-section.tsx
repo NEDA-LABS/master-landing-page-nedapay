@@ -136,11 +136,11 @@ export default function HeroSection() {
             {/* Bottom legend */}
             <div className="absolute bottom-0 lg:bottom-12 left-1/2 -translate-x-1/2 flex items-center gap-4 text-[9px] font-mono text-slate-400 dark:text-slate-600 whitespace-nowrap z-10">
               <span className="flex items-center gap-1.5">
-                <span className="w-2 h-0.5 bg-cyan-500 inline-block" /> OUTBOUND
+                <span className="w-2 h-0.5 bg-cyan-400 inline-block" /> OUTBOUND
               </span>
               <span className="text-slate-300 dark:text-slate-700">|</span>
               <span className="flex items-center gap-1.5">
-                <span className="w-2 h-0.5 bg-blue-400 inline-block" /> INBOUND
+                <span className="w-2 h-0.5 bg-violet-400 inline-block" /> INBOUND
               </span>
             </div>
 
@@ -162,8 +162,8 @@ export default function HeroSection() {
 
             {/* Description */}
             <p className="text-sm sm:text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-xl leading-relaxed mb-8 font-light">
-              Stablecoin payments, instant swaps, real-time settlement —
-              connecting businesses and individuals across every border, every timezone, every currency.
+              Stablecoin payments. Instant swaps. Real-time settlement.
+              Connecting businesses and individuals across every border, every timezone, every currency.
             </p>
 
             {/* CTAs */}

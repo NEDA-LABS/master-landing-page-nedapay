@@ -41,15 +41,15 @@ export default function PartnersSection() {
         </div>
 
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-5 leading-tight">
-          Borderless Liquidity,
+          Borderless Liquidity.
           <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-400">
-            Local Precision
+            Local Precision.
           </span>
         </h2>
         <p className="text-slate-500 dark:text-slate-500 text-base max-w-2xl leading-relaxed font-light">
           Powered by a global network of stablecoins and regulated partners.
-          We turn cross-border complexity into a single API call.
+          Cross-border complexity reduced to a single API call.
         </p>
       </div>
 
@@ -85,7 +85,7 @@ export default function PartnersSection() {
                 <div className="group relative">
                   <Image
                     src="/NTZ STABLE 2.png"
-                    alt="nTZS — Tanzania's Local Stablecoin"
+                    alt="nTZS Stablecoin"
                     width={380}
                     height={210}
                     className="object-contain transition-transform duration-500 group-hover:scale-105"
@@ -98,26 +98,24 @@ export default function PartnersSection() {
               <div className="space-y-4 text-slate-900 dark:text-white">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="text-[10px] font-mono tracking-[0.2em] text-blue-600 dark:text-blue-400 uppercase border border-blue-500/20 dark:border-blue-400/20 px-2 py-0.5 bg-blue-50 dark:bg-blue-500/10">
-                    STABLECOIN · LIQUIDITY MARKET
+                    MULTI-ASSET · LIQUIDITY MARKET
                   </span>
                 </div>
                 <h4 className="text-2xl md:text-3xl font-bold leading-tight">
-                  Why{' '}
+                  Open Liquidity via{' '}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-400">
-                    nTZS Stablecoin
+                    SimpleFX
                   </span>
                 </h4>
                 <p className="text-slate-600 dark:text-slate-400 text-base leading-relaxed font-light">
-                  nTZS is the{' '}
-                  <span className="text-blue-600 dark:text-blue-400 font-medium">first regulated stablecoin in Tanzania</span>
-                  {' '}— and through{' '}
-                  <span className="text-blue-600 dark:text-blue-400 font-medium">SimpleFX</span>, anyone can become a market maker.
-                  Deposit nTZS, set your spread, and collect fees on every swap — automatically, around the clock. No trading desk. No effort.
+                  <span className="text-blue-600 dark:text-blue-400 font-medium">SimpleFX</span> is an open liquidity market supporting{' '}
+                  <span className="text-blue-600 dark:text-blue-400 font-medium">nTZS, USDC, USDT, EURC, cNGN</span> and more.
+                  Deposit any supported stablecoin, set your spread, and collect fees on every swap. Automated. Around the clock.
                 </p>
                 <div className="flex items-center gap-3 pt-2">
                   <div className="w-1.5 h-1.5 rounded-full bg-blue-500 dark:bg-blue-400 animate-pulse" />
                   <span className="text-sm font-mono text-blue-600 dark:text-blue-400 tracking-wider">
-                    THE OPEN TZS LIQUIDITY MARKET
+                    PERMISSIONLESS MARKET MAKING
                   </span>
                 </div>
               </div>
@@ -171,10 +169,10 @@ export default function PartnersSection() {
                   </span>
                 </div>
                 <h5 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
-                  Earn on every nTZS sold to traders
+                  Earn on every stablecoin sold to traders
                 </h5>
                 <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-light">
-                  Deposit nTZS as your ask inventory. Every time a trader swaps USDC for nTZS, your ask order fills and you pocket the spread — no manual trading required.
+                  Deposit nTZS, USDC, USDT or any supported asset as your ask inventory. Every time a trader swaps in, your ask order fills and you pocket the spread. No manual trading required.
                 </p>
               </div>
 
@@ -191,36 +189,53 @@ export default function PartnersSection() {
                   </span>
                 </div>
                 <h5 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
-                  Earn on every nTZS bought from traders
+                  Earn on every stablecoin bought from traders
                 </h5>
                 <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-light">
-                  Hold USDC as your bid reserve. When traders exit nTZS positions, your USDC absorbs the sell flow and you earn the bid spread on every fill, around the clock.
+                  Hold USDC, EURC or cNGN as your bid reserve. When traders exit positions, your reserve absorbs the sell flow and you earn the bid spread on every fill. Around the clock.
                 </p>
               </div>
             </div>
 
             {/* Supported coins/networks */}
-            <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-slate-200 dark:border-white/8 mb-6">
-              <div className="flex items-center gap-3">
-                <span className="text-[9px] font-mono tracking-[0.2em] text-slate-400 dark:text-slate-600 uppercase">
-                  Supports
+            <div className="pt-6 border-t border-slate-200 dark:border-white/8 mb-6 space-y-4">
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="text-[9px] font-mono tracking-[0.2em] text-slate-400 dark:text-slate-600 uppercase w-16 shrink-0">
+                  ASSETS
                 </span>
-                <div className="flex items-center gap-1.5">
-                  {['/ntzs-logo.webp','/usdc-logo.svg','/usdt-coin.svg','/eurc-coin.png','/cngn-icon.jpeg'].map((src, i) => (
-                    <div key={i} className="w-6 h-6 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 p-0.5 flex items-center justify-center overflow-hidden">
-                      <Image src={src} alt="" width={20} height={20} className="object-contain rounded-full" />
+                <div className="flex flex-wrap items-center gap-2">
+                  {[
+                    { src: '/ntzs-logo.webp',   label: 'nTZS' },
+                    { src: '/usdc-logo.svg',     label: 'USDC' },
+                    { src: '/usdt-coin.svg',     label: 'USDT' },
+                    { src: '/eurc-coin.png',     label: 'EURC' },
+                    { src: '/cngn-icon.jpeg',    label: 'cNGN' },
+                  ].map(({ src, label }) => (
+                    <div key={label} className="flex items-center gap-1.5 border border-slate-200 dark:border-white/8 bg-white/60 dark:bg-white/[0.02] px-2 py-1 rounded-sm">
+                      <div className="w-4 h-4 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 flex items-center justify-center overflow-hidden shrink-0">
+                        <Image src={src} alt={label} width={14} height={14} className="object-contain rounded-full" />
+                      </div>
+                      <span className="text-[9px] font-mono tracking-wider text-slate-500 dark:text-slate-400">{label}</span>
                     </div>
                   ))}
+                  <span className="text-[9px] font-mono text-slate-400 dark:text-slate-600">+ more</span>
                 </div>
               </div>
-              <div className="flex items-center gap-3">
-                <span className="text-[9px] font-mono tracking-[0.2em] text-slate-400 dark:text-slate-600 uppercase">
-                  On
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="text-[9px] font-mono tracking-[0.2em] text-slate-400 dark:text-slate-600 uppercase w-16 shrink-0">
+                  CHAINS
                 </span>
-                <div className="flex items-center gap-1.5">
-                  {['/chains/base.svg','/chains/polygon.svg','/chains/arbitrum.svg'].map((src, i) => (
-                    <div key={i} className="w-6 h-6 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 p-0.5 flex items-center justify-center overflow-hidden">
-                      <Image src={src} alt="" width={20} height={20} className="object-contain" />
+                <div className="flex items-center gap-2">
+                  {[
+                    { src: '/chains/base.svg',     label: 'Base' },
+                    { src: '/chains/polygon.svg',  label: 'Polygon' },
+                    { src: '/chains/arbitrum.svg', label: 'Arbitrum' },
+                  ].map(({ src, label }) => (
+                    <div key={label} className="flex items-center gap-1.5 border border-slate-200 dark:border-white/8 bg-white/60 dark:bg-white/[0.02] px-2 py-1 rounded-sm">
+                      <div className="w-4 h-4 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 flex items-center justify-center overflow-hidden shrink-0">
+                        <Image src={src} alt={label} width={14} height={14} className="object-contain" />
+                      </div>
+                      <span className="text-[9px] font-mono tracking-wider text-slate-500 dark:text-slate-400">{label}</span>
                     </div>
                   ))}
                 </div>

@@ -272,7 +272,7 @@ export default function Globe() {
       const distSq = (sx - cx) ** 2 + (sy - cy) ** 2;
       // If within globe projection, hide (planet eclipses it)
       if (distSq < R * R * 0.98) return;
-      const col = light.hue === 'cyan' ? '34,211,238' : '147,197,253';
+      const col = light.hue === 'cyan' ? '34,211,238' : '167,139,250';
       const g = ctx.createRadialGradient(sx, sy, 0, sx, sy, 7);
       g.addColorStop(0, `rgba(${col},0.4)`);
       g.addColorStop(1, `rgba(${col},0)`);
@@ -386,7 +386,7 @@ export default function Globe() {
         ctx.lineTo(cx + rB.x * R, cy - rB.y * R);
         ctx.strokeStyle = route.hue === 'cyan'
           ? `rgba(34,211,238,${alpha})`
-          : `rgba(96,165,250,${alpha})`;
+          : `rgba(167,139,250,${alpha})`;
         ctx.stroke();
       }
 
@@ -435,7 +435,7 @@ export default function Globe() {
           const eased = fade * fade;
           const vis = smoothstep(-0.12, 0.2, (rA.z + rB.z) / 2);
           const alpha = eased * vis;
-          const col = route.hue === 'cyan' ? '34,211,238' : '147,197,253';
+          const col = route.hue === 'cyan' ? '34,211,238' : '167,139,250';
           ctx.beginPath();
           ctx.moveTo(cx + rA.x * R, cy - rA.y * R);
           ctx.lineTo(cx + rB.x * R, cy - rB.y * R);
@@ -450,7 +450,7 @@ export default function Globe() {
           if (rH.z > -0.12) {
             const hx = cx + rH.x * R, hy = cy - rH.y * R;
             const headVis = smoothstep(-0.12, 0.1, rH.z);
-            const col = route.hue === 'cyan' ? '34,211,238' : '147,197,253';
+            const col = route.hue === 'cyan' ? '34,211,238' : '167,139,250';
 
             const g1 = ctx.createRadialGradient(hx, hy, 0, hx, hy, 13);
             g1.addColorStop(0,    `rgba(${col},${0.85 * headVis})`);
@@ -463,7 +463,7 @@ export default function Globe() {
 
             ctx.beginPath();
             ctx.arc(hx, hy, 2.4, 0, TAU);
-            ctx.fillStyle = route.hue === 'cyan' ? '#a5f3fc' : '#dbeafe';
+            ctx.fillStyle = route.hue === 'cyan' ? '#a5f3fc' : '#ddd6fe';
             ctx.globalAlpha = headVis;
             ctx.fill();
             ctx.globalAlpha = 1;
@@ -480,7 +480,7 @@ export default function Globe() {
       s.y += s.vy;
       s.vy += 0.025;
       const a = s.life;
-      const col = s.hue === 'cyan' ? '34,211,238' : '147,197,253';
+      const col = s.hue === 'cyan' ? '34,211,238' : '167,139,250';
       const g = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.size * 3);
       g.addColorStop(0, `rgba(${col},${0.85 * a})`);
       g.addColorStop(1, `rgba(${col},0)`);
@@ -627,7 +627,7 @@ export default function Globe() {
       const p = ringPoint(theta);
       if (p.z <= 0) return;
       const sx = cx + p.x * R, sy = cy - p.y * R;
-      const col = light.hue === 'cyan' ? '34,211,238' : '147,197,253';
+      const col = light.hue === 'cyan' ? '34,211,238' : '167,139,250';
       const fade = smoothstep(0, 0.2, p.z);
 
       // Halo

@@ -67,7 +67,7 @@ export default function FeaturesSection() {
               </span>
             </h2>
             <p className="text-slate-500 dark:text-slate-500 text-base max-w-xl font-light">
-              Whether you&apos;re a developer, a global business, or a social user — we built the right interface for you.
+              Whether you&apos;re a developer, a global business, or a social user. We built the right interface for you.
             </p>
           </div>
         </div>
