@@ -6,7 +6,7 @@ import { ThemeSwitcher } from './theme-switcher';
 
 export default function Header() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-black/90 backdrop-blur-xl border-b border-slate-200 dark:border-white/8">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-black/90 backdrop-blur-xl border-b border-slate-100 dark:border-white/[0.05]">
       {/* Technical top accent line */}
       <div className="h-[2px] bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-500 dark:from-blue-500 dark:via-sky-500 dark:to-cyan-500" />
 

@@ -83,20 +83,28 @@ export default function FeaturesSection() {
               {[...features, ...features, ...features].map((feature, index) => (
                 <div
                   key={index}
-                  className="group flex-shrink-0 mx-3 relative border border-slate-200 dark:border-white/8 hover:border-blue-500/40 dark:hover:border-blue-400/30 bg-white dark:bg-white/[0.02] hover:bg-blue-50/30 dark:hover:bg-blue-500/[0.04] transition-all duration-300"
+                  className="group flex-shrink-0 mx-3 relative bg-white dark:bg-white/[0.025] hover:bg-blue-50/30 dark:hover:bg-blue-500/[0.05] transition-all duration-300 overflow-hidden"
                   style={{ width: '300px', maxWidth: '85vw' }}
                 >
-                  {/* Corner accents */}
-                  <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-blue-500/0 group-hover:border-blue-500/60 dark:group-hover:border-blue-400/60 transition-colors duration-300" />
-                  <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-blue-500/0 group-hover:border-blue-500/60 dark:group-hover:border-blue-400/60 transition-colors duration-300" />
+                  {/* Top gradient accent line — always visible, brightens on hover */}
+                  <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/25 dark:via-blue-400/20 to-transparent group-hover:via-blue-500/60 dark:group-hover:via-cyan-400/50 transition-all duration-300" />
 
-                  <div className="p-6 md:p-8">
-                    {/* Tag number */}
+                  {/* Permanent corner brackets — subtle at rest, bright on hover */}
+                  <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-blue-500/20 dark:border-blue-400/15 group-hover:border-blue-500/70 dark:group-hover:border-cyan-400/60 transition-colors duration-300" />
+                  <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-blue-500/20 dark:border-blue-400/15 group-hover:border-blue-500/70 dark:group-hover:border-cyan-400/60 transition-colors duration-300" />
+                  <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-blue-500/20 dark:border-blue-400/15 group-hover:border-blue-500/70 dark:group-hover:border-cyan-400/60 transition-colors duration-300" />
+                  <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-blue-500/20 dark:border-blue-400/15 group-hover:border-blue-500/70 dark:group-hover:border-cyan-400/60 transition-colors duration-300" />
+
+                  {/* Hover glow bloom */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-b from-blue-500/[0.04] to-transparent" />
+
+                  <div className="relative p-6 md:p-8">
+                    {/* Tag + highlight */}
                     <div className="flex items-center justify-between mb-6">
                       <span className="text-[10px] font-mono text-slate-300 dark:text-slate-700 tracking-widest">
                         {feature.tag}
                       </span>
-                      <span className="text-[10px] font-mono tracking-[0.15em] text-blue-600 dark:text-blue-400 px-2 py-0.5 border border-blue-500/20 dark:border-blue-400/20 bg-blue-50 dark:bg-blue-500/10">
+                      <span className="text-[10px] font-mono tracking-[0.15em] text-blue-600 dark:text-blue-400 px-2 py-0.5 bg-blue-50 dark:bg-blue-500/10">
                         {feature.highlight}
                       </span>
                     </div>
@@ -108,7 +116,7 @@ export default function FeaturesSection() {
                         alt={feature.title}
                         width={56}
                         height={56}
-                        className="object-contain opacity-75 group-hover:opacity-100 transition-opacity duration-300 rounded-full"
+                        className="object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300 rounded-full"
                       />
                     </div>
 
@@ -120,8 +128,8 @@ export default function FeaturesSection() {
                       {feature.description}
                     </p>
 
-                    {/* Bottom decorative line */}
-                    <div className="mt-6 h-px bg-gradient-to-r from-blue-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    {/* Bottom accent */}
+                    <div className="mt-6 h-px bg-gradient-to-r from-blue-500/30 via-cyan-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                 </div>
               ))}

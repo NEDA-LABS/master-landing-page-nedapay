@@ -55,7 +55,7 @@ export default function PartnersSection() {
 
       {/* nTZS Feature Card */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 sm:mb-20">
-        <div className="relative border border-slate-200 dark:border-white/8 overflow-hidden">
+        <div className="relative border border-slate-100 dark:border-white/[0.05] overflow-hidden">
           {/* Perspective grid bg */}
           <div
             className="absolute inset-0 pointer-events-none opacity-30 dark:opacity-20"
@@ -152,10 +152,17 @@ export default function PartnersSection() {
               ].map((stat) => (
                 <div
                   key={stat.label}
-                  className="group relative border border-slate-200 dark:border-white/8 hover:border-blue-500/40 dark:hover:border-blue-400/30 bg-white/60 dark:bg-white/[0.02] hover:bg-blue-50/30 dark:hover:bg-blue-500/[0.04] p-4 transition-all duration-300"
+                  className="group relative overflow-hidden bg-white/50 dark:bg-white/[0.025] hover:bg-blue-50/40 dark:hover:bg-blue-500/[0.06] p-4 transition-all duration-300"
                 >
-                  <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-blue-500/0 group-hover:border-blue-500/60 dark:group-hover:border-blue-400/60 transition-colors" />
-                  <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-blue-500/0 group-hover:border-blue-500/60 dark:group-hover:border-blue-400/60 transition-colors" />
+                  {/* Top accent line — colored per hue, brightens on hover */}
+                  <div className={`absolute top-0 left-0 right-0 h-px transition-all duration-300 ${
+                    stat.hue === 'cyan'
+                      ? 'bg-gradient-to-r from-transparent via-cyan-500/35 to-transparent group-hover:via-cyan-400/80'
+                      : 'bg-gradient-to-r from-transparent via-blue-500/35 to-transparent group-hover:via-blue-400/80'
+                  }`} />
+                  {/* Subtle bottom fade */}
+                  <div className="absolute bottom-0 left-4 right-4 h-px bg-slate-100/60 dark:bg-white/4" />
+
                   <div className={`text-2xl md:text-3xl font-bold mb-1 ${stat.hue === 'cyan' ? 'text-cyan-500 dark:text-cyan-400' : 'text-blue-600 dark:text-blue-400'}`}>
                     {stat.value}
                   </div>
@@ -169,9 +176,13 @@ export default function PartnersSection() {
             {/* Ask side / Bid side */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 mb-7 sm:mb-8">
               {/* ASK SIDE */}
-              <div className="relative border border-slate-200 dark:border-white/8 bg-white/40 dark:bg-white/[0.02] p-5 sm:p-6 group hover:border-cyan-500/40 dark:hover:border-cyan-400/30 transition-colors">
+              <div className="relative overflow-hidden bg-white/30 dark:bg-white/[0.02] hover:bg-cyan-50/30 dark:hover:bg-cyan-500/[0.04] p-5 sm:p-6 group transition-all duration-300">
+                {/* Left accent stripe — cyan */}
+                <div className="absolute top-0 left-0 bottom-0 w-px bg-gradient-to-b from-transparent via-cyan-500/50 to-transparent group-hover:via-cyan-400/90 transition-all duration-300" />
+                {/* Top accent */}
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-cyan-500/30 via-cyan-500/10 to-transparent group-hover:from-cyan-400/70 transition-all duration-300" />
                 <div className="flex items-center gap-2 mb-3">
-                  <div className="flex items-center justify-center w-7 h-7 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-500 dark:text-cyan-400">
+                  <div className="flex items-center justify-center w-7 h-7 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-500 dark:text-cyan-400">
                     <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
                     </svg>
@@ -189,9 +200,13 @@ export default function PartnersSection() {
               </div>
 
               {/* BID SIDE */}
-              <div className="relative border border-slate-200 dark:border-white/8 bg-white/40 dark:bg-white/[0.02] p-5 sm:p-6 group hover:border-blue-500/40 dark:hover:border-blue-400/30 transition-colors">
+              <div className="relative overflow-hidden bg-white/30 dark:bg-white/[0.02] hover:bg-blue-50/30 dark:hover:bg-blue-500/[0.04] p-5 sm:p-6 group transition-all duration-300">
+                {/* Left accent stripe — blue/violet */}
+                <div className="absolute top-0 left-0 bottom-0 w-px bg-gradient-to-b from-transparent via-blue-500/50 to-transparent group-hover:via-blue-400/90 transition-all duration-300" />
+                {/* Top accent */}
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-blue-500/30 via-blue-500/10 to-transparent group-hover:from-blue-400/70 transition-all duration-300" />
                 <div className="flex items-center gap-2 mb-3">
-                  <div className="flex items-center justify-center w-7 h-7 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-600 dark:text-blue-400">
+                  <div className="flex items-center justify-center w-7 h-7 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400">
                     <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                     </svg>
@@ -210,7 +225,7 @@ export default function PartnersSection() {
             </div>
 
             {/* Supported coins/networks */}
-            <div className="pt-6 border-t border-slate-200 dark:border-white/8 mb-6 space-y-4">
+            <div className="pt-6 border-t border-slate-100 dark:border-white/[0.05] mb-6 space-y-4">
               <div className="flex flex-wrap items-center gap-3">
                 <span className="text-[9px] font-mono tracking-[0.2em] text-slate-400 dark:text-slate-600 uppercase w-16 shrink-0">
                   ASSETS
@@ -223,8 +238,8 @@ export default function PartnersSection() {
                     { src: '/eurc-coin.png',     label: 'EURC' },
                     { src: '/cngn-icon.jpeg',    label: 'cNGN' },
                   ].map(({ src, label }) => (
-                    <div key={label} className="flex items-center gap-1.5 border border-slate-200 dark:border-white/8 bg-white/60 dark:bg-white/[0.02] px-2 py-1 rounded-sm">
-                      <div className="w-4 h-4 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 flex items-center justify-center overflow-hidden shrink-0">
+                    <div key={label} className="flex items-center gap-1.5 bg-slate-100/70 dark:bg-white/[0.04] px-2 py-1">
+                      <div className="w-4 h-4 rounded-full bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-white/8 flex items-center justify-center overflow-hidden shrink-0">
                         <Image src={src} alt={label} width={14} height={14} className="object-contain rounded-full" />
                       </div>
                       <span className="text-[9px] font-mono tracking-wider text-slate-500 dark:text-slate-400">{label}</span>
@@ -243,8 +258,8 @@ export default function PartnersSection() {
                     { src: '/chains/polygon.svg',  label: 'Polygon' },
                     { src: '/chains/arbitrum.svg', label: 'Arbitrum' },
                   ].map(({ src, label }) => (
-                    <div key={label} className="flex items-center gap-1.5 border border-slate-200 dark:border-white/8 bg-white/60 dark:bg-white/[0.02] px-2 py-1 rounded-sm">
-                      <div className="w-4 h-4 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 flex items-center justify-center overflow-hidden shrink-0">
+                    <div key={label} className="flex items-center gap-1.5 bg-slate-100/70 dark:bg-white/[0.04] px-2 py-1">
+                      <div className="w-4 h-4 rounded-full bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-white/8 flex items-center justify-center overflow-hidden shrink-0">
                         <Image src={src} alt={label} width={14} height={14} className="object-contain" />
                       </div>
                       <span className="text-[9px] font-mono tracking-wider text-slate-500 dark:text-slate-400">{label}</span>
@@ -304,7 +319,7 @@ export default function PartnersSection() {
             {allCoins.map((coin, index) => (
               <div
                 key={`${coin.name}-${index}`}
-                className="flex-shrink-0 mx-2 sm:mx-4 w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] border border-slate-200 dark:border-white/8 hover:border-blue-500/40 dark:hover:border-blue-400/30 bg-white dark:bg-white/[0.02] hover:bg-blue-50/50 dark:hover:bg-blue-500/[0.05] flex items-center justify-center transition-all duration-200 hover:scale-105 group"
+                className="flex-shrink-0 mx-2 sm:mx-4 w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] bg-white/60 dark:bg-white/[0.025] hover:bg-blue-50/60 dark:hover:bg-blue-500/[0.07] flex items-center justify-center transition-all duration-200 hover:scale-105 group relative overflow-hidden"
               >
                 <Image
                   src={coin.logo}
