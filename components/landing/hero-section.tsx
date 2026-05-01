@@ -170,8 +170,9 @@ export default function HeroSection() {
                   { flag: '🇮🇳', name: 'India' },
                   { flag: '🇬🇧', name: 'United Kingdom' },
                   { flag: '🇧🇷', name: 'Brazil' },
-                  { flag: '🇩🇪', name: 'Germany' },
-                  { flag: '🇵🇭', name: 'Philippines' },
+                  { flag: '🇨🇳', name: 'China' },
+                  { flag: '🇹🇷', name: 'Turkey' },
+                  { flag: '🇦🇪', name: 'UAE' },
                 ].map(({ flag, name }, i) => (
                   <div
                     key={name}
