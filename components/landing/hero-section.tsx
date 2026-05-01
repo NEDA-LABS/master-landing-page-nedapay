@@ -90,12 +90,12 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Two-column layout */}
+      {/* Layout: 3 logical blocks (top content, globe, bottom content). On mobile they stack in source order; on desktop, globe spans the right column across both rows. */}
       <div className="relative z-10 w-full px-4 sm:px-8 lg:px-12 py-8 sm:py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-6 items-center min-h-[calc(100vh-8rem)]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-x-12 lg:gap-y-0 items-start min-h-[calc(100vh-8rem)]">
 
-          {/* ── LEFT: Content ── */}
-          <div className="flex flex-col justify-center">
+          {/* ── BLOCK 1: Top content (label + headline) — mobile: first; desktop: top-left ── */}
+          <div className="flex flex-col justify-center lg:col-start-1 lg:row-start-1 lg:pt-12">
 
             {/* Section label */}
             <div className="flex items-center gap-3 mb-8">
@@ -107,7 +107,7 @@ export default function HeroSection() {
             </div>
 
             {/* Headline */}
-            <div className="relative mb-6">
+            <div className="relative">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold leading-[1.1] tracking-tight">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-500 dark:from-blue-400 dark:via-sky-400 dark:to-cyan-400">
                   Move Money
@@ -123,6 +123,35 @@ export default function HeroSection() {
               </h1>
               <div className="hidden lg:block absolute -right-6 top-4 bottom-4 w-px hero-dither opacity-20 dark:opacity-30" />
             </div>
+          </div>
+
+          {/* ── BLOCK 2: Globe — mobile: between headline and description; desktop: right column spanning both rows ── */}
+          <div className="flex items-center justify-center relative lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:py-10">
+            {/* Top label */}
+            <div className="absolute top-0 lg:top-12 left-1/2 -translate-x-1/2 text-[9px] font-mono text-slate-400 dark:text-slate-600 tracking-widest uppercase whitespace-nowrap z-10">
+              <span className="hidden sm:inline">LIVE TRANSACTIONS · </span>
+              <span className="text-blue-600 dark:text-cyan-400">●</span>
+              <span className="ml-1">REAL-TIME</span>
+            </div>
+            {/* Bottom legend */}
+            <div className="absolute bottom-0 lg:bottom-12 left-1/2 -translate-x-1/2 flex items-center gap-4 text-[9px] font-mono text-slate-400 dark:text-slate-600 whitespace-nowrap z-10">
+              <span className="flex items-center gap-1.5">
+                <span className="w-2 h-0.5 bg-cyan-500 inline-block" /> OUTBOUND
+              </span>
+              <span className="text-slate-300 dark:text-slate-700">|</span>
+              <span className="flex items-center gap-1.5">
+                <span className="w-2 h-0.5 bg-blue-400 inline-block" /> INBOUND
+              </span>
+            </div>
+
+            {/* Globe container */}
+            <div className="relative w-full aspect-square max-w-[300px] sm:max-w-[380px] md:max-w-[440px] lg:max-w-[540px] mx-auto px-1">
+              <Globe />
+            </div>
+          </div>
+
+          {/* ── BLOCK 3: Bottom content (description, CTAs, etc.) — mobile: last; desktop: bottom-left ── */}
+          <div className="flex flex-col lg:col-start-1 lg:row-start-2 lg:pb-12">
 
             {/* Dot row */}
             <div className="hidden lg:flex gap-[3px] mb-7 opacity-25 dark:opacity-20">
@@ -203,32 +232,6 @@ export default function HeroSection() {
                   </Link>
                 ))}
               </div>
-            </div>
-          </div>
-
-          {/* ── RIGHT: Globe (visible on all screens) ── */}
-          <div className="flex items-center justify-center relative order-first lg:order-last py-2 sm:py-4 lg:py-0">
-            {/* Top label */}
-            <div className="absolute top-0 lg:top-4 left-1/2 -translate-x-1/2 text-[9px] font-mono text-slate-400 dark:text-slate-600 tracking-widest uppercase whitespace-nowrap z-10">
-              <span className="hidden sm:inline">LIVE TRANSACTIONS · </span>
-              <span className="text-blue-600 dark:text-cyan-400">●</span>
-              <span className="ml-1">REAL-TIME</span>
-            </div>
-            {/* Bottom legend */}
-            <div className="absolute bottom-0 lg:bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-3 text-[9px] font-mono text-slate-400 dark:text-slate-600 whitespace-nowrap z-10">
-              <span className="flex items-center gap-1">
-                <span className="w-2 h-0.5 bg-cyan-500 inline-block rounded" /> Outbound
-              </span>
-              <span className="flex items-center gap-1">
-                <span className="w-2 h-0.5 bg-blue-400 inline-block rounded" /> Inbound
-              </span>
-            </div>
-
-            {/* Globe container — responsive sizing */}
-            <div className="relative w-full aspect-square max-w-[280px] sm:max-w-[360px] md:max-w-[420px] lg:max-w-[520px] mx-auto px-2">
-              <div className="absolute inset-0 rounded-full border border-blue-500/10 dark:border-blue-400/10" />
-              <div className="absolute inset-4 rounded-full border border-blue-500/5 dark:border-blue-400/5" />
-              <Globe />
             </div>
           </div>
 
