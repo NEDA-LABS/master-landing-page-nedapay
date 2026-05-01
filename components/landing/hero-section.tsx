@@ -4,7 +4,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import { ParticleBackground } from './particle-background';
-import ChainsWidget from './chains-widget';
 
 const Globe = dynamic(() => import('./globe'), { ssr: false });
 
@@ -161,8 +160,34 @@ export default function HeroSection() {
               </Link>
             </div>
 
-            {/* Chains */}
-            <ChainsWidget />
+            {/* Countries widget */}
+            <div className="flex flex-wrap items-center gap-4">
+              <div className="flex -space-x-2.5">
+                {[
+                  { flag: '🇹🇿', name: 'Tanzania' },
+                  { flag: '🇳🇬', name: 'Nigeria' },
+                  { flag: '🇺🇸', name: 'United States' },
+                  { flag: '🇮🇳', name: 'India' },
+                  { flag: '🇬🇧', name: 'United Kingdom' },
+                  { flag: '🇧🇷', name: 'Brazil' },
+                  { flag: '🇩🇪', name: 'Germany' },
+                  { flag: '🇵🇭', name: 'Philippines' },
+                ].map(({ flag, name }, i) => (
+                  <div
+                    key={name}
+                    title={name}
+                    className="w-9 h-9 rounded-full border-2 border-white dark:border-black flex items-center justify-center text-lg bg-slate-100 dark:bg-slate-800 shadow-sm select-none"
+                    style={{ zIndex: 10 - i }}
+                  >
+                    {flag}
+                  </div>
+                ))}
+              </div>
+              <div className="flex flex-col">
+                <span className="text-slate-900 dark:text-white font-bold text-lg leading-none">100+ Countries</span>
+                <span className="text-slate-500 dark:text-slate-400 text-xs font-mono uppercase tracking-wider">Worldwide</span>
+              </div>
+            </div>
 
             {/* Social links */}
             <div className="flex flex-wrap items-center gap-4 sm:gap-5 mt-6 sm:mt-8">
@@ -210,7 +235,7 @@ export default function HeroSection() {
                       </div>
                       <div className="flex flex-col items-start text-left leading-tight min-w-0">
                         <span className="text-[8px] sm:text-[9px] uppercase tracking-wider font-mono text-slate-400 dark:text-slate-600 mb-0.5 whitespace-nowrap">{button.label}</span>
-                        <span className="text-[11px] sm:text-sm font-semibold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors whitespace-nowrap">{button.title}</span>
+                        <span className="text-[11px] sm:text-[13px] font-semibold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-tight">{button.title}</span>
                       </div>
                     </div>
                   </Link>

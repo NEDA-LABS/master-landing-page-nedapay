@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import ChainsWidget from './chains-widget';
 
 const stablecoins = [
   { name: 'USDC', logo: '/usdc-logo.svg' },
@@ -332,6 +333,18 @@ export default function PartnersSection() {
             ))}
           </div>
         </div>
+      </div>
+
+      {/* Chains widget — below stablecoins */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+        <div className="flex items-center gap-3 mb-5">
+          <div className="h-px flex-1 bg-slate-200 dark:bg-white/8" />
+          <span className="text-[10px] font-mono tracking-[0.2em] text-slate-400 dark:text-slate-600 uppercase px-3">
+            Supported Networks
+          </span>
+          <div className="h-px flex-1 bg-slate-200 dark:bg-white/8" />
+        </div>
+        <ChainsWidget />
       </div>
 
       <style jsx>{`
