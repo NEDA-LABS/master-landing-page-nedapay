@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import ChainsWidget from './chains-widget';
+import { useState } from 'react';
 
 const stablecoins = [
   { name: 'USDC', logo: '/usdc-logo.svg' },
@@ -15,6 +16,117 @@ const stablecoins = [
 ];
 
 const allCoins = [...stablecoins, ...stablecoins, ...stablecoins];
+
+const faqs = [
+  {
+    q: 'What is NEDApay?',
+    a: 'NEDApay is a borderless payments platform built on Base. It lets you send money to anyone in the world in seconds — no bank account required, no wire delays, no inflated exchange rates.',
+  },
+  {
+    q: 'Which countries can use NEDApay?',
+    a: 'NEDApay works in 100+ countries across Africa, Asia, Europe, the Americas, and the Middle East. If you have an internet connection, you can send and receive money.',
+  },
+  {
+    q: 'What is nTZS?',
+    a: 'nTZS is Tanzania\'s licensed digital currency, pegged 1:1 to the Tanzanian Shilling (TZS). It lets you hold, spend, and send Tanzanian value on-chain — fully regulated and backed.',
+  },
+  {
+    q: 'What are the fees?',
+    a: 'Transactions settle on Base, one of the world\'s fastest and cheapest networks. Fees are near-zero — typically a fraction of a cent — regardless of whether you\'re sending $1 or $10,000.',
+  },
+  {
+    q: 'What is SimpleFX and how do I earn?',
+    a: 'SimpleFX is NEDApay\'s liquidity layer. You deposit supported currencies (USDC, nTZS, EURC, and more) into a pool, and automatically earn a spread fee every time someone exchanges through it. No trading skills needed.',
+  },
+  {
+    q: 'Is NEDApay safe to use?',
+    a: 'Yes. NEDApay is built on audited smart contracts, runs on Base (a regulated, EVM-compatible Layer 2), and partners only with licensed stablecoin issuers. Your funds are never held by NEDApay — they stay on-chain under your control.',
+  },
+  {
+    q: 'What is NEDApay+?',
+    a: 'NEDApay+ is the developer platform. It gives builders API access to send, receive, and convert currencies inside any app — with a few lines of code. Visit nedapayplus.xyz to get started.',
+  },
+  {
+    q: 'How do I pay inside Farcaster?',
+    a: 'Open the NEDApay MiniApp on Farcaster, enter a username or wallet address, pick an amount, and confirm. The payment settles on-chain in seconds — no switching apps, no copy-pasting addresses.',
+  },
+];
+
+function FAQ() {
+  const [open, setOpen] = useState<number | null>(null);
+  return (
+    <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 mb-8">
+      {/* Section label */}
+      <div className="flex items-center gap-3 mb-10">
+        <div className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400" />
+        <span className="text-[11px] font-mono tracking-[0.2em] text-blue-600 dark:text-blue-400 uppercase">
+          FAQ
+        </span>
+        <div className="h-px flex-1 bg-gradient-to-r from-blue-500/30 to-transparent" />
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-0">
+        {/* Left column label */}
+        <div className="lg:col-span-2 mb-3">
+          <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white leading-tight">
+            Common Questions
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-400">, Answered.</span>
+          </h3>
+        </div>
+
+        <div className="lg:col-span-2 space-y-0 mt-6">
+          {faqs.map((faq, i) => {
+            const isOpen = open === i;
+            return (
+              <div key={i} className="group relative">
+                {/* Top accent line */}
+                <div className={`absolute top-0 left-0 right-0 h-px transition-all duration-300 ${isOpen ? 'bg-gradient-to-r from-blue-500/60 via-cyan-500/40 to-transparent' : 'bg-gradient-to-r from-transparent via-slate-200 dark:via-white/[0.06] to-transparent group-hover:via-blue-500/25 dark:group-hover:via-blue-400/20'}`} />
+
+                <button
+                  onClick={() => setOpen(isOpen ? null : i)}
+                  className="w-full flex items-start justify-between gap-4 px-4 sm:px-6 py-5 text-left transition-colors duration-200 hover:bg-blue-50/30 dark:hover:bg-blue-500/[0.04]"
+                  aria-expanded={isOpen}
+                >
+                  {/* Index + question */}
+                  <div className="flex items-start gap-3 sm:gap-4 min-w-0">
+                    <span className="shrink-0 text-[9px] font-mono text-slate-300 dark:text-slate-700 mt-0.5 tracking-widest">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <span className={`text-sm sm:text-base font-medium leading-snug transition-colors duration-200 ${isOpen ? 'text-blue-600 dark:text-blue-400' : 'text-slate-800 dark:text-slate-200 group-hover:text-blue-600 dark:group-hover:text-blue-400'}`}>
+                      {faq.q}
+                    </span>
+                  </div>
+
+                  {/* Toggle icon */}
+                  <div className={`shrink-0 w-5 h-5 mt-0.5 flex items-center justify-center transition-all duration-300 ${isOpen ? 'text-blue-500 dark:text-cyan-400 rotate-45' : 'text-slate-400 dark:text-slate-600 group-hover:text-blue-500 dark:group-hover:text-blue-400'}`}>
+                    <svg viewBox="0 0 16 16" fill="none" className="w-3.5 h-3.5" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" d="M8 2v12M2 8h12" />
+                    </svg>
+                  </div>
+                </button>
+
+                {/* Answer panel */}
+                <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'}`}>
+                  <div className="px-4 sm:px-6 pb-5 pl-[calc(1rem+1.75rem)] sm:pl-[calc(1.5rem+2rem)]">
+                    {/* Left accent bar */}
+                    <div className="relative pl-4 border-l border-blue-500/20 dark:border-blue-400/15">
+                      <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-light">
+                        {faq.a}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bottom divider — always on last item too */}
+                <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-white/[0.06] to-transparent" />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function PartnersSection() {
   return (
@@ -346,6 +458,9 @@ export default function PartnersSection() {
         </div>
         <ChainsWidget />
       </div>
+
+      {/* FAQ */}
+      <FAQ />
 
       <style jsx>{`
         @keyframes coins-scroll {
