@@ -32,23 +32,11 @@ const faqs = [
   },
   {
     q: 'What are the fees?',
-    a: 'Transactions settle on Base, one of the world\'s fastest and cheapest networks. Fees are near-zero — typically a fraction of a cent — regardless of whether you\'re sending $1 or $10,000.',
+    a: 'NEDApay keeps fees low and straightforward. Because transactions run on Base, you pay a small network fee that is significantly cheaper than a traditional wire or remittance service — no hidden charges, no surprise deductions on arrival.',
   },
   {
     q: 'What is SimpleFX and how do I earn?',
     a: 'SimpleFX is NEDApay\'s liquidity layer. You deposit supported currencies (USDC, nTZS, EURC, and more) into a pool, and automatically earn a spread fee every time someone exchanges through it. No trading skills needed.',
-  },
-  {
-    q: 'Is NEDApay safe to use?',
-    a: 'Yes. NEDApay is built on audited smart contracts, runs on Base (a regulated, EVM-compatible Layer 2), and partners only with licensed stablecoin issuers. Your funds are never held by NEDApay — they stay on-chain under your control.',
-  },
-  {
-    q: 'What is NEDApay+?',
-    a: 'NEDApay+ is the developer platform. It gives builders API access to send, receive, and convert currencies inside any app — with a few lines of code. Visit nedapayplus.xyz to get started.',
-  },
-  {
-    q: 'How do I pay inside Farcaster?',
-    a: 'Open the NEDApay MiniApp on Farcaster, enter a username or wallet address, pick an amount, and confirm. The payment settles on-chain in seconds — no switching apps, no copy-pasting addresses.',
   },
 ];
 
