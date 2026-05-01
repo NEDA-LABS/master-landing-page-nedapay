@@ -42,7 +42,9 @@ const storeButtons = [
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-16 bg-white dark:bg-black">
+    // pt accounts for header height:  mobile = accent(2) + bar(52) + sub-nav(34) ≈ 88px → pt-24
+    //                                  desktop = accent(2) + bar(56) = 58px → md:pt-16
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-24 md:pt-16 bg-white dark:bg-black">
       {/* Subtle video texture */}
       <video
         autoPlay loop muted playsInline
@@ -68,12 +70,12 @@ export default function HeroSection() {
       <ParticleBackground />
 
       {/* Corner frame accents */}
-      <div className="absolute top-16 left-0 w-10 h-10 lg:w-14 lg:h-14 border-t-2 border-l-2 border-blue-500/20 dark:border-blue-400/20 z-20 pointer-events-none" />
-      <div className="absolute top-16 right-0 w-10 h-10 lg:w-14 lg:h-14 border-t-2 border-r-2 border-blue-500/20 dark:border-blue-400/20 z-20 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-10 h-10 lg:w-14 lg:h-14 border-b-2 border-l-2 border-blue-500/20 dark:border-blue-400/20 z-20 pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-10 h-10 lg:w-14 lg:h-14 border-b-2 border-r-2 border-blue-500/20 dark:border-blue-400/20 z-20 pointer-events-none" />
+      <div className="absolute top-24 md:top-16 left-0 w-8 h-8 lg:w-14 lg:h-14 border-t-2 border-l-2 border-blue-500/20 dark:border-blue-400/20 z-20 pointer-events-none" />
+      <div className="absolute top-24 md:top-16 right-0 w-8 h-8 lg:w-14 lg:h-14 border-t-2 border-r-2 border-blue-500/20 dark:border-blue-400/20 z-20 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-8 h-8 lg:w-14 lg:h-14 border-b-2 border-l-2 border-blue-500/20 dark:border-blue-400/20 z-20 pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-8 h-8 lg:w-14 lg:h-14 border-b-2 border-r-2 border-blue-500/20 dark:border-blue-400/20 z-20 pointer-events-none" />
 
-      {/* Technical header labels */}
+      {/* Technical header labels — desktop only */}
       <div className="absolute top-[4.5rem] left-0 right-0 z-10 pointer-events-none hidden lg:block">
         <div className="w-full px-4 sm:px-8 lg:px-12 flex justify-between items-center">
           <div className="flex items-center gap-3 text-[10px] font-mono text-slate-400 dark:text-slate-600">
@@ -90,51 +92,57 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Layout: 3 logical blocks (top content, globe, bottom content). On mobile they stack in source order; on desktop, globe spans the right column across both rows. */}
-      <div className="relative z-10 w-full px-4 sm:px-8 lg:px-12 py-8 sm:py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-x-12 lg:gap-y-0 items-start min-h-[calc(100vh-8rem)]">
+      {/* ═══════════════════════════════════════════════
+          LAYOUT STRATEGY
+          Mobile  → 2-col grid throughout:
+                    [headline | globe]  then  [description full-width]
+          Desktop → 2-col grid, globe spans right col 2 rows
+      ═══════════════════════════════════════════════ */}
+      <div className="relative z-10 w-full px-3 sm:px-8 lg:px-12 py-4 sm:py-10">
+        <div className="grid grid-cols-2 lg:grid-cols-2 gap-x-3 gap-y-4 sm:gap-x-8 lg:gap-x-12 lg:gap-y-0 items-start min-h-[calc(100vh-9rem)] md:min-h-[calc(100vh-8rem)]">
 
-          {/* ── BLOCK 1: Top content (label + headline) — mobile: first; desktop: top-left ── */}
-          <div className="flex flex-col justify-center lg:col-start-1 lg:row-start-1 lg:pt-12">
+          {/* ── BLOCK 1: Headline ── left col on mobile + desktop ── */}
+          <div className="col-span-1 flex flex-col justify-center lg:col-start-1 lg:row-start-1 lg:pt-12">
 
             {/* Section label */}
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 animate-pulse" />
-              <span className="text-[11px] font-mono tracking-[0.2em] text-blue-600 dark:text-blue-400 uppercase">
-                Global Payment Infrastructure
+            <div className="flex items-center gap-1.5 sm:gap-3 mb-4 sm:mb-8">
+              <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 animate-pulse shrink-0" />
+              <span className="text-[8px] sm:text-[11px] font-mono tracking-[0.15em] sm:tracking-[0.2em] text-blue-600 dark:text-blue-400 uppercase leading-tight">
+                <span className="hidden sm:inline">Global Payment Infrastructure</span>
+                <span className="sm:hidden">Payment Infra</span>
               </span>
-              <div className="h-px w-16 bg-gradient-to-r from-blue-500/50 to-transparent" />
             </div>
 
-            {/* Headline */}
-            <div className="relative">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold leading-[1.1] tracking-tight">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-500 dark:from-blue-400 dark:via-sky-400 dark:to-cyan-400">
-                  Move Money
-                </span>
-                <br />
-                <span className="text-slate-900 dark:text-white">
-                  At the Speed
-                </span>
-                <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 via-sky-500 to-blue-600 dark:from-cyan-400 dark:via-sky-400 dark:to-blue-400">
-                  of the Internet
-                </span>
-              </h1>
-              <div className="hidden lg:block absolute -right-6 top-4 bottom-4 w-px hero-dither opacity-20 dark:opacity-30" />
-            </div>
+            {/* Headline — smaller on mobile to fit 2-col */}
+            <h1 className="text-[1.35rem] leading-[1.15] sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold tracking-tight">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-500 dark:from-blue-400 dark:via-sky-400 dark:to-cyan-400">
+                Move<br className="sm:hidden" /> Money
+              </span>
+              <br />
+              <span className="text-slate-900 dark:text-white">
+                At the<br className="sm:hidden" /> Speed
+              </span>
+              <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 via-sky-500 to-blue-600 dark:from-cyan-400 dark:via-sky-400 dark:to-blue-400">
+                of the<br className="sm:hidden" /> Internet
+              </span>
+            </h1>
+
+            {/* Desktop dither line */}
+            <div className="hidden lg:block h-px w-full mt-8 bg-gradient-to-r from-blue-500/20 via-cyan-500/10 to-transparent" />
           </div>
 
-          {/* ── BLOCK 2: Globe — mobile: between headline and description; desktop: right column spanning both rows ── */}
-          <div className="flex items-center justify-center relative lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:py-10">
-            {/* Top label */}
-            <div className="absolute top-0 lg:top-12 left-1/2 -translate-x-1/2 text-[9px] font-mono text-slate-400 dark:text-slate-600 tracking-widest uppercase whitespace-nowrap z-10">
-              <span className="hidden sm:inline">LIVE TRANSACTIONS · </span>
+          {/* ── BLOCK 2: Globe ── right col on mobile; right col row-span-2 on desktop ── */}
+          <div className="col-span-1 flex items-center justify-center relative lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:py-10">
+
+            {/* REAL-TIME badge — hidden on mobile to save space */}
+            <div className="hidden sm:block absolute top-0 lg:top-12 left-1/2 -translate-x-1/2 text-[9px] font-mono text-slate-400 dark:text-slate-600 tracking-widest uppercase whitespace-nowrap z-10">
               <span className="text-blue-600 dark:text-cyan-400">●</span>
               <span className="ml-1">REAL-TIME</span>
             </div>
-            {/* Bottom legend */}
-            <div className="absolute bottom-0 lg:bottom-12 left-1/2 -translate-x-1/2 flex items-center gap-4 text-[9px] font-mono text-slate-400 dark:text-slate-600 whitespace-nowrap z-10">
+
+            {/* OUTBOUND / INBOUND legend — hidden on mobile */}
+            <div className="hidden sm:flex absolute bottom-0 lg:bottom-12 left-1/2 -translate-x-1/2 items-center gap-4 text-[9px] font-mono text-slate-400 dark:text-slate-600 whitespace-nowrap z-10">
               <span className="flex items-center gap-1.5">
                 <span className="w-2 h-0.5 bg-cyan-400 inline-block" /> OUTBOUND
               </span>
@@ -144,16 +152,16 @@ export default function HeroSection() {
               </span>
             </div>
 
-            {/* Globe container */}
-            <div className="relative w-full aspect-square max-w-[300px] sm:max-w-[380px] md:max-w-[440px] lg:max-w-[540px] mx-auto px-1">
+            {/* Globe container — compact on mobile */}
+            <div className="relative w-full aspect-square max-w-[160px] sm:max-w-[380px] md:max-w-[440px] lg:max-w-[540px] mx-auto">
               <Globe />
             </div>
           </div>
 
-          {/* ── BLOCK 3: Bottom content (description, CTAs, etc.) — mobile: last; desktop: bottom-left ── */}
-          <div className="flex flex-col lg:col-start-1 lg:row-start-2 lg:pb-12">
+          {/* ── BLOCK 3: Description + CTAs ── full width on mobile; bottom-left on desktop ── */}
+          <div className="col-span-2 lg:col-span-1 lg:col-start-1 lg:row-start-2 flex flex-col lg:pb-12">
 
-            {/* Dot row */}
+            {/* Dot row — desktop only */}
             <div className="hidden lg:flex gap-[3px] mb-7 opacity-25 dark:opacity-20">
               {Array.from({ length: 52 }).map((_, i) => (
                 <div key={i} className="w-[3px] h-[3px] rounded-full bg-blue-500 dark:bg-blue-400" />
@@ -161,16 +169,16 @@ export default function HeroSection() {
             </div>
 
             {/* Description */}
-            <p className="text-sm sm:text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-xl leading-relaxed mb-8 font-light">
+            <p className="text-xs sm:text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-xl leading-relaxed mb-5 sm:mb-8 font-light">
               Stablecoin payments. Instant swaps. Real-time settlement.
               Connecting businesses and individuals across every border, every timezone, every currency.
             </p>
 
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-3 mb-10">
+            {/* CTAs — always side by side */}
+            <div className="flex flex-row gap-2 sm:gap-3 mb-6 sm:mb-10">
               <Link
                 href="https://app.nedapay.xyz"
-                className="group relative inline-flex items-center justify-center px-7 py-3 font-mono text-sm tracking-widest border border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 hover:bg-blue-600 dark:hover:bg-blue-400 hover:text-white dark:hover:text-black transition-all duration-200"
+                className="group relative inline-flex items-center justify-center flex-1 sm:flex-none px-3 sm:px-7 py-2.5 sm:py-3 font-mono text-[10px] sm:text-sm tracking-widest border border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 hover:bg-blue-600 dark:hover:bg-blue-400 hover:text-white dark:hover:text-black transition-all duration-200"
               >
                 <span className="absolute -top-[3px] -left-[3px] w-2 h-2 border-t border-l border-blue-600 dark:border-blue-400 opacity-0 group-hover:opacity-100 transition-opacity" />
                 <span className="absolute -bottom-[3px] -right-[3px] w-2 h-2 border-b border-r border-blue-600 dark:border-blue-400 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -178,7 +186,7 @@ export default function HeroSection() {
               </Link>
               <Link
                 href="https://nedapayplus.xyz/docs"
-                className="inline-flex items-center justify-center px-7 py-3 font-mono text-sm tracking-widest border border-slate-300 dark:border-white/15 text-slate-600 dark:text-slate-400 hover:border-blue-500/50 dark:hover:border-blue-400/40 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200"
+                className="inline-flex items-center justify-center flex-1 sm:flex-none px-3 sm:px-7 py-2.5 sm:py-3 font-mono text-[10px] sm:text-sm tracking-widest border border-slate-300 dark:border-white/15 text-slate-600 dark:text-slate-400 hover:border-blue-500/50 dark:hover:border-blue-400/40 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200"
               >
                 EXPLORE APIs
               </Link>
@@ -188,45 +196,46 @@ export default function HeroSection() {
             <ChainsWidget />
 
             {/* Social links */}
-            <div className="flex flex-wrap items-center gap-5 mt-8">
+            <div className="flex flex-wrap items-center gap-4 sm:gap-5 mt-5 sm:mt-8">
               <div className="flex items-center gap-2">
                 <div className="w-4 h-px bg-slate-300 dark:bg-slate-700" />
-                <span className="text-[10px] font-mono tracking-[0.15em] text-slate-400 dark:text-slate-600 uppercase">Community</span>
+                <span className="text-[9px] sm:text-[10px] font-mono tracking-[0.15em] text-slate-400 dark:text-slate-600 uppercase">Community</span>
                 <div className="w-4 h-px bg-slate-300 dark:bg-slate-700" />
               </div>
               <Link href="https://discord.gg/Ubd889wjSM" target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-2 text-slate-500 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189z" />
                 </svg>
-                <span className="font-mono text-[11px]">Discord</span>
+                <span className="font-mono text-[10px] sm:text-[11px]">Discord</span>
               </Link>
               <Link href="https://x.com/NedaPay_xyz" target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-2 text-slate-500 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
-                <span className="font-mono text-[11px]">X (Twitter)</span>
+                <span className="font-mono text-[10px] sm:text-[11px]">X (Twitter)</span>
               </Link>
             </div>
 
-            {/* Access points */}
-            <div className="mt-10 w-full max-w-2xl">
-              <div className="flex items-center gap-3 mb-4">
+            {/* Access points — 2×2 on mobile, 1×4 on desktop */}
+            <div className="mt-6 sm:mt-10 w-full max-w-2xl">
+              <div className="flex items-center gap-3 mb-3 sm:mb-4">
                 <div className="w-4 h-px bg-slate-200 dark:bg-slate-800" />
-                <span className="text-[10px] font-mono tracking-[0.2em] text-slate-400 dark:text-slate-600 uppercase">Access Points</span>
+                <span className="text-[9px] sm:text-[10px] font-mono tracking-[0.2em] text-slate-400 dark:text-slate-600 uppercase">Access Points</span>
                 <div className="flex-1 h-px bg-slate-200 dark:bg-slate-800" />
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2">
+              {/* grid-cols-2 on mobile, 4 on md+ */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                 {storeButtons.map((button, index) => (
                   <Link key={index} href={button.href} className="group">
-                    <div className="flex h-full items-center gap-2 border border-slate-200 dark:border-white/8 hover:border-blue-500/40 dark:hover:border-blue-400/30 p-3 transition-all duration-200 hover:bg-blue-50/40 dark:hover:bg-blue-500/5">
-                      <div className="shrink-0 w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center bg-slate-100 dark:bg-white/5 rounded-full border border-slate-200 dark:border-white/10 p-1 overflow-hidden">
+                    <div className="flex h-full items-center gap-2 border border-slate-200 dark:border-white/8 hover:border-blue-500/40 dark:hover:border-blue-400/30 p-2.5 sm:p-3 transition-all duration-200 hover:bg-blue-50/40 dark:hover:bg-blue-500/5">
+                      <div className="shrink-0 w-7 h-7 sm:w-9 sm:h-9 flex items-center justify-center bg-slate-100 dark:bg-white/5 rounded-full border border-slate-200 dark:border-white/10 p-1 overflow-hidden">
                         <Image src={button.icon} alt={button.alt} width={40} height={40} className="w-full h-full object-contain rounded-full" />
                       </div>
                       <div className="flex flex-col items-start text-left leading-tight min-w-0">
-                        <span className="text-[9px] uppercase tracking-wider font-mono text-slate-400 dark:text-slate-600 mb-0.5">{button.label}</span>
-                        <span className="text-xs sm:text-sm font-semibold text-slate-900 dark:text-white truncate w-full group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{button.title}</span>
+                        <span className="text-[8px] sm:text-[9px] uppercase tracking-wider font-mono text-slate-400 dark:text-slate-600 mb-0.5">{button.label}</span>
+                        <span className="text-[10px] sm:text-sm font-semibold text-slate-900 dark:text-white truncate w-full group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{button.title}</span>
                       </div>
                     </div>
                   </Link>
@@ -240,8 +249,8 @@ export default function HeroSection() {
 
       {/* Bottom status bar */}
       <div className="absolute bottom-0 left-0 right-0 z-20 border-t border-slate-100 dark:border-white/5 bg-white/90 dark:bg-black/80 backdrop-blur-sm pointer-events-none">
-        <div className="w-full px-4 sm:px-8 lg:px-12 py-2 flex items-center justify-between">
-          <div className="flex items-center gap-4 text-[9px] font-mono text-slate-400 dark:text-slate-700">
+        <div className="w-full px-4 sm:px-8 lg:px-12 py-1.5 sm:py-2 flex items-center justify-between">
+          <div className="flex items-center gap-3 sm:gap-4 text-[8px] sm:text-[9px] font-mono text-slate-400 dark:text-slate-700">
             <span>NEDAPAY.SYS</span>
             <div className="hidden sm:flex items-end gap-[2px]">
               {[6, 10, 8, 14, 7, 11, 9].map((h, i) => (
@@ -250,7 +259,7 @@ export default function HeroSection() {
             </div>
             <span>ONLINE</span>
           </div>
-          <div className="flex items-center gap-3 text-[9px] font-mono text-slate-400 dark:text-slate-700">
+          <div className="flex items-center gap-3 text-[8px] sm:text-[9px] font-mono text-slate-400 dark:text-slate-700">
             <div className="flex gap-1">
               <div className="w-1 h-1 bg-blue-500/70 rounded-full animate-pulse" />
               <div className="w-1 h-1 bg-sky-500/50 rounded-full animate-pulse" style={{ animationDelay: '0.3s' }} />
