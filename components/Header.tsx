@@ -43,6 +43,14 @@ export default function Header() {
             {/* Desktop nav links */}
             <nav className="hidden md:flex items-center gap-5">
               <Link
+                href="https://www.ntzs.co.tz/simplefx"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-mono tracking-wider text-slate-500 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors uppercase"
+              >
+                SimpleFX
+              </Link>
+              <Link
                 href="/privacy-policy"
                 className="text-xs font-mono tracking-wider text-slate-500 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors uppercase"
               >
@@ -75,20 +83,24 @@ export default function Header() {
         </div>
       </div>
 
-      {/* ── Mobile sub-nav strip (replaces hamburger dropdown) ── */}
+      {/* ── Mobile sub-nav strip ── */}
       <div className="md:hidden border-t border-slate-100 dark:border-white/5">
         <div className="flex items-stretch divide-x divide-slate-100 dark:divide-white/5">
           <Link
-            href="/privacy-policy"
-            className="flex-1 flex items-center justify-center py-2.5 text-[9px] font-mono tracking-[0.18em] text-slate-500 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/50 dark:hover:bg-blue-500/5 transition-colors uppercase"
+            href="https://app.nedapay.xyz"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 flex items-center justify-center py-2.5 text-[9px] font-mono tracking-[0.18em] text-blue-600 dark:text-blue-400 hover:bg-blue-50/50 dark:hover:bg-blue-500/5 transition-colors uppercase"
           >
-            Privacy
+            App
           </Link>
           <Link
-            href="/terms-of-service"
-            className="flex-1 flex items-center justify-center py-2.5 text-[9px] font-mono tracking-[0.18em] text-slate-500 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/50 dark:hover:bg-blue-500/5 transition-colors uppercase"
+            href="https://www.ntzs.co.tz/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 flex items-center justify-center py-2.5 text-[9px] font-mono tracking-[0.18em] text-cyan-600 dark:text-cyan-400 hover:bg-cyan-50/50 dark:hover:bg-cyan-500/5 transition-colors uppercase"
           >
-            Terms
+            nTZS
           </Link>
           <Link
             href="https://farcaster.xyz/miniapps/nhIkqfY9DK47/nedapay"
@@ -99,12 +111,10 @@ export default function Header() {
             Farcaster
           </Link>
           <Link
-            href="https://www.ntzs.co.tz/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 flex items-center justify-center py-2.5 text-[9px] font-mono tracking-[0.18em] text-cyan-600 dark:text-cyan-400 hover:bg-cyan-50/50 dark:hover:bg-cyan-500/5 transition-colors uppercase"
+            href="/privacy-policy"
+            className="flex-1 flex items-center justify-center py-2.5 text-[9px] font-mono tracking-[0.18em] text-slate-500 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/50 dark:hover:bg-blue-500/5 transition-colors uppercase"
           >
-            nTZS
+            Policy
           </Link>
         </div>
       </div>

@@ -5,7 +5,7 @@ import { Mail, MapPin, Phone } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="relative bg-slate-950 dark:bg-black text-slate-300 border-t border-white/8">
+    <footer className="relative bg-slate-50 dark:bg-black text-slate-600 dark:text-slate-300 border-t border-slate-200 dark:border-white/8">
       {/* Grid background */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -29,7 +29,7 @@ export default function Footer() {
               <div className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
               <span className="text-[10px] font-mono tracking-[0.2em] text-blue-400 uppercase">System Online</span>
             </div>
-            <h3 className="text-2xl font-bold text-white mb-5 tracking-tight">NEDApay</h3>
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-5 tracking-tight">NEDApay</h3>
             <div className="flex flex-col gap-2.5 text-sm text-slate-500">
               <div className="flex items-center gap-2">
                 <MapPin className="w-3.5 h-3.5 text-blue-400 shrink-0" />
@@ -69,7 +69,7 @@ export default function Footer() {
                     href={item.href}
                     className="font-mono text-xs hover:text-blue-400 transition-colors flex items-center gap-2 group"
                   >
-                    <span className="w-1 h-1 rounded-full bg-slate-700 group-hover:bg-blue-400 transition-colors" />
+                    <span className="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-700 group-hover:bg-blue-400 transition-colors" />
                     {item.label}
                   </Link>
                 </li>
@@ -79,7 +79,7 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="h-px bg-white/8 mb-6" />
+        <div className="h-px bg-slate-200 dark:bg-white/8 mb-6" />
 
         {/* Bottom row */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
