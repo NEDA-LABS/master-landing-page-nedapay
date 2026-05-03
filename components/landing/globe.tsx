@@ -88,7 +88,7 @@ const ROUTES = [
   { from: 7, to: 1,  hue: 'cyan', offsets: [0.05]      },
 ];
 
-const STEPS = 90;
+const STEPS = 64;
 const PARTICLE_SPEED = 0.0007;
 
 const buildArc = (a: Vec3, b: Vec3) =>
@@ -122,14 +122,17 @@ interface Star { x: number; y: number; size: number; phase: number }
 // ║  Component                                         ║
 // ╚════════════════════════════════════════════════════╝
 export default function Globe() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const rafRef    = useRef<number>(0);
-  const rotRef    = useRef(0.6);
-  const timeRef   = useRef(0);
-  const lastTsRef = useRef(0);
-  const arcsRef   = useRef<Vec3[][]>([]);
-  const sparklesRef = useRef<Sparkle[]>([]);
-  const arrivedRef  = useRef<Set<string>>(new Set());
+  const canvasRef      = useRef<HTMLCanvasElement>(null);
+  const rafRef         = useRef<number>(0);
+  const rotRef         = useRef(0.6);
+  const timeRef        = useRef(0);
+  const lastTsRef      = useRef(0);
+  const arcsRef        = useRef<Vec3[][]>([]);
+  const sparklesRef    = useRef<Sparkle[]>([]);
+  const arrivedRef     = useRef<Set<string>>(new Set());
+  const isDraggingRef  = useRef(false);
+  const lastPtrXRef    = useRef(0);
+  const inertiaRef     = useRef(0);   // radians added per frame from drag momentum
   const { resolvedTheme } = useTheme();
 
   // Pre-build arcs once
@@ -143,7 +146,7 @@ export default function Globe() {
   // Stable star field
   const stars = useMemo<Star[]>(() => {
     const arr: Star[] = [];
-    for (let i = 0; i < 70; i++) {
+    for (let i = 0; i < 50; i++) {
       const a = (i * 137.508) * DEG;
       const r = 0.55 + ((i * 31) % 100) / 100 * 0.55;
       arr.push({
@@ -658,7 +661,7 @@ export default function Globe() {
     if (!canvas) return;
 
     const resize = () => {
-      const dpr = window.devicePixelRatio || 1;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2); // cap at 2× for perf
       const rect = canvas.getBoundingClientRect();
       canvas.width  = rect.width  * dpr;
       canvas.height = rect.height * dpr;
@@ -667,12 +670,49 @@ export default function Globe() {
     const ro = new ResizeObserver(resize);
     ro.observe(canvas);
 
+    // ── Drag / touch interaction ──────────────────────
+    canvas.style.cursor = 'grab';
+
+    const onPointerDown = (e: PointerEvent) => {
+      isDraggingRef.current = true;
+      lastPtrXRef.current   = e.clientX;
+      inertiaRef.current    = 0;
+      canvas.setPointerCapture(e.pointerId);
+      canvas.style.cursor   = 'grabbing';
+    };
+
+    const onPointerMove = (e: PointerEvent) => {
+      if (!isDraggingRef.current) return;
+      const dx    = e.clientX - lastPtrXRef.current;
+      const scale = canvas.offsetWidth > 0 ? Math.PI / canvas.offsetWidth : 0.005;
+      const delta = dx * scale * 1.5;
+      rotRef.current       += delta;
+      inertiaRef.current    = delta;          // carry last delta as initial inertia
+      lastPtrXRef.current   = e.clientX;
+    };
+
+    const onPointerUp = () => {
+      isDraggingRef.current = false;
+      canvas.style.cursor   = 'grab';
+    };
+
+    canvas.addEventListener('pointerdown', onPointerDown);
+    canvas.addEventListener('pointermove', onPointerMove);
+    canvas.addEventListener('pointerup',   onPointerUp);
+    canvas.addEventListener('pointerleave', onPointerUp);
+
     const loop = (ts: number) => {
       const dt = lastTsRef.current ? ts - lastTsRef.current : 16;
       lastTsRef.current = ts;
-      // Clamp dt to avoid jumps after tab switch
       const clamped = Math.min(dt, 50);
-      rotRef.current += clamped * 0.00022;
+
+      if (!isDraggingRef.current) {
+        // Decay inertia toward auto-rotate speed
+        inertiaRef.current *= 0.92;
+        rotRef.current += clamped * 0.00022 + inertiaRef.current;
+      }
+      // While dragging, rotation is updated directly by onPointerMove
+
       timeRef.current = ts;
       draw();
       rafRef.current = requestAnimationFrame(loop);
@@ -693,8 +733,12 @@ export default function Globe() {
       cancelAnimationFrame(rafRef.current);
       ro.disconnect();
       document.removeEventListener('visibilitychange', onVisibility);
+      canvas.removeEventListener('pointerdown',  onPointerDown);
+      canvas.removeEventListener('pointermove',  onPointerMove);
+      canvas.removeEventListener('pointerup',    onPointerUp);
+      canvas.removeEventListener('pointerleave', onPointerUp);
     };
   }, [draw]);
 
-  return <canvas ref={canvasRef} className="w-full h-full" style={{ display: 'block' }} />;
+  return <canvas ref={canvasRef} className="w-full h-full touch-none" style={{ display: 'block' }} />;
 }
