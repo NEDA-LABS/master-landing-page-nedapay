@@ -133,6 +133,9 @@ export default function Globe() {
   const isDraggingRef  = useRef(false);
   const lastPtrXRef    = useRef(0);
   const inertiaRef     = useRef(0);   // radians added per frame from drag momentum
+  const hasDraggedRef  = useRef(false);
+  const hintOpacityRef = useRef(1);
+  const txCounterRef   = useRef(0);
   const { resolvedTheme } = useTheme();
 
   // Pre-build arcs once
@@ -207,18 +210,24 @@ export default function Globe() {
         : `rgba(59,130,246,${0.10 - i * 0.03})`;
       ctx.stroke();
     });
-    [0, 90, 180, 270].forEach(deg => {
+    // Dense tick marks every 15° (cardinal points are longer & brighter)
+    for (let deg = 0; deg < 360; deg += 15) {
       const a = deg * DEG;
-      const x1 = cx + Math.cos(a) * R * 1.24;
-      const y1 = cy + Math.sin(a) * R * 1.24;
-      const x2 = cx + Math.cos(a) * R * 1.30;
-      const y2 = cy + Math.sin(a) * R * 1.30;
+      const isCardinal = deg % 90 === 0;
+      const tickIn  = R * 1.24;
+      const tickOut = R * (isCardinal ? 1.31 : 1.27);
+      const x1 = cx + Math.cos(a) * tickIn;
+      const y1 = cy + Math.sin(a) * tickIn;
+      const x2 = cx + Math.cos(a) * tickOut;
+      const y2 = cy + Math.sin(a) * tickOut;
       ctx.beginPath();
       ctx.moveTo(x1, y1); ctx.lineTo(x2, y2);
-      ctx.strokeStyle = isDark ? 'rgba(96,165,250,0.45)' : 'rgba(59,130,246,0.45)';
-      ctx.lineWidth = 1;
+      ctx.strokeStyle = isDark
+        ? `rgba(96,165,250,${isCardinal ? 0.55 : 0.22})`
+        : `rgba(59,130,246,${isCardinal ? 0.5 : 0.18})`;
+      ctx.lineWidth = isCardinal ? 1 : 0.6;
       ctx.stroke();
-    });
+    }
 
     // ── 3. Atmosphere halo (smooth pulse) ───────────
     const atmoPulse = (Math.sin(t * 0.0014) + 1) / 2;
@@ -545,21 +554,28 @@ export default function Globe() {
         ctx.fillText(city.flag, sx + 8, sy - 6);
         ctx.globalAlpha = 1;
 
-        // Label
+        // Label — terminal bracket style: [CITY.NAME]
         ctx.font = 'bold 11px ui-monospace, "SF Mono", monospace';
-        const label = city.name.toUpperCase();
+        const label  = '[' + city.name.toUpperCase().replace(/\s+/g, '.') + ']';
         const labelW = ctx.measureText(label).width;
         const lx = sx + 28;
         const ly = sy + 10;
-        ctx.fillStyle = isDark
-          ? `rgba(2,15,40,${0.7 * vis})`
-          : `rgba(255,255,255,${0.85 * vis})`;
-        ctx.fillRect(lx - 3, ly - 9, labelW + 6, 13);
+        // Bracket corner ticks (HUD frame)
         ctx.strokeStyle = isDark
-          ? `rgba(34,211,238,${0.5 * vis})`
-          : `rgba(37,99,235,${0.4 * vis})`;
-        ctx.lineWidth = 0.5;
-        ctx.strokeRect(lx - 3, ly - 9, labelW + 6, 13);
+          ? `rgba(34,211,238,${0.55 * vis})`
+          : `rgba(37,99,235,${0.45 * vis})`;
+        ctx.lineWidth = 0.7;
+        const bx = lx - 3, by = ly - 9, bw = labelW + 6, bh = 13;
+        ctx.beginPath();
+        ctx.moveTo(bx, by + 3);            ctx.lineTo(bx, by);            ctx.lineTo(bx + 3, by);
+        ctx.moveTo(bx + bw - 3, by);       ctx.lineTo(bx + bw, by);       ctx.lineTo(bx + bw, by + 3);
+        ctx.moveTo(bx, by + bh - 3);       ctx.lineTo(bx, by + bh);       ctx.lineTo(bx + 3, by + bh);
+        ctx.moveTo(bx + bw - 3, by + bh);  ctx.lineTo(bx + bw, by + bh);  ctx.lineTo(bx + bw, by + bh - 3);
+        ctx.stroke();
+        ctx.fillStyle = isDark
+          ? `rgba(2,15,40,${0.55 * vis})`
+          : `rgba(255,255,255,${0.85 * vis})`;
+        ctx.fillRect(bx + 1, by + 1, bw - 2, bh - 2);
         ctx.fillStyle = isDark
           ? `rgba(186,230,253,${0.95 * vis})`
           : `rgba(30,64,175,${0.95 * vis})`;
@@ -589,22 +605,25 @@ export default function Globe() {
         ctx.fillText(city.flag, sx + 5, sy - 4);
         ctx.globalAlpha = 1;
 
-        // Activation-driven label (fades in when arc fires)
+        // Activation-driven label (fades in when arc fires) — bracketed mono
         const act = cityActivation[idx];
         if (act > 0.05) {
           const la = act * vis;
           ctx.font = '500 9px ui-monospace, "SF Mono", monospace';
-          const labelW = ctx.measureText(city.name).width;
+          const lbl = '[' + city.name.toUpperCase().replace(/\s+/g, '.') + ']';
+          const labelW = ctx.measureText(lbl).width;
           const lx = sx + 22;
           const ly = sy + 6;
           ctx.fillStyle = isDark
-            ? `rgba(2,15,40,${0.7 * la})`
+            ? `rgba(2,15,40,${0.6 * la})`
             : `rgba(255,255,255,${0.85 * la})`;
           ctx.fillRect(lx - 2, ly - 8, labelW + 4, 11);
           ctx.fillStyle = isDark
             ? `rgba(186,230,253,${0.92 * la})`
             : `rgba(30,64,175,${0.9 * la})`;
-          ctx.fillText(city.name, lx, ly);
+          ctx.fillText(lbl, lx, ly);
+          // Track tx counter on activation crest
+          if (act > 0.85 && Math.random() < 0.02) txCounterRef.current++;
         }
       }
     });
@@ -652,6 +671,89 @@ export default function Globe() {
       ctx.globalAlpha = 1;
     });
 
+    // ── 11. Terminal HUD overlay ────────────────────
+    const hudCol = isDark ? '34,211,238' : '37,99,235';
+    const hudDim = isDark ? '186,230,253' : '30,64,175';
+
+    // Frame corner brackets at canvas extents
+    const cLen = 14, cIns = 8;
+    ctx.strokeStyle = `rgba(${hudCol},0.45)`;
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    // top-left
+    ctx.moveTo(cIns, cIns + cLen); ctx.lineTo(cIns, cIns); ctx.lineTo(cIns + cLen, cIns);
+    // top-right
+    ctx.moveTo(W - cIns - cLen, cIns); ctx.lineTo(W - cIns, cIns); ctx.lineTo(W - cIns, cIns + cLen);
+    // bottom-left
+    ctx.moveTo(cIns, H - cIns - cLen); ctx.lineTo(cIns, H - cIns); ctx.lineTo(cIns + cLen, H - cIns);
+    // bottom-right
+    ctx.moveTo(W - cIns - cLen, H - cIns); ctx.lineTo(W - cIns, H - cIns); ctx.lineTo(W - cIns, H - cIns - cLen);
+    ctx.stroke();
+
+    // Top-left: live rotation readout
+    ctx.font = '9px ui-monospace, "SF Mono", monospace';
+    const deg  = ((rot * 180 / Math.PI) % 360 + 360) % 360;
+    const lat0 = 0; // viewing center latitude (we only rotate Y)
+    const rotLine = `ROT:${deg.toFixed(1).padStart(5,'0')}°`;
+    const latLine = `LAT:${lat0.toFixed(2)}`;
+    ctx.fillStyle = `rgba(${hudCol},0.65)`;
+    ctx.fillText(rotLine, cIns + cLen + 4, cIns + 10);
+    ctx.fillStyle = `rgba(${hudDim},0.55)`;
+    ctx.fillText(latLine, cIns + cLen + 4, cIns + 22);
+
+    // Top-right: status indicator
+    const status = isDraggingRef.current ? 'TRACKING' : 'AUTO';
+    const statusW = ctx.measureText(status).width;
+    const dotPulse = (Math.sin(t * 0.006) + 1) / 2;
+    ctx.beginPath();
+    ctx.arc(W - cIns - cLen - statusW - 10, cIns + 6.5, 2.2, 0, TAU);
+    ctx.fillStyle = isDraggingRef.current
+      ? `rgba(${hudCol},${0.6 + dotPulse * 0.4})`
+      : `rgba(${hudDim},0.5)`;
+    ctx.fill();
+    ctx.fillStyle = `rgba(${hudCol},0.7)`;
+    ctx.fillText(status, W - cIns - cLen - statusW - 4, cIns + 10);
+    // tx counter line
+    const txLine = `TX:${String(txCounterRef.current).padStart(4,'0')}`;
+    const txW = ctx.measureText(txLine).width;
+    ctx.fillStyle = `rgba(${hudDim},0.55)`;
+    ctx.fillText(txLine, W - cIns - cLen - txW - 4, cIns + 22);
+
+    // Bottom-left: net label
+    ctx.fillStyle = `rgba(${hudDim},0.45)`;
+    ctx.fillText('NET.GLOBAL', cIns + cLen + 4, H - cIns - 6);
+
+    // Bottom-right: scale marker
+    const scaleLine = `R:${R.toFixed(0)}px`;
+    const scaleW = ctx.measureText(scaleLine).width;
+    ctx.fillStyle = `rgba(${hudDim},0.45)`;
+    ctx.fillText(scaleLine, W - cIns - cLen - scaleW - 4, H - cIns - 6);
+
+    // Drag hint (fades after first interaction)
+    if (hasDraggedRef.current && hintOpacityRef.current > 0) {
+      hintOpacityRef.current = Math.max(0, hintOpacityRef.current - 0.025);
+    }
+    if (hintOpacityRef.current > 0.01) {
+      const hintPulse = (Math.sin(t * 0.004) + 1) / 2;
+      const hintA = (0.45 + hintPulse * 0.35) * hintOpacityRef.current;
+      ctx.font = '10px ui-monospace, "SF Mono", monospace';
+      const hint = '◀ DRAG TO ROTATE ▶';
+      const hw = ctx.measureText(hint).width;
+      ctx.fillStyle = `rgba(${hudCol},${hintA})`;
+      ctx.fillText(hint, cx - hw / 2, H - cIns - 22);
+    }
+
+    // Subtle horizontal scan-line sweeping vertically (CRT vibe, dark only)
+    if (isDark) {
+      const scanY = ((t * 0.04) % (H + 60)) - 30;
+      const scanG = ctx.createLinearGradient(0, scanY - 30, 0, scanY + 30);
+      scanG.addColorStop(0,   'rgba(34,211,238,0)');
+      scanG.addColorStop(0.5, 'rgba(34,211,238,0.05)');
+      scanG.addColorStop(1,   'rgba(34,211,238,0)');
+      ctx.fillStyle = scanG;
+      ctx.fillRect(0, scanY - 30, W, 60);
+    }
+
     ctx.restore();
   }, [resolvedTheme, stars]);
 
@@ -677,6 +779,7 @@ export default function Globe() {
       isDraggingRef.current = true;
       lastPtrXRef.current   = e.clientX;
       inertiaRef.current    = 0;
+      hasDraggedRef.current = true;
       canvas.setPointerCapture(e.pointerId);
       canvas.style.cursor   = 'grabbing';
     };
@@ -685,9 +788,9 @@ export default function Globe() {
       if (!isDraggingRef.current) return;
       const dx    = e.clientX - lastPtrXRef.current;
       const scale = canvas.offsetWidth > 0 ? Math.PI / canvas.offsetWidth : 0.005;
-      const delta = dx * scale * 1.5;
+      const delta = dx * scale * 2.6;          // strong response — feels like a real ball
       rotRef.current       += delta;
-      inertiaRef.current    = delta;          // carry last delta as initial inertia
+      inertiaRef.current    = delta;
       lastPtrXRef.current   = e.clientX;
     };
 
