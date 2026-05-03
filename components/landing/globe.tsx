@@ -535,6 +535,23 @@ export default function Globe() {
     });
 
     // ── 9. City markers + flags ─────────────────────
+    // Responsive sizing — everything scales with globe radius R
+    const isMobile    = R < 145;
+    const dotBig      = isMobile ? 2.8  : 4.2;
+    const dotSmall    = isMobile ? 1.6  : 2.6;
+    const haloR       = isMobile ? 7    : 12;
+    const ringMax     = isMobile ? 10   : 18;
+    const flagBig     = isMobile ? 11   : 15;   // px — highlight city flag
+    const flagSmall   = isMobile ? 9    : 12;   // px — regular city flag
+    const labelFontPx = isMobile ? 7    : 11;   // px — highlight label
+    const actFontPx   = isMobile ? 6    : 9;    // px — activation label
+    const labelOffX   = isMobile ? 14   : 28;   // horizontal offset from dot
+    const labelOffY   = isMobile ? 5    : 10;
+    const flagOffX    = isMobile ? 4    : 8;
+    const flagOffY    = isMobile ? -4   : -6;
+    const actOffX     = isMobile ? 12   : 22;
+    const actOffY     = isMobile ? 4    : 6;
+
     CITIES.forEach((city, idx) => {
       const p = rotY(ll2xyz(city.lat, city.lon), rot);
       if (p.z < 0) return;
@@ -543,113 +560,101 @@ export default function Globe() {
       const vis = smoothstep(0, 0.18, p.z);
 
       if (city.highlight) {
-        // Triple expanding rings (offset phases)
+        // Expanding rings
         const baseT = t * 0.0035;
         for (let i = 0; i < 3; i++) {
           const phase = (baseT + i * 0.333) % 1;
-          const ringR = 5 + phase * 18;
+          const ringR = (isMobile ? 3 : 5) + phase * ringMax;
           const a = (1 - phase) * 0.65 * vis;
           ctx.beginPath();
           ctx.arc(sx, sy, ringR, 0, TAU);
-          ctx.strokeStyle = isDark
-            ? `rgba(34,211,238,${a})`
-            : `rgba(37,99,235,${a * 0.85})`;
-          ctx.lineWidth = 1.1;
+          ctx.strokeStyle = isDark ? `rgba(34,211,238,${a})` : `rgba(37,99,235,${a * 0.85})`;
+          ctx.lineWidth = isMobile ? 0.8 : 1.1;
           ctx.stroke();
         }
 
-        // Halo behind dot
-        const haloG = ctx.createRadialGradient(sx, sy, 0, sx, sy, 12);
+        // Halo
+        const haloG = ctx.createRadialGradient(sx, sy, 0, sx, sy, haloR);
         haloG.addColorStop(0, isDark ? `rgba(34,211,238,${0.5 * vis})` : `rgba(37,99,235,${0.35 * vis})`);
         haloG.addColorStop(1, 'rgba(0,0,0,0)');
         ctx.beginPath();
-        ctx.arc(sx, sy, 12, 0, TAU);
+        ctx.arc(sx, sy, haloR, 0, TAU);
         ctx.fillStyle = haloG;
         ctx.fill();
 
         // Core dot
         ctx.beginPath();
-        ctx.arc(sx, sy, 4.2, 0, TAU);
+        ctx.arc(sx, sy, dotBig, 0, TAU);
         ctx.fillStyle = isDark ? '#67e8f9' : '#1d4ed8';
         ctx.globalAlpha = vis;
         ctx.fill();
         ctx.globalAlpha = 1;
 
         // Flag
-        ctx.font = '15px "Apple Color Emoji","Segoe UI Emoji",serif';
+        ctx.font = `${flagBig}px "Apple Color Emoji","Segoe UI Emoji",serif`;
         ctx.globalAlpha = vis;
-        ctx.fillText(city.flag, sx + 8, sy - 6);
+        ctx.fillText(city.flag, sx + flagOffX, sy + flagOffY);
         ctx.globalAlpha = 1;
 
-        // Label — terminal bracket style: [CITY.NAME]
-        ctx.font = 'bold 11px ui-monospace, "SF Mono", monospace';
-        const label  = '[' + city.name.toUpperCase().replace(/\s+/g, '.') + ']';
-        const labelW = ctx.measureText(label).width;
-        const lx = sx + 28;
-        const ly = sy + 10;
-        // Bracket corner ticks (HUD frame)
-        ctx.strokeStyle = isDark
-          ? `rgba(34,211,238,${0.55 * vis})`
-          : `rgba(37,99,235,${0.45 * vis})`;
-        ctx.lineWidth = 0.7;
-        const bx = lx - 3, by = ly - 9, bw = labelW + 6, bh = 13;
-        ctx.beginPath();
-        ctx.moveTo(bx, by + 3);            ctx.lineTo(bx, by);            ctx.lineTo(bx + 3, by);
-        ctx.moveTo(bx + bw - 3, by);       ctx.lineTo(bx + bw, by);       ctx.lineTo(bx + bw, by + 3);
-        ctx.moveTo(bx, by + bh - 3);       ctx.lineTo(bx, by + bh);       ctx.lineTo(bx + 3, by + bh);
-        ctx.moveTo(bx + bw - 3, by + bh);  ctx.lineTo(bx + bw, by + bh);  ctx.lineTo(bx + bw, by + bh - 3);
-        ctx.stroke();
-        ctx.fillStyle = isDark
-          ? `rgba(2,15,40,${0.55 * vis})`
-          : `rgba(255,255,255,${0.85 * vis})`;
-        ctx.fillRect(bx + 1, by + 1, bw - 2, bh - 2);
-        ctx.fillStyle = isDark
-          ? `rgba(186,230,253,${0.95 * vis})`
-          : `rgba(30,64,175,${0.95 * vis})`;
-        ctx.fillText(label, lx, ly);
+        // Bracketed label — hidden on mobile to avoid overlap
+        if (!isMobile) {
+          ctx.font = `bold ${labelFontPx}px ui-monospace, "SF Mono", monospace`;
+          const label  = '[' + city.name.toUpperCase().replace(/\s+/g, '.') + ']';
+          const labelW = ctx.measureText(label).width;
+          const lx = sx + labelOffX, ly = sy + labelOffY;
+          const bx = lx - 3, by = ly - 9, bw = labelW + 6, bh = 13;
+          ctx.strokeStyle = isDark ? `rgba(34,211,238,${0.55 * vis})` : `rgba(37,99,235,${0.45 * vis})`;
+          ctx.lineWidth = 0.7;
+          ctx.beginPath();
+          ctx.moveTo(bx, by + 3);           ctx.lineTo(bx, by);           ctx.lineTo(bx + 3, by);
+          ctx.moveTo(bx + bw - 3, by);      ctx.lineTo(bx + bw, by);      ctx.lineTo(bx + bw, by + 3);
+          ctx.moveTo(bx, by + bh - 3);      ctx.lineTo(bx, by + bh);      ctx.lineTo(bx + 3, by + bh);
+          ctx.moveTo(bx + bw - 3, by + bh); ctx.lineTo(bx + bw, by + bh); ctx.lineTo(bx + bw, by + bh - 3);
+          ctx.stroke();
+          ctx.fillStyle = isDark ? `rgba(2,15,40,${0.55 * vis})` : `rgba(255,255,255,${0.85 * vis})`;
+          ctx.fillRect(bx + 1, by + 1, bw - 2, bh - 2);
+          ctx.fillStyle = isDark ? `rgba(186,230,253,${0.95 * vis})` : `rgba(30,64,175,${0.95 * vis})`;
+          ctx.fillText(label, lx, ly);
+        }
 
       } else {
         // Soft halo
-        const cg = ctx.createRadialGradient(sx, sy, 0, sx, sy, 7);
+        const cg = ctx.createRadialGradient(sx, sy, 0, sx, sy, isMobile ? 4 : 7);
         cg.addColorStop(0, isDark ? `rgba(147,197,253,${0.45 * vis})` : `rgba(59,130,246,${0.30 * vis})`);
         cg.addColorStop(1, 'rgba(0,0,0,0)');
         ctx.beginPath();
-        ctx.arc(sx, sy, 7, 0, TAU);
+        ctx.arc(sx, sy, isMobile ? 4 : 7, 0, TAU);
         ctx.fillStyle = cg;
         ctx.fill();
 
         // Core dot
         ctx.beginPath();
-        ctx.arc(sx, sy, 2.6, 0, TAU);
+        ctx.arc(sx, sy, dotSmall, 0, TAU);
         ctx.fillStyle = isDark
           ? `rgba(147,197,253,${0.85 * vis})`
           : `rgba(59,130,246,${0.7 * vis})`;
         ctx.fill();
 
-        // Flag (always show, smaller)
-        ctx.font = '12px "Apple Color Emoji","Segoe UI Emoji",serif';
-        ctx.globalAlpha = vis * 0.9;
-        ctx.fillText(city.flag, sx + 5, sy - 4);
-        ctx.globalAlpha = 1;
+        // Flag — only on desktop (too crowded on mobile)
+        if (!isMobile) {
+          ctx.font = `${flagSmall}px "Apple Color Emoji","Segoe UI Emoji",serif`;
+          ctx.globalAlpha = vis * 0.9;
+          ctx.fillText(city.flag, sx + flagOffX - 1, sy - 4);
+          ctx.globalAlpha = 1;
+        }
 
-        // Activation-driven label (fades in when arc fires) — bracketed mono
+        // Activation-driven label — desktop only
         const act = cityActivation[idx];
-        if (act > 0.05) {
+        if (!isMobile && act > 0.05) {
           const la = act * vis;
-          ctx.font = '500 9px ui-monospace, "SF Mono", monospace';
+          ctx.font = `500 ${actFontPx}px ui-monospace, "SF Mono", monospace`;
           const lbl = '[' + city.name.toUpperCase().replace(/\s+/g, '.') + ']';
           const labelW = ctx.measureText(lbl).width;
-          const lx = sx + 22;
-          const ly = sy + 6;
-          ctx.fillStyle = isDark
-            ? `rgba(2,15,40,${0.6 * la})`
-            : `rgba(255,255,255,${0.85 * la})`;
+          const lx = sx + actOffX, ly = sy + actOffY;
+          ctx.fillStyle = isDark ? `rgba(2,15,40,${0.6 * la})` : `rgba(255,255,255,${0.85 * la})`;
           ctx.fillRect(lx - 2, ly - 8, labelW + 4, 11);
-          ctx.fillStyle = isDark
-            ? `rgba(186,230,253,${0.92 * la})`
-            : `rgba(30,64,175,${0.9 * la})`;
+          ctx.fillStyle = isDark ? `rgba(186,230,253,${0.92 * la})` : `rgba(30,64,175,${0.9 * la})`;
           ctx.fillText(lbl, lx, ly);
-          // Track tx counter on activation crest
           if (act > 0.85 && Math.random() < 0.02) txCounterRef.current++;
         }
       }
