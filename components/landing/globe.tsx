@@ -635,13 +635,11 @@ export default function Globe() {
           : `rgba(59,130,246,${0.7 * vis})`;
         ctx.fill();
 
-        // Flag — only on desktop (too crowded on mobile)
-        if (!isMobile) {
-          ctx.font = `${flagSmall}px "Apple Color Emoji","Segoe UI Emoji",serif`;
-          ctx.globalAlpha = vis * 0.9;
-          ctx.fillText(city.flag, sx + flagOffX - 1, sy - 4);
-          ctx.globalAlpha = 1;
-        }
+        // Flag — always shown, smaller on mobile
+        ctx.font = `${flagSmall}px "Apple Color Emoji","Segoe UI Emoji",serif`;
+        ctx.globalAlpha = vis * 0.9;
+        ctx.fillText(city.flag, sx + flagOffX - 1, sy - 4);
+        ctx.globalAlpha = 1;
 
         // Activation-driven label — desktop only
         const act = cityActivation[idx];
