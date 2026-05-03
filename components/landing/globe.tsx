@@ -59,33 +59,60 @@ const smoothstep = (edge0: number, edge1: number, x: number) => {
 // ║  Data                                              ║
 // ╚════════════════════════════════════════════════════╝
 const CITIES = [
-  { name: 'Tanzania',  flag: '🇹🇿', lat: -6.8,  lon: 39.3,  highlight: true  },
-  { name: 'China',     flag: '🇨🇳', lat: 31.2,  lon: 121.5, highlight: true  },
-  { name: 'New York',  flag: '🇺🇸', lat: 40.7,  lon: -74.0 },
-  { name: 'London',    flag: '🇬🇧', lat: 51.5,  lon: -0.1  },
-  { name: 'Dubai',     flag: '🇦🇪', lat: 25.2,  lon: 55.3  },
-  { name: 'Lagos',     flag: '🇳🇬', lat: 6.5,   lon: 3.4   },
-  { name: 'Singapore', flag: '🇸🇬', lat: 1.3,   lon: 103.8 },
-  { name: 'Nairobi',   flag: '🇰🇪', lat: -1.3,  lon: 36.8  },
-  { name: 'Mumbai',    flag: '🇮🇳', lat: 19.1,  lon: 72.9  },
-  { name: 'Paris',     flag: '🇫🇷', lat: 48.9,  lon: 2.3   },
-  { name: 'São Paulo', flag: '🇧🇷', lat: -23.5, lon: -46.6 },
+  // ── Hubs (highlighted) ──────────────────────────────
+  { name: 'Tanzania',     flag: '🇹🇿', lat: -6.8,  lon: 39.3,   highlight: true },
+  { name: 'China',        flag: '🇨🇳', lat: 31.2,  lon: 121.5,  highlight: true },
+  // ── Global nodes ────────────────────────────────────
+  { name: 'New York',     flag: '🇺🇸', lat: 40.7,  lon: -74.0  },
+  { name: 'London',       flag: '🇬🇧', lat: 51.5,  lon: -0.1   },
+  { name: 'Dubai',        flag: '🇦🇪', lat: 25.2,  lon: 55.3   },
+  { name: 'Lagos',        flag: '🇳🇬', lat: 6.5,   lon: 3.4    },
+  { name: 'Singapore',    flag: '🇸🇬', lat: 1.3,   lon: 103.8  },
+  { name: 'Nairobi',      flag: '🇰🇪', lat: -1.3,  lon: 36.8   },
+  { name: 'Mumbai',       flag: '🇮🇳', lat: 19.1,  lon: 72.9   },
+  { name: 'Paris',        flag: '🇫🇷', lat: 48.9,  lon: 2.3    },
+  { name: 'São Paulo',    flag: '🇧🇷', lat: -23.5, lon: -46.6  },
+  // ── Expanded network ────────────────────────────────
+  { name: 'Cairo',        flag: '🇪🇬', lat: 30.0,  lon: 31.2   },
+  { name: 'Tokyo',        flag: '🇯🇵', lat: 35.7,  lon: 139.7  },
+  { name: 'Istanbul',     flag: '🇹🇷', lat: 41.0,  lon: 29.0   },
+  { name: 'Johannesburg', flag: '🇿🇦', lat: -26.2, lon: 28.0   },
+  { name: 'Bangkok',      flag: '🇹🇭', lat: 13.7,  lon: 100.5  },
+  { name: 'Toronto',      flag: '🇨🇦', lat: 43.7,  lon: -79.4  },
+  { name: 'Riyadh',       flag: '🇸🇦', lat: 24.7,  lon: 46.7   },
+  { name: 'Karachi',      flag: '🇵🇰', lat: 24.9,  lon: 67.0   },
+  { name: 'Jakarta',      flag: '🇮🇩', lat: -6.2,  lon: 106.8  },
 ];
 
+// from/to index → CITIES array above
 const ROUTES = [
-  { from: 0, to: 1,  hue: 'cyan', offsets: [0.0, 0.55] },
-  { from: 1, to: 0,  hue: 'blue', offsets: [0.3, 0.8]  },
-  { from: 2, to: 0,  hue: 'blue', offsets: [0.15]      },
-  { from: 0, to: 3,  hue: 'cyan', offsets: [0.65]      },
-  { from: 4, to: 0,  hue: 'blue', offsets: [0.45]      },
-  { from: 5, to: 1,  hue: 'cyan', offsets: [0.25]      },
-  { from: 1, to: 2,  hue: 'cyan', offsets: [0.4]       },
-  { from: 6, to: 0,  hue: 'blue', offsets: [0.55]      },
-  { from: 8, to: 4,  hue: 'cyan', offsets: [0.1]       },
-  { from: 9, to: 0,  hue: 'blue', offsets: [0.85]      },
-  { from: 10, to: 0, hue: 'blue', offsets: [0.5]       },
-  { from: 0, to: 6,  hue: 'cyan', offsets: [0.95]      },
-  { from: 7, to: 1,  hue: 'cyan', offsets: [0.05]      },
+  // ── Core Tanzania ↔ China corridor ──────────────────
+  { from: 0,  to: 1,  hue: 'cyan', offsets: [0.0,  0.55] },
+  { from: 1,  to: 0,  hue: 'blue', offsets: [0.3,  0.8 ] },
+  // ── Africa inbound ──────────────────────────────────
+  { from: 5,  to: 0,  hue: 'blue', offsets: [0.25]       }, // Lagos → TZ
+  { from: 7,  to: 0,  hue: 'cyan', offsets: [0.05]       }, // Nairobi → TZ
+  { from: 11, to: 0,  hue: 'blue', offsets: [0.42]       }, // Cairo → TZ
+  { from: 14, to: 0,  hue: 'cyan', offsets: [0.68]       }, // Johannesburg → TZ
+  // ── Middle East / South Asia ────────────────────────
+  { from: 4,  to: 0,  hue: 'blue', offsets: [0.45]       }, // Dubai → TZ
+  { from: 17, to: 0,  hue: 'cyan', offsets: [0.82]       }, // Riyadh → TZ
+  { from: 18, to: 4,  hue: 'blue', offsets: [0.1 ]       }, // Karachi → Dubai
+  { from: 8,  to: 4,  hue: 'cyan', offsets: [0.60]       }, // Mumbai → Dubai
+  { from: 13, to: 4,  hue: 'blue', offsets: [0.35]       }, // Istanbul → Dubai
+  // ── East / SE Asia ──────────────────────────────────
+  { from: 1,  to: 12, hue: 'cyan', offsets: [0.48]       }, // China → Tokyo
+  { from: 15, to: 1,  hue: 'blue', offsets: [0.72]       }, // Bangkok → China
+  { from: 6,  to: 1,  hue: 'cyan', offsets: [0.55]       }, // Singapore → China
+  { from: 19, to: 6,  hue: 'blue', offsets: [0.2 ]       }, // Jakarta → Singapore
+  // ── Western destinations ────────────────────────────
+  { from: 2,  to: 0,  hue: 'blue', offsets: [0.15]       }, // New York → TZ
+  { from: 0,  to: 3,  hue: 'cyan', offsets: [0.65]       }, // TZ → London
+  { from: 5,  to: 3,  hue: 'cyan', offsets: [0.90]       }, // Lagos → London
+  { from: 9,  to: 0,  hue: 'blue', offsets: [0.88]       }, // Paris → TZ
+  { from: 16, to: 0,  hue: 'cyan', offsets: [0.38]       }, // Toronto → TZ
+  { from: 10, to: 0,  hue: 'blue', offsets: [0.5 ]       }, // São Paulo → TZ
+  { from: 1,  to: 2,  hue: 'cyan', offsets: [0.4 ]       }, // China → New York
 ];
 
 const STEPS = 64;
@@ -335,11 +362,11 @@ export default function Globe() {
     const gridStroke = isDark ? '120,180,255' : '59,130,246';
     ctx.lineWidth = 0.5;
 
-    // Longitudes (every 30°)
+    // Longitudes every 30° — 6° step (half the path ops)
     for (let lon = 0; lon < 360; lon += 30) {
       ctx.beginPath();
       let first = true;
-      for (let lat = -90; lat <= 90; lat += 3) {
+      for (let lat = -90; lat <= 90; lat += 6) {
         const p = rotY(ll2xyz(lat, lon), rot);
         const sx = cx + p.x * R, sy = cy - p.y * R;
         if (first) { ctx.moveTo(sx, sy); first = false; } else ctx.lineTo(sx, sy);
@@ -347,11 +374,11 @@ export default function Globe() {
       ctx.strokeStyle = `rgba(${gridStroke},0.18)`;
       ctx.stroke();
     }
-    // Latitudes
+    // Latitudes — 6° step
     [-60, -30, 30, 60].forEach(lat => {
       ctx.beginPath();
       let first = true;
-      for (let lon = 0; lon <= 360; lon += 3) {
+      for (let lon = 0; lon <= 360; lon += 6) {
         const p = rotY(ll2xyz(lat, lon), rot);
         const sx = cx + p.x * R, sy = cy - p.y * R;
         if (first) { ctx.moveTo(sx, sy); first = false; } else ctx.lineTo(sx, sy);
@@ -359,10 +386,10 @@ export default function Globe() {
       ctx.strokeStyle = `rgba(${gridStroke},0.16)`;
       ctx.stroke();
     });
-    // Equator (brighter)
+    // Equator (brighter) — 4° step
     ctx.beginPath();
     let firstEq = true;
-    for (let lon = 0; lon <= 360; lon += 3) {
+    for (let lon = 0; lon <= 360; lon += 4) {
       const p = rotY(ll2xyz(0, lon), rot);
       const sx = cx + p.x * R, sy = cy - p.y * R;
       if (firstEq) { ctx.moveTo(sx, sy); firstEq = false; } else ctx.lineTo(sx, sy);
@@ -385,20 +412,20 @@ export default function Globe() {
       const arc = arcsRef.current[ri];
       if (!arc) return;
 
-      // Dim base path
-      ctx.lineWidth = 0.7;
-      for (let i = 1; i <= STEPS; i++) {
-        const rA = rotY(arc[i - 1], rot);
-        const rB = rotY(arc[i], rot);
-        if (rA.z < -0.15 && rB.z < -0.15) continue;
-        const vis = smoothstep(-0.15, 0.15, (rA.z + rB.z) / 2);
-        const alpha = vis * (isDark ? 0.16 : 0.11);
+      // Ghost path — single stroke for the whole arc (cheap: 1 path op vs STEPS)
+      {
+        ctx.lineWidth = 0.6;
         ctx.beginPath();
-        ctx.moveTo(cx + rA.x * R, cy - rA.y * R);
-        ctx.lineTo(cx + rB.x * R, cy - rB.y * R);
+        let started = false;
+        for (let i = 0; i <= STEPS; i++) {
+          const rP = rotY(arc[i], rot);
+          if (rP.z < -0.1) { started = false; continue; }
+          const sx = cx + rP.x * R, sy = cy - rP.y * R;
+          if (!started) { ctx.moveTo(sx, sy); started = true; } else ctx.lineTo(sx, sy);
+        }
         ctx.strokeStyle = route.hue === 'cyan'
-          ? `rgba(34,211,238,${alpha})`
-          : `rgba(167,139,250,${alpha})`;
+          ? `rgba(34,211,238,${isDark ? 0.10 : 0.08})`
+          : `rgba(167,139,250,${isDark ? 0.10 : 0.08})`;
         ctx.stroke();
       }
 
@@ -417,7 +444,7 @@ export default function Globe() {
           const p = rotY(ll2xyz(dest.lat, dest.lon), rot);
           if (p.z > 0) {
             const sx = cx + p.x * R, sy = cy - p.y * R;
-            for (let s = 0; s < 7; s++) {
+            for (let s = 0; s < 4; s++) {
               const ang = (s / 7) * TAU + Math.random() * 0.4;
               const speed = 0.5 + Math.random() * 1.0;
               sparklesRef.current.push({
@@ -806,6 +833,11 @@ export default function Globe() {
 
     const loop = (ts: number) => {
       const dt = lastTsRef.current ? ts - lastTsRef.current : 16;
+      // Throttle to ~30fps — skip frame if less than 30ms elapsed
+      if (dt < 30 && lastTsRef.current !== 0) {
+        rafRef.current = requestAnimationFrame(loop);
+        return;
+      }
       lastTsRef.current = ts;
       const clamped = Math.min(dt, 50);
 
