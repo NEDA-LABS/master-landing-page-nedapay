@@ -641,8 +641,11 @@ export default function Globe() {
         ctx.fillText(city.flag, sx + flagOffX - 1, sy - 4);
         ctx.globalAlpha = 1;
 
-        // Activation-driven label — desktop only
+        // TX counter — runs on all screen sizes
         const act = cityActivation[idx];
+        if (act > 0.85 && Math.random() < 0.02) txCounterRef.current++;
+
+        // Activation-driven label — desktop only
         if (!isMobile && act > 0.05) {
           const la = act * vis;
           ctx.font = `500 ${actFontPx}px ui-monospace, "SF Mono", monospace`;
@@ -653,7 +656,6 @@ export default function Globe() {
           ctx.fillRect(lx - 2, ly - 8, labelW + 4, 11);
           ctx.fillStyle = isDark ? `rgba(186,230,253,${0.92 * la})` : `rgba(30,64,175,${0.9 * la})`;
           ctx.fillText(lbl, lx, ly);
-          if (act > 0.85 && Math.random() < 0.02) txCounterRef.current++;
         }
       }
     });
