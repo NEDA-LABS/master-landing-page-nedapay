@@ -702,7 +702,8 @@ export default function Globe() {
       ctx.globalAlpha = 1;
     });
 
-    // ── 11. Terminal HUD overlay ────────────────────
+    // ── 11. Terminal HUD overlay (desktop only) ─────
+    if (isMobile) { ctx.restore(); return; }
     const hudCol = isDark ? '34,211,238' : '37,99,235';
     const hudDim = isDark ? '186,230,253' : '30,64,175';
 
