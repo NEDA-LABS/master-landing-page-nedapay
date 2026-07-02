@@ -63,6 +63,7 @@ export default function Footer() {
                 { label: 'nTZS Stablecoin', href: 'https://app.ntzs.co.tz/' },
                 { label: 'Farcaster MiniApp', href: 'https://farcaster.xyz/miniapps/nhIkqfY9DK47/nedapay' },
                 { label: 'Base Integration', href: '#' },
+                { label: 'Team', href: '/#team' },
               ].map((item) => (
                 <li key={item.label}>
                   <Link
