@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef, useCallback, useMemo } from 'react';
-import { useTheme } from 'next-themes';
 
 // ╔════════════════════════════════════════════════════╗
 // ║  Math helpers                                      ║
@@ -163,7 +162,7 @@ export default function Globe() {
   const hasDraggedRef  = useRef(false);
   const hintOpacityRef = useRef(1);
   const txCounterRef   = useRef(0);
-  const { resolvedTheme } = useTheme();
+  const isVisibleRef   = useRef(true);
 
   // Pre-build arcs once
   useEffect(() => {
@@ -196,7 +195,7 @@ export default function Globe() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const isDark = resolvedTheme === 'dark';
+    const isDark = document.documentElement.classList.contains('dark');
     const dpr = window.devicePixelRatio || 1;
     const W = canvas.width / dpr;
     const H = canvas.height / dpr;
@@ -787,7 +786,7 @@ export default function Globe() {
     }
 
     ctx.restore();
-  }, [resolvedTheme, stars]);
+  }, [stars]);
 
   // ╭─ Loop ───────────────────────────────────────────╮
   useEffect(() => {
@@ -795,7 +794,7 @@ export default function Globe() {
     if (!canvas) return;
 
     const resize = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2); // cap at 2× for perf
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5); // cap at 1.5× for perf
       const rect = canvas.getBoundingClientRect();
       canvas.width  = rect.width  * dpr;
       canvas.height = rect.height * dpr;
@@ -803,6 +802,13 @@ export default function Globe() {
     resize();
     const ro = new ResizeObserver(resize);
     ro.observe(canvas);
+
+    // Pause animation when globe scrolls off screen
+    const io = new IntersectionObserver(
+      ([entry]) => { isVisibleRef.current = entry.isIntersecting; },
+      { threshold: 0.05 }
+    );
+    io.observe(canvas);
 
     // ── Drag / touch interaction ──────────────────────
     canvas.style.cursor = 'grab';
@@ -837,12 +843,11 @@ export default function Globe() {
     canvas.addEventListener('pointerleave', onPointerUp);
 
     const loop = (ts: number) => {
+      rafRef.current = requestAnimationFrame(loop);
+      if (!isVisibleRef.current) return;
       const dt = lastTsRef.current ? ts - lastTsRef.current : 16;
       // Throttle to ~30fps — skip frame if less than 30ms elapsed
-      if (dt < 30 && lastTsRef.current !== 0) {
-        rafRef.current = requestAnimationFrame(loop);
-        return;
-      }
+      if (dt < 30 && lastTsRef.current !== 0) return;
       lastTsRef.current = ts;
       const clamped = Math.min(dt, 50);
 
@@ -855,7 +860,6 @@ export default function Globe() {
 
       timeRef.current = ts;
       draw();
-      rafRef.current = requestAnimationFrame(loop);
     };
     rafRef.current = requestAnimationFrame(loop);
 
@@ -872,6 +876,7 @@ export default function Globe() {
     return () => {
       cancelAnimationFrame(rafRef.current);
       ro.disconnect();
+      io.disconnect();
       document.removeEventListener('visibilitychange', onVisibility);
       canvas.removeEventListener('pointerdown',  onPointerDown);
       canvas.removeEventListener('pointermove',  onPointerMove);

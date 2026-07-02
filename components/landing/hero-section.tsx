@@ -4,7 +4,22 @@ import Link from 'next/link';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 
-const Globe = dynamic(() => import('./globe'), { ssr: false });
+const Globe = dynamic(() => import('./globe'), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-full flex items-center justify-center">
+      <div
+        className="rounded-full animate-pulse"
+        style={{
+          width: '80%',
+          aspectRatio: '1',
+          background: 'radial-gradient(circle at 38% 38%, rgba(96,165,250,0.18) 0%, rgba(59,130,246,0.10) 45%, rgba(37,99,235,0.05) 100%)',
+          boxShadow: '0 0 60px 12px rgba(59,130,246,0.08)',
+        }}
+      />
+    </div>
+  ),
+});
 
 const storeButtons = [
   { href: 'https://app.nedapay.xyz',                              icon: '/logo.png',            label: 'NEDApay',    title: 'Launch App', alt: 'NEDApay', iconBg: 'bg-blue-600 dark:bg-blue-700' },

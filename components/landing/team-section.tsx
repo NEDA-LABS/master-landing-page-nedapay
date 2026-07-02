@@ -123,14 +123,15 @@ export default function TeamSection() {
                 </div>
 
                 {/* Name & role */}
-                <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-1 leading-snug">
+                <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-1 leading-snug text-center">
                   {member.name}
                 </h3>
-                <p className="text-slate-500 dark:text-slate-500 text-sm font-light mb-6">
+                <p className="text-slate-500 dark:text-slate-500 text-sm font-light mb-6 text-center">
                   {member.role}
                 </p>
 
                 {/* LinkedIn link */}
+                <div className="flex justify-center">
                 <Link
                   href={member.linkedin}
                   target="_blank"
@@ -141,6 +142,7 @@ export default function TeamSection() {
                   VIEW PROFILE
                   <span className="text-slate-300 dark:text-slate-700 group-hover/link:text-blue-400 transition-colors">→</span>
                 </Link>
+                </div>
 
                 {/* Bottom accent */}
                 <div className="mt-6 h-px bg-gradient-to-r from-blue-500/30 via-cyan-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
