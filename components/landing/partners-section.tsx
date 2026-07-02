@@ -17,125 +17,6 @@ const stablecoins = [
 
 const allCoins = [...stablecoins, ...stablecoins, ...stablecoins];
 
-const testimonials = [
-  {
-    tag: 'CHINA · TRADE',
-    flag: '🇹🇿→🇨🇳',
-    quote: 'I pay my fabric suppliers in Guangzhou directly to their WeChat Pay. No wire transfer, no 3-day wait, no bank asking me twenty questions. The money lands before they even pack the order.',
-    name: 'Amara K.',
-    role: 'Fashion Importer',
-    location: 'Nairobi, Kenya',
-    metric: '3 days → minutes',
-    metricLabel: 'Settlement time',
-    hue: 'cyan',
-  },
-  {
-    tag: 'DUBAI · SUPPLIERS',
-    flag: '🇳🇬→🇦🇪',
-    quote: 'Running stock between Lagos and Dubai meant expensive bank wires and rates that changed every day. Now I lock in the rate, pay my Dubai agent through NEDApay, and my goods are in transit same afternoon.',
-    name: 'Hassan M.',
-    role: 'Import / Export',
-    location: 'Lagos, Nigeria',
-    metric: 'Best rates',
-    metricLabel: 'Locked at transfer',
-    hue: 'blue',
-  },
-  {
-    tag: 'REMITTANCE · HOME',
-    flag: '🇬🇧→🇹🇿',
-    quote: 'Every month I used to lose 8 to 10 percent sending money home to my family in Mwanza. With NEDApay they receive what I actually send. It feels like handing the money to them in person.',
-    name: 'Chioma O.',
-    role: 'Healthcare Worker',
-    location: 'London, UK',
-    metric: 'Up to 10% saved',
-    metricLabel: 'On every transfer',
-    hue: 'cyan',
-  },
-  {
-    tag: 'CHINA · ALIPAY',
-    flag: '🇰🇪→🇨🇳',
-    quote: 'My Taobao sourcing agent gets paid through Alipay the same day I confirm the order. My competitors are still waiting for SWIFT to clear. That lead time is my edge.',
-    name: 'Juma B.',
-    role: 'E-commerce Seller',
-    location: 'Mombasa, Kenya',
-    metric: 'Same-day',
-    metricLabel: 'Alipay settlement',
-    hue: 'blue',
-  },
-];
-
-function Testimonials() {
-  return (
-    <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 mb-4">
-      {/* Section label */}
-      <div className="flex items-center gap-3 mb-4">
-        <div className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400" />
-        <span className="text-[11px] font-mono tracking-[0.2em] text-blue-600 dark:text-blue-400 uppercase">
-          Real Stories
-        </span>
-        <div className="h-px w-12 bg-gradient-to-r from-blue-500/40 to-transparent" />
-      </div>
-
-      <div className="mb-6">
-        <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white leading-tight">
-          People Already{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-400">
-            Moving Money.
-          </span>
-        </h3>
-        <p className="text-slate-500 dark:text-slate-500 text-xs mt-1.5 font-light max-w-lg">
-          From Guangzhou suppliers to London remittances. Borderless payments working in the real world.
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        {testimonials.map((t, i) => (
-          <div key={i} className="group relative overflow-hidden bg-slate-50 dark:bg-white/[0.025] hover:bg-blue-50/40 dark:hover:bg-blue-500/[0.04] transition-all duration-300 p-4 sm:p-5">
-            {/* Top gradient accent */}
-            <div className={`absolute top-0 left-0 right-0 h-px transition-all duration-300 ${
-              t.hue === 'cyan'
-                ? 'bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent group-hover:via-cyan-400/70'
-                : 'bg-gradient-to-r from-transparent via-blue-500/30 to-transparent group-hover:via-blue-400/70'
-            }`} />
-            {/* Corner brackets */}
-            <div className={`absolute top-0 left-0 w-3 h-3 border-t border-l transition-colors duration-300 ${t.hue === 'cyan' ? 'border-cyan-500/15 group-hover:border-cyan-400/55' : 'border-blue-500/15 group-hover:border-blue-400/55'}`} />
-            <div className={`absolute bottom-0 right-0 w-3 h-3 border-b border-r transition-colors duration-300 ${t.hue === 'cyan' ? 'border-cyan-500/15 group-hover:border-cyan-400/55' : 'border-blue-500/15 group-hover:border-blue-400/55'}`} />
-
-            {/* Top row: tag + flag route */}
-            <div className="flex items-center justify-between mb-3">
-              <span className={`text-[8px] font-mono tracking-[0.15em] px-1.5 py-0.5 uppercase ${
-                t.hue === 'cyan'
-                  ? 'text-cyan-600 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-500/10'
-                  : 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-500/10'
-              }`}>
-                {t.tag}
-              </span>
-              <span className="text-base leading-none" title={t.flag}>{t.flag}</span>
-            </div>
-
-            {/* Quote */}
-            <p className="text-[13px] text-slate-700 dark:text-slate-300 leading-relaxed font-light mb-4">
-              <span className={`text-lg font-serif mr-0.5 ${t.hue === 'cyan' ? 'text-cyan-400/50' : 'text-blue-400/50'}`}>"</span>
-              {t.quote}
-            </p>
-
-            {/* Bottom: name + metric */}
-            <div className="flex items-center justify-between gap-3 pt-3 border-t border-slate-200/60 dark:border-white/[0.05]">
-              <div className="min-w-0">
-                <p className="text-xs font-semibold text-slate-900 dark:text-white leading-tight truncate">{t.name}</p>
-                <p className="text-[9px] font-mono text-slate-400 dark:text-slate-500 mt-0.5 truncate">{t.role} · {t.location}</p>
-              </div>
-              <div className="text-right shrink-0">
-                <p className={`text-sm font-bold leading-tight ${t.hue === 'cyan' ? 'text-cyan-500 dark:text-cyan-400' : 'text-blue-600 dark:text-blue-400'}`}>{t.metric}</p>
-                <p className="text-[8px] font-mono text-slate-400 dark:text-slate-500 tracking-wider uppercase mt-0.5">{t.metricLabel}</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
 
 const faqs = [
   {
@@ -518,8 +399,6 @@ export default function PartnersSection() {
         </div>
       </div>
 
-      {/* Testimonials */}
-      <Testimonials />
 
       {/* Stablecoin infinite scroll */}
       <div className="relative z-10">
