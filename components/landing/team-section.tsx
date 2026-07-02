@@ -40,7 +40,7 @@ function LinkedInIcon({ className }: { className?: string }) {
 
 export default function TeamSection() {
   return (
-    <section id="team" className="relative py-24 bg-slate-50 dark:bg-[#0a0a0a] overflow-hidden">
+    <section id="team" className="relative py-12 sm:py-24 bg-slate-50 dark:bg-[#0a0a0a] overflow-hidden">
       {/* Grid background */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -76,7 +76,7 @@ export default function TeamSection() {
         </div>
 
         {/* Team cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
           {team.map((member) => (
             <div
               key={member.tag}
@@ -94,17 +94,12 @@ export default function TeamSection() {
               {/* Hover glow */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-b from-blue-500/[0.04] to-transparent" />
 
-              <div className="relative p-6 md:p-8">
-                {/* Tag */}
-                <div className="flex items-center mb-6">
-                  <span className="text-[10px] font-mono text-slate-300 dark:text-slate-700 tracking-widest">
-                    {member.tag}
-                  </span>
-                </div>
+              {/* Mobile: horizontal row · Desktop: vertical centred */}
+              <div className="relative p-4 sm:p-6 md:p-8 flex items-center gap-4 sm:flex-col sm:items-center sm:gap-0">
 
                 {/* Avatar */}
-                <div className="flex items-center justify-center mb-6">
-                  <div className="w-16 h-16 rounded-full bg-slate-100 dark:bg-white/[0.06] border border-slate-200 dark:border-white/10 flex items-center justify-center">
+                <div className="shrink-0 sm:mb-5 flex items-center justify-center">
+                  <div className="w-11 h-11 sm:w-16 sm:h-16 rounded-full bg-slate-100 dark:bg-white/[0.06] border border-slate-200 dark:border-white/10 flex items-center justify-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -113,7 +108,7 @@ export default function TeamSection() {
                       strokeWidth={1.5}
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className="w-7 h-7 text-slate-400 dark:text-slate-600"
+                      className="w-5 h-5 sm:w-7 sm:h-7 text-slate-400 dark:text-slate-600"
                       aria-hidden="true"
                     >
                       <circle cx="12" cy="8" r="4" />
@@ -122,30 +117,25 @@ export default function TeamSection() {
                   </div>
                 </div>
 
-                {/* Name & role */}
-                <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-1 leading-snug text-center">
-                  {member.name}
-                </h3>
-                <p className="text-slate-500 dark:text-slate-500 text-sm font-light mb-6 text-center">
-                  {member.role}
-                </p>
-
-                {/* LinkedIn link */}
-                <div className="flex justify-center">
-                <Link
-                  href={member.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-[11px] font-mono tracking-[0.12em] text-slate-500 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors group/link"
-                >
-                  <LinkedInIcon className="w-3.5 h-3.5 text-blue-500/60 group-hover/link:text-blue-600 dark:group-hover/link:text-blue-400 transition-colors" />
-                  VIEW PROFILE
-                  <span className="text-slate-300 dark:text-slate-700 group-hover/link:text-blue-400 transition-colors">→</span>
-                </Link>
+                {/* Text */}
+                <div className="min-w-0 flex-1 sm:flex-none sm:text-center">
+                  <h3 className="text-sm sm:text-xl font-semibold text-slate-900 dark:text-white mb-0.5 sm:mb-1 leading-snug">
+                    {member.name}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-500 font-light mb-3 sm:mb-5">
+                    {member.role}
+                  </p>
+                  <Link
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-[10px] sm:text-[11px] font-mono tracking-[0.12em] text-slate-500 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors group/link"
+                  >
+                    <LinkedInIcon className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-blue-500/60 group-hover/link:text-blue-600 dark:group-hover/link:text-blue-400 transition-colors" />
+                    <span className="hidden xs:inline sm:inline">VIEW PROFILE</span>
+                    <span className="text-slate-300 dark:text-slate-700 group-hover/link:text-blue-400 transition-colors">→</span>
+                  </Link>
                 </div>
-
-                {/* Bottom accent */}
-                <div className="mt-6 h-px bg-gradient-to-r from-blue-500/30 via-cyan-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
             </div>
           ))}
