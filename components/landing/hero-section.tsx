@@ -52,22 +52,6 @@ export default function HeroSection() {
       <div className="absolute bottom-0 left-0 w-8 h-8 lg:w-14 lg:h-14 border-b-2 border-l-2 border-blue-500/20 dark:border-blue-400/20 z-20 pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-8 h-8 lg:w-14 lg:h-14 border-b-2 border-r-2 border-blue-500/20 dark:border-blue-400/20 z-20 pointer-events-none" />
 
-      {/* Desktop technical labels */}
-      <div className="absolute top-[4.5rem] left-0 right-0 z-10 pointer-events-none hidden lg:block">
-        <div className="w-full px-12 flex justify-between items-center">
-          <div className="flex items-center gap-3 text-[10px] font-mono text-slate-400 dark:text-slate-600">
-            <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
-            <span>SYS.ACTIVE</span>
-            <span className="text-slate-300 dark:text-slate-700">|</span>
-            <span>GLOBAL.NETWORK</span>
-          </div>
-          <div className="flex items-center gap-3 text-[10px] font-mono text-slate-400 dark:text-slate-600">
-            <span>180+ COUNTRIES</span>
-            <div className="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse" style={{ animationDelay: '0.5s' }} />
-            <span>V2.0.0</span>
-          </div>
-        </div>
-      </div>
 
       {/* ═══════════════════════════════════════════════════
           LAYOUT
@@ -84,7 +68,6 @@ export default function HeroSection() {
 
             {/* Section label */}
             <div className="flex items-center gap-2 sm:gap-3 mb-6 sm:mb-8">
-              <div className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-blue-400 animate-pulse shrink-0" />
               <span className="text-[10px] sm:text-[11px] font-mono tracking-[0.18em] sm:tracking-[0.2em] text-blue-600 dark:text-blue-400 uppercase">
                 Send Money. Anywhere. Instantly.
               </span>
