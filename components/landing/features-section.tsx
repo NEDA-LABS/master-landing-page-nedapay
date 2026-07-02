@@ -6,14 +6,14 @@ const features = [
   {
     tag: '01',
     title: 'Pay on Farcaster',
-    description: 'Send money to friends directly inside Farcaster. Split a bill, tip a creator, pay back a friend — without switching apps.',
+    description: 'Send money to friends directly inside Farcaster. Split a bill, tip a creator, pay back a friend, without switching apps.',
     highlight: 'SOCIAL.PAYMENTS',
     image: '/farcaster.jpeg',
   },
   {
     tag: '02',
     title: 'Built on Base',
-    description: 'Fast transactions, near-zero fees. Send a dollar or a thousand — it settles in seconds on Base, one of the world\'s fastest networks.',
+    description: 'Fast transactions, ultra-low fees. Send a dollar or a thousand. It settles in seconds on Base, one of the world\'s fastest networks.',
     highlight: 'L2.INFRA',
     image: '/chains/base.svg',
   },
@@ -27,7 +27,7 @@ const features = [
   {
     tag: '04',
     title: 'NEDApay+ for Builders',
-    description: 'Plug payments into any app in minutes. Our APIs handle the complexity — you focus on building your product.',
+    description: 'Plug payments into any app in minutes. Our APIs handle the complexity so you can focus on building your product.',
     highlight: 'DEV.TOOLS',
     image: '/nedapayplus_docs.png',
   },
@@ -67,7 +67,7 @@ export default function FeaturesSection() {
               </span>
             </h2>
             <p className="text-slate-500 dark:text-slate-500 text-base max-w-xl font-light">
-              Sending money to family, building a payment app, or running a business across borders — we have the right tool for you.
+              Sending money to family, building a payment app, or running a business across borders. We have the right tool for you.
             </p>
           </div>
         </div>

@@ -47,7 +47,7 @@ const testimonials = [
     name: 'Chioma O.',
     role: 'Healthcare Worker',
     location: 'London, UK',
-    metric: '8–10% saved',
+    metric: 'Up to 10% saved',
     metricLabel: 'On every transfer',
     hue: 'cyan',
   },
@@ -84,7 +84,7 @@ function Testimonials() {
           </span>
         </h3>
         <p className="text-slate-500 dark:text-slate-500 text-xs mt-1.5 font-light max-w-lg">
-          From Guangzhou suppliers to London remittances — borderless payments, working in the real world.
+          From Guangzhou suppliers to London remittances. Borderless payments working in the real world.
         </p>
       </div>
 
@@ -140,7 +140,7 @@ function Testimonials() {
 const faqs = [
   {
     q: 'What is NEDApay?',
-    a: 'NEDApay is a borderless payments platform built on Base. It lets you send money to anyone in the world in seconds — no bank account required, no wire delays, no inflated exchange rates.',
+    a: 'NEDApay is a borderless payments platform built on Base. It lets you send money to anyone in the world in seconds, with no bank account required, no wire delays, no inflated exchange rates.',
   },
   {
     q: 'Which countries can use NEDApay?',
@@ -148,11 +148,11 @@ const faqs = [
   },
   {
     q: 'What is nTZS?',
-    a: 'nTZS is Tanzania\'s licensed digital currency, pegged 1:1 to the Tanzanian Shilling (TZS). It lets you hold, spend, and send Tanzanian value on-chain — fully regulated and backed.',
+    a: 'nTZS is Tanzania\'s licensed digital currency, pegged 1:1 to the Tanzanian Shilling (TZS). It lets you hold, spend, and send Tanzanian value on the blockchain, fully regulated and backed.',
   },
   {
     q: 'What are the fees?',
-    a: 'NEDApay keeps fees low and straightforward. Because transactions run on Base, you pay a small network fee that is significantly cheaper than a traditional wire or remittance service — no hidden charges, no surprise deductions on arrival.',
+    a: 'NEDApay keeps fees low and straightforward. Because transactions run on Base, you pay a small network fee that is significantly cheaper than a traditional wire or remittance service. No hidden charges, no surprise deductions on arrival.',
   },
   {
     q: 'What is SimpleFX and how do I earn?',
@@ -269,7 +269,7 @@ export default function PartnersSection() {
           </span>
         </h2>
         <p className="text-slate-500 dark:text-slate-500 text-base max-w-2xl leading-relaxed font-light">
-          Send, receive, and grow your funds across borders — no banks, no wires, no waiting.
+          Send, receive, and grow your funds across borders, without banks, wires, or waiting.
           Backed by a global network of licensed currencies and regulated partners.
         </p>
       </div>
@@ -330,7 +330,7 @@ export default function PartnersSection() {
                 </h4>
                 <p className="text-slate-600 dark:text-slate-400 text-base leading-relaxed font-light">
                   <span className="text-blue-600 dark:text-blue-400 font-medium">SimpleFX</span> lets you earn on the money you already hold.
-                  Deposit USDC, nTZS, or any supported currency — and automatically collect a fee every time someone exchanges through your pool.
+                  Deposit USDC, nTZS, or any supported currency and automatically collect a fee every time someone exchanges through your pool.
                   No trading skills needed.
                 </p>
                 <div className="flex items-center gap-3 pt-2">

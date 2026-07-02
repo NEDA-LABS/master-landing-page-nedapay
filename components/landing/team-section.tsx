@@ -7,25 +7,19 @@ const team = [
     tag: '01',
     name: 'Victor Muhagachi',
     role: 'Co-founder & CTO',
-    // TODO: replace with Victor's LinkedIn profile URL
-    linkedin: 'https://www.linkedin.com/in/victor-muhagachi',
-    initials: 'VM',
+    linkedin: 'https://www.linkedin.com/in/victor-muhagachi-ab4234160/',
   },
   {
     tag: '02',
     name: 'David Machuche',
     role: 'Co-founder, BD & Partnerships',
-    // TODO: replace with David's LinkedIn profile URL
-    linkedin: 'https://www.linkedin.com/in/david-machuche',
-    initials: 'DM',
+    linkedin: 'https://www.linkedin.com/in/david-machuche-1a9954b7/',
   },
   {
     tag: '03',
     name: 'Baraka Mangesho',
     role: 'Engineering Lead',
-    // TODO: replace with Baraka's LinkedIn profile URL
-    linkedin: 'https://www.linkedin.com/in/baraka-mangesho',
-    initials: 'BM',
+    linkedin: 'https://www.linkedin.com/in/barakamangesho/',
   },
 ];
 
@@ -77,7 +71,7 @@ export default function TeamSection() {
             </span>
           </h2>
           <p className="text-slate-500 dark:text-slate-500 text-base max-w-xl font-light">
-            A lean team from Tanzania, solving cross-border payments for Africa using stablecoins and on-chain infrastructure.
+            A lean team from Tanzania, building payment infrastructure for Africa on top of stablecoins and blockchain rails.
           </p>
         </div>
 
@@ -102,21 +96,29 @@ export default function TeamSection() {
 
               <div className="relative p-6 md:p-8">
                 {/* Tag */}
-                <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center mb-6">
                   <span className="text-[10px] font-mono text-slate-300 dark:text-slate-700 tracking-widest">
                     {member.tag}
-                  </span>
-                  <span className="text-[10px] font-mono tracking-[0.15em] text-blue-600 dark:text-blue-400 px-2 py-0.5 bg-blue-50 dark:bg-blue-500/10">
-                    FOUNDER
                   </span>
                 </div>
 
                 {/* Avatar */}
                 <div className="flex items-center justify-center mb-6">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-600 to-cyan-500 dark:from-blue-500 dark:to-cyan-400 flex items-center justify-center">
-                    <span className="text-white dark:text-black font-bold text-lg tracking-wide font-mono">
-                      {member.initials}
-                    </span>
+                  <div className="w-16 h-16 rounded-full bg-slate-100 dark:bg-white/[0.06] border border-slate-200 dark:border-white/10 flex items-center justify-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={1.5}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="w-7 h-7 text-slate-400 dark:text-slate-600"
+                      aria-hidden="true"
+                    >
+                      <circle cx="12" cy="8" r="4" />
+                      <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+                    </svg>
                   </div>
                 </div>
 

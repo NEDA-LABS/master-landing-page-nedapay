@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
-import { ParticleBackground } from './particle-background';
 
 const Globe = dynamic(() => import('./globe'), { ssr: false });
 
@@ -31,8 +30,6 @@ export default function HeroSection() {
       {/* Glows */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] rounded-full bg-blue-500/5 dark:bg-blue-500/10 blur-3xl pointer-events-none" />
       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] rounded-full bg-cyan-500/5 dark:bg-cyan-500/8 blur-3xl pointer-events-none" />
-
-      <ParticleBackground />
 
       {/* Corner accents */}
       <div className="absolute top-24 md:top-16 left-0 w-8 h-8 lg:w-14 lg:h-14 border-t-2 border-l-2 border-blue-500/20 dark:border-blue-400/20 z-20 pointer-events-none" />
@@ -80,7 +77,7 @@ export default function HeroSection() {
             </div>
 
             {/* ── Headline — glowing terminal style ── */}
-            <h1 className="headline-glow text-4xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl font-bold tracking-tight leading-[1.15] sm:leading-[1.1]">
+            <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl font-bold tracking-tight leading-[1.15] sm:leading-[1.1]">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-500 dark:from-blue-400 dark:via-sky-400 dark:to-cyan-400">
                 Move Money
               </span>
@@ -94,13 +91,6 @@ export default function HeroSection() {
               </span>
             </h1>
 
-            {/* Mobile: live status tag below headline */}
-            <div className="flex lg:hidden items-center gap-2 mt-5">
-              <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 dark:bg-cyan-400 animate-pulse" />
-              <span className="text-[9px] font-mono tracking-[0.2em] text-slate-400 dark:text-slate-500 uppercase">Live Transactions</span>
-              <div className="flex-1 h-px bg-gradient-to-r from-cyan-500/20 to-transparent" />
-            </div>
-
             {/* Desktop dither line */}
             <div className="hidden lg:block h-px w-full mt-8 bg-gradient-to-r from-blue-500/20 via-cyan-500/10 to-transparent" />
           </div>
@@ -109,17 +99,6 @@ export default function HeroSection() {
           {/* On mobile: renders between headline and content in normal flow */}
           {/* On desktop: spans right column across both rows */}
           <div className="flex items-center justify-center relative lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:py-10 mt-8 sm:mt-0">
-
-            <div className="hidden sm:block absolute top-0 lg:top-12 left-1/2 -translate-x-1/2 text-[9px] font-mono text-slate-400 dark:text-slate-600 tracking-widest uppercase whitespace-nowrap z-10">
-              <span className="text-blue-600 dark:text-cyan-400">●</span>
-              <span className="ml-1">REAL-TIME</span>
-            </div>
-
-            <div className="hidden sm:flex absolute bottom-0 lg:bottom-12 left-1/2 -translate-x-1/2 items-center gap-4 text-[9px] font-mono text-slate-400 dark:text-slate-600 whitespace-nowrap z-10">
-              <span className="flex items-center gap-1.5"><span className="w-2 h-0.5 bg-cyan-400 inline-block" /> OUTBOUND</span>
-              <span className="text-slate-300 dark:text-slate-700">|</span>
-              <span className="flex items-center gap-1.5"><span className="w-2 h-0.5 bg-violet-400 inline-block" /> INBOUND</span>
-            </div>
 
             {/* Globe container — big on mobile, fills column on desktop */}
             <div className="relative w-full aspect-square max-w-[300px] sm:max-w-[380px] md:max-w-[440px] lg:max-w-[540px] mx-auto">
@@ -133,16 +112,9 @@ export default function HeroSection() {
             {/* Separator on mobile */}
             <div className="block lg:hidden h-px w-full mb-6 bg-gradient-to-r from-transparent via-slate-200 dark:via-white/8 to-transparent" />
 
-            {/* Dot row — desktop only */}
-            <div className="hidden lg:flex gap-[3px] mb-7 opacity-25 dark:opacity-20">
-              {Array.from({ length: 52 }).map((_, i) => (
-                <div key={i} className="w-[3px] h-[3px] rounded-full bg-blue-500 dark:bg-blue-400" />
-              ))}
-            </div>
-
             {/* Description */}
             <p className="text-sm sm:text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-xl leading-relaxed mb-7 sm:mb-8 font-light">
-              Send money to anyone, anywhere — in seconds. No bank delays, no
+              Send money to anyone, anywhere. In seconds. No bank delays, no
               inflated exchange rates. Just transfers that actually work.
             </p>
 
@@ -272,34 +244,6 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <style jsx>{`
-        /* ── Terminal glow on headline ── */
-        @keyframes headline-glow {
-          0%, 100% {
-            filter:
-              drop-shadow(0 0 6px rgba(34, 211, 238, 0.45))
-              drop-shadow(0 0 18px rgba(59, 130, 246, 0.25))
-              drop-shadow(0 0 40px rgba(34, 211, 238, 0.10));
-          }
-          50% {
-            filter:
-              drop-shadow(0 0 10px rgba(34, 211, 238, 0.75))
-              drop-shadow(0 0 28px rgba(59, 130, 246, 0.45))
-              drop-shadow(0 0 55px rgba(34, 211, 238, 0.20));
-          }
-        }
-        .headline-glow {
-          animation: headline-glow 3.5s ease-in-out infinite;
-        }
-
-        /* ── Dither stripe for desktop divider ── */
-        .hero-dither {
-          background-image: repeating-linear-gradient(
-            0deg, transparent 0px, transparent 2px,
-            rgb(59 130 246) 2px, rgb(59 130 246) 3px
-          );
-        }
-      `}</style>
     </section>
   );
 }

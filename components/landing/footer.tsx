@@ -25,10 +25,6 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center gap-2 mb-1">
-              <div className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
-              <span className="text-[10px] font-mono tracking-[0.2em] text-blue-400 uppercase">System Online</span>
-            </div>
             <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-5 tracking-tight">NEDApay</h3>
             <div className="flex flex-col gap-2.5 text-sm text-slate-500">
               <div className="flex items-center gap-2">
