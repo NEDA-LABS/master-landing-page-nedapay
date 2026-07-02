@@ -40,7 +40,7 @@ function LinkedInIcon({ className }: { className?: string }) {
 
 export default function TeamSection() {
   return (
-    <section id="team" className="relative py-24 bg-white dark:bg-black overflow-hidden">
+    <section id="team" className="relative py-24 bg-slate-50 dark:bg-[#0a0a0a] overflow-hidden">
       {/* Grid background */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -80,16 +80,16 @@ export default function TeamSection() {
           {team.map((member) => (
             <div
               key={member.tag}
-              className="group relative bg-slate-50 dark:bg-white/[0.025] hover:bg-blue-50/30 dark:hover:bg-blue-500/[0.05] transition-all duration-300 overflow-hidden"
+              className="group relative bg-white dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.08] hover:bg-blue-50/40 dark:hover:bg-blue-500/[0.06] hover:border-blue-200 dark:hover:border-blue-400/20 transition-all duration-300 overflow-hidden"
             >
               {/* Top gradient accent */}
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/25 dark:via-blue-400/20 to-transparent group-hover:via-blue-500/60 dark:group-hover:via-cyan-400/50 transition-all duration-300" />
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-blue-500/50 dark:via-blue-400/40 to-transparent group-hover:via-blue-500/80 dark:group-hover:via-cyan-400/70 transition-all duration-300" />
 
               {/* Corner brackets */}
-              <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-blue-500/20 dark:border-blue-400/15 group-hover:border-blue-500/70 dark:group-hover:border-cyan-400/60 transition-colors duration-300" />
-              <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-blue-500/20 dark:border-blue-400/15 group-hover:border-blue-500/70 dark:group-hover:border-cyan-400/60 transition-colors duration-300" />
-              <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-blue-500/20 dark:border-blue-400/15 group-hover:border-blue-500/70 dark:group-hover:border-cyan-400/60 transition-colors duration-300" />
-              <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-blue-500/20 dark:border-blue-400/15 group-hover:border-blue-500/70 dark:group-hover:border-cyan-400/60 transition-colors duration-300" />
+              <div className="absolute top-0 left-0 w-5 h-5 border-t-2 border-l-2 border-blue-500/40 dark:border-blue-400/30 group-hover:border-blue-500/80 dark:group-hover:border-cyan-400/70 transition-colors duration-300" />
+              <div className="absolute top-0 right-0 w-5 h-5 border-t-2 border-r-2 border-blue-500/40 dark:border-blue-400/30 group-hover:border-blue-500/80 dark:group-hover:border-cyan-400/70 transition-colors duration-300" />
+              <div className="absolute bottom-0 left-0 w-5 h-5 border-b-2 border-l-2 border-blue-500/40 dark:border-blue-400/30 group-hover:border-blue-500/80 dark:group-hover:border-cyan-400/70 transition-colors duration-300" />
+              <div className="absolute bottom-0 right-0 w-5 h-5 border-b-2 border-r-2 border-blue-500/40 dark:border-blue-400/30 group-hover:border-blue-500/80 dark:group-hover:border-cyan-400/70 transition-colors duration-300" />
 
               {/* Hover glow */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-b from-blue-500/[0.04] to-transparent" />
