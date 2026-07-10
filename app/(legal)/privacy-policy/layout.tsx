@@ -5,9 +5,9 @@ import Header from "@/components/Header";
 
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | NedaPay",
+  title: "Data Protection Policy | NEDApay",
   description:
-    "Learn how NedaPay collects, uses, and protects your personal data.",
+    "NEDA Labs Ltd Data Protection Policy — how we collect, use, share, and protect personal data under Tanzania's Personal Data Protection Act, 2022.",
 };
 
 export default function PrivacyLayout({ children }: { children: ReactNode }) {
