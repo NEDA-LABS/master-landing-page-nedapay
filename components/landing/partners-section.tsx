@@ -57,9 +57,9 @@ function FAQ() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-0">
         {/* Left column label */}
         <div className="lg:col-span-2 mb-3">
-          <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white leading-tight">
+          <h3 className="font-display text-3xl sm:text-4xl md:text-5xl text-slate-900 dark:text-white leading-[0.95]">
             Common Questions
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-400">, Answered.</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-400"> Answered.</span>
           </h3>
         </div>
 
@@ -219,7 +219,7 @@ export default function PartnersSection() {
           <div className="h-px w-12 bg-gradient-to-r from-blue-500/40 to-transparent" />
         </div>
 
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-5 leading-tight">
+        <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-slate-900 dark:text-white mb-5 leading-[0.95]">
           Your Money,
           <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-400">
@@ -280,7 +280,7 @@ export default function PartnersSection() {
                     YOUR MONEY · WORKS FOR YOU
                   </span>
                 </div>
-                <h4 className="text-2xl md:text-3xl font-bold leading-tight">
+                <h4 className="font-display text-3xl md:text-4xl leading-[0.95]">
                   Put Your Money to Work with{' '}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-400">
                     SimpleFX
@@ -370,7 +370,7 @@ export default function PartnersSection() {
                     ASK SIDE · 1.5% Spread
                   </span>
                 </div>
-                <h5 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+                <h5 className="font-display text-xl text-slate-900 dark:text-white mb-2 leading-none">
                   Earn every time someone buys
                 </h5>
                 <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-light">
@@ -394,7 +394,7 @@ export default function PartnersSection() {
                     BID SIDE · 1.2% Spread
                   </span>
                 </div>
-                <h5 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+                <h5 className="font-display text-xl text-slate-900 dark:text-white mb-2 leading-none">
                   Earn every time someone sells
                 </h5>
                 <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-light">

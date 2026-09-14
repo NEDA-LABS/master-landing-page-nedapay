@@ -63,7 +63,7 @@ export default function FeaturesSection() {
             <div className="h-px w-12 bg-gradient-to-r from-blue-500/40 to-transparent" />
           </div>
           <div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-white leading-tight mb-3">
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-slate-900 dark:text-white leading-[0.95] mb-3">
               One Platform.
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-400">
@@ -128,7 +128,7 @@ export default function FeaturesSection() {
                     </div>
 
                     {/* Text */}
-                    <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-3 leading-snug">
+                    <h3 className="font-display text-2xl text-slate-900 dark:text-white mb-3 leading-[0.95]">
                       {feature.title}
                     </h3>
                     <p className="text-slate-500 dark:text-slate-500 text-sm leading-relaxed font-light">

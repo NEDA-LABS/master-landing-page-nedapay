@@ -34,7 +34,7 @@ export default function TrustSection() {
 
           {/* ── LEFT: Regulation block ── */}
           <div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white leading-tight mb-4">
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-slate-900 dark:text-white leading-[0.95] mb-4">
               Built on Trust.
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-400">
@@ -88,7 +88,7 @@ export default function TrustSection() {
 
           {/* ── RIGHT: App download cards ── */}
           <div className="flex flex-col gap-4">
-            <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">
+            <h3 className="font-display text-2xl text-slate-900 dark:text-white mb-2">
               Get the App
             </h3>
 

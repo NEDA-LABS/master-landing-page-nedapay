@@ -4,20 +4,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 
-const Globe = dynamic(() => import('./globe'), {
+// Live settlement feed — replaces the globe. Client-only to avoid SSR
+// hydration drift from its timers.
+const HeroVisual = dynamic(() => import('./hero-visual'), {
   ssr: false,
   loading: () => (
-    <div className="w-full h-full flex items-center justify-center">
-      <div
-        className="rounded-full animate-pulse"
-        style={{
-          width: '80%',
-          aspectRatio: '1',
-          background: 'radial-gradient(circle at 38% 38%, rgba(96,165,250,0.18) 0%, rgba(59,130,246,0.10) 45%, rgba(37,99,235,0.05) 100%)',
-          boxShadow: '0 0 60px 12px rgba(59,130,246,0.08)',
-        }}
-      />
-    </div>
+    <div className="w-full h-64 rounded-sm bg-slate-100/60 dark:bg-white/[0.03] animate-pulse" />
   ),
 });
 
@@ -94,14 +86,14 @@ export default function HeroSection() {
             <div className="hidden lg:block h-px w-full mt-8 bg-gradient-to-r from-blue-500/20 via-cyan-500/10 to-transparent" />
           </div>
 
-          {/* ── BLOCK 2: Globe ── */}
+          {/* ── BLOCK 2: Live settlement feed ── */}
           {/* On mobile: renders between headline and content in normal flow */}
           {/* On desktop: spans right column across both rows */}
           <div className="flex items-center justify-center relative lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:py-10 mt-8 sm:mt-0">
 
-            {/* Globe container — big on mobile, fills column on desktop */}
-            <div className="relative w-full aspect-square max-w-[300px] sm:max-w-[380px] md:max-w-[440px] lg:max-w-[540px] mx-auto">
-              <Globe />
+            {/* Live settlement feed — big on mobile, fills column on desktop */}
+            <div className="relative w-full max-w-[340px] sm:max-w-[420px] lg:max-w-[500px] mx-auto">
+              <HeroVisual />
             </div>
           </div>
 
