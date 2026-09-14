@@ -501,8 +501,8 @@ export default function TermsOfServicePage() {
           </li>
           <li>
             <span className="font-medium">Phishing Awareness:</span> Be cautious
-            of phishing attempts. We will never request your wallet keys or
-            sensitive information through unsolicited communications.
+            of phishing attempts. We will never request your password or
+            account credentials through unsolicited communications.
           </li>
           <li>
             <span className="font-medium">Reporting:</span> Immediately
