@@ -206,8 +206,8 @@ export default function TermsOfServicePage() {
           </li>
           <li>
             <span className="font-medium">Wallet Security:</span> You are responsible
-            for safeguarding your wallet credentials, including private keys and
-            seed phrases.
+            for safeguarding your wallet credentials, including your email
+            account and passwords.
           </li>
         </ul>
       </section>
@@ -487,8 +487,8 @@ export default function TermsOfServicePage() {
         <ul className="ml-6 list-disc space-y-2 text-slate-700 dark:text-slate-300">
           <li>
             <span className="font-medium">Wallet Security:</span> Keep your
-            cryptocurrency wallet private keys and recovery phrases confidential.
-            Never share this information with anyone.
+            NEDApay account email and password confidential. Never share
+            this information with anyone.
           </li>
           <li>
             <span className="font-medium">Strong Security Practices:</span> Use
