@@ -147,8 +147,8 @@ export default function TermsOfServicePage() {
         </p>
         <ul className="ml-6 list-disc space-y-2 text-slate-700 dark:text-slate-300">
           <li>
-            <span className="font-medium">Payment Processing:</span> Secure payment
-            links, invoice creation and management, and transaction monitoring.
+            <span className="font-medium">Payment Processing:</span> Sending
+            and receiving, payment links and transaction monitoring.
           </li>
           <li>
             <span className="font-medium">Stablecoin Management:</span> Real-time
@@ -157,9 +157,9 @@ export default function TermsOfServicePage() {
             nTZS Tanzanian shilling-backed stablecoin.
           </li>
           <li>
-            <span className="font-medium">Fiat Off-ramping:</span> Direct USDC to
-            fiat conversion with multiple currency support and integrated payment
-            processors.
+            <span className="font-medium">On-ramping and Off-ramping:</span>{" "}
+            Direct Stablecoin to fiat conversion with multiple currency
+            support and integrated payment processors.
           </li>
           <li>
             <span className="font-medium">Merchant Tools:</span> Business verification
