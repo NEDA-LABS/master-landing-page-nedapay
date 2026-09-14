@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Heavy condensed display face — big brand headlines */
+.font-display {
+  font-family: var(--font-display), "Arial Narrow", "Helvetica Neue Condensed", sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 0.92;
+  text-transform: uppercase;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

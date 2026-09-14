@@ -22,14 +22,16 @@ export default function Footer() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-8">
 
         {/* Top section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-5 tracking-tight">NEDApay</h3>
             <div className="flex flex-col gap-2.5 text-sm text-slate-500">
-              <div className="flex items-center gap-2">
-                <MapPin className="w-3.5 h-3.5 text-blue-400 shrink-0" />
-                <span className="font-mono text-xs">Dar es Salaam, Tanzania</span>
+              <div className="flex items-start gap-2">
+                <MapPin className="w-3.5 h-3.5 text-blue-400 shrink-0 mt-0.5" />
+                <span className="font-mono text-xs leading-relaxed">
+                  9th Floor, Tanhouse, Victoria Place,<br />Dar es Salaam, Tanzania
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-blue-400 shrink-0" />
@@ -45,6 +47,14 @@ export default function Footer() {
                 <span className="font-mono text-xs">+255 744 277 496</span>
               </div>
             </div>
+
+            {/* Regulated badge */}
+            <div className="mt-5 inline-flex items-center gap-2 bg-cyan-50 dark:bg-cyan-500/10 px-3 py-1.5 rounded-full w-fit">
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+              <span className="text-[10px] font-mono tracking-wider text-cyan-600 dark:text-cyan-400 uppercase">
+                Regulated by Bank of Tanzania
+              </span>
+            </div>
           </div>
 
           {/* Ecosystem links */}
@@ -57,13 +67,39 @@ export default function Footer() {
               {[
                 { label: 'NEDApay Web App', href: 'https://app.nedapay.xyz' },
                 { label: 'nTZS Stablecoin', href: 'https://app.ntzs.co.tz/' },
-                { label: 'Farcaster MiniApp', href: 'https://farcaster.xyz/miniapps/nhIkqfY9DK47/nedapay' },
-                { label: 'Base Integration', href: '#' },
-                { label: 'Team', href: '/#team' },
+                { label: 'Build with NEDApay+', href: 'https://nedapayplus.xyz/docs' },
+                { label: 'Trust & Compliance', href: '/#trust' },
               ].map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
+                    className="font-mono text-xs hover:text-blue-400 transition-colors flex items-center gap-2 group"
+                  >
+                    <span className="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-700 group-hover:bg-blue-400 transition-colors" />
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Get the app */}
+          <div>
+            <div className="flex items-center gap-2 mb-4">
+              <div className="h-px w-3 bg-blue-400/40" />
+              <span className="text-[10px] font-mono tracking-[0.2em] text-blue-400 uppercase">Get the App</span>
+            </div>
+            <ul className="space-y-2.5 text-sm text-slate-500">
+              {[
+                { label: 'Google Play (Android)', href: 'https://play.google.com/store/apps/details?id=com.nedapay.app' },
+                { label: 'iOS (App Store)', href: 'https://apps.apple.com/tz/app/nedapay-wallet/id6799928100' },
+                { label: 'Open in Browser', href: 'https://app.nedapay.xyz' },
+              ].map((item) => (
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="font-mono text-xs hover:text-blue-400 transition-colors flex items-center gap-2 group"
                   >
                     <span className="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-700 group-hover:bg-blue-400 transition-colors" />

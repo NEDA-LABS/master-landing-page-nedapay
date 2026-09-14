@@ -51,10 +51,10 @@ export default function Header() {
                 SimpleFX
               </Link>
               <Link
-                href="/#team"
+                href="/#app"
                 className="text-xs font-mono tracking-wider text-slate-500 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors uppercase"
               >
-                Team
+                App
               </Link>
               <Link
                 href="/privacy-policy"
@@ -109,18 +109,10 @@ export default function Header() {
             nTZS
           </Link>
           <Link
-            href="https://farcaster.xyz/miniapps/nhIkqfY9DK47/nedapay"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/#app"
             className="flex-1 flex items-center justify-center py-2.5 text-[9px] font-mono tracking-[0.18em] text-slate-500 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/50 dark:hover:bg-blue-500/5 transition-colors uppercase"
           >
-            Farcaster
-          </Link>
-          <Link
-            href="/#team"
-            className="flex-1 flex items-center justify-center py-2.5 text-[9px] font-mono tracking-[0.18em] text-slate-500 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/50 dark:hover:bg-blue-500/5 transition-colors uppercase"
-          >
-            Team
+            Get App
           </Link>
           <Link
             href="/privacy-policy"

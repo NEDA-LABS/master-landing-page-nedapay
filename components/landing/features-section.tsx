@@ -5,17 +5,19 @@ import Image from 'next/image';
 const features = [
   {
     tag: '01',
-    title: 'Pay on Farcaster',
-    description: 'Send money to friends directly inside Farcaster. Split a bill, tip a creator, pay back a friend, without switching apps.',
-    highlight: 'SOCIAL.PAYMENTS',
-    image: '/farcaster.jpeg',
+    title: 'Pay with NEDApay',
+    description: 'Send, receive, and pay anyone in seconds. Scan a QR, settle a bill, or split with friends. Your money moves at the speed of a message.',
+    highlight: 'PAYMENTS',
+    image: '/NEDApayLogo.png',
+    href: 'https://app.nedapay.xyz',
   },
   {
     tag: '02',
-    title: 'Built on Base',
-    description: 'Fast transactions, ultra-low fees. Send a dollar or a thousand. It settles in seconds on Base, one of the world\'s fastest networks.',
-    highlight: 'L2.INFRA',
-    image: '/chains/base.svg',
+    title: 'SimpleFX',
+    description: 'Earn on the money you already hold. Provide liquidity to currency pools and collect a fee every time someone swaps through you. No trading needed.',
+    highlight: 'STABLE.FX',
+    image: '/NTZ STABLE 2.png',
+    href: 'https://www.ntzs.co.tz/simplefx',
   },
   {
     tag: '03',
@@ -23,6 +25,7 @@ const features = [
     description: 'Tanzania\'s licensed digital currency, pegged 1:1 to the Tanzanian Shilling. Spend, save, and send with confidence.',
     highlight: 'STABLECOIN',
     image: '/ntzs-logo.webp',
+    href: 'https://www.ntzs.co.tz/',
   },
   {
     tag: '04',
@@ -30,6 +33,7 @@ const features = [
     description: 'Plug payments into any app in minutes. Our APIs handle the complexity so you can focus on building your product.',
     highlight: 'DEV.TOOLS',
     image: '/nedapayplus_docs.png',
+    href: 'https://www.ntzs.co.tz/developers',
   },
 ];
 
@@ -81,9 +85,12 @@ export default function FeaturesSection() {
           <div className="overflow-x-auto scrollbar-hide">
             <div className="flex animate-features-scroll">
               {[...features, ...features, ...features].map((feature, index) => (
-                <div
+                <a
                   key={index}
-                  className="group flex-shrink-0 mx-3 relative bg-white dark:bg-white/[0.025] hover:bg-blue-50/30 dark:hover:bg-blue-500/[0.05] transition-all duration-300 overflow-hidden"
+                  href={feature.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex-shrink-0 mx-3 relative block bg-white dark:bg-white/[0.025] hover:bg-blue-50/30 dark:hover:bg-blue-500/[0.05] transition-all duration-300 overflow-hidden"
                   style={{ width: '300px', maxWidth: '85vw' }}
                 >
                   {/* Top gradient accent line — always visible, brightens on hover */}
@@ -131,7 +138,7 @@ export default function FeaturesSection() {
                     {/* Bottom accent */}
                     <div className="mt-6 h-px bg-gradient-to-r from-blue-500/30 via-cyan-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
-                </div>
+                </a>
               ))}
             </div>
           </div>

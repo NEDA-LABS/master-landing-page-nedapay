@@ -320,45 +320,83 @@ export default function Globe() {
       ctx.fill();
     });
 
-    // ── 5. Globe body — filled gradient (rich) ──────
-    const bg = ctx.createRadialGradient(cx - R * 0.3, cy - R * 0.3, 0, cx, cy, R);
+    // ── 5. Globe body — shaded 3D sphere ────────────
+    // Light comes from the upper-left; offset the gradient origin so the
+    // sphere reads as a lit ball rather than a flat disk.
+    const lx = cx - R * 0.34, ly = cy - R * 0.34;
+    const bg = ctx.createRadialGradient(lx, ly, R * 0.05, cx, cy, R * 1.05);
     if (isDark) {
-      bg.addColorStop(0,    'rgba(40,90,180,0.85)');
-      bg.addColorStop(0.5,  'rgba(18,48,120,0.92)');
-      bg.addColorStop(1,    'rgba(4,14,50,0.98)');
+      bg.addColorStop(0,    'rgba(96,165,250,0.95)');
+      bg.addColorStop(0.35, 'rgba(37,99,235,0.95)');
+      bg.addColorStop(0.7,  'rgba(17,45,120,0.97)');
+      bg.addColorStop(1,    'rgba(3,10,42,1)');
     } else {
-      bg.addColorStop(0,    'rgba(225,240,255,0.92)');
-      bg.addColorStop(0.5,  'rgba(195,220,255,0.78)');
-      bg.addColorStop(1,    'rgba(170,200,250,0.55)');
+      bg.addColorStop(0,    'rgba(224,239,255,0.98)');
+      bg.addColorStop(0.4,  'rgba(147,190,255,0.92)');
+      bg.addColorStop(0.72, 'rgba(74,140,246,0.90)');
+      bg.addColorStop(1,    'rgba(37,99,235,0.92)');
     }
     ctx.beginPath();
     ctx.arc(cx, cy, R, 0, TAU);
     ctx.fillStyle = bg;
     ctx.fill();
 
+    // Terminator shadow — darkens the lower-right limb for real 3D form
+    const term = ctx.createRadialGradient(cx + R * 0.42, cy + R * 0.46, R * 0.1, cx + R * 0.15, cy + R * 0.2, R * 1.25);
+    term.addColorStop(0,   isDark ? 'rgba(0,0,0,0)' : 'rgba(0,0,0,0)');
+    term.addColorStop(0.55, isDark ? 'rgba(2,6,28,0.0)' : 'rgba(12,40,110,0.0)');
+    term.addColorStop(1,   isDark ? 'rgba(2,6,28,0.85)' : 'rgba(20,54,130,0.55)');
+    ctx.beginPath();
+    ctx.arc(cx, cy, R, 0, TAU);
+    ctx.fillStyle = term;
+    ctx.fill();
+
     // Subtle inner core glow (gentle pulse)
     const corePulse = (Math.sin(t * 0.0024) + 1) / 2;
     const core = ctx.createRadialGradient(cx, cy, 0, cx, cy, R * (0.42 + corePulse * 0.08));
     core.addColorStop(0, isDark
-      ? `rgba(34,211,238,${0.16 + corePulse * 0.10})`
-      : `rgba(59,130,246,${0.06 + corePulse * 0.04})`);
+      ? `rgba(34,211,238,${0.18 + corePulse * 0.12})`
+      : `rgba(255,255,255,${0.10 + corePulse * 0.06})`);
     core.addColorStop(1, 'rgba(34,211,238,0)');
     ctx.beginPath();
     ctx.arc(cx, cy, R * 0.55, 0, TAU);
     ctx.fillStyle = core;
     ctx.fill();
 
-    // Specular highlight
-    const spec = ctx.createRadialGradient(cx - R * 0.38, cy - R * 0.38, 0, cx - R * 0.38, cy - R * 0.38, R * 0.7);
-    spec.addColorStop(0, isDark ? 'rgba(255,255,255,0.10)' : 'rgba(255,255,255,0.40)');
-    spec.addColorStop(1, 'rgba(0,0,0,0)');
+    // Specular highlight — glossy hotspot upper-left
+    const spec = ctx.createRadialGradient(lx, ly, 0, lx, ly, R * 0.6);
+    spec.addColorStop(0,   isDark ? 'rgba(255,255,255,0.22)' : 'rgba(255,255,255,0.75)');
+    spec.addColorStop(0.4, isDark ? 'rgba(255,255,255,0.06)' : 'rgba(255,255,255,0.22)');
+    spec.addColorStop(1,   'rgba(255,255,255,0)');
     ctx.beginPath();
     ctx.arc(cx, cy, R, 0, TAU);
     ctx.fillStyle = spec;
     ctx.fill();
 
-    // ── 6. Grid lines on globe surface ──────────────
-    const gridStroke = isDark ? '120,180,255' : '59,130,246';
+    // ── 6. Dot-matrix surface texture (digital globe) ─
+    // Small dots at a lat/lon grid, brightness by facing the light + limb.
+    // Light direction in view space (upper-left, toward viewer).
+    const Lm = Math.hypot(-0.5, 0.5, 0.85);
+    const Lx = -0.5 / Lm, Ly = 0.5 / Lm, Lz = 0.85 / Lm;
+    const dotBase = isDark ? 'rgba(125,211,252,' : 'rgba(255,255,255,';
+    for (let lat = -78; lat <= 78; lat += 9) {
+      const latR = Math.cos(lat * DEG);
+      const lonStep = 9 / Math.max(latR, 0.18);
+      for (let lon = 0; lon < 360; lon += lonStep) {
+        const n = rotY(ll2xyz(lat, lon), rot);
+        if (n.z <= 0.02) continue;
+        const facing = Math.max(0, n.x * Lx + n.y * Ly + n.z * Lz);
+        const a = (0.10 + facing * 0.55) * smoothstep(0.02, 0.25, n.z);
+        if (a < 0.04) continue;
+        const sx = cx + n.x * R, sy = cy - n.y * R;
+        const sz = 0.7 + n.z * 1.0;
+        ctx.fillStyle = `${dotBase}${a.toFixed(3)})`;
+        ctx.fillRect(sx - sz / 2, sy - sz / 2, sz, sz);
+      }
+    }
+
+    // ── 6b. Grid lines on globe surface ─────────────
+    const gridStroke = isDark ? '120,180,255' : '255,255,255';
     ctx.lineWidth = 0.5;
 
     // Longitudes every 30° — 6° step (half the path ops)
@@ -397,11 +435,20 @@ export default function Globe() {
     ctx.strokeStyle = isDark ? 'rgba(34,211,238,0.40)' : 'rgba(34,211,238,0.32)';
     ctx.stroke();
 
-    // Globe rim
+    // Globe rim — fresnel edge (soft outer glow + crisp line)
+    const rimG = ctx.createRadialGradient(cx, cy, R * 0.9, cx, cy, R * 1.04);
+    rimG.addColorStop(0,   'rgba(34,211,238,0)');
+    rimG.addColorStop(0.85, isDark ? 'rgba(34,211,238,0.18)' : 'rgba(56,189,248,0.16)');
+    rimG.addColorStop(1,   isDark ? 'rgba(34,211,238,0.45)' : 'rgba(56,189,248,0.40)');
+    ctx.beginPath();
+    ctx.arc(cx, cy, R * 1.04, 0, TAU);
+    ctx.fillStyle = rimG;
+    ctx.fill();
+
     ctx.beginPath();
     ctx.arc(cx, cy, R, 0, TAU);
-    ctx.strokeStyle = isDark ? 'rgba(96,165,250,0.55)' : 'rgba(59,130,246,0.45)';
-    ctx.lineWidth = 1.2;
+    ctx.strokeStyle = isDark ? 'rgba(125,211,252,0.7)' : 'rgba(59,130,246,0.55)';
+    ctx.lineWidth = 1.3;
     ctx.stroke();
 
     // ── 7. Arcs ─────────────────────────────────────
@@ -564,27 +611,31 @@ export default function Globe() {
         for (let i = 0; i < 3; i++) {
           const phase = (baseT + i * 0.333) % 1;
           const ringR = (isMobile ? 3 : 5) + phase * ringMax;
-          const a = (1 - phase) * 0.65 * vis;
+          const a = (1 - phase) * 0.7 * vis;
           ctx.beginPath();
           ctx.arc(sx, sy, ringR, 0, TAU);
-          ctx.strokeStyle = isDark ? `rgba(34,211,238,${a})` : `rgba(37,99,235,${a * 0.85})`;
+          ctx.strokeStyle = `rgba(34,211,238,${a})`;
           ctx.lineWidth = isMobile ? 0.8 : 1.1;
           ctx.stroke();
         }
 
         // Halo
         const haloG = ctx.createRadialGradient(sx, sy, 0, sx, sy, haloR);
-        haloG.addColorStop(0, isDark ? `rgba(34,211,238,${0.5 * vis})` : `rgba(37,99,235,${0.35 * vis})`);
+        haloG.addColorStop(0, `rgba(34,211,238,${0.6 * vis})`);
         haloG.addColorStop(1, 'rgba(0,0,0,0)');
         ctx.beginPath();
         ctx.arc(sx, sy, haloR, 0, TAU);
         ctx.fillStyle = haloG;
         ctx.fill();
 
-        // Core dot
+        // Core dot — bright white node with cyan ring
+        ctx.beginPath();
+        ctx.arc(sx, sy, dotBig + 1, 0, TAU);
+        ctx.fillStyle = `rgba(34,211,238,${vis})`;
+        ctx.fill();
         ctx.beginPath();
         ctx.arc(sx, sy, dotBig, 0, TAU);
-        ctx.fillStyle = isDark ? '#67e8f9' : '#1d4ed8';
+        ctx.fillStyle = '#ffffff';
         ctx.globalAlpha = vis;
         ctx.fill();
         ctx.globalAlpha = 1;
@@ -619,19 +670,19 @@ export default function Globe() {
       } else {
         // Soft halo
         const cg = ctx.createRadialGradient(sx, sy, 0, sx, sy, isMobile ? 4 : 7);
-        cg.addColorStop(0, isDark ? `rgba(147,197,253,${0.45 * vis})` : `rgba(59,130,246,${0.30 * vis})`);
+        cg.addColorStop(0, isDark ? `rgba(147,197,253,${0.5 * vis})` : `rgba(186,230,253,${0.6 * vis})`);
         cg.addColorStop(1, 'rgba(0,0,0,0)');
         ctx.beginPath();
         ctx.arc(sx, sy, isMobile ? 4 : 7, 0, TAU);
         ctx.fillStyle = cg;
         ctx.fill();
 
-        // Core dot
+        // Core dot — bright on the blue sphere
         ctx.beginPath();
         ctx.arc(sx, sy, dotSmall, 0, TAU);
         ctx.fillStyle = isDark
-          ? `rgba(147,197,253,${0.85 * vis})`
-          : `rgba(59,130,246,${0.7 * vis})`;
+          ? `rgba(191,219,254,${0.9 * vis})`
+          : `rgba(255,255,255,${0.95 * vis})`;
         ctx.fill();
 
         // Flag — always shown, smaller on mobile

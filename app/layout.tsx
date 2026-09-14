@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono } from "next/font/google";
+import { JetBrains_Mono, Anton } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { Toaster } from "sonner";
 import "./globals.css";
@@ -8,6 +8,14 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-mono-body",
+  display: "swap",
+});
+
+// Heavy condensed display face for big headlines — "money should work anywhere" look
+const anton = Anton({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-display",
   display: "swap",
 });
 
@@ -37,7 +45,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${jetbrainsMono.variable} antialiased`} style={{ fontFamily: 'var(--font-mono-body), "JetBrains Mono", ui-monospace, "Cascadia Code", "Fira Code", monospace' }}>
+      <body className={`${jetbrainsMono.variable} ${anton.variable} antialiased`} style={{ fontFamily: 'var(--font-mono-body), "JetBrains Mono", ui-monospace, "Cascadia Code", "Fira Code", monospace' }}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"

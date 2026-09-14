@@ -117,6 +117,83 @@ function FAQ() {
   );
 }
 
+const testimonials = [
+  {
+    quote: 'I pay my suppliers in China directly to WeChat and Alipay. What used to take three days through the bank now settles before I finish my tea.',
+    name: 'Amina H.',
+    role: 'Electronics Importer',
+    location: '🇹🇿 Dar es Salaam → 🇨🇳 Guangzhou',
+    hue: 'blue',
+  },
+  {
+    quote: 'Paying my Dubai vendors is instant now. No more chasing wire confirmations or losing money on bad exchange rates.',
+    name: 'Rajesh P.',
+    role: 'Wholesale Trader',
+    location: '🇹🇿 Arusha → 🇦🇪 Dubai',
+    hue: 'cyan',
+  },
+  {
+    quote: 'Sending money back home used to eat 8% in fees. With NEDApay my family gets almost everything I send, in seconds.',
+    name: 'Grace M.',
+    role: 'Nurse',
+    location: '🇬🇧 London → 🇹🇿 Mwanza',
+    hue: 'cyan',
+  },
+  {
+    quote: 'My online store gets paid from Kenya and Nigeria without a headache. The best rates I have found anywhere.',
+    name: 'David O.',
+    role: 'E-commerce Seller',
+    location: '🇹🇿 Mombasa Corridor',
+    hue: 'blue',
+  },
+];
+
+function Testimonials() {
+  return (
+    <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 sm:mb-24">
+      {/* label */}
+      <div className="flex items-center gap-3 mb-8">
+        <div className="h-px flex-1 bg-slate-200 dark:bg-white/8" />
+        <span className="text-[10px] font-mono tracking-[0.2em] text-slate-400 dark:text-slate-600 uppercase px-3">
+          Trusted Across Borders
+        </span>
+        <div className="h-px flex-1 bg-slate-200 dark:bg-white/8" />
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+        {testimonials.map((t) => (
+          <div
+            key={t.name}
+            className="group relative overflow-hidden bg-slate-50 dark:bg-white/[0.025] hover:bg-blue-50/40 dark:hover:bg-blue-500/[0.05] p-4 sm:p-5 transition-all duration-300 flex flex-col"
+          >
+            {/* top accent */}
+            <div className={`absolute top-0 left-0 right-0 h-px transition-all duration-300 ${
+              t.hue === 'cyan'
+                ? 'bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent group-hover:via-cyan-400/70'
+                : 'bg-gradient-to-r from-transparent via-blue-500/30 to-transparent group-hover:via-blue-400/70'
+            }`} />
+            <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-blue-500/15 group-hover:border-blue-400/55 transition-colors duration-300" />
+            <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-blue-500/15 group-hover:border-blue-400/55 transition-colors duration-300" />
+
+            {/* quote mark */}
+            <div className={`text-2xl leading-none mb-2 font-bold ${t.hue === 'cyan' ? 'text-cyan-500/50 dark:text-cyan-400/40' : 'text-blue-500/50 dark:text-blue-400/40'}`}>&ldquo;</div>
+
+            <p className="text-[13px] leading-relaxed text-slate-600 dark:text-slate-300 font-light flex-1">
+              {t.quote}
+            </p>
+
+            <div className="mt-4 pt-3 border-t border-slate-200/70 dark:border-white/[0.06]">
+              <p className="text-xs font-semibold text-slate-900 dark:text-white">{t.name}</p>
+              <p className="text-[10px] font-mono text-slate-400 dark:text-slate-500">{t.role}</p>
+              <p className="text-[9px] font-mono tracking-wider text-blue-600/70 dark:text-blue-400/70 mt-1">{t.location}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function PartnersSection() {
   return (
     <section className="relative py-24 bg-white dark:bg-black overflow-hidden">
@@ -399,6 +476,9 @@ export default function PartnersSection() {
         </div>
       </div>
 
+
+      {/* Testimonials */}
+      <Testimonials />
 
       {/* Stablecoin infinite scroll */}
       <div className="relative z-10">

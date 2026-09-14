@@ -22,10 +22,11 @@ const Globe = dynamic(() => import('./globe'), {
 });
 
 const storeButtons = [
-  { href: 'https://app.nedapay.xyz',                              icon: '/logo.png',            label: 'NEDApay',    title: 'Launch App', alt: 'NEDApay', iconBg: 'bg-blue-600 dark:bg-blue-700' },
-  { href: 'https://farcaster.xyz/miniapps/nhIkqfY9DK47/nedapay', icon: '/farcaster.jpeg',       label: 'Pay on',     title: 'Farcaster',  alt: 'Farcaster MiniApp' },
-  { href: 'https://www.ntzs.co.tz/',                              icon: '/ntzs-logo.webp',       label: 'Get',        title: 'nTZS',       alt: 'nTZS' },
-  { href: 'https://nedapayplus.xyz/docs',                         icon: '/nedapayplus_docs.png', label: 'Build with', title: 'NEDApay+',   alt: 'NEDApay APIs' },
+  { href: 'https://app.nedapay.xyz',                                              icon: '/logo.png',            label: 'NEDApay',    title: 'Launch App', alt: 'NEDApay',           iconBg: 'bg-blue-600 dark:bg-blue-700' },
+  { href: 'https://play.google.com/store/apps/details?id=com.nedapay.app',        icon: '/google-play.svg',     label: 'Android',    title: 'Play Store', alt: 'Google Play',       iconBg: 'bg-white' },
+  { href: 'https://apps.apple.com/tz/app/nedapay-wallet/id6799928100',            icon: '/apple.svg',           label: 'iOS',        title: 'App Store',  alt: 'NEDApay on the App Store', iconBg: 'bg-neutral-900' },
+  { href: 'https://www.ntzs.co.tz/',                                              icon: '/ntzs-logo.webp',       label: 'Get',        title: 'nTZS',       alt: 'nTZS' },
+  { href: 'https://www.ntzs.co.tz/developers',                                    icon: '/nedapayplus_docs.png', label: 'Build with', title: 'NEDApay+',   alt: 'NEDApay APIs' },
 ];
 
 export default function HeroSection() {
@@ -74,8 +75,8 @@ export default function HeroSection() {
               <div className="h-px flex-1 sm:w-16 sm:flex-none bg-gradient-to-r from-blue-500/50 to-transparent" />
             </div>
 
-            {/* ── Headline — glowing terminal style ── */}
-            <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl xl:text-6xl font-bold tracking-tight leading-[1.15] sm:leading-[1.1]">
+            {/* ── Headline — heavy condensed display, glowing terminal style ── */}
+            <h1 className="font-display text-[3.75rem] leading-[0.9] sm:text-7xl md:text-7xl lg:text-[5.5rem] xl:text-[6.5rem]">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-500 dark:from-blue-400 dark:via-sky-400 dark:to-cyan-400">
                 Move Money
               </span>
@@ -124,7 +125,7 @@ export default function HeroSection() {
                 <span className="absolute -bottom-[3px] -right-[3px] w-2 h-2 border-b border-r border-blue-600 dark:border-blue-400 opacity-0 group-hover:opacity-100 transition-opacity" />
                 LAUNCH APP
               </Link>
-              <Link href="https://nedapayplus.xyz/docs"
+              <Link href="https://www.ntzs.co.tz/developers"
                 className="inline-flex items-center justify-center flex-1 sm:flex-none px-5 sm:px-7 py-3 font-mono text-xs sm:text-sm tracking-widest border border-slate-300 dark:border-white/15 text-slate-600 dark:text-slate-400 hover:border-blue-500/50 dark:hover:border-blue-400/40 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200">
                 FOR BUILDERS
               </Link>
@@ -190,11 +191,11 @@ export default function HeroSection() {
                 <span className="text-[9px] sm:text-[10px] font-mono tracking-[0.2em] text-slate-400 dark:text-slate-600 uppercase">Start Here</span>
                 <div className="flex-1 h-px bg-slate-200 dark:bg-slate-800" />
               </div>
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
                 {storeButtons.map((button, index) => (
                   <Link key={index} href={button.href} className="group">
                     {/* Same panel treatment as feature cards — no full border, corner brackets + top accent */}
-                    <div className="relative flex h-full items-center gap-2.5 bg-slate-50 dark:bg-white/[0.025] hover:bg-blue-50/50 dark:hover:bg-blue-500/[0.06] p-3 sm:p-3.5 transition-all duration-200 overflow-hidden">
+                    <div className="relative flex h-full items-center gap-2.5 bg-slate-50 dark:bg-white/[0.025] hover:bg-blue-50/50 dark:hover:bg-blue-500/[0.06] p-3 sm:p-3.5 transition-all duration-200">
                       {/* Top gradient accent */}
                       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/20 dark:via-blue-400/15 to-transparent group-hover:via-blue-500/55 dark:group-hover:via-cyan-400/50 transition-all duration-300" />
                       {/* Corner brackets */}
