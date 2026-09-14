@@ -18,15 +18,15 @@ export default function TermsOfServicePage() {
           Terms of Service
         </h1>
         <p className="mt-1 text-sm font-medium text-slate-500 dark:text-slate-400">
-          NedaPay — a service of Neda Labs Ltd
+          NEDApay — a service of NEDALabs Ltd
         </p>
         <p className="mt-3 text-sm text-slate-600 dark:text-slate-400">
           Last updated: {effectiveDate}
         </p>
         <p className="mt-6 text-slate-700 dark:text-slate-300">
           These Terms of Service ("Terms") govern access to and use of the
-          services provided by <span className="font-semibold">Neda Labs Ltd</span>{" "}
-          ("<strong>NedaPay</strong>", "<strong>we</strong>", "<strong>us</strong>",
+          services provided by <span className="font-semibold">NEDALabs Ltd</span>{" "}
+          ("<strong>NEDApay</strong>", "<strong>we</strong>", "<strong>us</strong>",
           or "<strong>our</strong>"), a company incorporated in the United
           Republic of Tanzania, through our website at{" "}
           <Link href="https://nedapay.xyz" className="underline underline-offset-4">
@@ -41,7 +41,7 @@ export default function TermsOfServicePage() {
           .
         </p>
         <p className="mt-4 text-slate-700 dark:text-slate-300">
-          NedaPay operates as an approved participant in the Bank of Tanzania
+          NEDApay operates as an approved participant in the Bank of Tanzania
           ("BoT") Fintech Regulatory Sandbox. Our Services are provided under
           the terms and limitations of that sandbox approval and are subject
           to change as our regulatory status evolves, including upon
@@ -54,7 +54,7 @@ export default function TermsOfServicePage() {
           </CardHeader>
           <CardContent className="space-y-3 text-slate-700 dark:text-slate-300">
             <p>
-              NedaPay is a digital payment platform that enables stablecoin
+              NEDApay is a digital payment platform that enables stablecoin
               transactions, payment processing, and fiat off-ramping
               services, operating under Bank of Tanzania sandbox approval.
               We use blockchain technology to provide secure, efficient
@@ -83,14 +83,14 @@ export default function TermsOfServicePage() {
         <p>For the purposes of these Terms of Service, the following definitions apply:</p>
         <ul className="ml-6 list-disc space-y-2 text-slate-700 dark:text-slate-300">
           <li>
-            <span className="font-medium">Company:</span> Neda Labs Ltd, a
+            <span className="font-medium">Company:</span> NEDALabs Ltd, a
             company incorporated in Tanzania, operating under Bank of
             Tanzania Fintech Regulatory Sandbox approval, providing the
             Services described in these Terms.
           </li>
           <li>
             <span className="font-medium">Services:</span> All products and
-            services provided by NedaPay, including payment processing,
+            services provided by NEDApay, including payment processing,
             stablecoin management, payment links, invoicing, fiat
             off-ramping, and merchant tools.
           </li>
@@ -111,7 +111,7 @@ export default function TermsOfServicePage() {
             <span className="font-medium">Wallet:</span> A digital wallet
             used to store, send, and receive cryptocurrency and digital
             assets, including both embedded wallets provided through nTZS —
-            a system owned and operated by Neda Labs Ltd — and external
+            a system owned and operated by NEDALabs Ltd — and external
             wallets.
           </li>
           <li>
@@ -141,7 +141,7 @@ export default function TermsOfServicePage() {
           2. Services Overview
         </h2>
         <p>
-          NedaPay provides a digital payment platform built on blockchain
+          NEDApay provides a digital payment platform built on blockchain
           technology, operating under a Bank of Tanzania Fintech Regulatory
           Sandbox approval. Our Services include:
         </p>
@@ -169,7 +169,7 @@ export default function TermsOfServicePage() {
             <span className="font-medium">Authentication Services:</span>{" "}
             Secure email-based one-time-password (OTP) authentication, with
             embedded wallet provisioning through nTZS, a system owned and
-            operated by Neda Labs Ltd.
+            operated by NEDALabs Ltd.
           </li>
         </ul>
       </section>
@@ -366,7 +366,7 @@ export default function TermsOfServicePage() {
         <h3 className="text-lg font-medium text-slate-800 dark:text-slate-200">Company IP</h3>
         <p className="text-slate-700 dark:text-slate-300">
           All intellectual property rights in the Services, including trademarks,
-          logos, and content, are owned by Neda Labs Ltd. You are granted a limited,
+          logos, and content, are owned by NEDALabs Ltd. You are granted a limited,
           non-exclusive, non-transferable license to use the Services solely for
           personal or business purposes in accordance with these Terms.
         </p>
@@ -443,7 +443,7 @@ export default function TermsOfServicePage() {
         </h2>
         <p className="text-slate-700 dark:text-slate-300">
           As a regulated participant in the Bank of Tanzania Fintech
-          Regulatory Sandbox, NedaPay maintains an Anti-Money Laundering and
+          Regulatory Sandbox, NEDApay maintains an Anti-Money Laundering and
           Countering the Financing of Terrorism (AML/CFT) program in
           accordance with the Anti-Money Laundering Act, 2006 and its
           regulations.
@@ -675,7 +675,7 @@ export default function TermsOfServicePage() {
         <ul className="ml-6 list-disc space-y-2 text-slate-700 dark:text-slate-300">
           <li>
             <span className="font-medium">Entire Agreement:</span> These Terms
-            constitute the entire agreement between you and NedaPay regarding
+            constitute the entire agreement between you and NEDApay regarding
             the Services.
           </li>
           <li>
@@ -737,7 +737,7 @@ export default function TermsOfServicePage() {
           <span className="font-semibold text-slate-900 dark:text-slate-300">
             Acknowledgment:
           </span>{" "}
-          By using NedaPay's Services, you acknowledge that you have read,
+          By using NEDApay's Services, you acknowledge that you have read,
           understood, and agree to be bound by these Terms of Service. You also
           acknowledge the risks associated with cryptocurrency transactions and
           digital asset management.
