@@ -104,7 +104,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {more.map((a) => (
                 <Link key={a.id} href={`/articles/${a.slug}`} className="group">
-                  <div className="relative aspect-[16/10] bg-slate-100 dark:bg-white/[0.04] overflow-hidden mb-3">
+                  <div className="relative aspect-[16/9] bg-slate-100 dark:bg-white/[0.04] overflow-hidden mb-3">
                     {a.cover_image ? (
                       <Image src={a.cover_image} alt={a.title} fill sizes="33vw" className="object-contain group-hover:scale-105 transition-transform duration-500" />
                     ) : (
