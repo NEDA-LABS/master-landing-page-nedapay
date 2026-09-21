@@ -13,14 +13,30 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const article = await getArticleBySlug(slug);
   if (!article) return { title: 'Article · NEDApay' };
+
+  const description = article.excerpt || `${article.title} — NEDApay Newsroom.`;
+  const images = article.cover_image
+    ? [{ url: article.cover_image, width: 1200, height: 630, alt: article.title }]
+    : undefined;
+
   return {
     title: `${article.title} · NEDApay`,
-    description: article.excerpt || undefined,
+    description,
     openGraph: {
       title: article.title,
-      description: article.excerpt || undefined,
-      images: article.cover_image ? [article.cover_image] : undefined,
+      description,
+      url: `/articles/${article.slug}`,
+      siteName: 'NEDApay',
       type: 'article',
+      publishedTime: article.published_at || article.created_at,
+      authors: article.author ? [article.author] : undefined,
+      images,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: article.title,
+      description,
+      images: article.cover_image ? [article.cover_image] : undefined,
     },
   };
 }
