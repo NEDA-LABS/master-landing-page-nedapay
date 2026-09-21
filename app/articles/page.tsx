@@ -55,7 +55,7 @@ export default async function ArticlesPage() {
                   <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent group-hover:via-blue-400/70 transition-all duration-300 z-10" />
                   <div className="relative aspect-[16/10] bg-slate-100 dark:bg-white/[0.04] overflow-hidden">
                     {a.cover_image ? (
-                      <Image src={a.cover_image} alt={a.title} fill sizes="(max-width:768px) 100vw, 33vw" className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <Image src={a.cover_image} alt={a.title} fill sizes="(max-width:768px) 100vw, 33vw" className="object-contain group-hover:scale-105 transition-transform duration-500" />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center text-3xl opacity-30">📰</div>
                     )}

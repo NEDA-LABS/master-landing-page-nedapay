@@ -82,8 +82,10 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           </div>
 
           {article.cover_image && (
-            <div className="relative aspect-[16/9] w-full overflow-hidden mb-10 bg-slate-100 dark:bg-white/[0.04]">
-              <Image src={article.cover_image} alt={article.title} fill sizes="(max-width:768px) 100vw, 768px" className="object-cover" priority />
+            <div className="w-full overflow-hidden mb-10 bg-slate-100 dark:bg-white/[0.04] rounded-sm">
+              {/* Show the full cover at its natural aspect ratio — never cropped. */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={article.cover_image} alt={article.title} className="w-full h-auto block" loading="eager" />
             </div>
           )}
 
@@ -102,7 +104,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                 <Link key={a.id} href={`/articles/${a.slug}`} className="group">
                   <div className="relative aspect-[16/10] bg-slate-100 dark:bg-white/[0.04] overflow-hidden mb-3">
                     {a.cover_image ? (
-                      <Image src={a.cover_image} alt={a.title} fill sizes="33vw" className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <Image src={a.cover_image} alt={a.title} fill sizes="33vw" className="object-contain group-hover:scale-105 transition-transform duration-500" />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center text-2xl opacity-30">📰</div>
                     )}
