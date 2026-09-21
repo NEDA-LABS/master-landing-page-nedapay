@@ -15,9 +15,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!article) return { title: 'Article · NEDApay' };
 
   const description = article.excerpt || `${article.title} — NEDApay Newsroom.`;
+  // Use the cover image when present, otherwise fall back to the NEDApay
+  // logo so shared links always show branding instead of a bare card.
   const images = article.cover_image
     ? [{ url: article.cover_image, width: 1200, height: 630, alt: article.title }]
-    : undefined;
+    : [{ url: '/logo.png', alt: 'NEDApay' }];
+  const twitterImage = article.cover_image || '/logo.png';
 
   return {
     title: `${article.title} · NEDApay`,
@@ -33,10 +36,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       images,
     },
     twitter: {
-      card: 'summary_large_image',
+      card: article.cover_image ? 'summary_large_image' : 'summary',
       title: article.title,
       description,
-      images: article.cover_image ? [article.cover_image] : undefined,
+      images: [twitterImage],
     },
   };
 }

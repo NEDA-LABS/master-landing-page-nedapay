@@ -6,6 +6,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { saveArticle, uploadImage } from '@/app/admin/actions';
 import type { Article } from '@/lib/articles';
+import { normalizeParagraphs } from '@/lib/markdown';
 
 const slugify = (s: string) =>
   s.toLowerCase().trim().replace(/[^\w\s-]/g, '').replace(/[\s_-]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 80);
@@ -32,8 +33,12 @@ export default function ArticleEditor({ article }: { article?: Article }) {
       const res = await uploadImage(fd);
       if (res.error) { setUploadErr(res.error); return; }
       if (res.url) {
-        if (kind === 'cover') setCover(res.url);
-        else setBody((b) => `${b}${b && !b.endsWith('\n') ? '\n\n' : ''}![](${res.url})\n`);
+        if (kind === 'cover') {
+          setCover(res.url);
+        } else {
+          const caption = (window.prompt('Image caption (optional):') || '').trim();
+          setBody((b) => `${b}${b && !b.endsWith('\n') ? '\n\n' : ''}![${caption}](${res.url})\n`);
+        }
       }
     } finally {
       setUploading(null);
@@ -93,8 +98,22 @@ export default function ArticleEditor({ article }: { article?: Article }) {
             </div>
           </div>
           {showPreview ? (
-            <div className="min-h-[300px] bg-slate-50 dark:bg-white/[0.04] border border-slate-200 dark:border-white/10 p-4 text-sm">
-              <ReactMarkdown remarkPlugins={[remarkGfm]}>{body || '_Nothing to preview_'}</ReactMarkdown>
+            <div className="min-h-[300px] bg-slate-50 dark:bg-white/[0.04] border border-slate-200 dark:border-white/10 p-4 text-sm prose-preview">
+              <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+                components={{
+                  p: (pr) => <p className="mb-4 leading-relaxed text-slate-700 dark:text-slate-300" {...pr} />,
+                  img: ({ src, alt }) => (
+                    <figure className="my-5">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={typeof src === 'string' ? src : ''} alt={alt || ''} className="w-full rounded" />
+                      {alt ? <figcaption className="mt-2 text-center text-[12px] font-mono text-slate-400">{alt}</figcaption> : null}
+                    </figure>
+                  ),
+                }}
+              >
+                {body ? normalizeParagraphs(body) : '_Nothing to preview_'}
+              </ReactMarkdown>
             </div>
           ) : (
             <textarea ref={bodyRef} value={body} onChange={(e) => setBody(e.target.value)} rows={16}
