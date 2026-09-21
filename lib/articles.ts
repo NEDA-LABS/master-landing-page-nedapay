@@ -89,6 +89,17 @@ export function slugify(input: string): string {
     .slice(0, 80);
 }
 
+/** Estimated read time in minutes from the markdown body (~220 wpm). */
+export function readingTime(body: string): number {
+  const words = (body || '')
+    .replace(/```[\s\S]*?```/g, ' ') // drop code blocks
+    .replace(/[#>*_`~\-!\[\]()]/g, ' ') // strip common markdown chars
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean).length;
+  return Math.max(1, Math.round(words / 220));
+}
+
 export function formatDate(iso: string | null): string {
   if (!iso) return '';
   return new Date(iso).toLocaleDateString('en-US', {

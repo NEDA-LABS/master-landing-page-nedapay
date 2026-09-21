@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/landing/footer';
 import ArticleBody from '@/components/article-body';
-import { getArticleBySlug, getPublishedArticles, formatDate } from '@/lib/articles';
+import { getArticleBySlug, getPublishedArticles, formatDate, readingTime } from '@/lib/articles';
 
 export const revalidate = 60;
 
@@ -75,10 +75,12 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             {article.title}
           </h1>
 
-          <div className="flex items-center gap-2 text-[11px] font-mono text-slate-400 dark:text-slate-600 mb-8">
-            {article.author && <span className="text-slate-600 dark:text-slate-400">{article.author}</span>}
+          <div className="flex items-center flex-wrap gap-x-2 gap-y-1 text-[11px] font-mono text-slate-400 dark:text-slate-600 mb-8">
+            {article.author && <span className="text-slate-600 dark:text-slate-400">By {article.author}</span>}
             {article.author && <span>·</span>}
             <span>{formatDate(article.published_at || article.created_at)}</span>
+            <span>·</span>
+            <span>{readingTime(article.body)} min read</span>
           </div>
 
           {article.cover_image && (
