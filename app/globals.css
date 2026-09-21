@@ -11,6 +11,27 @@
   text-transform: uppercase;
 }
 
+/* ══════════════════════════════════════════════════════════════
+   Light-mode theme — warm cream / parchment to match the NEDApay
+   app (dark mode is untouched). Retints the neutral surfaces the
+   components use so we don't have to touch every utility class.
+   `:root:not(.dark)` = light mode (next-themes adds .dark for dark).
+   ══════════════════════════════════════════════════════════════ */
+:root:not(.dark) .bg-white          { background-color: #f4eede; }
+:root:not(.dark) .bg-slate-50       { background-color: #ebe1cb; }
+:root:not(.dark) .bg-slate-100      { background-color: #e4d9c1; }
+/* translucent whites used for cards/panels → warm off-cream */
+:root:not(.dark) .bg-white\/70      { background-color: rgba(250, 246, 236, 0.72); }
+:root:not(.dark) .bg-white\/90      { background-color: rgba(244, 238, 222, 0.90); }
+:root:not(.dark) .bg-white\/60      { background-color: rgba(250, 246, 236, 0.62); }
+:root:not(.dark) .bg-white\/50      { background-color: rgba(250, 246, 236, 0.55); }
+:root:not(.dark) .bg-white\/30      { background-color: rgba(250, 246, 236, 0.40); }
+:root:not(.dark) .bg-slate-50\/80   { background-color: rgba(235, 225, 203, 0.80); }
+:root:not(.dark) .bg-slate-50\/70   { background-color: rgba(235, 225, 203, 0.70); }
+/* warm the cool grey borders slightly so edges sit on cream */
+:root:not(.dark) .border-slate-200  { border-color: #ddd0b4; }
+:root:not(.dark) .border-slate-100  { border-color: #e6dcc6; }
+
 @layer base {
   :root {
     --background: 0 0% 100%;
