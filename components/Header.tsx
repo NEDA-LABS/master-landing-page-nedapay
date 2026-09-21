@@ -57,6 +57,12 @@ export default function Header() {
                 App
               </Link>
               <Link
+                href="/articles"
+                className="text-xs font-mono tracking-wider text-slate-500 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors uppercase"
+              >
+                Articles
+              </Link>
+              <Link
                 href="/privacy-policy"
                 className="text-xs font-mono tracking-wider text-slate-500 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors uppercase"
               >

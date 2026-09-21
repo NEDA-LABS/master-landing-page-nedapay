@@ -1,0 +1,104 @@
+import Link from 'next/link';
+import Image from 'next/image';
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import Header from '@/components/Header';
+import Footer from '@/components/landing/footer';
+import ArticleBody from '@/components/article-body';
+import { getArticleBySlug, getPublishedArticles, formatDate } from '@/lib/articles';
+
+export const revalidate = 60;
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const article = await getArticleBySlug(slug);
+  if (!article) return { title: 'Article · NEDApay' };
+  return {
+    title: `${article.title} · NEDApay`,
+    description: article.excerpt || undefined,
+    openGraph: {
+      title: article.title,
+      description: article.excerpt || undefined,
+      images: article.cover_image ? [article.cover_image] : undefined,
+      type: 'article',
+    },
+  };
+}
+
+export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const article = await getArticleBySlug(slug);
+  if (!article) notFound();
+
+  const more = (await getPublishedArticles(4)).filter((a) => a.slug !== slug).slice(0, 3);
+
+  return (
+    <main className="min-h-screen bg-white dark:bg-black text-slate-900 dark:text-white">
+      <Header />
+
+      <article className="relative pt-28 sm:pt-32 pb-20 bg-white dark:bg-black">
+        <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Link href="/articles" className="inline-flex items-center gap-2 text-[11px] font-mono tracking-wider text-slate-400 dark:text-slate-600 hover:text-blue-600 dark:hover:text-blue-400 transition-colors uppercase mb-8">
+            <span>←</span> All Articles
+          </Link>
+
+          {article.tags?.length > 0 && (
+            <div className="flex flex-wrap gap-2 mb-4">
+              {article.tags.map((t) => (
+                <span key={t} className="text-[9px] font-mono tracking-[0.15em] text-blue-600 dark:text-blue-400 uppercase bg-blue-50 dark:bg-blue-500/10 px-2 py-0.5">
+                  {t}
+                </span>
+              ))}
+            </div>
+          )}
+
+          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl text-slate-900 dark:text-white leading-[0.95] mb-5">
+            {article.title}
+          </h1>
+
+          <div className="flex items-center gap-2 text-[11px] font-mono text-slate-400 dark:text-slate-600 mb-8">
+            {article.author && <span className="text-slate-600 dark:text-slate-400">{article.author}</span>}
+            {article.author && <span>·</span>}
+            <span>{formatDate(article.published_at || article.created_at)}</span>
+          </div>
+
+          {article.cover_image && (
+            <div className="relative aspect-[16/9] w-full overflow-hidden mb-10 bg-slate-100 dark:bg-white/[0.04]">
+              <Image src={article.cover_image} alt={article.title} fill sizes="(max-width:768px) 100vw, 768px" className="object-cover" priority />
+            </div>
+          )}
+
+          <ArticleBody markdown={article.body} />
+        </div>
+
+        {/* more */}
+        {more.length > 0 && (
+          <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-20 pt-10 border-t border-slate-200 dark:border-white/10">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="text-[10px] font-mono tracking-[0.2em] text-slate-400 dark:text-slate-600 uppercase">More Reading</span>
+              <div className="h-px flex-1 bg-slate-200 dark:bg-white/8" />
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {more.map((a) => (
+                <Link key={a.id} href={`/articles/${a.slug}`} className="group">
+                  <div className="relative aspect-[16/10] bg-slate-100 dark:bg-white/[0.04] overflow-hidden mb-3">
+                    {a.cover_image ? (
+                      <Image src={a.cover_image} alt={a.title} fill sizes="33vw" className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center text-2xl opacity-30">📰</div>
+                    )}
+                  </div>
+                  <h3 className="text-sm font-semibold text-slate-900 dark:text-white leading-snug group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                    {a.title}
+                  </h3>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+      </article>
+
+      <Footer />
+    </main>
+  );
+}

@@ -3,6 +3,7 @@ import AppShowcase from '@/components/landing/app-showcase';
 import FeaturesSection from '@/components/landing/features-section';
 import PartnersSection from '@/components/landing/partners-section';
 import TrustSection from '@/components/landing/trust-section';
+import ArticlesSection from '@/components/landing/articles-section';
 import Footer from '@/components/landing/footer';
 import Header from '@/components/Header';
 
@@ -15,6 +16,7 @@ export default function Home() {
       <FeaturesSection />
       <PartnersSection />
       <TrustSection />
+      <ArticlesSection />
       <Footer />
     </main>
   );

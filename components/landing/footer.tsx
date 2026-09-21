@@ -67,6 +67,7 @@ export default function Footer() {
               {[
                 { label: 'NEDApay Web App', href: 'https://app.nedapay.xyz' },
                 { label: 'nTZS Stablecoin', href: 'https://app.ntzs.co.tz/' },
+                { label: 'Articles', href: '/articles' },
                 { label: 'Build with NEDApay+', href: 'https://nedapayplus.xyz/docs' },
                 { label: 'Trust & Compliance', href: '/#trust' },
               ].map((item) => (
