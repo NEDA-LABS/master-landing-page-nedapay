@@ -1,8 +1,6 @@
 import {APP_URL} from './Header';
 import {Reveal, WaveText} from './motion';
 
-const CODES = ['TZ', 'CN', 'GB', 'AE', 'KE', 'NG', 'US', 'IN', 'ZA', 'BR'];
-
 export default function Hero() {
   return (
     <section id="top" className="np-wrap pb-16 pt-10 sm:pt-16 lg:pb-24">
@@ -42,10 +40,6 @@ export default function Hero() {
             <source src="/media/hero-film.webm" type="video/webm" />
             <source src="/media/hero-film.mp4" type="video/mp4" />
           </video>
-        </div>
-        <div className="mt-5 flex flex-wrap items-center justify-between gap-4">
-          <p className="np-label text-np-label">{CODES.join(' · ')} · 100+ countries</p>
-          <p className="np-label text-np-label">Spend · Send · Swap · Hold</p>
         </div>
       </Reveal>
     </section>
