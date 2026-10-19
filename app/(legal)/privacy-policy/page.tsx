@@ -431,7 +431,7 @@ export default function PrivacyPolicyPage() {
           className="rounded-2xl bg-np-paper p-6 text-sm leading-relaxed text-np-ink/70"
         >
           <AccordionItem value="cookies">
-            <AccordionTrigger className="text-xl font-medium tracking-tight text-np-ink">
+            <AccordionTrigger className="gap-4 text-left text-xl font-medium tracking-tight text-np-ink hover:no-underline">
               Cookies and other tracking technologies
             </AccordionTrigger>
             <AccordionContent className="np-body text-np-ink/80">
@@ -441,7 +441,7 @@ export default function PrivacyPolicyPage() {
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="third-party">
-            <AccordionTrigger className="text-xl font-medium tracking-tight text-np-ink">
+            <AccordionTrigger className="gap-4 text-left text-xl font-medium tracking-tight text-np-ink hover:no-underline">
               Third-party websites
             </AccordionTrigger>
             <AccordionContent className="np-body text-np-ink/80">
@@ -451,7 +451,7 @@ export default function PrivacyPolicyPage() {
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="transfers">
-            <AccordionTrigger className="text-xl font-medium tracking-tight text-np-ink">
+            <AccordionTrigger className="gap-4 text-left text-xl font-medium tracking-tight text-np-ink hover:no-underline">
               Data transfers
             </AccordionTrigger>
             <AccordionContent className="np-body text-np-ink/80">
