@@ -2,8 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import Header from '@/components/Header';
-import Footer from '@/components/landing/footer';
+import PageShell from '@/components/np/PageShell';
 import ArticleBody from '@/components/article-body';
 import { getArticleBySlug, getPublishedArticles, formatDate, readingTime } from '@/lib/articles';
 
@@ -52,76 +51,68 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   const more = (await getPublishedArticles(4)).filter((a) => a.slug !== slug).slice(0, 3);
 
   return (
-    <main className="min-h-screen bg-white dark:bg-black text-slate-900 dark:text-white">
-      <Header />
-
-      <article className="relative pt-28 sm:pt-32 pb-20 bg-white dark:bg-black">
-        <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/articles" className="inline-flex items-center gap-2 text-[11px] font-mono tracking-wider text-slate-400 dark:text-slate-600 hover:text-blue-600 dark:hover:text-blue-400 transition-colors uppercase mb-8">
-            <span>←</span> All Articles
+    <PageShell>
+      <article className="np-wrap pb-24 pt-10 sm:pt-16">
+        <div className="mx-auto max-w-[72ch]">
+          <Link href="/articles" className="np-focus np-label inline-flex items-center gap-2 text-np-label transition-colors hover:text-np-ink">
+            <span aria-hidden>←</span> All articles
           </Link>
 
           {article.tags?.length > 0 && (
-            <div className="flex flex-wrap gap-2 mb-4">
+            <div className="mt-10 flex flex-wrap gap-2">
               {article.tags.map((t) => (
-                <span key={t} className="text-[9px] font-mono tracking-[0.15em] text-blue-600 dark:text-blue-400 uppercase bg-blue-50 dark:bg-blue-500/10 px-2 py-0.5">
+                <span key={t} className="np-label rounded-full border border-np-ink px-3 py-1.5">
                   {t}
                 </span>
               ))}
             </div>
           )}
 
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl text-slate-900 dark:text-white leading-[0.95] mb-5">
-            {article.title}
-          </h1>
+          <h1 className="np-h2 mt-6">{article.title}</h1>
 
-          <div className="flex items-center flex-wrap gap-x-2 gap-y-1 text-[11px] font-mono text-slate-400 dark:text-slate-600 mb-8">
-            {article.author && <span className="text-slate-600 dark:text-slate-400">By {article.author}</span>}
+          <p className="np-label mt-6 flex flex-wrap gap-x-2 gap-y-1 text-np-label">
+            {article.author && <span className="text-np-ink">By {article.author}</span>}
             {article.author && <span>·</span>}
             <span>{formatDate(article.published_at || article.created_at)}</span>
             <span>·</span>
             <span>{readingTime(article.body)} min read</span>
-          </div>
+          </p>
 
           {article.cover_image && (
-            <div className="w-full overflow-hidden mb-10 bg-slate-100 dark:bg-white/[0.04] rounded-sm">
+            <div className="mt-10 overflow-hidden rounded-[clamp(16px,2vw,28px)] bg-np-paper ring-1 ring-black/10">
               {/* Show the full cover at its natural aspect ratio — never cropped. */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={article.cover_image} alt={article.title} className="w-full h-auto block" loading="eager" />
+              <img src={article.cover_image} alt={article.title} className="block h-auto w-full" loading="eager" />
             </div>
           )}
 
-          <ArticleBody markdown={article.body} />
+          <div className="mt-12">
+            <ArticleBody markdown={article.body} />
+          </div>
         </div>
 
-        {/* more */}
         {more.length > 0 && (
-          <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-20 pt-10 border-t border-slate-200 dark:border-white/10">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="text-[10px] font-mono tracking-[0.2em] text-slate-400 dark:text-slate-600 uppercase">More Reading</span>
-              <div className="h-px flex-1 bg-slate-200 dark:bg-white/8" />
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="mt-24 border-t-2 border-np-ink pt-10">
+            <p className="np-label text-np-label">More reading</p>
+            <div className="mt-8 grid gap-8 sm:grid-cols-3">
               {more.map((a) => (
-                <Link key={a.id} href={`/articles/${a.slug}`} className="group">
-                  <div className="relative aspect-[16/9] bg-slate-100 dark:bg-white/[0.04] overflow-hidden mb-3">
+                <Link key={a.id} href={`/articles/${a.slug}`} className="np-focus group flex flex-col gap-4">
+                  <div className="relative aspect-video overflow-hidden rounded-xl bg-np-paper">
                     {a.cover_image ? (
-                      <Image src={a.cover_image} alt={a.title} fill sizes="33vw" className="object-contain group-hover:scale-105 transition-transform duration-500" />
+                      <Image src={a.cover_image} alt="" fill sizes="33vw" className="object-contain transition-transform duration-700 group-hover:scale-105" />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center text-2xl opacity-30">📰</div>
+                      <div className="flex h-full w-full items-center justify-center">
+                        <img src="/brand/nedapay-mark-blue.svg" alt="" className="h-10 w-auto opacity-40" />
+                      </div>
                     )}
                   </div>
-                  <h3 className="text-sm font-semibold text-slate-900 dark:text-white leading-snug group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                    {a.title}
-                  </h3>
+                  <span className="text-xl font-medium leading-tight tracking-tight group-hover:text-np-blue">{a.title}</span>
                 </Link>
               ))}
             </div>
           </div>
         )}
       </article>
-
-      <Footer />
-    </main>
+    </PageShell>
   );
 }

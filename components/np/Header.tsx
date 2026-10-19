@@ -3,12 +3,12 @@
 import {useEffect, useState} from 'react';
 
 export const NAV = [
-  {href: '#spend', label: 'Spend'},
-  {href: '#send', label: 'Send'},
-  {href: '#swap', label: 'Swap'},
-  {href: '#ntzs', label: 'nTZS'},
-  {href: '#builders', label: 'Builders'},
-  {href: '#faq', label: 'FAQ'},
+  {href: '/#spend', label: 'Spend'},
+  {href: '/#send', label: 'Send'},
+  {href: '/#swap', label: 'Swap'},
+  {href: '/#ntzs', label: 'nTZS'},
+  {href: '/#builders', label: 'Builders'},
+  {href: '/#faq', label: 'FAQ'},
 ];
 
 export const APP_URL = 'https://app.nedapay.xyz';
@@ -43,7 +43,7 @@ export default function Header() {
       }`}
     >
       <div className="np-wrap flex h-[72px] items-center justify-between gap-6">
-        <a href="#top" className="np-focus shrink-0" aria-label="NEDApay home">
+        <a href="/" className="np-focus shrink-0" aria-label="NEDApay home">
           {/* supplied lockup artwork: never re-typed */}
           <img src="/brand/nedapay-lockup-h-blue.svg" alt="NEDApay" className="h-7 w-auto sm:h-8" />
         </a>
@@ -57,7 +57,7 @@ export default function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <a href="#app" className="np-focus np-label rounded-full border border-np-ink/80 px-4 py-2.5 text-np-ink transition-colors hover:bg-np-ink hover:text-np-bone">
+          <a href="/#app" className="np-focus np-label rounded-full border border-np-ink/80 px-4 py-2.5 text-np-ink transition-colors hover:bg-np-ink hover:text-np-bone">
             Get the app
           </a>
           <a href={APP_URL} className="np-focus rounded-full bg-np-blue px-5 py-2.5 text-[15px] font-bold text-np-ink transition-transform duration-300 hover:-translate-y-0.5">
@@ -104,7 +104,7 @@ export default function Header() {
               {n.label}
             </a>
           ))}
-          <a href="#app" onClick={() => setOpen(false)} className="np-focus np-label mt-8 self-start rounded-full border border-np-ink px-5 py-3">
+          <a href="/#app" onClick={() => setOpen(false)} className="np-focus np-label mt-8 self-start rounded-full border border-np-ink px-5 py-3">
             Get the app
           </a>
         </nav>
