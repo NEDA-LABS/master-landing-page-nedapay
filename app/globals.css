@@ -239,3 +239,39 @@
     background-size: 3rem 3rem;
   }
 }
+
+/* ══════════════════════════════════════════════════════════════
+   NEDApay brand pack v1.0: homepage system
+   Blue #369BED · Bone #EFEAE1 · Black · White
+   Montserrat (voice) · DM Mono (labels, figures: uppercase, 0.14em)
+   ══════════════════════════════════════════════════════════════ */
+:root {
+  --np-blue: #369BED;
+  --np-bone: #EFEAE1;
+  --np-ink: #000000;
+  --np-paper: #FFFFFF;
+  --np-label: #5A6472;
+  --np-ease: cubic-bezier(0.16, 1, 0.3, 1); /* exponential settle, as in the film */
+  --np-px: clamp(16px, 4vw, 72px);
+}
+
+.np { font-family: var(--font-np-sans), Archivo, Arial, sans-serif; color: var(--np-ink); background: var(--np-bone); }
+.np-label { font-family: var(--font-np-mono), "IBM Plex Mono", monospace; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; font-size: 12px; line-height: 1.4; }
+.np-wrap { padding-inline: var(--np-px); }
+.np-display { font-weight: 800; letter-spacing: -0.02em; line-height: 0.95; font-size: clamp(52px, 8.6vw, 148px); }
+.np-h2 { font-weight: 800; letter-spacing: -0.02em; line-height: 1; font-size: clamp(40px, 5.4vw, 92px); }
+.np-body { font-weight: 500; font-size: clamp(16px, 1.25vw, 20px); line-height: 1.55; }
+.np-focus:focus-visible { outline: 2px solid var(--np-blue); outline-offset: 3px; }
+
+/* letters rise off the baseline and settle (same move as the film) */
+.np-wave .np-ch { display: inline-block; opacity: 0; transform: translateY(0.45em); }
+.np-wave.is-in .np-ch { animation: np-rise 0.9s var(--np-ease) forwards; animation-delay: calc(var(--i) * 22ms); }
+@keyframes np-rise { to { opacity: 1; transform: none; } }
+
+/* blocks reveal as they enter */
+.np-reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s var(--np-ease), transform 1.1s var(--np-ease); }
+.np-reveal.is-in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .np-wave .np-ch, .np-reveal { opacity: 1 !important; transform: none !important; animation: none !important; transition: none !important; }
+}

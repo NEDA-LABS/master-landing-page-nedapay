@@ -9,7 +9,21 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        "np-sans": ["var(--font-np-sans)", "Archivo", "Arial", "sans-serif"],
+        "np-mono": ["var(--font-np-mono)", "IBM Plex Mono", "Consolas", "monospace"],
+        "np-script": ["var(--font-np-script)", "cursive"],
+      },
       colors: {
+        // NEDApay brand pack v1.0
+        np: {
+          blue: "#369BED",
+          bone: "#EFEAE1",
+          ink: "#000000",
+          paper: "#FFFFFF",
+          label: "#5A6472",
+          rule: "rgba(0,0,0,0.14)",
+        },
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {

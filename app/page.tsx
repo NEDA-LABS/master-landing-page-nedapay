@@ -1,23 +1,28 @@
-import HeroSection from '@/components/landing/hero-section';
-import AppShowcase from '@/components/landing/app-showcase';
-import FeaturesSection from '@/components/landing/features-section';
-import PartnersSection from '@/components/landing/partners-section';
-import TrustSection from '@/components/landing/trust-section';
-import ArticlesSection from '@/components/landing/articles-section';
-import Footer from '@/components/landing/footer';
-import Header from '@/components/Header';
+import Header from '@/components/np/Header';
+import Hero from '@/components/np/Hero';
+import ProductStage from '@/components/np/ProductStage';
+import {FaqSection, HoldSection, MoreSection} from '@/components/np/Sections';
+import {AppSection, ArticlesSection, Footer} from '@/components/np/Closing';
 
+// Homepage in the NEDApay brand pack v1.0: nTZS-led story
+// (spend it, send it, swap it, hold it), NEDApay as the way in.
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white dark:bg-black text-slate-900 dark:text-white">
+    <div className="np min-h-screen">
+      <a href="#main" className="np-focus np-label sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-np-ink focus:px-4 focus:py-3 focus:text-np-bone">
+        Skip to content
+      </a>
       <Header />
-      <HeroSection />
-      <AppShowcase />
-      <FeaturesSection />
-      <PartnersSection />
-      <TrustSection />
-      <ArticlesSection />
+      <main id="main">
+        <Hero />
+        <ProductStage />
+        <HoldSection />
+        <MoreSection />
+        <FaqSection />
+        <AppSection />
+        <ArticlesSection />
+      </main>
       <Footer />
-    </main>
+    </div>
   );
 }
