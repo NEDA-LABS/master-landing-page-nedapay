@@ -44,8 +44,11 @@ export default function Header() {
     >
       <div className="np-wrap flex h-[72px] items-center justify-between gap-6">
         <a href="/" className="np-focus shrink-0" aria-label="NEDApay home">
-          {/* supplied lockup artwork: never re-typed */}
-          <img src="/brand/nedapay-lockup-h-blue.svg" alt="NEDApay" className="h-7 w-auto sm:h-8" />
+          {/* app icon (black, 3D) + the supplied wordmark, never re-typed */}
+          <span className="flex items-center gap-2.5">
+            <img src="/brand/nedapay-app-icon-black.svg" alt="" className="h-9 w-9 sm:h-10 sm:w-10" />
+            <img src="/brand/nedapay-wordmark-black.svg" alt="NEDApay" className="h-6 w-auto sm:h-7" />
+          </span>
         </a>
 
         <nav aria-label="Main" className="hidden items-center gap-8 lg:flex">
