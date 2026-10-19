@@ -34,7 +34,7 @@ export default function Hero() {
             playsInline
             preload="metadata"
             poster="/media/hero-poster.jpg"
-            aria-label="Film: spend here, send anywhere, swap between stablecoins, all in the NEDApay app"
+            aria-label="Film: spend here, send anywhere, swap between stablecoins and run your shop, all in the NEDApay app"
           >
             <source src="/media/hero-film.webm" type="video/webm" />
             <source src="/media/hero-film.mp4" type="video/mp4" />
