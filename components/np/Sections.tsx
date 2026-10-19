@@ -95,7 +95,7 @@ export function MoreSection() {
                 className="np-focus group flex h-full flex-col gap-4 border-t-2 border-np-ink pt-6 transition-colors"
               >
                 <span className="np-label text-np-label">{m.eyebrow}</span>
-                <span className="text-[clamp(28px,2.6vw,44px)] font-extrabold tracking-tight">{m.title}</span>
+                <span className="text-[clamp(28px,2.6vw,44px)] font-medium tracking-tight">{m.title}</span>
                 <span className="np-body text-np-ink/75">{m.body}</span>
                 <span className="mt-auto pt-4 font-bold text-np-blue group-hover:underline">{m.cta} →</span>
               </a>
@@ -144,7 +144,7 @@ export function FaqSection() {
           <div className="border-t border-np-ink">
             {FAQ.map((f, i) => (
               <details key={f.q} open={i === 0} className="group border-b border-np-rule">
-                <summary className="np-focus grid cursor-pointer list-none grid-cols-[56px_1fr_32px] items-baseline gap-2 py-6 text-[clamp(20px,2vw,32px)] font-bold tracking-tight [&::-webkit-details-marker]:hidden">
+                <summary className="np-focus grid cursor-pointer list-none grid-cols-[56px_1fr_32px] items-baseline gap-2 py-6 text-[clamp(20px,2vw,32px)] font-medium tracking-tight [&::-webkit-details-marker]:hidden">
                   <span className="np-label text-np-label">0{i + 1}</span>
                   <span>{f.q}</span>
                   <span aria-hidden className="text-3xl font-medium transition-transform duration-300 group-open:rotate-45">

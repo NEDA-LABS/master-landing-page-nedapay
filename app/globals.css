@@ -259,7 +259,7 @@
 .np-label { font-family: var(--font-np-mono), "IBM Plex Mono", monospace; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; font-size: 12px; line-height: 1.4; }
 .np-wrap { padding-inline: var(--np-px); }
 .np-display { font-weight: 500; letter-spacing: -0.03em; line-height: 0.95; font-size: clamp(52px, 8.6vw, 148px); }
-.np-h2 { font-weight: 800; letter-spacing: -0.02em; line-height: 1; font-size: clamp(40px, 5.4vw, 92px); }
+.np-h2 { font-weight: 500; letter-spacing: -0.03em; line-height: 1; font-size: clamp(40px, 5.4vw, 92px); }
 .np-body { font-weight: 500; font-size: clamp(16px, 1.25vw, 20px); line-height: 1.55; }
 .np-focus:focus-visible { outline: 2px solid var(--np-blue); outline-offset: 3px; }
 

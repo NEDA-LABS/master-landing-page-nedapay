@@ -95,7 +95,7 @@ export default function Header() {
               key={n.href}
               href={n.href}
               onClick={() => setOpen(false)}
-              className="np-focus border-b border-np-rule py-4 text-4xl font-extrabold tracking-tight"
+              className="np-focus border-b border-np-rule py-4 text-4xl font-medium tracking-tight"
             >
               {n.label}
             </a>

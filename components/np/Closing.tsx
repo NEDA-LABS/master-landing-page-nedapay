@@ -29,7 +29,7 @@ export function AppSection() {
             {STORES.map(s => (
               <li key={s.label}>
                 <a href={s.href} className="np-focus group flex items-center justify-between gap-4 border-b border-np-bone/40 py-6">
-                  <span className="text-[clamp(22px,2.2vw,36px)] font-extrabold tracking-tight">{s.label}</span>
+                  <span className="text-[clamp(22px,2.2vw,36px)] font-medium tracking-tight">{s.label}</span>
                   <span className="np-label flex items-center gap-3">
                     {s.meta}
                     <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">→</span>
@@ -69,7 +69,7 @@ export async function ArticlesSection() {
                 {a.tags?.[0] ? `${a.tags[0]} · ` : ''}
                 {formatDate(a.published_at || a.created_at)}
               </span>
-              <span className="text-[clamp(22px,1.8vw,30px)] font-extrabold leading-tight tracking-tight group-hover:text-np-blue">{a.title}</span>
+              <span className="text-[clamp(22px,1.8vw,30px)] font-medium leading-tight tracking-tight group-hover:text-np-blue">{a.title}</span>
               {a.excerpt && <span className="np-body line-clamp-2 text-np-ink/75">{a.excerpt}</span>}
             </Link>
           </Reveal>
