@@ -36,9 +36,10 @@ export default function Header() {
   }, [open]);
 
   return (
+    <>
     <header
       className={`sticky top-0 z-50 transition-[background-color,box-shadow] duration-300 ${
-        scrolled ? 'bg-np-bone/90 backdrop-blur-md shadow-[0_1px_0_rgba(0,0,0,0.08)]' : 'bg-transparent'
+        open ? 'bg-np-bone' : scrolled ? 'bg-np-bone/90 backdrop-blur-md shadow-[0_1px_0_rgba(0,0,0,0.08)]' : 'bg-transparent'
       }`}
     >
       <div className="np-wrap flex h-[72px] items-center justify-between gap-6">
@@ -82,12 +83,15 @@ export default function Header() {
           </button>
         </div>
       </div>
+    </header>
 
-      {/* mobile menu: full screen, same type scale as the page */}
+      {/* mobile menu: full screen, same type scale as the page. It lives outside
+          the header on purpose: the header's backdrop blur would otherwise become
+          the menu's containing block and collapse it to zero height. */}
       <div
         id="np-menu"
         hidden={!open}
-        className="fixed inset-x-0 bottom-0 top-[72px] z-40 bg-np-bone lg:hidden"
+        className="fixed inset-x-0 bottom-0 top-[72px] z-40 overflow-y-auto bg-np-bone lg:hidden"
       >
         <nav aria-label="Mobile" className="np-wrap flex flex-col pt-6">
           {NAV.map(n => (
@@ -105,6 +109,6 @@ export default function Header() {
           </a>
         </nav>
       </div>
-    </header>
+    </>
   );
 }
