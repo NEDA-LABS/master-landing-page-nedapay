@@ -71,7 +71,7 @@ const MORE = [
   {
     eyebrow: 'Developers',
     title: 'NEDApay+',
-    body: 'Payments and payouts APIs for apps that want to move money in nTZS and stablecoins.',
+    body: 'Payments and payouts APIs for apps that move money in stablecoins, nTZS included.',
     href: 'https://www.ntzs.co.tz/developers',
     cta: 'Read the docs',
   },
@@ -84,7 +84,7 @@ export function MoreSection() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <WaveText as="h2" text="More from NEDApay." className="np-h2" />
           <Reveal>
-            <p className="np-label text-np-label">One platform · built on nTZS</p>
+            <p className="np-label text-np-label">One platform · every stablecoin</p>
           </Reveal>
         </div>
         <div className="mt-14 grid gap-6 md:grid-cols-3">
@@ -109,12 +109,12 @@ export function MoreSection() {
 
 const FAQ = [
   {
-    q: 'What is nTZS?',
-    a: 'A digital Tanzanian shilling, worth exactly one Tanzanian shilling. You can hold it, spend it, send it and swap it on-chain.',
+    q: 'What is NEDApay?',
+    a: 'One app to pay bills and merchants at home, send money across borders, and swap between stablecoins like USDC, USDT and nTZS.',
   },
   {
-    q: 'What is NEDApay?',
-    a: 'The app where you use nTZS: pay bills and merchants at home, send money to 100+ countries in seconds, and swap between nTZS and other stablecoins.',
+    q: 'What is nTZS?',
+    a: 'A digital Tanzanian shilling and one of the stablecoins you can hold in NEDApay. 1 nTZS is worth 1 TZS.',
   },
   {
     q: 'Which countries can I send to?',

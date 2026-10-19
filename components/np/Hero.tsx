@@ -10,8 +10,7 @@ export default function Hero() {
         </div>
         <Reveal className="lg:col-span-4" delay={250}>
           <p className="np-body text-np-ink/80">
-            nTZS is a digital Tanzanian shilling: 1&nbsp;nTZS&nbsp;=&nbsp;1&nbsp;TZS. NEDApay is where you hold it, spend it,
-            send it and swap it.
+            One app to pay at home, send money across borders and swap between stablecoins like USDC, USDT and nTZS.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a href={APP_URL} className="np-focus rounded-full bg-np-blue px-7 py-4 text-base font-bold text-np-ink transition-transform duration-300 hover:-translate-y-0.5">
