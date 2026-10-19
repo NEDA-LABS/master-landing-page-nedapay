@@ -68,6 +68,7 @@ function Terminal({active}: {active: boolean}) {
       {TERMINAL.map((line, i) => (
         <div
           key={i}
+          data-term-line
           className="transition-all duration-500"
           style={{
             opacity: active ? 1 : 0,
@@ -141,13 +142,14 @@ export default function ProductStage() {
             <article
               key={b.id}
               id={b.id}
+              data-stage-block
               ref={el => {
                 blocks.current[i] = el;
               }}
               className="flex scroll-mt-24 flex-col justify-center gap-6 py-16 lg:min-h-[86vh] lg:py-0"
             >
               {/* mobile: media sits with its text */}
-              <div className="aspect-video overflow-hidden rounded-2xl bg-np-bone ring-1 ring-black/10 lg:hidden">
+              <div data-stage-inline className="aspect-video overflow-hidden rounded-2xl bg-np-bone ring-1 ring-black/10 lg:hidden">
                 <Media kind={b.media} active />
               </div>
               <p className="np-label text-np-blue">{b.eyebrow}</p>
@@ -176,6 +178,7 @@ export default function ProductStage() {
               {BLOCKS.map((b, i) => (
                 <div
                   key={b.id}
+                  data-stage-scene
                   aria-hidden={i !== active}
                   className="absolute inset-0 transition-[opacity,transform] duration-700"
                   style={{
@@ -187,10 +190,10 @@ export default function ProductStage() {
                   <Media kind={b.media} active={i === active} />
                 </div>
               ))}
-              <div className="absolute bottom-0 left-0 h-1 bg-np-blue transition-[width] duration-700" style={{width: `${((active + 1) / BLOCKS.length) * 100}%`, transitionTimingFunction: 'var(--np-ease)'}} />
+              <div data-stage-bar className="absolute bottom-0 left-0 h-1 bg-np-blue transition-[width] duration-700" style={{width: `${((active + 1) / BLOCKS.length) * 100}%`, transitionTimingFunction: 'var(--np-ease)'}} />
             </div>
             <div className="mt-4 flex items-center justify-between">
-              <p className="np-label text-np-label">
+              <p data-stage-label className="np-label text-np-label">
                 0{active + 1} / 0{BLOCKS.length} · {BLOCKS[active].eyebrow.split('· ')[1]}
               </p>
               <div role="group" aria-label="Jump to" className="flex gap-1">
@@ -198,6 +201,7 @@ export default function ProductStage() {
                   <button
                     key={b.id}
                     type="button"
+                    data-stage-tab
                     aria-pressed={i === active}
                     aria-label={`Show ${b.eyebrow.split('· ')[1]}`}
                     onClick={() => blocks.current[i]?.scrollIntoView({behavior: 'smooth', block: 'start'})}
