@@ -72,7 +72,7 @@ const MORE = [
     eyebrow: 'Developers',
     title: 'NEDApay+',
     body: 'Payments and payouts APIs for apps that want to move money in nTZS and stablecoins.',
-    href: 'https://nedapayplus.xyz/docs',
+    href: 'https://www.ntzs.co.tz/developers',
     cta: 'Read the docs',
   },
 ];
