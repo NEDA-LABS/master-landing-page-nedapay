@@ -11,7 +11,7 @@ export default function Hero() {
           <Reveal>
             <p className="np-label text-np-label">nTZS · the Tanzanian shilling, on-chain</p>
           </Reveal>
-          <WaveText as="h1" text="The shilling, unlocked." className="np-display mt-6 max-w-[11ch]" />
+          <WaveText as="h1" text="Spend locally. Send globally." className="np-display mt-6 max-w-[15ch]" />
         </div>
         <Reveal className="lg:col-span-4" delay={250}>
           <p className="np-body text-np-ink/80">
