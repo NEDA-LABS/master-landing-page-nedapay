@@ -8,10 +8,7 @@ export default function Hero() {
     <section id="top" className="np-wrap pb-16 pt-10 sm:pt-16 lg:pb-24">
       <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
         <div className="lg:col-span-8">
-          <Reveal>
-            <p className="np-label text-np-label">nTZS · the Tanzanian shilling, on-chain</p>
-          </Reveal>
-          <WaveText as="h1" text="Spend locally. Send globally." className="np-display mt-6 max-w-[15ch]" />
+          <WaveText as="h1" text="Spend locally. Send globally." className="np-display max-w-[15ch]" />
         </div>
         <Reveal className="lg:col-span-4" delay={250}>
           <p className="np-body text-np-ink/80">
