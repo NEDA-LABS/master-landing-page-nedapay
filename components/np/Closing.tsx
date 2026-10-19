@@ -86,7 +86,7 @@ const COLS = [
       {label: 'NEDApay web app', href: APP_URL},
       {label: 'nTZS', href: 'https://www.ntzs.co.tz/'},
       {label: 'SimpleFX', href: 'https://www.ntzs.co.tz/simplefx'},
-      {label: 'NEDApay+ docs', href: 'https://nedapayplus.xyz/docs'},
+      {label: 'NEDApay+ docs', href: 'https://www.ntzs.co.tz/developers'},
       {label: 'Articles', href: '/articles'},
     ],
   },

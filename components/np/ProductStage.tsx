@@ -44,7 +44,7 @@ const BLOCKS: Block[] = [
     title: 'NEDApay+ for builders.',
     body: 'Plug nTZS payments and payouts into your product. Our APIs handle settlement so you can ship.',
     items: ['Payments API', 'Stablecoin payouts', 'Cross-border settlement', 'Docs and sandbox'],
-    link: {href: 'https://nedapayplus.xyz/docs', label: 'Read the docs'},
+    link: {href: 'https://www.ntzs.co.tz/developers', label: 'Read the docs'},
     media: 'build',
   },
 ];
