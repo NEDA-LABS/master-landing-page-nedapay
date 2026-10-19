@@ -34,7 +34,7 @@ export default function Hero() {
             playsInline
             preload="metadata"
             poster="/media/hero-poster.jpg"
-            aria-label="Film: the nTZS coin is spent, sent across the world and swapped, then dropped into the NEDApay app"
+            aria-label="Film: spend here, send anywhere, swap between stablecoins, all in the NEDApay app"
           >
             <source src="/media/hero-film.webm" type="video/webm" />
             <source src="/media/hero-film.mp4" type="video/mp4" />
