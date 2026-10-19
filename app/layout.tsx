@@ -44,8 +44,8 @@ const defaultUrl = "https://nedapay.xyz"
 
 export const metadata: Metadata = {
   metadataBase: new URL(defaultUrl),
-  title: "NEDApay: the shilling, unlocked",
-  description: "nTZS is a digital Tanzanian shilling, 1 nTZS = 1 TZS. NEDApay is where you hold it, spend it, send it and swap it.",
+  title: "NEDApay: spend locally, send globally",
+  description: "One app to pay at home, send money across borders and swap between stablecoins like USDC, USDT and nTZS.",
   icons: {
     icon: [
       { url: "/logo.png", type: "image/png" },

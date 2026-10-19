@@ -17,7 +17,7 @@ export function AppSection() {
     <section id="app" className="scroll-mt-16 bg-np-blue text-np-bone">
       <div className="np-wrap grid gap-14 py-24 lg:grid-cols-12 lg:py-36">
         <div className="lg:col-span-6">
-          <WaveText as="h2" text="Get nTZS on NEDApay." className="np-h2 text-np-bone" />
+          <WaveText as="h2" text="Get NEDApay." className="np-h2 text-np-bone" />
           {/* secondary lockup: mark + script tagline, tagline never larger than the mark */}
           <Reveal className="mt-12 flex items-center gap-5" delay={200}>
             <img src="/brand/nedapay-mark-bone.svg" alt="" className="h-16 w-auto" />

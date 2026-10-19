@@ -16,7 +16,7 @@ const BLOCKS: Block[] = [
   {
     id: 'spend',
     eyebrow: '01 · Spend it',
-    title: 'Pay for anything, in shillings.',
+    title: 'Pay for anything, at home.',
     body: 'Lipa Namba, bills, airtime, TV, water and power, straight from your nTZS balance. Scan, tap, done.',
     items: ['Lipa Namba', 'LUKU, DAWASA, TUKUZA', 'DSTV, AzamTV, StarTimes', 'QR payments', 'Split with friends'],
     media: 'spend',
@@ -42,7 +42,7 @@ const BLOCKS: Block[] = [
     id: 'builders',
     eyebrow: '04 · Build with it',
     title: 'NEDApay+ for builders.',
-    body: 'Plug nTZS payments and payouts into your product. Our APIs handle settlement so you can ship.',
+    body: 'Plug stablecoin payments and payouts into your product. Our APIs handle settlement so you can ship.',
     items: ['Payments API', 'Stablecoin payouts', 'Cross-border settlement', 'Docs and sandbox'],
     link: {href: 'https://www.ntzs.co.tz/developers', label: 'Read the docs'},
     media: 'build',
@@ -148,10 +148,13 @@ export default function ProductStage() {
               }}
               className="flex scroll-mt-24 flex-col justify-center gap-6 py-16 lg:min-h-[86vh] lg:py-0"
             >
-              {/* mobile: media sits with its text */}
-              <div data-stage-inline className="aspect-video overflow-hidden rounded-2xl bg-np-bone ring-1 ring-black/10 lg:hidden">
-                <Media kind={b.media} active />
-              </div>
+              {/* mobile: the hero film already plays spend, send and swap, so only
+                  the builders terminal (not in the film) sits inline with its text */}
+              {b.media === 'build' && (
+                <div data-stage-inline className="aspect-video overflow-hidden rounded-2xl bg-np-bone ring-1 ring-black/10 lg:hidden">
+                  <Media kind={b.media} active />
+                </div>
+              )}
               <p className="np-label text-np-blue">{b.eyebrow}</p>
               <h2 className="np-h2">{b.title}</h2>
               <p className="np-body max-w-[46ch] text-np-ink/80">{b.body}</p>
