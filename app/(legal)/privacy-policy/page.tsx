@@ -16,25 +16,25 @@ const effectiveDate = "January 22, 2025";
 
 export default function PrivacyPolicyPage() {
   return (
-    <main className="mx-auto w-full max-w-4xl px-6 py-12 text-slate-800 dark:text-slate-200">
+    <div className="mx-auto w-full max-w-[72ch] py-8 text-np-ink">
       {/* Header */}
       <section className="mb-10">
-        <Badge className="mb-4 bg-indigo-600 dark:bg-indigo-700/60 text-white dark:text-indigo-50">
+        <Badge className="np-label mb-6 rounded-full border border-np-ink bg-transparent px-3 py-1.5 text-np-ink hover:bg-transparent">
           Legal
         </Badge>
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl bg-gradient-to-r from-indigo-600 via-purple-600 to-blue-600 dark:from-indigo-300 dark:via-purple-300 dark:to-blue-300 bg-clip-text text-transparent">
+        <h1 className="np-h2">
           Data Protection Policy
         </h1>
-        <p className="mt-3 text-sm text-slate-600 dark:text-slate-400">
+        <p className="np-label mt-6 text-np-label">
           Effective as of {effectiveDate}
         </p>
-        <Card className="mt-6 border-slate-300 dark:border-slate-700/60 bg-slate-100 dark:bg-slate-900/40">
+        <Card className="mt-10 rounded-2xl border-0 bg-np-paper shadow-none">
           <CardHeader>
-            <CardTitle className="text-slate-900 dark:text-slate-100">
+            <CardTitle className="text-xl font-medium tracking-tight text-np-ink">
               At-a-glance
             </CardTitle>
           </CardHeader>
-          <CardContent className="space-y-3 text-slate-700 dark:text-slate-300">
+          <CardContent className="np-body space-y-3 text-np-ink/80">
             <p>
               We process personal information lawfully, fairly, and securely in
               line with Tanzania&apos;s Personal Data Protection Act, 2022, and
@@ -45,7 +45,7 @@ export default function PrivacyPolicyPage() {
               processing, and request data portability. Contact{" "}
               <Link
                 href="mailto:support@nedapay.xyz"
-                className="underline underline-offset-4"
+                className="font-semibold text-np-blue underline underline-offset-4"
               >
                 support@nedapay.xyz
               </Link>{" "}
@@ -55,11 +55,11 @@ export default function PrivacyPolicyPage() {
         </Card>
       </section>
 
-      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
+      <Separator className="my-12 bg-np-ink/15" />
 
       {/* Purpose */}
       <section id="purpose" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
+        <h2 className="text-[clamp(24px,2.4vw,34px)] font-medium leading-tight tracking-tight text-np-ink">
           1. Purpose
         </h2>
         <p>
@@ -91,11 +91,11 @@ export default function PrivacyPolicyPage() {
         </p>
       </section>
 
-      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
+      <Separator className="my-12 bg-np-ink/15" />
 
       {/* Scope */}
       <section id="scope" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
+        <h2 className="text-[clamp(24px,2.4vw,34px)] font-medium leading-tight tracking-tight text-np-ink">
           2. Scope
         </h2>
         <p>
@@ -105,14 +105,14 @@ export default function PrivacyPolicyPage() {
           you directly, as well as personal information that we collect from
           third parties.
         </p>
-        <p className="text-slate-700 dark:text-slate-300">
+        <p className="np-body text-np-ink/80">
           <span className="font-medium">Controller:</span> NEDA Labs Ltd., 9th
           Floor, Tan House, Victoria, Dar es Salaam.
           <br />
           <span className="font-medium">Contact:</span>{" "}
           <Link
             href="mailto:support@nedapay.xyz"
-            className="underline underline-offset-4"
+            className="font-semibold text-np-blue underline underline-offset-4"
           >
             support@nedapay.xyz
           </Link>
@@ -120,14 +120,14 @@ export default function PrivacyPolicyPage() {
         </p>
       </section>
 
-      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
+      <Separator className="my-12 bg-np-ink/15" />
 
       {/* Definitions */}
       <section id="definitions" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
+        <h2 className="text-[clamp(24px,2.4vw,34px)] font-medium leading-tight tracking-tight text-np-ink">
           3. Definitions
         </h2>
-        <ul className="ml-6 list-disc space-y-2 text-slate-700 dark:text-slate-300">
+        <ul className="np-body ml-6 list-disc space-y-2 text-np-ink/80 marker:text-np-blue">
           <li>
             <span className="font-medium">Personal information:</span> Any
             information that can be used to identify an individual, either
@@ -155,18 +155,18 @@ export default function PrivacyPolicyPage() {
         </ul>
       </section>
 
-      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
+      <Separator className="my-12 bg-np-ink/15" />
 
       {/* Data Protection Principles */}
       <section id="principles" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
+        <h2 className="text-[clamp(24px,2.4vw,34px)] font-medium leading-tight tracking-tight text-np-ink">
           4. Data Protection Principles
         </h2>
         <p>
           We will process your personal information in accordance with the
           following data protection principles:
         </p>
-        <ul className="ml-6 list-disc space-y-2 text-slate-700 dark:text-slate-300">
+        <ul className="np-body ml-6 list-disc space-y-2 text-np-ink/80 marker:text-np-blue">
           <li>
             <span className="font-medium">
               Lawfulness, fairness, and transparency:
@@ -203,15 +203,15 @@ export default function PrivacyPolicyPage() {
         </ul>
       </section>
 
-      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
+      <Separator className="my-12 bg-np-ink/15" />
 
       {/* Data Collection */}
       <section id="data-collection" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
+        <h2 className="text-[clamp(24px,2.4vw,34px)] font-medium leading-tight tracking-tight text-np-ink">
           5. Data Collection
         </h2>
         <p>We collect personal information from you in a variety of ways, including:</p>
-        <ul className="ml-6 list-disc space-y-2 text-slate-700 dark:text-slate-300">
+        <ul className="np-body ml-6 list-disc space-y-2 text-np-ink/80 marker:text-np-blue">
           <li>
             When you provide it to us directly, such as when you create an
             account, contact us with a question, or submit a form.
@@ -226,7 +226,7 @@ export default function PrivacyPolicyPage() {
         <p className="mt-4">
           The types of personal information that we collect may include:
         </p>
-        <ul className="ml-6 list-disc space-y-2 text-slate-700 dark:text-slate-300">
+        <ul className="np-body ml-6 list-disc space-y-2 text-np-ink/80 marker:text-np-blue">
           <li>Your name, email address, and phone number.</li>
           <li>Your billing and shipping address.</li>
           <li>Your credit card or other payment information.</li>
@@ -238,15 +238,15 @@ export default function PrivacyPolicyPage() {
         </ul>
       </section>
 
-      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
+      <Separator className="my-12 bg-np-ink/15" />
 
       {/* Data Use */}
       <section id="data-use" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
+        <h2 className="text-[clamp(24px,2.4vw,34px)] font-medium leading-tight tracking-tight text-np-ink">
           6. Data Use
         </h2>
         <p>We use your personal information for a variety of purposes, including:</p>
-        <ul className="ml-6 list-disc space-y-2 text-slate-700 dark:text-slate-300">
+        <ul className="np-body ml-6 list-disc space-y-2 text-np-ink/80 marker:text-np-blue">
           <li>To provide you with our products and services.</li>
           <li>
             To communicate with you about your account and our products and
@@ -260,18 +260,18 @@ export default function PrivacyPolicyPage() {
         </ul>
       </section>
 
-      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
+      <Separator className="my-12 bg-np-ink/15" />
 
       {/* Data Sharing */}
       <section id="data-sharing" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
+        <h2 className="text-[clamp(24px,2.4vw,34px)] font-medium leading-tight tracking-tight text-np-ink">
           7. Data Sharing
         </h2>
         <p>
           We may share your personal information with the following third
           parties:
         </p>
-        <ul className="ml-6 list-disc space-y-2 text-slate-700 dark:text-slate-300">
+        <ul className="np-body ml-6 list-disc space-y-2 text-np-ink/80 marker:text-np-blue">
           <li>
             Our service providers, such as payment processors, shipping
             companies, and data storage providers.
@@ -285,17 +285,17 @@ export default function PrivacyPolicyPage() {
             Law enforcement or other government agencies, if required by law.
           </li>
         </ul>
-        <p className="text-slate-600 dark:text-slate-400 text-sm">
+        <p className="text-sm text-np-label">
           We require our service providers and business partners to protect your
           personal information in accordance with this Policy and applicable law.
         </p>
       </section>
 
-      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
+      <Separator className="my-12 bg-np-ink/15" />
 
       {/* Data Security */}
       <section id="data-security" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
+        <h2 className="text-[clamp(24px,2.4vw,34px)] font-medium leading-tight tracking-tight text-np-ink">
           8. Data Security
         </h2>
         <p>
@@ -303,7 +303,7 @@ export default function PrivacyPolicyPage() {
           unauthorized access, use, disclosure, or destruction. We use a variety
           of security measures, including:
         </p>
-        <ul className="ml-6 list-disc space-y-2 text-slate-700 dark:text-slate-300">
+        <ul className="np-body ml-6 list-disc space-y-2 text-np-ink/80 marker:text-np-blue">
           <li>Encryption</li>
           <li>Access controls</li>
           <li>Physical security measures</li>
@@ -311,11 +311,11 @@ export default function PrivacyPolicyPage() {
         </ul>
       </section>
 
-      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
+      <Separator className="my-12 bg-np-ink/15" />
 
       {/* Data Retention */}
       <section id="data-retention" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
+        <h2 className="text-[clamp(24px,2.4vw,34px)] font-medium leading-tight tracking-tight text-np-ink">
           9. Data Retention
         </h2>
         <p>
@@ -325,18 +325,18 @@ export default function PrivacyPolicyPage() {
         </p>
       </section>
 
-      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
+      <Separator className="my-12 bg-np-ink/15" />
 
       {/* Your Rights */}
       <section id="your-rights" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
+        <h2 className="text-[clamp(24px,2.4vw,34px)] font-medium leading-tight tracking-tight text-np-ink">
           10. Your Rights
         </h2>
         <p>
           You have the following rights with respect to your personal
           information:
         </p>
-        <ul className="ml-6 list-disc space-y-2 text-slate-700 dark:text-slate-300">
+        <ul className="np-body ml-6 list-disc space-y-2 text-np-ink/80 marker:text-np-blue">
           <li>The right to access your personal information.</li>
           <li>The right to correct your personal information.</li>
           <li>The right to delete your personal information.</li>
@@ -352,7 +352,7 @@ export default function PrivacyPolicyPage() {
           You can exercise your rights by contacting us at{" "}
           <Link
             href="mailto:support@nedapay.xyz"
-            className="underline underline-offset-4"
+            className="font-semibold text-np-blue underline underline-offset-4"
           >
             support@nedapay.xyz
           </Link>
@@ -360,11 +360,11 @@ export default function PrivacyPolicyPage() {
         </p>
       </section>
 
-      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
+      <Separator className="my-12 bg-np-ink/15" />
 
       {/* Children's Privacy */}
       <section id="children" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
+        <h2 className="text-[clamp(24px,2.4vw,34px)] font-medium leading-tight tracking-tight text-np-ink">
           11. Children&apos;s Privacy
         </h2>
         <p>
@@ -374,7 +374,7 @@ export default function PrivacyPolicyPage() {
           at{" "}
           <Link
             href="mailto:support@nedapay.xyz"
-            className="underline underline-offset-4"
+            className="font-semibold text-np-blue underline underline-offset-4"
           >
             support@nedapay.xyz
           </Link>
@@ -382,11 +382,11 @@ export default function PrivacyPolicyPage() {
         </p>
       </section>
 
-      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
+      <Separator className="my-12 bg-np-ink/15" />
 
       {/* Changes */}
       <section id="changes" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
+        <h2 className="text-[clamp(24px,2.4vw,34px)] font-medium leading-tight tracking-tight text-np-ink">
           12. Changes to This Policy
         </h2>
         <p>
@@ -395,66 +395,66 @@ export default function PrivacyPolicyPage() {
         </p>
       </section>
 
-      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
+      <Separator className="my-12 bg-np-ink/15" />
 
       {/* Contact */}
       <section id="contact" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
+        <h2 className="text-[clamp(24px,2.4vw,34px)] font-medium leading-tight tracking-tight text-np-ink">
           13. Contact Us
         </h2>
         <p>
           If you have any questions about this Policy, please contact us at{" "}
           <Link
             href="mailto:support@nedapay.xyz"
-            className="underline underline-offset-4"
+            className="font-semibold text-np-blue underline underline-offset-4"
           >
             support@nedapay.xyz
           </Link>
           .
         </p>
-        <p className="text-slate-700 dark:text-slate-300">
+        <p className="np-body text-np-ink/80">
           NEDA Labs Ltd.
           <br />
           9th Floor, Tan House, Victoria, Dar es Salaam
         </p>
       </section>
 
-      <Separator className="my-8 bg-slate-300 dark:bg-slate-700/60" />
+      <Separator className="my-12 bg-np-ink/15" />
 
       {/* Additional information */}
       <section id="additional" className="space-y-3">
-        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
+        <h2 className="text-[clamp(24px,2.4vw,34px)] font-medium leading-tight tracking-tight text-np-ink">
           Additional Information
         </h2>
         <Accordion
           type="multiple"
-          className="rounded-xl border border-slate-300 dark:border-slate-700/60 bg-slate-100 dark:bg-slate-900/40 p-2"
+          className="rounded-2xl bg-np-paper p-6 text-sm leading-relaxed text-np-ink/70"
         >
           <AccordionItem value="cookies">
-            <AccordionTrigger className="text-slate-900 dark:text-slate-100">
+            <AccordionTrigger className="gap-4 text-left text-xl font-medium tracking-tight text-np-ink hover:no-underline">
               Cookies and other tracking technologies
             </AccordionTrigger>
-            <AccordionContent className="text-slate-700 dark:text-slate-300">
+            <AccordionContent className="np-body text-np-ink/80">
               We use cookies and other tracking technologies to collect
               information about your use of our website and mobile app. You can
               control the use of cookies through your browser settings.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="third-party">
-            <AccordionTrigger className="text-slate-900 dark:text-slate-100">
+            <AccordionTrigger className="gap-4 text-left text-xl font-medium tracking-tight text-np-ink hover:no-underline">
               Third-party websites
             </AccordionTrigger>
-            <AccordionContent className="text-slate-700 dark:text-slate-300">
+            <AccordionContent className="np-body text-np-ink/80">
               Our website and mobile app may contain links to third-party
               websites. We are not responsible for the privacy practices of these
               third-party websites.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="transfers">
-            <AccordionTrigger className="text-slate-900 dark:text-slate-100">
+            <AccordionTrigger className="gap-4 text-left text-xl font-medium tracking-tight text-np-ink hover:no-underline">
               Data transfers
             </AccordionTrigger>
-            <AccordionContent className="text-slate-700 dark:text-slate-300">
+            <AccordionContent className="np-body text-np-ink/80">
               Your personal information may be transferred to countries outside
               of the United Republic of Tanzania. If we transfer your personal
               information to a country outside of Tanzania, we will take steps to
@@ -464,6 +464,6 @@ export default function PrivacyPolicyPage() {
           </AccordionItem>
         </Accordion>
       </section>
-    </main>
+    </div>
   );
 }

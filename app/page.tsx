@@ -1,23 +1,21 @@
-import HeroSection from '@/components/landing/hero-section';
-import AppShowcase from '@/components/landing/app-showcase';
-import FeaturesSection from '@/components/landing/features-section';
-import PartnersSection from '@/components/landing/partners-section';
-import TrustSection from '@/components/landing/trust-section';
-import ArticlesSection from '@/components/landing/articles-section';
-import Footer from '@/components/landing/footer';
-import Header from '@/components/Header';
+import Hero from '@/components/np/Hero';
+import PageShell from '@/components/np/PageShell';
+import ProductStage from '@/components/np/ProductStage';
+import {FaqSection, HoldSection, MoreSection} from '@/components/np/Sections';
+import {AppSection, ArticlesSection} from '@/components/np/Closing';
 
+// Homepage in the NEDApay brand pack v1.0: nTZS-led story
+// (spend it, send it, swap it, hold it), NEDApay as the way in.
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white dark:bg-black text-slate-900 dark:text-white">
-      <Header />
-      <HeroSection />
-      <AppShowcase />
-      <FeaturesSection />
-      <PartnersSection />
-      <TrustSection />
+    <PageShell>
+      <Hero />
+      <ProductStage />
+      <HoldSection />
+      <MoreSection />
+      <FaqSection />
+      <AppSection />
       <ArticlesSection />
-      <Footer />
-    </main>
+    </PageShell>
   );
 }
