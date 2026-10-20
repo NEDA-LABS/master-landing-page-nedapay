@@ -12,7 +12,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 
-const effectiveDate = "January 22, 2025";
+const effectiveDate = "October 20, 2026";
 
 export default function PrivacyPolicyPage() {
   return (
@@ -235,6 +235,11 @@ export default function PrivacyPolicyPage() {
           <li>
             Your IP address and other technical information about your device.
           </li>
+          <li>
+            Usage information from analytics, such as the screens you view, the
+            features you use, your device and browser type, and your approximate
+            location (see the Analytics section).
+          </li>
         </ul>
       </section>
 
@@ -255,6 +260,10 @@ export default function PrivacyPolicyPage() {
           <li>To process your payments.</li>
           <li>To personalize your experience on our website and mobile app.</li>
           <li>To improve our products and services.</li>
+          <li>
+            To understand how our website and mobile app are used, and to find
+            and fix problems.
+          </li>
           <li>To conduct market research.</li>
           <li>To comply with applicable laws and regulations.</li>
         </ul>
@@ -274,7 +283,8 @@ export default function PrivacyPolicyPage() {
         <ul className="np-body ml-6 list-disc space-y-2 text-np-ink/80 marker:text-np-blue">
           <li>
             Our service providers, such as payment processors, shipping
-            companies, and data storage providers.
+            companies, data storage providers, and analytics providers (Google
+            Analytics and Firebase Analytics, see the Analytics section).
           </li>
           <li>
             Our business partners, including marketing partners and co-branding
@@ -293,10 +303,103 @@ export default function PrivacyPolicyPage() {
 
       <Separator className="my-12 bg-np-ink/15" />
 
+      {/* Analytics */}
+      <section id="analytics" className="space-y-3">
+        <h2 className="text-[clamp(24px,2.4vw,34px)] font-medium leading-tight tracking-tight text-np-ink">
+          8. Analytics
+        </h2>
+        <p>
+          We use Google Analytics on our website and web app, and Firebase
+          Analytics (also provided by Google) in our mobile app, to understand
+          which features are used and to find and fix problems. Google acts as
+          our service provider for this.
+        </p>
+        <h3 className="pt-2 text-lg font-medium tracking-tight text-np-ink">
+          Website and web app
+        </h3>
+        <ul className="np-body ml-6 list-disc space-y-2 text-np-ink/80 marker:text-np-blue">
+          <li>
+            Google Analytics runs only if you accept analytics cookies in our
+            cookie banner. Nothing is loaded from Google before you choose, and
+            if you decline it does not run.
+          </li>
+          <li>
+            It sets cookies named _ga and _ga_ followed by an identifier, to
+            tell visits apart.
+          </li>
+          <li>
+            You can withdraw your consent at any time under Settings, then
+            Cookie preferences. Withdrawing stops the collection and removes the
+            Google cookies.
+          </li>
+        </ul>
+        <h3 className="pt-2 text-lg font-medium tracking-tight text-np-ink">
+          Mobile app
+        </h3>
+        <ul className="np-body ml-6 list-disc space-y-2 text-np-ink/80 marker:text-np-blue">
+          <li>
+            Firebase Analytics is built into the app and is on for everyone who
+            uses it. There is no switch for it in the app. If you object to
+            this, contact us at{" "}
+            <Link
+              href="mailto:support@nedapay.xyz"
+              className="font-semibold text-np-blue underline underline-offset-4"
+            >
+              support@nedapay.xyz
+            </Link>
+            .
+          </li>
+        </ul>
+        <h3 className="pt-2 text-lg font-medium tracking-tight text-np-ink">
+          What we collect
+        </h3>
+        <ul className="np-body ml-6 list-disc space-y-2 text-np-ink/80 marker:text-np-blue">
+          <li>
+            The screens you view and the features you use, such as starting a
+            deposit, a transfer, a swap or an identity check, and whether a step
+            failed (as an error code only).
+          </li>
+          <li>
+            Technical information: your device and browser type, operating
+            system, app version, language, and approximate location (country or
+            city) that Google works out from your connection.
+          </li>
+          <li>
+            A random internal account identifier, not your name, email address,
+            phone number or wallet address, so that activity from the same
+            account can be counted together.
+          </li>
+          <li>
+            For payments, only a broad size band (for example under 10 US
+            dollars, 10 to 100 US dollars, or over 100 US dollars), never the
+            exact amount.
+          </li>
+        </ul>
+        <h3 className="pt-2 text-lg font-medium tracking-tight text-np-ink">
+          What we do not send to analytics
+        </h3>
+        <p>
+          We do not send your name, email address, phone number, identity
+          document or ID numbers, wallet address, transaction details or exact
+          amounts to analytics. We do not use analytics data for advertising,
+          and advertising features and personalisation are switched off.
+        </p>
+        <h3 className="pt-2 text-lg font-medium tracking-tight text-np-ink">
+          How long it is kept
+        </h3>
+        <p>
+          Google keeps analytics data for up to 14 months and then deletes it
+          automatically. Google may process it in the United States and other
+          countries (see Data transfers below).
+        </p>
+      </section>
+
+      <Separator className="my-12 bg-np-ink/15" />
+
       {/* Data Security */}
       <section id="data-security" className="space-y-3">
         <h2 className="text-[clamp(24px,2.4vw,34px)] font-medium leading-tight tracking-tight text-np-ink">
-          8. Data Security
+          9. Data Security
         </h2>
         <p>
           We take reasonable steps to protect your personal information from
@@ -316,7 +419,7 @@ export default function PrivacyPolicyPage() {
       {/* Data Retention */}
       <section id="data-retention" className="space-y-3">
         <h2 className="text-[clamp(24px,2.4vw,34px)] font-medium leading-tight tracking-tight text-np-ink">
-          9. Data Retention
+          10. Data Retention
         </h2>
         <p>
           We will retain your personal information for as long as is necessary
@@ -330,7 +433,7 @@ export default function PrivacyPolicyPage() {
       {/* Your Rights */}
       <section id="your-rights" className="space-y-3">
         <h2 className="text-[clamp(24px,2.4vw,34px)] font-medium leading-tight tracking-tight text-np-ink">
-          10. Your Rights
+          11. Your Rights
         </h2>
         <p>
           You have the following rights with respect to your personal
@@ -365,7 +468,7 @@ export default function PrivacyPolicyPage() {
       {/* Children's Privacy */}
       <section id="children" className="space-y-3">
         <h2 className="text-[clamp(24px,2.4vw,34px)] font-medium leading-tight tracking-tight text-np-ink">
-          11. Children&apos;s Privacy
+          12. Children&apos;s Privacy
         </h2>
         <p>
           We do not knowingly collect personal information from children under
@@ -387,7 +490,7 @@ export default function PrivacyPolicyPage() {
       {/* Changes */}
       <section id="changes" className="space-y-3">
         <h2 className="text-[clamp(24px,2.4vw,34px)] font-medium leading-tight tracking-tight text-np-ink">
-          12. Changes to This Policy
+          13. Changes to This Policy
         </h2>
         <p>
           We may update this Policy from time to time. We will notify you of any
@@ -400,7 +503,7 @@ export default function PrivacyPolicyPage() {
       {/* Contact */}
       <section id="contact" className="space-y-3">
         <h2 className="text-[clamp(24px,2.4vw,34px)] font-medium leading-tight tracking-tight text-np-ink">
-          13. Contact Us
+          14. Contact Us
         </h2>
         <p>
           If you have any questions about this Policy, please contact us at{" "}
@@ -435,9 +538,12 @@ export default function PrivacyPolicyPage() {
               Cookies and other tracking technologies
             </AccordionTrigger>
             <AccordionContent className="np-body text-np-ink/80">
-              We use cookies and other tracking technologies to collect
-              information about your use of our website and mobile app. You can
-              control the use of cookies through your browser settings.
+              We use cookies and similar technologies. Necessary cookies are
+              required for basic site functionality and security. Analytics
+              cookies are used only with your consent, as described in the
+              Analytics section. You can change your choice at any time under
+              Settings, then Cookie preferences in the web app, and you can also
+              control cookies through your browser settings.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="third-party">
@@ -459,7 +565,8 @@ export default function PrivacyPolicyPage() {
               of the United Republic of Tanzania. If we transfer your personal
               information to a country outside of Tanzania, we will take steps to
               ensure that your personal information is protected in accordance
-              with applicable law.
+              with applicable law. This includes analytics data processed by
+              Google.
             </AccordionContent>
           </AccordionItem>
         </Accordion>
