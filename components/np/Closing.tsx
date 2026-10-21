@@ -113,7 +113,11 @@ export function Footer() {
       <div className="np-wrap pb-10 pt-20">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-4">
-            <img src="/brand/nedapay-lockup-h-white.svg" alt="NEDApay" className="h-9 w-auto" />
+            {/* app icon (black, 3D) + the supplied wordmark; a faint ring lifts the black tile off the black footer */}
+            <span className="flex items-center gap-3">
+              <img src="/brand/nedapay-app-icon-black.svg" alt="" className="h-11 w-11 rounded-[12px] ring-1 ring-white/15" />
+              <img src="/brand/nedapay-wordmark-white.svg" alt="NEDApay" className="h-8 w-auto" />
+            </span>
             <p className="np-label mt-8 text-np-bone/60">Contact</p>
             <a href="mailto:support@nedapay.xyz" className="np-focus mt-3 block font-semibold hover:text-np-blue">support@nedapay.xyz</a>
             <p className="mt-3 text-np-bone/70">NEDA Labs Limited · Dar es Salaam, Tanzania</p>
