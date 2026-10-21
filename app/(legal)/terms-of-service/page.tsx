@@ -18,14 +18,14 @@ export default function TermsOfServicePage() {
           Terms of Service
         </h1>
         <p className="np-label mt-2 text-np-label">
-          NEDApay — a service of NEDALabs Ltd
+          NEDApay — a service of NEDA LABS LIMITED
         </p>
         <p className="np-label mt-6 text-np-label">
           Last updated: {effectiveDate}
         </p>
         <p className="np-body mt-6 text-np-ink/80">
           These Terms of Service ("Terms") govern access to and use of the
-          services provided by <span className="font-semibold">NEDALabs Ltd</span>{" "}
+          services provided by <span className="font-semibold">NEDA LABS LIMITED</span>{" "}
           ("<strong>NEDApay</strong>", "<strong>we</strong>", "<strong>us</strong>",
           or "<strong>our</strong>"), a company incorporated in the United
           Republic of Tanzania, through our website at{" "}
@@ -83,7 +83,7 @@ export default function TermsOfServicePage() {
         <p>For the purposes of these Terms of Service, the following definitions apply:</p>
         <ul className="np-body ml-6 list-disc space-y-2 text-np-ink/80 marker:text-np-blue">
           <li>
-            <span className="font-medium">Company:</span> NEDALabs Ltd, a
+            <span className="font-medium">Company:</span> NEDA LABS LIMITED, a
             company incorporated in Tanzania, operating under Bank of
             Tanzania Fintech Regulatory Sandbox approval, providing the
             Services described in these Terms.
@@ -91,7 +91,7 @@ export default function TermsOfServicePage() {
           <li>
             <span className="font-medium">Services:</span> All products and
             services provided by NEDApay, including payment processing,
-            stablecoin management, payment links, invoicing, fiat
+            stablecoin management, payment links, fiat
             off-ramping, and merchant tools.
           </li>
           <li>
@@ -100,7 +100,7 @@ export default function TermsOfServicePage() {
           </li>
           <li>
             <span className="font-medium">Merchant:</span> A User who uses our Services
-            to accept payments, create invoices, or conduct business transactions.
+            to accept payments or conduct business transactions.
           </li>
           <li>
             <span className="font-medium">Transaction:</span> Any action initiated
@@ -111,7 +111,7 @@ export default function TermsOfServicePage() {
             <span className="font-medium">Wallet:</span> A digital wallet
             used to store, send, and receive cryptocurrency and digital
             assets, including both embedded wallets provided through nTZS —
-            a system owned and operated by NEDALabs Ltd — and external
+            a system owned and operated by NEDA LABS LIMITED — and external
             wallets.
           </li>
           <li>
@@ -163,13 +163,13 @@ export default function TermsOfServicePage() {
           </li>
           <li>
             <span className="font-medium">Merchant Tools:</span> Business verification
-            (KYB), payment link generation, invoice management, and analytics.
+            (KYB), payment link generation, and analytics.
           </li>
           <li>
             <span className="font-medium">Authentication Services:</span>{" "}
             Secure email-based one-time-password (OTP) authentication, with
             embedded wallet provisioning through nTZS, a system owned and
-            operated by NEDALabs Ltd.
+            operated by NEDA LABS LIMITED.
           </li>
         </ul>
       </section>
@@ -224,7 +224,7 @@ export default function TermsOfServicePage() {
         <h3 className="mt-6 text-lg font-semibold text-np-ink">Permitted Uses</h3>
         <ul className="np-body ml-6 list-disc space-y-2 text-np-ink/80 marker:text-np-blue">
           <li>Conducting legitimate business transactions and payments</li>
-          <li>Creating and managing payment links and invoices for lawful purposes</li>
+          <li>Creating and managing payment links for lawful purposes</li>
           <li>Converting stablecoins to fiat currency through our off-ramping services</li>
           <li>Using our merchant tools for legitimate business operations</li>
         </ul>
@@ -273,13 +273,27 @@ export default function TermsOfServicePage() {
           <li>Full legal name</li>
           <li>Phone number</li>
           <li>Email address</li>
-          <li>National Identification Number (NIDA number)</li>
           <li>
-            A valid government-issued identity document, uploaded for
-            verification, being one of: driver&apos;s license, voter&apos;s
-            registration card, or passport
+            National Identification Number (NIDA number) for users in
+            Tanzania, or the equivalent national identification number where
+            our service in your country requires it
+          </li>
+          <li>A valid government-issued identity document, uploaded for verification</li>
+          <li>
+            A selfie and a liveness check, which we compare with your
+            identity document to confirm that you are the person on it and
+            that you are present
           </li>
         </ul>
+        <p className="np-body text-np-ink/80">
+          Face images are biometric data. We use them only to verify your
+          identity and to prevent fraud, and we handle them as described in
+          our{" "}
+          <Link href="/privacy-policy" className="font-semibold text-np-blue underline underline-offset-4">
+            Privacy Policy
+          </Link>
+          .
+        </p>
 
         <h3 className="mt-6 text-lg font-semibold text-np-ink">
           5.2 Business Verification (KYB)
@@ -366,7 +380,7 @@ export default function TermsOfServicePage() {
         <h3 className="text-lg font-semibold text-np-ink">Company IP</h3>
         <p className="np-body text-np-ink/80">
           All intellectual property rights in the Services, including trademarks,
-          logos, and content, are owned by NEDALabs Ltd. You are granted a limited,
+          logos, and content, are owned by NEDA LABS LIMITED. You are granted a limited,
           non-exclusive, non-transferable license to use the Services solely for
           personal or business purposes in accordance with these Terms.
         </p>
@@ -397,9 +411,11 @@ export default function TermsOfServicePage() {
             Privacy Policy
           </Link>{" "}
           and by the Personal Data Protection Act, 2022 ("PDPA") of
-          Tanzania. By using our Services, you consent to the collection and
-          use of your information as described in our Privacy Policy and
-          this section.
+          Tanzania. By using our Services, you acknowledge that we collect and
+          use your information as described in our Privacy Policy and this
+          section. Where the law requires your specific consent for a
+          particular use, such as processing a face image to verify your
+          identity, we will ask for it separately.
         </p>
         <ul className="np-body ml-6 list-disc space-y-2 text-np-ink/80 marker:text-np-blue">
           <li>
@@ -457,7 +473,7 @@ export default function TermsOfServicePage() {
           9. AML/CFT Compliance and Reporting
         </h2>
         <p className="np-body text-np-ink/80">
-          As a regulated participant in the Bank of Tanzania Fintech
+          As an approved participant in the Bank of Tanzania Fintech
           Regulatory Sandbox, NEDApay maintains an Anti-Money Laundering and
           Countering the Financing of Terrorism (AML/CFT) program in
           accordance with the Anti-Money Laundering Act, 2006 and its
@@ -644,8 +660,10 @@ export default function TermsOfServicePage() {
         <p className="np-body text-np-ink/80">
           We reserve the right to modify these Terms at any time. We will notify
           you of material changes by posting the updated Terms on our website
-          and updating the "Last updated" date. Your continued use of the Services
-          after such changes constitutes acceptance of the new Terms.
+          and updating the "Last updated" date. For changes that materially
+          affect your rights or how we handle your personal data, we will also
+          notify you by email. Your continued use of the Services after such
+          changes constitutes acceptance of the new Terms.
         </p>
         <p className="np-body text-np-ink/80">
           We may also modify, suspend, or discontinue any aspect of the

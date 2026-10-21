@@ -12,7 +12,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 
-const effectiveDate = "October 20, 2026";
+const effectiveDate = "October 21, 2026";
 
 export default function PrivacyPolicyPage() {
   return (
@@ -64,7 +64,7 @@ export default function PrivacyPolicyPage() {
         </h2>
         <p>
           This Data Protection Policy (&quot;Policy&quot;) sets out{" "}
-          <span className="font-semibold">NEDA LABS LTD</span>&apos;s (&quot;
+          <span className="font-semibold">NEDA LABS LIMITED</span>&apos;s (&quot;
           <strong>Company</strong>&quot;, &quot;<strong>NEDApay</strong>&quot;,
           &quot;<strong>we</strong>&quot;, &quot;<strong>us</strong>&quot;, or
           &quot;<strong>our</strong>&quot;) commitment to protecting the privacy,
@@ -106,7 +106,7 @@ export default function PrivacyPolicyPage() {
           third parties.
         </p>
         <p className="np-body text-np-ink/80">
-          <span className="font-medium">Controller:</span> NEDA Labs Ltd., 9th
+          <span className="font-medium">Controller:</span> NEDA LABS LIMITED, 9th
           Floor, Tan House, Victoria, Dar es Salaam.
           <br />
           <span className="font-medium">Contact:</span>{" "}
@@ -227,11 +227,34 @@ export default function PrivacyPolicyPage() {
           The types of personal information that we collect may include:
         </p>
         <ul className="np-body ml-6 list-disc space-y-2 text-np-ink/80 marker:text-np-blue">
-          <li>Your name, email address, and phone number.</li>
-          <li>Your billing and shipping address.</li>
-          <li>Your credit card or other payment information.</li>
-          <li>Your job title and company name.</li>
-          <li>Your social media profile information.</li>
+          <li>
+            Identity details: your name, date of birth, country or nationality,
+            phone number, email address, and the national ID number and ID
+            documents you provide when we verify you (for example your NIDA
+            number in Tanzania).
+          </li>
+          <li>
+            A selfie and a liveness check taken during verification, which we
+            compare with your ID document. This is biometric data.
+          </li>
+          <li>
+            For businesses: business name, tax identification number (TIN),
+            registration documents, and details of authorised representatives.
+          </li>
+          <li>
+            Account and wallet details: your username, wallet address and
+            sign-in information.
+          </li>
+          <li>
+            Payout details you give us, such as a mobile money number or bank
+            account number, and recipient names. For some deposits in some
+            countries, an extra ID number is requested at the time and passed to
+            our payment partner to complete the deposit; we do not store it.
+          </li>
+          <li>
+            Transaction records: amounts, currencies, dates and status, and the
+            other party&apos;s wallet address or payout details.
+          </li>
           <li>
             Your IP address and other technical information about your device.
           </li>
@@ -240,6 +263,7 @@ export default function PrivacyPolicyPage() {
             features you use, your device and browser type, and your approximate
             location (see the Analytics section).
           </li>
+          <li>Messages you send to our support team.</li>
         </ul>
       </section>
 
@@ -258,15 +282,33 @@ export default function PrivacyPolicyPage() {
             services.
           </li>
           <li>To process your payments.</li>
+          <li>
+            To verify your identity and carry out the checks required by
+            anti-money-laundering, counter-terrorist-financing and sanctions
+            rules.
+          </li>
+          <li>To prevent and investigate fraud and misuse of the Services.</li>
+          <li>To provide customer support.</li>
           <li>To personalize your experience on our website and mobile app.</li>
           <li>To improve our products and services.</li>
           <li>
             To understand how our website and mobile app are used, and to find
             and fix problems.
           </li>
-          <li>To conduct market research.</li>
-          <li>To comply with applicable laws and regulations.</li>
+          <li>
+            To report to regulators and comply with other legal obligations.
+          </li>
         </ul>
+        <p className="mt-4">
+          <span className="font-medium">ID documents, selfie and liveness checks.</span>{" "}
+          We collect these only to confirm who you are and to prevent fraud and
+          money laundering. They are processed on our behalf by our
+          identity-verification partner, Didit, which acts as our processor and
+          may process them in countries outside Tanzania. We decide how long
+          Didit keeps them, and we keep them for the period set out in Data
+          Retention. They are shared with regulators or authorities only where
+          the law requires it.
+        </p>
       </section>
 
       <Separator className="my-12 bg-np-ink/15" />
@@ -282,22 +324,36 @@ export default function PrivacyPolicyPage() {
         </p>
         <ul className="np-body ml-6 list-disc space-y-2 text-np-ink/80 marker:text-np-blue">
           <li>
-            Our service providers, such as payment processors, shipping
-            companies, data storage providers, and analytics providers (Google
-            Analytics and Firebase Analytics, see the Analytics section).
+            Our identity-verification partner, Didit, which checks your ID
+            document, selfie and liveness check on our behalf.
           </li>
           <li>
-            Our business partners, including marketing partners and co-branding
-            partners.
+            Payment and payout partners, such as mobile money operators and
+            banks, who receive the identity and payout details needed to
+            complete a deposit or withdrawal.
           </li>
-          <li>Our affiliates.</li>
           <li>
-            Law enforcement or other government agencies, if required by law.
+            Cloud infrastructure, database and storage providers, whose servers
+            may be outside Tanzania (see Data transfers).
+          </li>
+          <li>
+            Analytics providers (Google Analytics and Firebase Analytics, see
+            the Analytics section).
+          </li>
+          <li>
+            Regulators and authorities, including the Bank of Tanzania, the
+            Financial Intelligence Unit and law enforcement, where the law
+            requires or allows it.
+          </li>
+          <li>
+            Professional advisers such as auditors and lawyers, under a duty of
+            confidentiality.
           </li>
         </ul>
         <p className="text-sm text-np-label">
-          We require our service providers and business partners to protect your
-          personal information in accordance with this Policy and applicable law.
+          We do not share your personal information for marketing. We require
+          our service providers and partners to protect your personal
+          information in accordance with this Policy and applicable law.
         </p>
       </section>
 
@@ -407,11 +463,18 @@ export default function PrivacyPolicyPage() {
           of security measures, including:
         </p>
         <ul className="np-body ml-6 list-disc space-y-2 text-np-ink/80 marker:text-np-blue">
-          <li>Encryption</li>
-          <li>Access controls</li>
-          <li>Physical security measures</li>
-          <li>Regular security audits</li>
+          <li>Encryption of data in transit</li>
+          <li>
+            Access controls that limit who on our team can see personal data
+          </li>
+          <li>Secure data centres operated by our infrastructure providers</li>
+          <li>Regular internal security audits</li>
         </ul>
+        <p className="mt-4">
+          If a personal data breach is likely to put your rights or freedoms at
+          risk, we will notify the relevant data protection authority and, where
+          the law requires, the people affected.
+        </p>
       </section>
 
       <Separator className="my-12 bg-np-ink/15" />
@@ -422,9 +485,13 @@ export default function PrivacyPolicyPage() {
           10. Data Retention
         </h2>
         <p>
-          We will retain your personal information for as long as is necessary
-          for the purposes for which it is processed. We will also retain your
-          personal information as required by applicable law.
+          We keep identity-verification records, transaction records and related
+          documents for at least ten (10) years after your account is closed or
+          the transaction takes place, whichever is later, as required by the
+          Bank of Tanzania Fintech Regulatory Sandbox and anti-money-laundering
+          rules. Analytics data is kept by Google for up to 14 months. Other
+          personal information is kept only for as long as is needed for the
+          purposes in this Policy, and is then deleted or made anonymous.
         </p>
       </section>
 
@@ -516,7 +583,7 @@ export default function PrivacyPolicyPage() {
           .
         </p>
         <p className="np-body text-np-ink/80">
-          NEDA Labs Ltd.
+          NEDA LABS LIMITED
           <br />
           9th Floor, Tan House, Victoria, Dar es Salaam
         </p>
@@ -561,12 +628,14 @@ export default function PrivacyPolicyPage() {
               Data transfers
             </AccordionTrigger>
             <AccordionContent className="np-body text-np-ink/80">
-              Your personal information may be transferred to countries outside
-              of the United Republic of Tanzania. If we transfer your personal
-              information to a country outside of Tanzania, we will take steps to
-              ensure that your personal information is protected in accordance
-              with applicable law. This includes analytics data processed by
-              Google.
+              We store some of your personal information, such as account,
+              verification and transaction records, on servers located in Europe
+              that are operated by our infrastructure and service providers.
+              Some providers, including Google for analytics, may also process
+              data in the United States and other countries. When we transfer
+              your personal information outside Tanzania, we take steps to
+              ensure that it is protected in accordance with the Personal Data
+              Protection Act, 2022 and this Policy.
             </AccordionContent>
           </AccordionItem>
         </Accordion>
