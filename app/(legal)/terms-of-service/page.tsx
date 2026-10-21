@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 
-const effectiveDate = "September 14, 2026"; // keep this current when you ship updates
+const effectiveDate = "October 21, 2026"; // keep this current when you ship updates
 
 export default function TermsOfServicePage() {
   return (
@@ -423,6 +423,21 @@ export default function TermsOfServicePage() {
             regulators (including the Bank of Tanzania and the Financial
             Intelligence Unit), and other parties as required by law or
             necessary to operate the Services.
+          </li>
+          <li>
+            <span className="font-medium">Data Stored Outside Tanzania:</span>{" "}
+            We store some of your personal data, such as account,
+            verification, and transaction records, on servers located in
+            Europe that are operated by our infrastructure and service
+            providers. This means that some of your data is transferred to,
+            and processed in, countries outside the United Republic of
+            Tanzania. We take steps to ensure that it remains protected in
+            accordance with the PDPA and our{" "}
+            <Link href="/privacy-policy#additional" className="font-semibold text-np-blue underline underline-offset-4">
+              Privacy Policy
+            </Link>
+            , and by using our Services you acknowledge this storage and
+            transfer.
           </li>
           <li>
             <span className="font-medium">Security:</span> We implement
