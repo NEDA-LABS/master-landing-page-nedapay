@@ -7,7 +7,7 @@ import PageShell from "@/components/np/PageShell";
 export const metadata: Metadata = {
   title: "Data Protection Policy | NEDApay",
   description:
-    "NEDA Labs Ltd Data Protection Policy — how we collect, use, share, and protect personal data under Tanzania's Personal Data Protection Act, 2022.",
+    "NEDA LABS LIMITED Data Protection Policy — how we collect, use, share, and protect personal data under Tanzania's Personal Data Protection Act, 2022.",
 };
 
 export default function PrivacyLayout({ children }: { children: ReactNode }) {
