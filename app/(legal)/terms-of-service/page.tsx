@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 
-const effectiveDate = "October 21, 2026"; // keep this current when you ship updates
+const effectiveDate = "October 28, 2026"; // keep this current when you ship updates
 
 export default function TermsOfServicePage() {
   return (

@@ -12,7 +12,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 
-const effectiveDate = "October 21, 2026";
+const effectiveDate = "October 28, 2026";
 
 export default function PrivacyPolicyPage() {
   return (
